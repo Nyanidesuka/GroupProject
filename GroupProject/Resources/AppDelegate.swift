@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //testing fetchies
+        BusinessController.shared.fetchBusinessesFromYelp { (businesses) in
+            YelpReviewController.shared.fetchYelpReviews(forBusinessID: businesses[0].businessID, completion: { (reviews) in
+                print(reviews[0].text)
+                BusinessController.shared.fetchYelpDetails(forBusiness: businesses[0], completion: { (success) in
+                    print("in the completion")
+                })
+            })
+        }
+        
         return true
     }
 
