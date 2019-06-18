@@ -9,12 +9,24 @@
 import UIKit
 
 class FeedViewController: UIViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var locationNameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var reviewLabel: UILabel!
+    @IBOutlet weak var locationImageView: UIImageView!
+    @IBOutlet weak var faqButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     /*
@@ -27,4 +39,4 @@ class FeedViewController: UIViewController {
     }
     */
 
-}
+}//END OF VIEW CONTROLLER
