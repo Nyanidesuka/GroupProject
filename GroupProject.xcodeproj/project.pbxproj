@@ -17,8 +17,11 @@
 		178E476A22B832A00097F4DD /* YelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476922B832A00097F4DD /* YelpService.swift */; };
 		178E476D22B844020097F4DD /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476C22B844020097F4DD /* BusinessController.swift */; };
 		178E477022B844140097F4DD /* YelpReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476F22B844140097F4DD /* YelpReviewController.swift */; };
-		CA5678C122B97E8B0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C022B97E8B0062306C /* Recipe.swift */; };
-		CA5678C322B97E9F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C222B97E9F0062306C /* RecipeController.swift */; };
+		17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */; };
+		17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */; };
+		17EB5F6022B98B0C00927617 /* JuiceReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5F22B98B0C00927617 /* JuiceReview.swift */; };
+		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
+		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
 		CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48A22B812DB00558D20 /* FeedViewController.swift */; };
 		CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48C22B8130200558D20 /* LocationSearchViewController.swift */; };
 		CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48E22B8131100558D20 /* RecipesViewController.swift */; };
@@ -44,8 +47,11 @@
 		178E476922B832A00097F4DD /* YelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpService.swift; sourceTree = "<group>"; };
 		178E476C22B844020097F4DD /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		178E476F22B844140097F4DD /* YelpReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpReviewController.swift; sourceTree = "<group>"; };
-		CA5678C022B97E8B0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		CA5678C222B97E9F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessInfo.swift; sourceTree = "<group>"; };
+		17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessReview.swift; sourceTree = "<group>"; };
+		17EB5F5F22B98B0C00927617 /* JuiceReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReview.swift; sourceTree = "<group>"; };
+		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		CA80A48A22B812DB00558D20 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA80A48C22B8130200558D20 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		CA80A48E22B8131100558D20 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -102,9 +108,12 @@
 		178E476622B8311C0097F4DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */,
+				17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */,
+				17EB5F5F22B98B0C00927617 /* JuiceReview.swift */,
 				178E476422B831100097F4DD /* Business.swift */,
 				178E476722B8312A0097F4DD /* YelpReview.swift */,
-				CA5678C022B97E8B0062306C /* Recipe.swift */,
+				CA5678C422B9976F0062306C /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,7 +131,7 @@
 			children = (
 				178E476C22B844020097F4DD /* BusinessController.swift */,
 				178E476F22B844140097F4DD /* YelpReviewController.swift */,
-				CA5678C222B97E9F0062306C /* RecipeController.swift */,
+				CA5678C622B9978F0062306C /* RecipeController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -251,14 +260,17 @@
 				1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */,
 				CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */,
 				CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */,
+				CA5678C722B9978F0062306C /* RecipeController.swift in Sources */,
+				CA5678C522B9976F0062306C /* Recipe.swift in Sources */,
 				1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */,
 				178E477022B844140097F4DD /* YelpReviewController.swift in Sources */,
+				17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */,
+				17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */,
 				CA80A49422B8143900558D20 /* ProfileViewController.swift in Sources */,
-				CA5678C322B97E9F0062306C /* RecipeController.swift in Sources */,
+				17EB5F6022B98B0C00927617 /* JuiceReview.swift in Sources */,
 				178E476822B8312A0097F4DD /* YelpReview.swift in Sources */,
 				CA80A49622B8145E00558D20 /* SpecificLocationViewController.swift in Sources */,
 				CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */,
-				CA5678C122B97E8B0062306C /* Recipe.swift in Sources */,
 				CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
 			);
