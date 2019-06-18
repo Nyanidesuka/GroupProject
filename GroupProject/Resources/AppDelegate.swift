@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        FirebaseApp.configure()
+        let database = Firestore.firestore()
         //testing fetchies
         BusinessController.shared.fetchBusinessesFromYelp { (businesses) in
             YelpReviewController.shared.fetchYelpReviews(forBusinessID: businesses[0].businessID, completion: { (reviews) in
