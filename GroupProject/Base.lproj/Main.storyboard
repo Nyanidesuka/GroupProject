@@ -109,6 +109,15 @@
                         <viewLayoutGuide key="safeArea" id="Npv-o5-LLK"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="Sbs-Qq-pHx"/>
+                    <connections>
+                        <outlet property="faqButton" destination="LVd-KV-Jk5" id="X9v-19-Z4P"/>
+                        <outlet property="locationImageView" destination="0iW-qn-Ke3" id="0rN-hs-HPO"/>
+                        <outlet property="locationNameLabel" destination="BTH-0o-Bbi" id="Sib-nW-kho"/>
+                        <outlet property="logoImageView" destination="XOf-jS-NJZ" id="aTt-o5-d1U"/>
+                        <outlet property="profileButton" destination="7Tc-3i-SPp" id="Ryg-cj-fVz"/>
+                        <outlet property="reviewLabel" destination="cQt-iw-UXT" id="DjU-d9-JbZ"/>
+                        <outlet property="usernameLabel" destination="4hn-bb-qAp" id="dEJ-au-7g4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uW2-Dz-a4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
