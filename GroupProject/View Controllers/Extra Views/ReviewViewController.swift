@@ -9,11 +9,26 @@
 import UIKit
 
 class ReviewViewController: UIViewController {
+    
+    //MARK: - Outlets
+    //Need outlet for  name of location
+    //Need outlet for name of drink textfield
+    //Need outlet for price text field
+    //Need outlet for rating button (change label/imaeg after tapped)
+    //Need outlet for notes textview
+    //Need outlets for specific elements rating (ints)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: - Actions
+    
+    //MARK: - Helper Functions
+    func saveReview() {
+        
     }
     
 
