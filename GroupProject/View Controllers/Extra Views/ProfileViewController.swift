@@ -9,6 +9,12 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var profilePhotoImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var bioLabel: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,4 +33,4 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
+}//END OF PROFILE VIEW CONTROLLER

@@ -281,6 +281,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGi-Gr-7zw"/>
                     </view>
+                    <connections>
+                        <outlet property="bioLabel" destination="Zq4-I7-gB3" id="iM6-F1-Rbb"/>
+                        <outlet property="profilePhotoImageView" destination="ql5-Kx-s08" id="7HT-dX-xa8"/>
+                        <outlet property="userNameLabel" destination="jsY-nr-eNA" id="98c-QH-lj1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVh-qc-Jpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
