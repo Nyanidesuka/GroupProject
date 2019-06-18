@@ -9,6 +9,12 @@
 import UIKit
 
 class ProductsViewController: UIViewController {
+    
+    //MARK: - Outlets
+    //Manually filling in ?
+    
+    //MARK: - Properties
+    //Need to create SoT for suggested products / beginner, intermediate, advanced product lists
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +22,9 @@ class ProductsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - Actions
+    //Clicking any of the products will send to browser/amazon URL
+    //helper function to assign url based on product?
 
     /*
     // MARK: - Navigation
