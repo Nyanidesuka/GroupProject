@@ -42,7 +42,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="ProfileImage"/>
                                         <connections>
-                                            <segue destination="gW4-JG-f1R" kind="showDetail" identifier="profileToProfileVC" id="pRk-Yh-vDg"/>
+                                            <segue destination="gW4-JG-f1R" kind="show" identifier="profileToProfileVC" id="pRk-Yh-vDg"/>
                                         </connections>
                                     </button>
                                 </subviews>
