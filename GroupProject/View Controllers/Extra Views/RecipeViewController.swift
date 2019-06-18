@@ -9,13 +9,22 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-
+    
+    //MARK: - Outlets
+    //Need outlet for recipe name
+    //Need outlet for  recipe image
+    //Need outlet for ingredients
+    
+    //MARK: - Properties
+    //Need landing pad, optional recipe for navigation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    //Should we have a share recipe button or a way to create email to send recipe raw data?
 
     /*
     // MARK: - Navigation

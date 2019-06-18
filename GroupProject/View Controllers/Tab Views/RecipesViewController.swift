@@ -9,12 +9,20 @@
 import UIKit
 
 class RecipesViewController: UIViewController {
+    
+    //MARK: - Outlets
+    //Do we need outlets or is this manually created?
+    
+    //MARK: - Properties
+    //Need to add manual collection of recipes
+    //Need to add manual collection of best recipes/recipe of month
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
     
 
     /*

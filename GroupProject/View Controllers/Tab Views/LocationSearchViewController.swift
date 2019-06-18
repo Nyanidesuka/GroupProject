@@ -9,12 +9,18 @@
 import UIKit
 
 class LocationSearchViewController: UIViewController {
+    
+    //MARK: Outlets
+    //Need outlet for searchbar
+    //Need outlet for map
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //Need to set self.searchBar.delegate = self
     }
+    
+    //MISSING BOILERPLATE CODE FOR CUSTOM TABLE VIEW CELL - DISPLAYS SEARCH RESULTS
+    //MISSING OUTLET FROM CELL TO Specific Location View Controller
     
 
     /*
@@ -27,4 +33,7 @@ class LocationSearchViewController: UIViewController {
     }
     */
 
-}
+}//END OF Location Search View Controller
+
+
+//Add extension for textDidChange
