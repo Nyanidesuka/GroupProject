@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let database = Firestore.firestore()
         //testing fetchies
-        BusinessController.shared.fetchBusinessesFromYelp { (businesses) in
+        BusinessController.shared.fetchBusinessesFromYelp(location: "lehi") { (businesses) in
             YelpReviewController.shared.fetchYelpReviews(forBusinessID: businesses[0].businessID, completion: { (reviews) in
                 print(reviews[0].text)
                 BusinessController.shared.fetchYelpDetails(forBusiness: businesses[0], completion: { (success) in
@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             })
         }
+
         FirebaseService.shared.addDocument(documentName: "Another Test Document", collectionName: "Test Stuff") { (success) in
             if success{
                 print("success ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
