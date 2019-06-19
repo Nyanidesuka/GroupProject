@@ -37,6 +37,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
                 self.locations = locations
                 BusinessController.shared.businesses = locations
+                DispatchQueue.main.async {
+                    self.view.endEditing(true)
+                }
             }
         }
     }
@@ -54,6 +57,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         cell.locationInfo.text = buttonText
         return cell
     }
+    
     
 
     /*
@@ -73,4 +77,5 @@ extension LocationSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         debouncer.renewInterval()
     }
+    
 }
