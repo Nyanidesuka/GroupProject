@@ -13,15 +13,23 @@ class FeedViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var juicenowLogoImageView: UIImageView!
     
+    //MARK: - Properties
+    var locationsFromLocalizedFetch: [Business] = []
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getBusinesses()
     }
     
-    
+    //MARK: - Helper functions
+    func getBusinesses() {
+        BusinessController.shared.fetchBusinessesFromYelp { (locations) in
+            self.locationsFromLocalizedFetch = locations
+        }
+    }
+
     
 
     /*
