@@ -130,7 +130,7 @@
                                 <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="192" id="KjT-5H-AgQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="192" id="KjT-5H-AgQ" customClass="LocationTableViewCell" customModule="GroupProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KjT-5H-AgQ" id="CF6-w1-Blv">
@@ -177,6 +177,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="locationImageView" destination="0iW-qn-Ke3" id="jSv-z0-fCT"/>
+                                            <outlet property="locationNameLabel" destination="nlo-PL-jYD" id="PdG-Qv-1Sf"/>
+                                            <outlet property="reviewLabel" destination="cQt-iw-UXT" id="5Fg-Z3-HjO"/>
+                                            <outlet property="usernameLabel" destination="4hn-bb-qAp" id="lKr-w3-o46"/>
                                             <segue destination="pBB-VG-UNY" kind="show" identifier="locationToDetailVC" id="OHX-XI-el9"/>
                                         </connections>
                                     </tableViewCell>
@@ -204,6 +208,9 @@
                         <viewLayoutGuide key="safeArea" id="Npv-o5-LLK"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="Sbs-Qq-pHx"/>
+                    <connections>
+                        <outlet property="juicenowLogoImageView" destination="XOf-jS-NJZ" id="2dk-Qs-s4G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uW2-Dz-a4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
