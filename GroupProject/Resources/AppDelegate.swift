@@ -29,7 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             })
         }
+        FirebaseService.shared.addDocument(documentName: "Another Test Document", collectionName: "Test Stuff") { (success) in
+            if success{
+                print("success ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+            } else {
+                print("failure⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+            }
+        }
         
+        FirebaseService.shared.fetchCollection {
+            print("finished an fetch")
+        }
         return true
     }
 
