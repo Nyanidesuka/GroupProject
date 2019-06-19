@@ -20,15 +20,8 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBusinesses()
     }
-    
-    //MARK: - Helper functions
-    func getBusinesses() {
-        BusinessController.shared.fetchBusinessesFromYelp { (locations) in
-            self.locationsFromLocalizedFetch = locations
-        }
-    }
+
 
     
 
