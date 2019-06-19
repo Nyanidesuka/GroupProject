@@ -40,8 +40,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
         let business = locations[indexPath.row]
-        cell.locationInfo.text = business.name
-        
+        let openStatus = business.isClosed ? "CLOSED" : "OPEN"
+        let buttonText = "\(business.name)\nJuiceNow™ Rating: \(business.rating)\nCurrently \(openStatus)"
+        cell.locationInfo.text = buttonText
         return cell
     }
     
