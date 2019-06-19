@@ -11,7 +11,8 @@ import UIKit
 class FeedViewController: UIViewController {
     
     //MARK: - Outlets
-
+    @IBOutlet weak var juicenowLogoImageView: UIImageView!
+    
     
 
     override func viewDidLoad() {
