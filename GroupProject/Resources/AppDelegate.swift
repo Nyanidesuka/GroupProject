@@ -18,6 +18,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+
+        FirebaseApp.configure()
+        let database = Firestore.firestore()
+        //testing fetchies
+        BusinessController.shared.fetchBusinessesFromYelp(location: "lehi") { (businesses) in
+            BusinessController.shared.businesses = businesses
+            YelpReviewController.shared.fetchYelpReviews(forBusinessID: businesses[0].businessID, completion: { (reviews) in
+                print(reviews[0].text)
+                BusinessController.shared.fetchYelpDetails(forBusiness: businesses[0], completion: { (success) in
+                    print("in the completion")
+                })
+            })
+        }
+
+        FirebaseService.shared.addDocument(documentName: "Another Test Document", collectionName: "Test Stuff") { (success) in
+            if success{
+                print("success ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+            } else {
+                print("failure⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+            }
+        }
+        
+        FirebaseService.shared.fetchCollection {
+            print("finished an fetch")
+        }
+
         return true
     }
 
