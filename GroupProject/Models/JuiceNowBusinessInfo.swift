@@ -27,4 +27,7 @@ class JuiceNowBusinessInfo{
         let reviews = reviewsDictionaries.compactMap({return JuiceNowBusinessReview(firestoreData: $0)})
         self.init(businessID: businessID, reviews: reviews)
     }
+    
+    
+    
 }

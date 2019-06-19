@@ -20,37 +20,52 @@ class UserController{
     
     func createNewUser(withUsername username: String){
         let newUser = User(username: username)
-        let moc = CoreDataStack.context
         UserController.shared.currentUser = newUser
-        saveToPersistentStore()
+        
+        UserController.shared.saveUserDocument(data: UserController.shared.createDictionary(fromUser: newUser)) { (success) in
+            if success{
+                print("successfully created the user document in firestore")
+            } else {
+                print("there was an issue creating the user document in firestore.")
+            }
+        }
     }
     
     func loadUser(){
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        do{
-            let fetchedUsers = try CoreDataStack.context.fetch(request)
-            UserController.shared.currentUser = fetchedUsers.first
-        } catch {
-            print("there was an error in \(#function); \(error.localizedDescription)")
-        }
+        
     }
     
-    func saveToPersistentStore(){
-        let moc = CoreDataStack.context
-        do {
-            try moc.save()
-        } catch {
-            print("there was an error in \(#function); \(error.localizedDescription)")
-        }
+    func saveUserLocally(){
+        
     }
     
     func deleteUser(targetUser: User){
-        if let moc = targetUser.managedObjectContext{
-            moc.delete(targetUser)
-            saveToPersistentStore()
-            UserController.shared.currentUser = nil
+        
+    }
+    
+    func saveUserDocument(data: [String : Any], completion: @escaping(Bool) -> Void){
+        guard let uuid = data["uuid"] as? String else {return}
+        FirebaseService.shared.addDocument(documentName: uuid, collectionName: "Users", data: data) { (success) in
+            if success{
+                print("Successfully saved user to firebase.")
+            } else {
+                print("coud not save user to firebase")
+            }
         }
     }
     
+    func fetchUserDocument(withUUID uuid: String, completion: @escaping ([String : Any]?) -> Void){
+        FirebaseService.shared.fetchDocument(documentName: uuid, collectionName: "Users") { (document) in
+            guard let document = document else {completion(nil); return}
+            completion(document)
+        }
+    }
     
+    func createDictionary(fromUser user: User) -> [String : Any]{
+        let businessReviewsDictionary = JuiceNowBusinessReviewController.shared.createDictionary(fromReviews: user.businessReviews)
+        let juiceReviewsDictionary = JuiceReviewController.shared.createDictionary(fromJuiceReview: user.juiceReviews)
+        let returnDictionary: [String : Any] = ["username" : user.username, "uuid" : user.uuid, "businessReviews" : businessReviewsDictionary, "juiceReviews" : juiceReviewsDictionary]
+        
+        return returnDictionary
+    }
 }

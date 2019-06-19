@@ -9,10 +9,22 @@
 import Foundation
 import CoreData
 
-extension User{
-    convenience init(username: String, context: NSManagedObjectContext = CoreDataStack.context){
-        self.init(context: context)
+class User{
+    
+    var username: String
+    var uuid: String
+    var businessReviews: [JuiceNowBusinessReview]
+    var juiceReviews: [JuiceReview]
+    
+    init(username: String, uuid: String = UUID().uuidString, businessReviews: [JuiceNowBusinessReview] = [], juiceReviews: [JuiceReview] = []){
         self.username = username
-        self.uuid = UUID().uuidString
+        self.uuid = uuid
+        self.businessReviews = businessReviews
+        self.juiceReviews = juiceReviews
+    }
+    
+    convenience init?(firestoreDocument: [String : Any]){
+        guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String else {return nil}
+        self.init(username: username, uuid: uuid)
     }
 }

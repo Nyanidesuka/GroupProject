@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1718269822BAA6240019B317 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269722BAA6240019B317 /* User.swift */; };
-		1718269A22BAA7540019B317 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269922BAA7540019B317 /* CoreDataStack.swift */; };
 		1718269C22BAA82A0019B317 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269B22BAA82A0019B317 /* UserController.swift */; };
+		171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */; };
+		171826A222BACD420019B317 /* JuiceNowBusiessReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */; };
+		171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A322BAE51D0019B317 /* JuiceReviewController.swift */; };
 		1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5822B455C900E09DD3 /* AppDelegate.swift */; };
 		1732EC5E22B455C900E09DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC5C22B455C900E09DD3 /* Main.storyboard */; };
 		1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5F22B455C900E09DD3 /* GroupProject.xcdatamodeld */; };
@@ -45,8 +47,10 @@
 /* Begin PBXFileReference section */
 		1367DF4F86852A5B90BC18DA /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1718269722BAA6240019B317 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1718269922BAA7540019B317 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1718269B22BAA82A0019B317 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessInfoController.swift; sourceTree = "<group>"; };
+		171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusiessReviewController.swift; sourceTree = "<group>"; };
+		171826A322BAE51D0019B317 /* JuiceReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReviewController.swift; sourceTree = "<group>"; };
 		1732EC5522B455C900E09DD3 /* GroupProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1732EC5822B455C900E09DD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1732EC5D22B455C900E09DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,7 +144,6 @@
 			children = (
 				17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */,
 				1718269722BAA6240019B317 /* User.swift */,
-				1718269922BAA7540019B317 /* CoreDataStack.swift */,
 				17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */,
 				17EB5F5F22B98B0C00927617 /* JuiceReview.swift */,
 				178E476422B831100097F4DD /* Business.swift */,
@@ -164,6 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				178E476C22B844020097F4DD /* BusinessController.swift */,
+				1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */,
+				171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */,
+				171826A322BAE51D0019B317 /* JuiceReviewController.swift */,
 				1718269B22BAA82A0019B317 /* UserController.swift */,
 				178E476F22B844140097F4DD /* YelpReviewController.swift */,
 				CA5678C622B9978F0062306C /* RecipeController.swift */,
@@ -363,18 +369,20 @@
 				CA5678C722B9978F0062306C /* RecipeController.swift in Sources */,
 				CA5678C522B9976F0062306C /* Recipe.swift in Sources */,
 				1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */,
+				171826A222BACD420019B317 /* JuiceNowBusiessReviewController.swift in Sources */,
 				178E477022B844140097F4DD /* YelpReviewController.swift in Sources */,
 				17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */,
 				17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */,
+				171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */,
 				17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */,
 				CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */,
 				CA80A49422B8143900558D20 /* ProfileViewController.swift in Sources */,
 				17EB5F6022B98B0C00927617 /* JuiceReview.swift in Sources */,
-				1718269A22BAA7540019B317 /* CoreDataStack.swift in Sources */,
 				178E476822B8312A0097F4DD /* YelpReview.swift in Sources */,
 				17EB5F6622B9A17900927617 /* FirebaseService.swift in Sources */,
 				CA80A49622B8145E00558D20 /* SpecificLocationViewController.swift in Sources */,
 				CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */,
+				171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */,
 				CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
 			);
