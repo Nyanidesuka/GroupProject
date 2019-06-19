@@ -13,8 +13,8 @@ class FirebaseService{
     
     static let shared = FirebaseService()
     
-    func addDocument(documentName document: String, collectionName collection: String, completion: @escaping (Bool) -> Void){
-        FirestoreReferenceManager.root.collection(collection).document(document).setData(["test 1" : "wow for the first time"]) { (error) in
+    func addDocument(documentName document: String, collectionName collection: String, data: [String : Any], completion: @escaping (Bool) -> Void){
+        FirestoreReferenceManager.root.collection(collection).document(document).setData(data) { (error) in
             if let error = error{
                 print("there was an error in \(#function); \(error.localizedDescription)")
                 completion(false)
@@ -24,8 +24,17 @@ class FirebaseService{
         }
     }
     
-    func fetchDocument(completion: @escaping ([[String : Any]]) -> Void){
-        
+    func fetchDocument(documentName: String, collectionName: String, completion: @escaping ([String : Any]?) -> Void){
+        let docRef = FirestoreReferenceManager.root.collection(collectionName).document(documentName)
+        docRef.getDocument { (document, error) in
+            if let error = error{
+                print("there was an error in \(#function); \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            guard let document = document else {completion(nil); return}
+            completion(document.data())
+        }
     }
     
     func fetchCollection(completion: @escaping () -> Void){

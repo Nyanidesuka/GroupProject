@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+
         FirebaseApp.configure()
         let database = Firestore.firestore()
         //testing fetchies
@@ -42,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseService.shared.fetchCollection {
             print("finished an fetch")
         }
+
         return true
     }
 
