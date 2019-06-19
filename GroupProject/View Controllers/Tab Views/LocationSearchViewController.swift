@@ -8,19 +8,42 @@
 
 import UIKit
 
-class LocationSearchViewController: UIViewController {
+class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    //MARK: - Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
-    //MARK: Outlets
-    //Need outlet for searchbar
+    //MARK: - Properties
+    var locations: [Business] = [] {
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     //Need outlet for map
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Need to set self.searchBar.delegate = self
+        self.searchBar.delegate = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
-    //MISSING BOILERPLATE CODE FOR CUSTOM TABLE VIEW CELL - DISPLAYS SEARCH RESULTS
-    //MISSING OUTLET FROM CELL TO Specific Location View Controller
+    //MARK: - TableView Data
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return locations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
+        let business = locations[indexPath.row]
+        cell.locationInfo.text = business.name
+        
+        return cell
+    }
     
 
     /*
@@ -35,5 +58,11 @@ class LocationSearchViewController: UIViewController {
 
 }//END OF Location Search View Controller
 
-
-//Add extension for textDidChange
+extension LocationSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
+            self.locations = locations
+            BusinessController.shared.businesses = locations
+        }
+    }
+}

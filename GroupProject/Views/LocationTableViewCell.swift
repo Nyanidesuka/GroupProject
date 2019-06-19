@@ -11,11 +11,9 @@ import UIKit
 class LocationTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
+    @IBOutlet weak var locationInfo: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
-    @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var locationImageView: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var reviewLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +25,10 @@ class LocationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    //MARK: - Actions
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+    }
+    
 
 }//END OF TABLE VIEW CELL CLASS

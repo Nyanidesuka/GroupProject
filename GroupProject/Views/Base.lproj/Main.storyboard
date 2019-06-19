@@ -51,7 +51,7 @@
                                         <rect key="frame" x="0.0" y="20" width="414" height="380"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="87" id="X0u-Mc-Bhv">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="87" id="X0u-Mc-Bhv" customClass="LocationTableViewCell" customModule="GroupProject" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="87"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X0u-Mc-Bhv" id="COX-Kt-bL4">
@@ -70,6 +70,9 @@
                                                                 <constraint firstAttribute="width" secondItem="WYT-aF-b1H" secondAttribute="height" multiplier="1:1" id="D5H-B3-vJw"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="UnlikedStar"/>
+                                                            <connections>
+                                                                <action selector="favoriteButtonTapped:" destination="X0u-Mc-Bhv" eventType="touchUpInside" id="8OS-ia-nFf"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -82,6 +85,10 @@
                                                         <constraint firstItem="p9t-SO-Ko5" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="topMargin" id="idR-0D-QD7"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="favoriteButton" destination="WYT-aF-b1H" id="C56-zD-ckz"/>
+                                                    <outlet property="locationInfo" destination="p9t-SO-Ko5" id="ukb-JE-GdE"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -120,6 +127,10 @@
                         <viewLayoutGuide key="safeArea" id="ELn-XQ-EA5"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="Pkz-ZD-AKy"/>
+                    <connections>
+                        <outlet property="searchBar" destination="VA5-Z7-2tJ" id="J48-Fx-auv"/>
+                        <outlet property="tableView" destination="YaL-sd-SUJ" id="yNa-FL-ZOT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOs-Jj-Spn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

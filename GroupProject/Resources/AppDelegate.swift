@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let database = Firestore.firestore()
         //testing fetchies
         BusinessController.shared.fetchBusinessesFromYelp(location: "lehi") { (businesses) in
+            BusinessController.shared.businesses = businesses
             YelpReviewController.shared.fetchYelpReviews(forBusinessID: businesses[0].businessID, completion: { (reviews) in
                 print(reviews[0].text)
                 BusinessController.shared.fetchYelpDetails(forBusiness: businesses[0], completion: { (success) in
