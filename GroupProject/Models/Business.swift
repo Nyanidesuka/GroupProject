@@ -14,11 +14,13 @@ class Business: Decodable{
     let businessID: String
     var imageURLs: [String] = []
     var hours: [OpenHours] = []
+    var rating: Double
     
     enum CodingKeys: String, CodingKey{
         case name = "name"
         case isClosed = "is_closed"
         case businessID = "id"
+        case rating = "rating"
     }
 }
 //the yelp API hands back a dictionary with key "businesses" which is full of string-any dictionaries so we need this TLD.
