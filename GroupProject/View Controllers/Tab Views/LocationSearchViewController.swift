@@ -15,6 +15,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Properties
+    let debouncer = Debouncer(timeInterval: 2.0)
+
     var locations: [Business] = [] {
         didSet{
             DispatchQueue.main.async {
@@ -30,6 +32,13 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         self.searchBar.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        debouncer.handler = {
+            guard let searchText = self.searchBar.text else { return }
+            BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
+                self.locations = locations
+                BusinessController.shared.businesses = locations
+            }
+        }
     }
     
     //MARK: - TableView Data
@@ -59,11 +68,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
 
 }//END OF Location Search View Controller
 
+//MARK: - Search bar functionality
 extension LocationSearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
-            self.locations = locations
-            BusinessController.shared.businesses = locations
-        }
+        debouncer.renewInterval()
     }
 }
