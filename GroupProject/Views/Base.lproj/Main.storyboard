@@ -657,7 +657,7 @@
                                 <rect key="frame" x="32" y="455.5" width="350" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="gqh-cH-yzf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="60" id="gqh-cH-yzf" customClass="LocationReviewTableViewCell" customModule="GroupProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="350" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gqh-cH-yzf" id="9yy-9o-vrD">
@@ -685,6 +685,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="mRu-oj-OxN" secondAttribute="trailing" constant="20" id="wCU-t6-MOD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="reviewLabel" destination="mRu-oj-OxN" id="2uG-jq-LnT"/>
+                                            <outlet property="userLabel" destination="z3E-zL-v8T" id="1O0-dV-Fpy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -742,6 +746,7 @@
                         <outlet property="personalStarTwoButton" destination="3zQ-IG-c9K" id="Qcv-JN-Rgr"/>
                         <outlet property="restaurantNameLabel" destination="cx6-J9-8uT" id="gRu-Ie-2M2"/>
                         <outlet property="secondaryLocationNameLabel" destination="TT7-6i-MFz" id="iIl-Q3-ONu"/>
+                        <outlet property="tableView" destination="WVe-Ge-mSz" id="fd3-Sh-xbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNc-Ad-pHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1236,6 +1241,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EN1-7B-dvG"/>
                     </view>
+                    <connections>
+                        <outlet property="ingredientsLabel" destination="4eQ-AL-Fpq" id="qF4-3q-I7O"/>
+                        <outlet property="recipeImageView" destination="yfJ-Rv-edo" id="N0U-hK-wlz"/>
+                        <outlet property="recipeNameLabel" destination="SKH-v1-fce" id="uEo-tK-db8"/>
+                        <outlet property="secondaryRecipeNameLabel" destination="XKD-Dl-GVU" id="AU8-mP-AxD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4CB-ZC-C78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

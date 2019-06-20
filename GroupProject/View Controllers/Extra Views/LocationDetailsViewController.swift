@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LocationDetailsViewController: UIViewController {
+class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
     
     //MARK: - Outlets
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -24,6 +26,7 @@ class LocationDetailsViewController: UIViewController {
     @IBOutlet weak var personalStarThreeButton: UIButton!
     @IBOutlet weak var personalStarFourButton: UIButton!
     @IBOutlet weak var personalStarFiveButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     
     //MARK: - Landing Pad / Properties
@@ -31,6 +34,9 @@ class LocationDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
 
         // Do any additional setup after loading the view.
     }
@@ -47,6 +53,17 @@ class LocationDetailsViewController: UIViewController {
     @IBAction func ratingFourTapped(_ sender: UIButton) {
     }
     @IBAction func ratingFiveTapped(_ sender: UIButton) {
+    }
+    
+    //MARK: - Table view data
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //COMPLETE WITH COUNT OF REVIEWS FOR BUSINESS
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //COMPLETE W/ REVIEWS FOR BUSINESS
+        return UITableViewCell()
     }
     
     //MARK: - Helper Functions
@@ -75,6 +92,26 @@ class LocationDetailsViewController: UIViewController {
         default:
             print("Error tapping rating❗️")
         }
+    }
+    
+    func updateView() {
+        guard let location = location else { return }
+        updateCommunityRatingStars()
+        updatePersonalRatingStars()
+        restaurantNameLabel.text = location.name
+        secondaryLocationNameLabel.text = location.name
+        tableView.reloadData()
+        
+        
+    }
+    
+    func updateCommunityRatingStars() {
+        //change start buttons depending on location average rating
+    }
+    
+    func updatePersonalRatingStars() {
+        //check if rating exists, if not return.
+        //else rating, update stars
     }
     
 

@@ -42,6 +42,7 @@
 		CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49922B814FA00558D20 /* ReviewViewController.swift */; };
 		CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49D22B8153D00558D20 /* HelpViewController.swift */; };
 		CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */; };
+		CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */; };
 		F802FEFF2D707DCECB38856E /* Pods_GroupProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1367DF4F86852A5B90BC18DA /* Pods_GroupProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		CA80A49922B814FA00558D20 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CA80A49D22B8153D00558D20 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReviewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				1732EC5C22B455C900E09DD3 /* Main.storyboard */,
 				CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */,
+				CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */,
 				CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */,
 				CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */,
+				CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

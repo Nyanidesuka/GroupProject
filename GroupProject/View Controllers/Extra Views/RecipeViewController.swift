@@ -11,17 +11,30 @@ import UIKit
 class RecipeViewController: UIViewController {
     
     //MARK: - Outlets
-    //Need outlet for recipe name
-    //Need outlet for  recipe image
-    //Need outlet for ingredients
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var secondaryRecipeNameLabel: UILabel!
+    @IBOutlet weak var ingredientsLabel: UILabel!
+    
+    //MARK: - Landing Pad / Properties
+    var recipe: Recipe?
+    
     
     //MARK: - Properties
     //Need landing pad, optional recipe for navigation
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateView()
+    }
+    
+    //MARK: - Helper functions
+    func updateView() {
+        guard let recipe = recipe else { return }
+        recipeNameLabel.text = recipe.name
+        recipeImageView.image = recipe.image
+        secondaryRecipeNameLabel.text = recipe.name
+        ingredientsLabel.text = recipe.ingredients
     }
     
     //Should we have a share recipe button or a way to create email to send recipe raw data?
