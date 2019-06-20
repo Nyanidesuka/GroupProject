@@ -937,6 +937,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdc-Ha-7Tr">
                                         <rect key="frame" x="336" y="9" width="62" height="35"/>
                                         <state key="normal" title="FAQ"/>
+                                        <connections>
+                                            <segue destination="kzV-8y-yQw" kind="show" id="2UG-6A-D60"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1495,7 +1498,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="4zN-X2-dEd"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="mf4-3a-Dml"/>
+        <segue reference="n9U-vX-GAj"/>
         <segue reference="acJ-pl-VUY"/>
     </inferredMetricsTieBreakers>
 </document>
