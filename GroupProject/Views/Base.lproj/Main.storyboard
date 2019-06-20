@@ -389,15 +389,15 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tsk-Ku-ycQ">
                                 <rect key="frame" x="20" y="439.5" width="374" height="83.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kiW-1R-CI9">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kiW-1R-CI9">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mIl-E7-tfU">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="juiceCell" id="mIl-E7-tfU" customClass="VisitedCollectionViewCell" customModule="GroupProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="17" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -415,10 +415,15 @@
                                             <constraint firstAttribute="trailing" secondItem="SAR-sb-14e" secondAttribute="trailing" id="syt-aH-Y0g"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="juiceImageView" destination="SAR-sb-14e" id="p7C-NH-UUk"/>
                                             <segue destination="pBB-VG-UNY" kind="show" identifier="visitedToLocationDetailVC" id="acJ-pl-VUY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="gW4-JG-f1R" id="nZP-BD-fzx"/>
+                                    <outlet property="delegate" destination="gW4-JG-f1R" id="T3J-yy-8zD"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqz-5O-c1K">
                                 <rect key="frame" x="20" y="585" width="63" height="20.5"/>
@@ -436,7 +441,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WND-Y0-9AV">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reviewCell" id="WND-Y0-9AV" customClass="ReviewCollectionViewCell" customModule="GroupProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -472,10 +477,16 @@
                                             <constraint firstAttribute="trailing" secondItem="ZC1-h6-G9V" secondAttribute="trailing" id="Tvs-OX-a1a"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="drinkNameLabel" destination="wZh-Hp-BmT" id="W1a-Mc-WxS"/>
+                                            <outlet property="restaurantNameLabel" destination="ILv-zi-h6h" id="yY1-35-eUh"/>
                                             <segue destination="EmF-lO-NRN" kind="show" identifier="reviewToReviewDetailVC" id="UAt-87-Gof"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="gW4-JG-f1R" id="8iz-G3-SPM"/>
+                                    <outlet property="delegate" destination="gW4-JG-f1R" id="VRu-25-jCa"/>
+                                </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05J-WM-sG4">
                                 <rect key="frame" x="278" y="585.5" width="116" height="30"/>
@@ -521,7 +532,9 @@
                     <connections>
                         <outlet property="bioLabel" destination="Zq4-I7-gB3" id="iM6-F1-Rbb"/>
                         <outlet property="profilePhotoImageView" destination="ql5-Kx-s08" id="7HT-dX-xa8"/>
+                        <outlet property="reviewCollectionView" destination="k3t-nI-stE" id="XOv-wP-MaZ"/>
                         <outlet property="userNameLabel" destination="jsY-nr-eNA" id="98c-QH-lj1"/>
+                        <outlet property="visitedCollectionView" destination="tsk-Ku-ycQ" id="WZY-ll-4Dp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVh-qc-Jpw" userLabel="First Responder" sceneMemberID="firstResponder"/>

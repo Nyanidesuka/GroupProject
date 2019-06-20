@@ -12,6 +12,9 @@
 		171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */; };
 		171826A222BACD420019B317 /* JuiceNowBusiessReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */; };
 		171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A322BAE51D0019B317 /* JuiceReviewController.swift */; };
+		1725050822BC298100C0EB63 /* VisitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */; };
+		1725050A22BC29A900C0EB63 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */; };
+		1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */; };
 		1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5822B455C900E09DD3 /* AppDelegate.swift */; };
 		1732EC5E22B455C900E09DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC5C22B455C900E09DD3 /* Main.storyboard */; };
 		1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5F22B455C900E09DD3 /* GroupProject.xcdatamodeld */; };
@@ -53,6 +56,9 @@
 		1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessInfoController.swift; sourceTree = "<group>"; };
 		171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusiessReviewController.swift; sourceTree = "<group>"; };
 		171826A322BAE51D0019B317 /* JuiceReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReviewController.swift; sourceTree = "<group>"; };
+		1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedCollectionViewCell.swift; sourceTree = "<group>"; };
+		1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetCollectionViewController.swift; sourceTree = "<group>"; };
 		1732EC5522B455C900E09DD3 /* GroupProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1732EC5822B455C900E09DD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1732EC5D22B455C900E09DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 				1732EC5C22B455C900E09DD3 /* Main.storyboard */,
 				CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */,
 				CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */,
+				1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */,
+				1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			children = (
 				CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */,
 				CA80A49322B8143900558D20 /* ProfileViewController.swift */,
+				1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */,
 				CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */,
 				CA80A49722B814CF00558D20 /* RecipeViewController.swift */,
 				CA80A49922B814FA00558D20 /* ReviewViewController.swift */,
@@ -363,14 +372,17 @@
 			files = (
 				1718269C22BAA82A0019B317 /* UserController.swift in Sources */,
 				178E476522B831100097F4DD /* Business.swift in Sources */,
+				1725050A22BC29A900C0EB63 /* ReviewCollectionViewCell.swift in Sources */,
 				CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */,
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
+				1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
 				178E476D22B844020097F4DD /* BusinessController.swift in Sources */,
 				CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */,
 				178E476A22B832A00097F4DD /* YelpService.swift in Sources */,
 				1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */,
 				CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */,
+				1725050822BC298100C0EB63 /* VisitedCollectionViewCell.swift in Sources */,
 				CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */,
 				CA5678C722B9978F0062306C /* RecipeController.swift in Sources */,
 				CA5678C522B9976F0062306C /* Recipe.swift in Sources */,

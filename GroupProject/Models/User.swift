@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class User{
+class User: Codable{
     
     var username: String
     var uuid: String

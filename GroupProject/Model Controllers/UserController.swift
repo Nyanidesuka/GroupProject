@@ -14,7 +14,7 @@ class UserController{
     static let shared = UserController()
     private init(){}
     //keep track of the current user
-    var currentUser: User? = nil
+    var currentUser: User?
     
     //MARK: CRUD functions
     
@@ -22,7 +22,7 @@ class UserController{
         let newUser = User(username: username)
         UserController.shared.currentUser = newUser
         //save the user locally
-        saveUserLocally(userID: newUser.uuid)
+        saveUserLocally(user: newUser)
         //save the user to firestore
         UserController.shared.saveUserDocument(data: UserController.shared.createDictionary(fromUser: newUser)) { (success) in
             if success{
@@ -45,27 +45,39 @@ class UserController{
         let userDecoder = JSONDecoder()
         do{
             let userIDData = try Data(contentsOf: getFileURL())
-            let userID = try userDecoder.decode(String.self, from: userIDData)
+            print("🥇 got data")
+            let decodedUser = try userDecoder.decode(User.self, from: userIDData)
+            let userID = decodedUser.uuid
+            print("We decoded it.")
             //now we have the ID. let's fetch the user.
             FirebaseService.shared.fetchDocument(documentName: userID, collectionName: "Users") { (document) in
-                guard let unwrappedDocuent = document else {return}
+                guard let unwrappedDocuent = document else {
+                    let userDictionary = UserController.shared.createDictionary(fromUser: decodedUser)
+                    FirebaseService.shared.addDocument(documentName: decodedUser.uuid, collectionName: "Users", data: userDictionary, completion: { (success) in
+                        if success{
+                            UserController.shared.currentUser = decodedUser
+                        }
+                    })
+                    return
+                }
                 let loadedUser = User(firestoreDocument: unwrappedDocuent)
                 UserController.shared.currentUser = loadedUser
             }
         }catch{
-            print("There is no user to load. Creating a new user; \(error.localizedDescription)")
+            print("🥇🥇🥇There is no user to load. Creating a new user; \(error.localizedDescription)")
             let newUser = User(username: "Juicer")
             self.createNewUser(withUsername: newUser.username)
         }
     }
     
-    func saveUserLocally(userID: String){
+    func saveUserLocally(user: User){
         let userEncoder = JSONEncoder()
         do{
-            let encodedID = try userEncoder.encode(userID)
+            let encodedID = try userEncoder.encode(user)
             try encodedID.write(to: getFileURL())
+            print("we did it. it encoded. 🥇🥇🥇")
         }catch{
-            print("there was a problem encoding the data: \(error.localizedDescription)")
+            print("🥇🥇🥇🥇🥇🥇🥇🥇there was a problem encoding the data: \(error.localizedDescription)")
         }
     }
     
