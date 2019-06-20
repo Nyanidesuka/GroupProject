@@ -17,42 +17,30 @@ class JuiceNowBusinessInfoController{
         return infoDictionary
     }
     
-    func fetchInfoForBusiness(business: Business, completion: @escaping ([String : Any]) -> Void){
+    func fetchInfoForBusiness(business: Business, completion: @escaping (Bool) -> Void){
         let docName = business.businessID
         FirebaseService.shared.fetchDocument(documentName: docName, collectionName: "Businesses") { (document) in
             if let unwrappedDocument = document{
                 //if we're here, the document from firestore exists.
-                guard let businessDetails = JuiceNowBusinessInfo(dictionary: unwrappedDocument) else {return}
+                guard let businessDetails = JuiceNowBusinessInfo(dictionary: unwrappedDocument) else {completion(false); return}
                 BusinessController.shared.addJuiceNowBusinessInfo(businessInfo: businessDetails, toBusiness: business)
+                completion(true)
             } else {
-                //if we get here, the document did not exist in firestore
                 
+                //if we get here, the document did not exist in firestore
+                let newBusinessInfo = JuiceNowBusinessInfo(businessID: business.businessID, reviews: [])
+                let newBusinessInfoDictionary = JuiceNowBusinessInfoController.shared.createDictionary(fromInfo: newBusinessInfo)
+                FirebaseService.shared.addDocument(documentName: business.businessID, collectionName: "Businesses", data: newBusinessInfoDictionary, completion: { (success) in
+                    if success{
+                        print("successfully created a new document for this business.")
+                        completion(true)
+                    } else {
+                        print("could not create a document for this business.")
+                    }
+                })
+                BusinessController.shared.addJuiceNowBusinessInfo(businessInfo: newBusinessInfo, toBusiness: business)
             }
         }
     }
     
-    
-    //this function is gonna let us grab more details to put into the business. Hours, photo URLs
-    func fetchYelpDetails(forBusiness business: Business, completion: @escaping (JuiceNowBusinessInfo?) -> Void){
-        //build a URL
-        guard let baseURL = URL(string: "https://api.yelp.com/v3/businesses") else {completion(nil); return}
-        let finalURL = baseURL.appendingPathComponent(business.businessID)
-        YelpService.shared.fetch(url: finalURL) { (data) in
-            guard let unwrappedData = data else {completion(nil); return}
-            let detailDecoder = JSONDecoder()
-            do{
-                let detailTLD = try detailDecoder.decode(BusinessDetailTLD.self, from: unwrappedData)
-                print(detailTLD.photos.count)
-                print(detailTLD.photos[0])
-                business.hours = detailTLD.hours
-                business.imageURLs = detailTLD.photos
-                completion(nil)
-            }catch{
-                print("there was an error decoding the data.; \(error)")
-                print(unwrappedData)
-                completion(nil)
-                return
-            }
-        }
-    }
 }

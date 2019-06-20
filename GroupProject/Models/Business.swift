@@ -15,30 +15,22 @@ class Business: Decodable{
     var imageURLs: [String] = []
     var hours: [OpenHours] = []
     var rating: Double
-    let latitude: Double
-    let longitude: Double
-    let city: String
-    let state: String
-    let address1: String
-    let address2: String
-    let address3: String
-    let zip: String
+    let coordinates: Coordinates
+    let location: Location
     let distance: Double
+    var yelpReviews: [YelpReview] = []
+    var juiceNowReviews: [JuiceNowBusinessReview] = []
+    //thinking we might need this so we can do things like appending new reviews and ratings
+    var juiceNowInfoReference: JuiceNowBusinessInfo? = nil
     
     enum CodingKeys: String, CodingKey{
         case name = "name"
         case isClosed = "is_closed"
         case businessID = "id"
         case rating = "rating"
-        case latitude = "latitude"
-        case longitude = "longitude"
-        case city = "city"
-        case state = "state"
-        case address1 = "address1"
-        case address2 = "address2"
-        case address3 = "address3"
-        case zip = "zip_code"
         case distance = "distance"
+        case coordinates = "coordinates"
+        case location = "location"
     }
 }
 //the yelp API hands back a dictionary with key "businesses" which is full of string-any dictionaries so we need this TLD.
@@ -70,11 +62,26 @@ struct OpenHours: Decodable{
 }
 
 struct Coordinates: Decodable {
-    
+    let latitude: Double
+    let longitude: Double
 }
 
 struct Location: Decodable {
-    
+    let city: String
+    let state: String
+    let addressOne: String
+    let addressTwo: String?
+    let addressThree: String?
+    let zipCode: String
+
+    enum CodingKeys: String, CodingKey{
+        case city = "city"
+        case addressOne = "address1"
+        case addressTwo = "address2"
+        case addressThree = "address3"
+        case state = "state"
+        case zipCode = "zip_code"
+    }
 }
 
 //REFERENCE: https://www.yelp.com/developers/documentation/v3/business_search
