@@ -18,7 +18,7 @@ class UserController{
     
     //MARK: CRUD functions
     
-    func createNewUser(withUsername username: String){
+    func createNewUser(withUsername username: String, completion: @escaping () -> Void){
         let newUser = User(username: username)
         UserController.shared.currentUser = newUser
         //save the user locally
@@ -30,6 +30,7 @@ class UserController{
             } else {
                 print("there was an issue creating the user document in firestore.")
             }
+            completion()
         }
     }
     
@@ -40,7 +41,7 @@ class UserController{
         return documentsDirectory.appendingPathComponent(fileName)
     }
     
-    func loadUser(){
+    func loadUser(completion: @escaping () -> Void){
         //needs to check if there's a userID saved, if there is then pull the record.
         let userDecoder = JSONDecoder()
         do{
@@ -56,17 +57,24 @@ class UserController{
                     FirebaseService.shared.addDocument(documentName: decodedUser.uuid, collectionName: "Users", data: userDictionary, completion: { (success) in
                         if success{
                             UserController.shared.currentUser = decodedUser
+                            completion()
                         }
                     })
+                    
                     return
                 }
                 let loadedUser = User(firestoreDocument: unwrappedDocuent)
                 UserController.shared.currentUser = loadedUser
+                completion()
+                
             }
         }catch{
             print("🥇🥇🥇There is no user to load. Creating a new user; \(error.localizedDescription)")
             let newUser = User(username: "Juicer")
-            self.createNewUser(withUsername: newUser.username)
+            self.createNewUser(withUsername: newUser.username) {
+                completion()
+            }
+            completion()
         }
     }
     

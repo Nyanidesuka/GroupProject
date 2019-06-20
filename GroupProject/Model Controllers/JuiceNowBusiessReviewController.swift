@@ -19,6 +19,4 @@ class JuiceNowBusinessReviewController{
         }
         return returnArray
     }
-    
-    
 }
