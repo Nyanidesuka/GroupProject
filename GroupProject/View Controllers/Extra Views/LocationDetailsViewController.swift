@@ -12,6 +12,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - Outlets
     @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var secondaryLocationNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commuityStarOneButton: UIButton!
@@ -30,6 +31,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: - Landing Pad / Properties
     var location: Business?
     var reviews: [YelpReview] = []
+    var baseImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +103,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func updateView() {
         guard let location = location else { return }
+        
         updateCommunityRatingStars()
         updatePersonalRatingStars()
         restaurantNameLabel.text = location.name
@@ -110,6 +113,38 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+        updateLocationImageFor(business: location)
+        updateSecondaryLabelFor(business: location)
+    }
+    
+    func updateLocationImageFor(business: Business) {
+        guard let url = URL(string: business.baseImage) else { return }
+        do {
+            let imageData = try Data(contentsOf: url)
+            self.baseImage = UIImage(data: imageData)
+        } catch  {
+            print(error.localizedDescription)
+        }
+        DispatchQueue.main.async {
+            self.locationImage.image = self.baseImage
+        }
+    }
+    
+    func updateSecondaryLabelFor(business: Business) {
+        var address = business.location.addressOne
+        let city = business.location.city
+        let state = business.location.state
+        let zip = business.location.zipCode
+//        if let address2 = business.location.addressTwo {
+//            address = "\(address)\n\(address2)"
+//        }
+//        if let address3 = business.location.addressThree {
+//            address = "\(address)\n\(address3)"
+//        }
+        let label = "\(address)\n\(city), \(state) \(zip)"
+        DispatchQueue.main.async {
+            self.descriptionLabel.text = label
         }
     }
     
@@ -121,5 +156,5 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         //check if rating exists, if not return.
         //else rating, update stars
     }
-
+    
 }//END OF LOCATION DETAIL VIEW CONTROLLER
