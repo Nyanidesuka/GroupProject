@@ -585,6 +585,9 @@
                                             <constraint firstAttribute="width" secondItem="62O-Q4-oGi" secondAttribute="height" multiplier="1:1" id="OsZ-HH-mbx"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="ratingOneTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="FtJ-9Y-LM2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zQ-IG-c9K">
                                         <rect key="frame" x="35" y="0.0" width="32.5" height="33"/>
@@ -592,6 +595,9 @@
                                             <constraint firstAttribute="width" secondItem="3zQ-IG-c9K" secondAttribute="height" multiplier="1:1" id="odw-j5-trf"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="ratingTwoTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="By6-74-BOu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUi-cY-kII">
                                         <rect key="frame" x="69.5" y="0.0" width="33" height="33"/>
@@ -599,6 +605,9 @@
                                             <constraint firstAttribute="width" secondItem="nUi-cY-kII" secondAttribute="height" multiplier="1:1" id="C1R-Qi-AsF"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="ratingThreeTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="CsO-Zq-h0Z"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gy-Ff-gRK">
                                         <rect key="frame" x="104.5" y="0.0" width="32.5" height="33"/>
@@ -606,6 +615,9 @@
                                             <constraint firstAttribute="width" secondItem="7gy-Ff-gRK" secondAttribute="height" multiplier="1:1" id="bT1-31-myy"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="ratingFourTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="y9X-rv-m47"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSB-sR-ko8">
                                         <rect key="frame" x="139" y="0.0" width="33" height="33"/>
@@ -613,6 +625,9 @@
                                             <constraint firstAttribute="width" secondItem="vSB-sR-ko8" secondAttribute="height" multiplier="1:1" id="PlN-dv-EOx"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="ratingFiveTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="THL-jf-3KO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -631,6 +646,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj3-zd-tzd">
                                 <rect key="frame" x="32" y="527.5" width="98" height="30"/>
                                 <state key="normal" title="Get Directions"/>
+                                <connections>
+                                    <action selector="getDirectionsTapped:" destination="pBB-VG-UNY" eventType="touchUpInside" id="uzy-9z-Itp"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="y5N-Nh-sr9">
                                 <rect key="frame" x="0.0" y="605.5" width="414" height="256.5"/>
@@ -671,6 +689,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vD3-1u-H3n"/>
                     </view>
+                    <connections>
+                        <outlet property="commuityStarOneButton" destination="k6u-RD-X2A" id="4jg-Vc-R4g"/>
+                        <outlet property="communityStarFiveButton" destination="8fB-fN-ghJ" id="jW8-ui-lL5"/>
+                        <outlet property="communityStarFourButton" destination="FH0-IF-Vi1" id="Mpr-XG-WJe"/>
+                        <outlet property="communityStarThreeButton" destination="0tq-xD-KhH" id="Fqd-rp-ogT"/>
+                        <outlet property="communityStarTwoButton" destination="3az-G5-p6t" id="S1x-Jc-ibc"/>
+                        <outlet property="descriptionLabel" destination="sgc-I2-lVD" id="ZLz-Lf-c0N"/>
+                        <outlet property="personalStarFiveButton" destination="vSB-sR-ko8" id="0cb-Sk-VDb"/>
+                        <outlet property="personalStarFourButton" destination="7gy-Ff-gRK" id="QKs-sO-NIh"/>
+                        <outlet property="personalStarOneButton" destination="62O-Q4-oGi" id="jra-zC-W3u"/>
+                        <outlet property="personalStarThreeButton" destination="nUi-cY-kII" id="DrI-4e-gRc"/>
+                        <outlet property="personalStarTwoButton" destination="3zQ-IG-c9K" id="Qcv-JN-Rgr"/>
+                        <outlet property="restaurantNameLabel" destination="cx6-J9-8uT" id="gRu-Ie-2M2"/>
+                        <outlet property="secondaryLocationNameLabel" destination="TT7-6i-MFz" id="iIl-Q3-ONu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNc-Ad-pHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
