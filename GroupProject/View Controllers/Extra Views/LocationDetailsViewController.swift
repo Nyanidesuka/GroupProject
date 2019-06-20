@@ -15,6 +15,9 @@ class LocationDetailsViewController: UIViewController {
     //Need outlet for rating score button
     //Need outlet for review textview
     //Need outlets for uploaded photos(s)?
+    
+    //MARK: - Landing Pad / Properties
+    var location: Business?
 
     override func viewDidLoad() {
         super.viewDidLoad()

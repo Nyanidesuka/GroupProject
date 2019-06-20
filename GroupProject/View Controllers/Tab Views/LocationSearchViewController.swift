@@ -58,17 +58,18 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // IIDOO
+        if segue.identifier == "" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationVC = segue.destination as? LocationDetailsViewController
+                let location = locations[indexPath.row]
+                destinationVC?.location = location
+            }
+        }
     }
-    */
+
 
 }//END OF Location Search View Controller
 

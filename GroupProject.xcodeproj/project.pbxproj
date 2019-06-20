@@ -224,12 +224,12 @@
 		CA80A49C22B8151700558D20 /* Extra Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */,
 				CA80A49322B8143900558D20 /* ProfileViewController.swift */,
 				CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */,
 				CA80A49722B814CF00558D20 /* RecipeViewController.swift */,
 				CA80A49922B814FA00558D20 /* ReviewViewController.swift */,
 				CA80A49D22B8153D00558D20 /* HelpViewController.swift */,
-				CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */,
 			);
 			path = "Extra Views";
 			sourceTree = "<group>";
