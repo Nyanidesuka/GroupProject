@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure() //leave this here pls
         // Override point for customization after application launch.
-        //UserController.shared.loadUser()
+        UserController.shared.loadUser()
         return true
     }
 

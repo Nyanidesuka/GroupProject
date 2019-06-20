@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JuiceReview{
+class JuiceReview: Codable{
     
     let businessID: String
     let businessName: String
