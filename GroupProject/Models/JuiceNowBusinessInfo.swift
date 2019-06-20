@@ -21,7 +21,7 @@ class JuiceNowBusinessInfo{
         self.reviews = reviews
     }
     
-    convenience init?(firestoreData data: [String : Any]){
+    convenience init?(dictionary data: [String : Any]){
         guard let businessID = data["businessID"] as? String,
             let reviewsDictionaries = data["reviews"] as? [[String : Any]] else {print("couldn't get the data from the dictionary: \(data)"); return nil}
         let reviews = reviewsDictionaries.compactMap({return JuiceNowBusinessReview(firestoreData: $0)})

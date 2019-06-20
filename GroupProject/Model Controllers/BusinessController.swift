@@ -45,27 +45,9 @@ class BusinessController {
             }
         }
     }
-    //this function is gonna let us grab more details to put into the business. Hours, photo URLs
-    func fetchYelpDetails(forBusiness business: Business, completion: @escaping (Bool) -> Void){
-        //build a URL
-        guard let baseURL = URL(string: "https://api.yelp.com/v3/businesses") else {completion(false); return}
-        let finalURL = baseURL.appendingPathComponent(business.businessID)
-        YelpService.shared.fetch(url: finalURL) { (data) in
-            guard let unwrappedData = data else {completion(false); return}
-            let detailDecoder = JSONDecoder()
-            do{
-                let detailTLD = try detailDecoder.decode(BusinessDetailTLD.self, from: unwrappedData)
-                print(detailTLD.photos.count)
-                print(detailTLD.photos[0])
-                business.hours = detailTLD.hours
-                business.imageURLs = detailTLD.photos
-                completion(true)
-            }catch{
-                print("there was an error decoding the data.; \(error)")
-                print(unwrappedData)
-                completion(false)
-                return
-            }
-        }
+    
+    func addJuiceNowBusinessInfo(businessInfo: JuiceNowBusinessInfo, toBusiness: Business){
+        
     }
+    
 }
