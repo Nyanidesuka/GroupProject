@@ -28,6 +28,8 @@
 		17EB5F6222B99AF900927617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EB5F6122B99AF900927617 /* GoogleService-Info.plist */; };
 		17EB5F6622B9A17900927617 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F6522B9A17900927617 /* FirebaseService.swift */; };
 		17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F6722B9A25100927617 /* FirestoreReferenceManager.swift */; };
+		CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */; };
+		CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */; };
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
 		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
@@ -73,6 +75,8 @@
 		17EB5F6722B9A25100927617 /* FirestoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReferenceManager.swift; sourceTree = "<group>"; };
 		67ECAF088BF6AFEF50E0F77B /* Pods-GroupProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.debug.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7C5F0C7D02B39B7FCC4FB47B /* Pods-GroupProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.release.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.release.xcconfig"; sourceTree = "<group>"; };
+		CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				1732EC5C22B455C900E09DD3 /* Main.storyboard */,
 				CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */,
 				CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */,
+				CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */,
+				CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,12 +370,14 @@
 				1718269C22BAA82A0019B317 /* UserController.swift in Sources */,
 				178E476522B831100097F4DD /* Business.swift in Sources */,
 				CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */,
+				CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */,
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
 				178E476D22B844020097F4DD /* BusinessController.swift in Sources */,
 				CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */,
 				178E476A22B832A00097F4DD /* YelpService.swift in Sources */,
 				1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */,
+				CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */,
 				CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */,
 				CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */,
 				CA5678C722B9978F0062306C /* RecipeController.swift in Sources */,

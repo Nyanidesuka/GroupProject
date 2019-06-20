@@ -8,19 +8,51 @@
 
 import UIKit
 
-class RecipesViewController: UIViewController {
+class RecipesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: - Outlets
-    //Do we need outlets or is this manually created?
+    @IBOutlet weak var featuredCollectionView: UICollectionView!
+    @IBOutlet weak var allRecipesCollectionView: UICollectionView!
+    
     
     //MARK: - Properties
-    //Need to add manual collection of recipes
-    //Need to add manual collection of best recipes/recipe of month
+    let allRecipes: [Recipe] = RecipeController.sharedInstance.recipes
+    var featuredRecipes: [Recipe] {
+        let shuffled = allRecipes.shuffled()
+        let tags = shuffled.prefix(3)
+        return Array(tags)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: - Collection View data
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case featuredCollectionView:
+            return allRecipes.count
+        case allRecipesCollectionView:
+            return featuredRecipes.count
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case featuredCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredRecipeCell", for: indexPath) as? FeaturedRecipeCollectionViewCell else { return UICollectionViewCell() }
+            return cell
+        case allRecipesCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allRecipesCell", for: indexPath) as? AllRecipesCollectionViewCell else { return UICollectionViewCell () }
+            print("")
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
     
     
