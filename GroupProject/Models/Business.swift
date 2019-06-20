@@ -13,6 +13,7 @@ class Business: Decodable{
     let isClosed: Bool
     let businessID: String
     var imageURLs: [String] = []
+    let baseImage: String
     var hours: [OpenHours] = []
     var rating: Double
     let coordinates: Coordinates
@@ -27,6 +28,7 @@ class Business: Decodable{
         case name = "name"
         case isClosed = "is_closed"
         case businessID = "id"
+        case baseImage = "image_url"
         case rating = "rating"
         case distance = "distance"
         case coordinates = "coordinates"
