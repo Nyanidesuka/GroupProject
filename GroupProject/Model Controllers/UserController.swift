@@ -22,7 +22,7 @@ class UserController{
         let newUser = User(username: username)
         UserController.shared.currentUser = newUser
         //save the user locally
-        
+        saveUserLocally(userID: newUser.uuid)
         //save the user to firestore
         UserController.shared.saveUserDocument(data: UserController.shared.createDictionary(fromUser: newUser)) { (success) in
             if success{
@@ -55,16 +55,7 @@ class UserController{
         }catch{
             print("There is no user to load. Creating a new user; \(error.localizedDescription)")
             let newUser = User(username: "Juicer")
-            let newUserDictionary = UserController.shared.createDictionary(fromUser: newUser)
-            FirebaseService.shared.addDocument(documentName: newUser.uuid, collectionName: "Users", data: newUserDictionary) { (success) in
-                if success{
-                    UserController.shared.currentUser = newUser
-                    print("successfully made the new user document")
-                    //And here you'd segue to the profile view.
-                } else {
-                    print("could not create the new user document.")
-                }
-            }
+            self.createNewUser(withUsername: newUser.username)
         }
     }
     
@@ -74,7 +65,7 @@ class UserController{
             let encodedID = try userEncoder.encode(userID)
             try encodedID.write(to: getFileURL())
         }catch{
-            print(error.localizedDescription)
+            print("there was a problem encoding the data: \(error.localizedDescription)")
         }
     }
     
@@ -103,7 +94,7 @@ class UserController{
     func createDictionary(fromUser user: User) -> [String : Any]{
         let businessReviewsDictionary = JuiceNowBusinessReviewController.shared.createDictionary(fromReviews: user.businessReviews)
         let juiceReviewsDictionary = JuiceReviewController.shared.createDictionary(fromJuiceReview: user.juiceReviews)
-        let returnDictionary: [String : Any] = ["username" : user.username, "uuid" : user.uuid, "businessReviews" : businessReviewsDictionary, "juiceReviews" : juiceReviewsDictionary]
+        let returnDictionary: [String : Any] = ["username" : user.username, "uuid" : user.uuid, "bio" : user.bio, "businessReviews" : businessReviewsDictionary, "juiceReviews" : juiceReviewsDictionary]
         
         return returnDictionary
     }

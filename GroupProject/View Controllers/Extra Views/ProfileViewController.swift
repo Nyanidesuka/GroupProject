@@ -18,8 +18,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        userNameLabel.text = UserController.shared.currentUser?.username
+        bioLabel.text = UserController.shared.currentUser?.bio
     }
     
 
