@@ -358,16 +358,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-eP-ciQ">
-                                <rect key="frame" x="189" y="135" width="215" height="88"/>
+                                <rect key="frame" x="189" y="115" width="215" height="108"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tony Stark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsY-nr-eNA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tony Stark" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsY-nr-eNA">
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I am Iron Man" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-I7-gB3">
-                                        <rect key="frame" x="0.0" y="34" width="215" height="54"/>
+                                        <rect key="frame" x="0.0" y="34" width="215" height="74"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -506,7 +506,7 @@
                             <constraint firstItem="05J-WM-sG4" firstAttribute="leading" secondItem="Nqz-5O-c1K" secondAttribute="trailing" constant="195" id="Xnt-rc-f0I"/>
                             <constraint firstItem="alb-OP-bgY" firstAttribute="top" secondItem="ql5-Kx-s08" secondAttribute="bottom" constant="117" id="ceV-26-xJh"/>
                             <constraint firstItem="tGi-Gr-7zw" firstAttribute="trailing" secondItem="k3t-nI-stE" secondAttribute="trailing" constant="20" id="dIa-2s-G4u"/>
-                            <constraint firstItem="qSn-eP-ciQ" firstAttribute="top" secondItem="leR-vg-GhV" secondAttribute="bottom" constant="30" id="eMc-3W-bPr"/>
+                            <constraint firstItem="qSn-eP-ciQ" firstAttribute="top" secondItem="leR-vg-GhV" secondAttribute="bottom" constant="10" id="eMc-3W-bPr"/>
                             <constraint firstItem="Nqz-5O-c1K" firstAttribute="top" secondItem="tsk-Ku-ycQ" secondAttribute="bottom" constant="62" id="ng5-Dd-svg"/>
                             <constraint firstItem="tGi-Gr-7zw" firstAttribute="bottom" secondItem="tsk-Ku-ycQ" secondAttribute="bottom" constant="290" id="qrd-ly-bkA"/>
                             <constraint firstItem="tGi-Gr-7zw" firstAttribute="trailing" secondItem="qSn-eP-ciQ" secondAttribute="trailing" constant="10" id="tmj-xX-1GI"/>
@@ -1098,6 +1098,38 @@
             </objects>
             <point key="canvasLocation" x="-2688" y="1620"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="VCd-C8-V6w">
+            <objects>
+                <viewController id="b6E-ZG-EKc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L4A-wc-Gu1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-qA-jDR">
+                                <rect key="frame" x="87" y="324" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PeW-qA-jDR" secondAttribute="height" multiplier="1:1" id="Yc8-3B-4BZ"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-uy-aPc">
+                                <rect key="frame" x="197" y="572" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PeW-qA-jDR" firstAttribute="top" secondItem="oS8-xP-PWg" secondAttribute="top" constant="280" id="CGm-SR-3EU"/>
+                            <constraint firstItem="PeW-qA-jDR" firstAttribute="leading" secondItem="oS8-xP-PWg" secondAttribute="leading" constant="87" id="Fgm-59-qbS"/>
+                            <constraint firstItem="oS8-xP-PWg" firstAttribute="trailing" secondItem="PeW-qA-jDR" secondAttribute="trailing" constant="87" id="b8x-ad-rIn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oS8-xP-PWg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ftd-vM-vFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4984.057971014493" y="150.66964285714286"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BvC-Ns-T7I">
             <objects>
@@ -1493,12 +1525,13 @@
     </scenes>
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
+        <image name="ProfileImage" width="350" height="350"/>
         <image name="UnlikedStar" width="350" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4zN-X2-dEd"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="n9U-vX-GAj"/>
+        <segue reference="mf4-3a-Dml"/>
         <segue reference="acJ-pl-VUY"/>
     </inferredMetricsTieBreakers>
 </document>
