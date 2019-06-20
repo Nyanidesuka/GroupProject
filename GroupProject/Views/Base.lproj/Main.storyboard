@@ -821,10 +821,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ja-6x-M3p">
-                                        <rect key="frame" x="31" y="9" width="34" height="30"/>
-                                        <state key="normal" title="Back"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o05-ND-Pqc">
                                         <rect key="frame" x="349" y="9" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
@@ -833,10 +829,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="amA-Nh-jcN" firstAttribute="leading" secondItem="FXN-gr-D9A" secondAttribute="leading" constant="110" id="AJg-Ac-F0p"/>
-                                    <constraint firstItem="amA-Nh-jcN" firstAttribute="leading" secondItem="9ja-6x-M3p" secondAttribute="trailing" constant="45" id="DR6-b6-LAj"/>
                                     <constraint firstAttribute="trailing" secondItem="amA-Nh-jcN" secondAttribute="trailing" constant="110" id="Hy7-La-PeY"/>
                                     <constraint firstItem="o05-ND-Pqc" firstAttribute="top" secondItem="FXN-gr-D9A" secondAttribute="top" constant="9" id="cUi-I5-Z3h"/>
-                                    <constraint firstItem="9ja-6x-M3p" firstAttribute="top" secondItem="FXN-gr-D9A" secondAttribute="top" constant="9" id="hL4-fw-Npu"/>
                                     <constraint firstAttribute="bottom" secondItem="amA-Nh-jcN" secondAttribute="bottom" constant="8" id="nGW-Kv-mzG"/>
                                     <constraint firstItem="o05-ND-Pqc" firstAttribute="leading" secondItem="amA-Nh-jcN" secondAttribute="trailing" constant="45" id="tWi-hV-Gbt"/>
                                     <constraint firstItem="amA-Nh-jcN" firstAttribute="top" secondItem="FXN-gr-D9A" secondAttribute="top" constant="8" id="xKI-V0-Y68"/>
@@ -1175,8 +1169,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk7-KR-3Ap">
-                                        <rect key="frame" x="31" y="9" width="34" height="30"/>
-                                        <state key="normal" title="Back"/>
+                                        <rect key="frame" x="17" y="9" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMD-xA-Dff">
                                         <rect key="frame" x="349" y="9" width="34" height="30"/>
@@ -1438,10 +1432,10 @@
             </objects>
             <point key="canvasLocation" x="-1362" y="-1349"/>
         </scene>
-        <!--Recipe View Controller-->
+        <!--Recipes View Controller-->
         <scene sceneID="BOg-Gn-oBF">
             <objects>
-                <viewController id="Ail-vB-LnY" customClass="RecipeViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ail-vB-LnY" customClass="RecipesViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gld-o9-NFH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1531,7 +1525,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="4zN-X2-dEd"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="mf4-3a-Dml"/>
+        <segue reference="n9U-vX-GAj"/>
         <segue reference="acJ-pl-VUY"/>
     </inferredMetricsTieBreakers>
 </document>
