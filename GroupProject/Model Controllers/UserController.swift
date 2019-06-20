@@ -21,7 +21,9 @@ class UserController{
     func createNewUser(withUsername username: String){
         let newUser = User(username: username)
         UserController.shared.currentUser = newUser
+        //save the user locally
         
+        //save the user to firestore
         UserController.shared.saveUserDocument(data: UserController.shared.createDictionary(fromUser: newUser)) { (success) in
             if success{
                 print("successfully created the user document in firestore")
@@ -31,12 +33,49 @@ class UserController{
         }
     }
     
-    func loadUser(){
-        
+    func getFileURL() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        let fileName = "userID.json"
+        return documentsDirectory.appendingPathComponent(fileName)
     }
     
-    func saveUserLocally(){
-        
+    func loadUser(){
+        //needs to check if there's a userID saved, if there is then pull the record.
+        let userDecoder = JSONDecoder()
+        do{
+            let userIDData = try Data(contentsOf: getFileURL())
+            let userID = try userDecoder.decode(String.self, from: userIDData)
+            //now we have the ID. let's fetch the user.
+            FirebaseService.shared.fetchDocument(documentName: userID, collectionName: "Users") { (document) in
+                guard let unwrappedDocuent = document else {return}
+                let loadedUser = User(firestoreDocument: unwrappedDocuent)
+                UserController.shared.currentUser = loadedUser
+            }
+        }catch{
+            print("There is no user to load. Creating a new user; \(error.localizedDescription)")
+            let newUser = User(username: "Juicer")
+            let newUserDictionary = UserController.shared.createDictionary(fromUser: newUser)
+            FirebaseService.shared.addDocument(documentName: newUser.uuid, collectionName: "Users", data: newUserDictionary) { (success) in
+                if success{
+                    UserController.shared.currentUser = newUser
+                    print("successfully made the new user document")
+                    //And here you'd segue to the profile view.
+                } else {
+                    print("could not create the new user document.")
+                }
+            }
+        }
+    }
+    
+    func saveUserLocally(userID: String){
+        let userEncoder = JSONEncoder()
+        do{
+            let encodedID = try userEncoder.encode(userID)
+            try encodedID.write(to: getFileURL())
+        }catch{
+            print(error.localizedDescription)
+        }
     }
     
     func deleteUser(targetUser: User){
