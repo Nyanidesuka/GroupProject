@@ -9,8 +9,6 @@
 import UIKit
 
 class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    
     
     //MARK: - Outlets
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -31,17 +29,20 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - Landing Pad / Properties
     var location: Business?
-
+    var reviews: [YelpReview] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-
-        // Do any additional setup after loading the view.
+        updateView()
     }
     
+    
     //MARK: - Actions
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func getDirectionsTapped(_ sender: UIButton) {
     }
     @IBAction func ratingOneTapped(_ sender: UIButton) {
@@ -58,12 +59,16 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: - Table view data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //COMPLETE WITH COUNT OF REVIEWS FOR BUSINESS
-        return 1
+        return reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //COMPLETE W/ REVIEWS FOR BUSINESS
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? LocationReviewTableViewCell else { return UITableViewCell() }
+        let review = reviews[indexPath.row]
+        cell.userLabel.text = review.id
+        cell.reviewLabel.text = review.text
+        
+        return cell
     }
     
     //MARK: - Helper Functions
@@ -100,9 +105,12 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         updatePersonalRatingStars()
         restaurantNameLabel.text = location.name
         secondaryLocationNameLabel.text = location.name
-        tableView.reloadData()
-        
-        
+        YelpReviewController.shared.fetchYelpReviews(forBusinessID: location.businessID) { (reviews) in
+            self.reviews = reviews
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func updateCommunityRatingStars() {
@@ -113,16 +121,5 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         //check if rating exists, if not return.
         //else rating, update stars
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }//END OF LOCATION DETAIL VIEW CONTROLLER
