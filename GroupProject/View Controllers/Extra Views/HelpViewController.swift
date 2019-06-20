@@ -16,6 +16,15 @@ class HelpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func sendErrorTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 
     /*
     // MARK: - Navigation

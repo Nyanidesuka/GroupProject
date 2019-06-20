@@ -848,6 +848,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o05-ND-Pqc">
                                         <rect key="frame" x="349" y="9" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="piH-3A-qje"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -881,6 +884,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-O1-iM2">
                                 <rect key="frame" x="330" y="233" width="49" height="30"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendErrorTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="us5-3a-Min"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-Rn-9mW">
                                 <rect key="frame" x="30" y="323" width="60.5" height="28"/>
@@ -1195,10 +1201,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk7-KR-3Ap">
                                         <rect key="frame" x="17" y="9" width="48" height="30"/>
                                         <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="roM-R5-Z5a"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMD-xA-Dff">
                                         <rect key="frame" x="349" y="9" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="gF6-mv-WdI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1456,10 +1468,10 @@
             </objects>
             <point key="canvasLocation" x="-1362" y="-1349"/>
         </scene>
-        <!--Recipes View Controller-->
+        <!--Recipe View Controller-->
         <scene sceneID="BOg-Gn-oBF">
             <objects>
-                <viewController id="Ail-vB-LnY" customClass="RecipesViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ail-vB-LnY" customClass="RecipeViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gld-o9-NFH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1483,6 +1495,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAh-9b-XIq">
                                         <rect key="frame" x="31" y="9" width="34" height="30"/>
                                         <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="Ail-vB-LnY" eventType="touchUpInside" id="mMf-ks-W0G"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1550,8 +1565,6 @@
         <segue reference="4zN-X2-dEd"/>
         <segue reference="UAt-87-Gof"/>
         <segue reference="n9U-vX-GAj"/>
-
         <segue reference="6f3-rR-33l"/>
-
     </inferredMetricsTieBreakers>
 </document>

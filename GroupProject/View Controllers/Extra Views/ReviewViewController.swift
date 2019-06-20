@@ -25,6 +25,13 @@ class ReviewViewController: UIViewController {
     }
     
     //MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     //MARK: - Helper Functions
     func saveReview() {

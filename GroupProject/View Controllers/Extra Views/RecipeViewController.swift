@@ -28,6 +28,12 @@ class RecipeViewController: UIViewController {
         updateView()
     }
     
+    //MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //MARK: - Helper functions
     func updateView() {
         guard let recipe = recipe else { return }
