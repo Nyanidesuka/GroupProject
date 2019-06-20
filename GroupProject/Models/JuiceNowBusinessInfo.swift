@@ -13,7 +13,7 @@ class JuiceNowBusinessInfo{
     
     let reviews: [JuiceNowBusinessReview]
     //let photos: [UIImage]    ;   later
-    //let juiceReviews: [JuiceReview]    ;   later
+    let juiceReviews: [JuiceReview] = []
     let businessID: String
     
     init(businessID: String, reviews: [JuiceNowBusinessReview]){
