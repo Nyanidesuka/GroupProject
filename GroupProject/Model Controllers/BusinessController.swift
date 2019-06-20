@@ -23,7 +23,7 @@ class BusinessController {
         //build the URL
         guard let baseURL = URL(string: baseBusinessURL) else {return}
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        let categoryQueryItem = URLQueryItem(name: "term", value: "juice")
+        let categoryQueryItem = URLQueryItem(name: "categories", value: "juicebars,all")
         let locationQueryItem = URLQueryItem(name: "location", value: location)
         components?.queryItems = [categoryQueryItem, locationQueryItem]
         guard let finalURL = components?.url else { return }
