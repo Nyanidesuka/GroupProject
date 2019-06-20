@@ -9,14 +9,14 @@
 import UIKit
 
 class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     //MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Properties
     let debouncer = Debouncer(timeInterval: 2.0)
-
+    
     var locations: [Business] = [] {
         didSet{
             DispatchQueue.main.async {
@@ -26,7 +26,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     //Need outlet for map
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self
@@ -60,18 +60,20 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // IIDOO
-        if segue.identifier == "" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+        if segue.identifier == "locationToLocationDetailVC" {
+            if let index = tableView.indexPathForSelectedRow?.row {
                 let destinationVC = segue.destination as? LocationDetailsViewController
-                let location = locations[indexPath.row]
+                //passing location
+                let location = locations[index]
                 destinationVC?.location = location
+                //passing yelp reviews
+                
             }
         }
     }
+}
 
-
-}//END OF Location Search View Controller
+//END OF Location Search View Controller
 
 //MARK: - Search bar functionality
 extension LocationSearchViewController: UISearchBarDelegate {
