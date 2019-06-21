@@ -290,7 +290,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = HaleyJones;
+				ORGANIZATIONNAME = DustinKoch;
 				TargetAttributes = {
 					1732EC5422B455C900E09DD3 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -560,13 +560,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43BBC72U4R;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaleyJones.GroupProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DustinKoch.GroupProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -579,13 +579,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43BBC72U4R;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaleyJones.GroupProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DustinKoch.GroupProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
