@@ -975,6 +975,7 @@
                                         <rect key="frame" x="336" y="9" width="62" height="35"/>
                                         <state key="normal" title="FAQ"/>
                                         <connections>
+                                            <action selector="testWebPageNeedToDeleteThis:" destination="SXr-gA-JEc" eventType="touchUpInside" id="Hah-X0-8Nl"/>
                                             <segue destination="kzV-8y-yQw" kind="show" id="2UG-6A-D60"/>
                                         </connections>
                                     </button>
@@ -1588,7 +1589,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q0T-Zy-AAP"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="Fb1-L6-Xbw"/>
+        <segue reference="2UG-6A-D60"/>
         <segue reference="6f3-rR-33l"/>
     </inferredMetricsTieBreakers>
 </document>

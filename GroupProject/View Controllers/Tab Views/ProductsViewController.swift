@@ -11,10 +11,10 @@ import UIKit
 class ProductsViewController: UIViewController {
     
     //MARK: - Outlets
-    //Manually filling in ?
     
-    //MARK: - Properties
-    //Need to create SoT for suggested products / beginner, intermediate, advanced product lists
+    //MARK: - Properties / Local sources of truth
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +24,13 @@ class ProductsViewController: UIViewController {
     
     //MARK: - Actions
     //Clicking any of the products will send to browser/amazon URL
-    //helper function to assign url based on product?
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - Helper functions
+    func sendToAmazon(product: Product) {
+        guard let url = URL(string: product.url) else { return }
+        UIApplication.shared.open(url)
     }
-    */
 
 }
 
