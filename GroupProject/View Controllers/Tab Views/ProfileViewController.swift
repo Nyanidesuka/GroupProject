@@ -22,6 +22,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
+        
+        profilePhotoImageView.layer.cornerRadius = 50
+        profilePhotoImageView.clipsToBounds = true
+        profilePhotoImageView.layer.borderWidth = 3
+        profilePhotoImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     
