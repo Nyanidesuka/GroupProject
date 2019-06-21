@@ -48,7 +48,6 @@
 		CA7704E822BD4357004FC270 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E722BD4357004FC270 /* ProductController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
 		CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25422BAE78C00F068E1 /* Debouncer.swift */; };
-		CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48A22B812DB00558D20 /* FeedViewController.swift */; };
 		CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48C22B8130200558D20 /* LocationSearchViewController.swift */; };
 		CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48E22B8131100558D20 /* RecipesViewController.swift */; };
 		CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49022B8132A00558D20 /* ProductsViewController.swift */; };
@@ -109,7 +108,6 @@
 		CA7704E722BD4357004FC270 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		CA78F25422BAE78C00F068E1 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
-		CA80A48A22B812DB00558D20 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CA80A48C22B8130200558D20 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		CA80A48E22B8131100558D20 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		CA80A49022B8132A00558D20 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +268,7 @@
 		CA80A49B22B8150800558D20 /* Tab Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA80A48A22B812DB00558D20 /* FeedViewController.swift */,
+				CA80A49322B8143900558D20 /* ProfileViewController.swift */,
 				CA80A48C22B8130200558D20 /* LocationSearchViewController.swift */,
 				CA80A48E22B8131100558D20 /* RecipesViewController.swift */,
 				CA80A49022B8132A00558D20 /* ProductsViewController.swift */,
@@ -283,7 +281,6 @@
 			children = (
 				CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */,
 				1725050D22BC3CCA00C0EB63 /* InitialFetchViewController.swift */,
-				CA80A49322B8143900558D20 /* ProfileViewController.swift */,
 				1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */,
 				CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */,
 				CA80A49722B814CF00558D20 /* RecipeViewController.swift */,
@@ -439,7 +436,6 @@
 				CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */,
 				CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */,
 				1725050822BC298100C0EB63 /* VisitedCollectionViewCell.swift in Sources */,
-				CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */,
 				CA5678C722B9978F0062306C /* RecipeController.swift in Sources */,
 				CA5678C522B9976F0062306C /* Recipe.swift in Sources */,
 				1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */,
@@ -612,7 +608,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39YHWYH93Z;
+
+				DEVELOPMENT_TEAM = 43BBC72U4R;
+
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -631,7 +629,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39YHWYH93Z;
+
+				DEVELOPMENT_TEAM = 43BBC72U4R;
+
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
