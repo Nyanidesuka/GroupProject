@@ -36,6 +36,8 @@
 		CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */; };
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
 		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
+		CA7704E622BD415D004FC270 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E522BD415D004FC270 /* Product.swift */; };
+		CA7704E822BD4357004FC270 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E722BD4357004FC270 /* ProductController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
 		CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25422BAE78C00F068E1 /* Debouncer.swift */; };
 		CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48A22B812DB00558D20 /* FeedViewController.swift */; };
@@ -87,6 +89,8 @@
 		CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		CA7704E522BD415D004FC270 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CA7704E722BD4357004FC270 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		CA78F25422BAE78C00F068E1 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		CA80A48A22B812DB00558D20 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +168,9 @@
 				17EB5F5F22B98B0C00927617 /* JuiceReview.swift */,
 				178E476422B831100097F4DD /* Business.swift */,
 				178E476722B8312A0097F4DD /* YelpReview.swift */,
-				CA5678C422B9976F0062306C /* Recipe.swift */,
 				CA78F25422BAE78C00F068E1 /* Debouncer.swift */,
+				CA5678C422B9976F0062306C /* Recipe.swift */,
+				CA7704E522BD415D004FC270 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				1718269B22BAA82A0019B317 /* UserController.swift */,
 				178E476F22B844140097F4DD /* YelpReviewController.swift */,
 				CA5678C622B9978F0062306C /* RecipeController.swift */,
+				CA7704E722BD4357004FC270 /* ProductController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				178E477022B844140097F4DD /* YelpReviewController.swift in Sources */,
 				17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */,
 				17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */,
+				CA7704E822BD4357004FC270 /* ProductController.swift in Sources */,
 				171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */,
 				1725050E22BC3CCA00C0EB63 /* InitialFetchViewController.swift in Sources */,
 				17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */,
@@ -417,6 +424,7 @@
 				CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */,
 				CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
+				CA7704E622BD415D004FC270 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
