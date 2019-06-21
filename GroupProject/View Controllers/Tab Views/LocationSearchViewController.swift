@@ -55,8 +55,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
         } else {
             print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
-            locationManager?.startUpdatingLocation()
-            print(locationManager?.location)
+            self.locations = BusinessController.shared.businesses
+            print(self.locations[0].name)
+            tableView.reloadData()
         }
     }
     
@@ -111,5 +112,9 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        //this fires when the user authorizes.
     }
 }
