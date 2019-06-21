@@ -47,6 +47,9 @@
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-X1-qrg">
                                 <rect key="frame" x="20" y="119" width="374" height="294"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SlT-UP-t1a" id="LOc-d1-onp"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-ta-bel">
                                 <rect key="frame" x="0.0" y="413" width="414" height="400"/>
@@ -134,6 +137,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="Pkz-ZD-AKy"/>
                     <connections>
+                        <outlet property="mapView" destination="2D1-X1-qrg" id="iBZ-bi-nHI"/>
                         <outlet property="searchBar" destination="VA5-Z7-2tJ" id="J48-Fx-auv"/>
                         <outlet property="tableView" destination="YaL-sd-SUJ" id="yNa-FL-ZOT"/>
                     </connections>
@@ -1589,7 +1593,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q0T-Zy-AAP"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="2UG-6A-D60"/>
+        <segue reference="Fb1-L6-Xbw"/>
         <segue reference="6f3-rR-33l"/>
     </inferredMetricsTieBreakers>
 </document>

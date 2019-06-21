@@ -8,40 +8,46 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     
     //MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
     
     //MARK: - Properties
     let debouncer = Debouncer(timeInterval: 2.0)
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
+    var pins: [MKPointAnnotation] = []
     
     var locations: [Business] = [] {
         didSet{
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.addPinsToMap()
             }
         }
     }
     
-    //Need outlet for map
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        mapView.delegate = self
         debouncer.handler = {
             guard let searchText = self.searchBar.text else { return }
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
                 self.locations = locations
                 BusinessController.shared.businesses = locations
+                //self.sortFurthestBusiness()
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
+                    //this would be a good place to update the map post-search
                 }
             }
         }
@@ -55,9 +61,10 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
         } else {
             print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
+            locationManager?.startUpdatingLocation()
             self.locations = BusinessController.shared.businesses
+            //self.sortFurthestBusiness()
             print(self.locations[0].name)
-            tableView.reloadData()
         }
     }
     
@@ -74,6 +81,67 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         cell.locationInfo.text = buttonText
         return cell
     }
+    
+    //MARK: Map View Delegate
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+        
+        let identifier = "Pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
+    }
+    
+    
+    
+    //MARK: Add pins to the map
+    func addPinsToMap(){
+        for business in self.locations{
+            let newPin = MKPointAnnotation()
+            newPin.title = business.name
+            newPin.coordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
+            mapView.addAnnotation(newPin)
+            self.pins.append(newPin) //collect references ot the pin so we can remove them later
+        }
+        //ad a marker for the user's location
+        
+        //set the radius
+        guard let userLocation = locationManager?.location else {print("location manager has no location.🧚‍♀️🧚‍♀️🧚‍♀️"); return}
+        let furthestBusiness = self.locations[self.locations.count - 1]
+        print(furthestBusiness.name)
+        guard let currentAltitude = currentLocation?.altitude else {return}//this SHOULD be the furthest business given how yelp sorts
+        let furthestBusinessCoordinate = CLLocationCoordinate2D(latitude: furthestBusiness.coordinates.latitude, longitude: furthestBusiness.coordinates.longitude)
+        let furthestBusinessLocation = CLLocation(coordinate: furthestBusinessCoordinate, altitude: currentAltitude, horizontalAccuracy: 1, verticalAccuracy: 1, timestamp: Date())
+        guard let distanceToFurthest = currentLocation?.distance(from: furthestBusinessLocation) else {return}
+        let regionRadius: CLLocationDistance = (distanceToFurthest * 2) + 200.0
+        print(regionRadius)
+        let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(region, animated: true)
+    }
+    
+//    func sortFurthestBusiness(){//this is gonna be incredibly ineffecient
+//        var longestDistance: CLLocationDistance = 0
+//        print("according to that new function the furthest business is:")
+//        print(sortedBusinesses.last?.name)
+//        self.locations = sortedBusinesses
+//    }
+
+    
+    func findDistanceToUser(business: Business) -> CLLocationDistance{
+        let businessCoordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
+        guard let currentAltitude = currentLocation?.altitude, let userLocation = currentLocation else {return 0}
+        let businessLocation = CLLocation(coordinate: businessCoordinate, altitude: currentAltitude, horizontalAccuracy: 1, verticalAccuracy: -1, timestamp: Date())
+        let distanceToUser = businessLocation.distance(from: userLocation)
+        return distanceToUser
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,7 +172,7 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
-        currentLocation = locations[locations.count-1] as CLLocation
+        self.currentLocation = locations[locations.count-1] as CLLocation
         guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
         BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
             self.locations = fetchedBusinesses
@@ -113,6 +181,8 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
             }
         }
     }
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         //this fires when the user authorizes.

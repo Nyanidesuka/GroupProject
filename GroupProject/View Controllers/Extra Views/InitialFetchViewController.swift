@@ -54,6 +54,7 @@ extension InitialFetchViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
         currentLocation = locations[locations.count-1] as CLLocation
+        CoreLocationReferences.currentLocation = currentLocation
         guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
         BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
             BusinessController.shared.businesses = fetchedBusinesses
