@@ -12,4 +12,12 @@ class VisitedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var juiceImageView: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        juiceImageView.layer.cornerRadius = 10
+        juiceImageView.clipsToBounds = true
+        juiceImageView.layer.borderWidth = 3
+        juiceImageView.layer.borderColor = UIColor.white.cgColor
+    }
+    
 }
