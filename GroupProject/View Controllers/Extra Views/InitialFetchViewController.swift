@@ -13,6 +13,9 @@ class InitialFetchViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
@@ -20,17 +23,44 @@ class InitialFetchViewController: UIViewController {
         UserController.shared.loadUser {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-                //these lines will let us segue to the tab bar controller when the fetch is done, and pop the fetch contrller off the stack.
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
-                UIApplication.shared.windows.first?.rootViewController = viewController
-                self.performSegue(withIdentifier: "toTabController", sender: nil)
+                
+                self.locationManager = CLLocationManager()
+                self.locationManager?.delegate = self
+                self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+                let authorizationStatus = CLLocationManager.authorizationStatus()
+                if authorizationStatus == CLAuthorizationStatus.notDetermined{
+                    print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+                    self.segueToTabBarVC()
+                } else {
+                    print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
+                    //start updating location. When it finishes this should trigger the delegate function
+                    self.locationManager?.startUpdatingLocation()
+                }
             }
         }
     }
+    
+    func segueToTabBarVC(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+        UIApplication.shared.windows.first?.rootViewController = viewController
+        self.performSegue(withIdentifier: "toTabController", sender: nil)
+    }
+    
 }
 
 
 extension InitialFetchViewController: CLLocationManagerDelegate{
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
+        currentLocation = locations[locations.count-1] as CLLocation
+        guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
+        BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
+            BusinessController.shared.businesses = fetchedBusinesses
+            DispatchQueue.main.async {
+                print("firing segue🧶")
+                self.segueToTabBarVC()
+            }
+        }
+    }
 }
