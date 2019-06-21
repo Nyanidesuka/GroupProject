@@ -77,7 +77,18 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "fromFeaturedRecipeToDetail" {
+            guard let indexPath = self.featuredCollectionView.indexPathsForSelectedItems?.first else { return }
+            guard let destinationVC = segue.destination as? RecipeViewController else { return }
+            let recipe = featuredRecipes[indexPath.row]
+            destinationVC.recipe = recipe
+        }
+        if segue.identifier == "fromAllRecipesToDetail" {
+            guard let indexPath = self.allRecipesCollectionView.indexPathsForSelectedItems?.first else { return }
+            guard let destinationVC = segue.destination as? RecipeViewController else { return }
+            let recipe = allRecipes[indexPath.row]
+            destinationVC.recipe = recipe
+        }
     }
     
 }//END OF RECIPES VIEW CONTROLLER

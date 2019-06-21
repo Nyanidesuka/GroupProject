@@ -238,7 +238,7 @@
                                         <connections>
                                             <outlet property="recipeImageView" destination="Y76-Ln-wve" id="Utr-nz-Ray"/>
                                             <outlet property="recipeNameLabel" destination="Hz5-5n-3Jw" id="sVh-jq-y1v"/>
-                                            <segue destination="Ail-vB-LnY" kind="show" id="4zN-X2-dEd"/>
+                                            <segue destination="Ail-vB-LnY" kind="show" identifier="fromFeaturedRecipeToDetail" id="4zN-X2-dEd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -290,7 +290,7 @@
                                         <connections>
                                             <outlet property="recipeImageView" destination="kUB-6s-9IC" id="b1F-nq-Lms"/>
                                             <outlet property="recipeNameLabel" destination="cqi-fT-Qb5" id="uhU-08-YhG"/>
-                                            <segue destination="Ail-vB-LnY" kind="show" id="Q0T-Zy-AAP"/>
+                                            <segue destination="Ail-vB-LnY" kind="show" identifier="fromAllRecipesToDetail" id="Q0T-Zy-AAP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1571,7 +1571,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4zN-X2-dEd"/>
+        <segue reference="Q0T-Zy-AAP"/>
         <segue reference="UAt-87-Gof"/>
         <segue reference="n9U-vX-GAj"/>
         <segue reference="6f3-rR-33l"/>
