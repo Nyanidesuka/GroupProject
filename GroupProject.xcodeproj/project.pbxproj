@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		17056A8022BD428500EF5742 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17056A7F22BD428500EF5742 /* CoreLocationManager.swift */; };
+
+		16FDEAEF22BD2F11005B66E0 /* Style Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAEE22BD2F11005B66E0 /* Style Guide.swift */; };
+		16FDEAF122BD30AE005B66E0 /* CustomBarButtonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAF022BD30AE005B66E0 /* CustomBarButtonItems.swift */; };
+		16FDEAF322BD372A005B66E0 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAF222BD3729005B66E0 /* CustomLabel.swift */; };
+		16FDEAF522BD39B6005B66E0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAF422BD39B6005B66E0 /* CustomTextField.swift */; };
+		16FDEAF722BD3E52005B66E0 /* CustomReviewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAF622BD3E52005B66E0 /* CustomReviewLabel.swift */; };
+		16FDEAF922BD3EBF005B66E0 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAF822BD3EBF005B66E0 /* CustomCollectionView.swift */; };
+		16FDEAFB22BD3FA6005B66E0 /* CustomCollectionViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDEAFA22BD3FA6005B66E0 /* CustomCollectionViewView.swift */; };
+
 		1718269822BAA6240019B317 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269722BAA6240019B317 /* User.swift */; };
 		1718269C22BAA82A0019B317 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269B22BAA82A0019B317 /* UserController.swift */; };
 		171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */; };
@@ -37,6 +47,8 @@
 		CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */; };
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
 		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
+		CA7704E622BD415D004FC270 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E522BD415D004FC270 /* Product.swift */; };
+		CA7704E822BD4357004FC270 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E722BD4357004FC270 /* ProductController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
 		CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25422BAE78C00F068E1 /* Debouncer.swift */; };
 		CA80A48B22B812DB00558D20 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48A22B812DB00558D20 /* FeedViewController.swift */; };
@@ -55,7 +67,17 @@
 
 /* Begin PBXFileReference section */
 		1367DF4F86852A5B90BC18DA /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		17056A7F22BD428500EF5742 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
+
+		16FDEAEE22BD2F11005B66E0 /* Style Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style Guide.swift"; sourceTree = "<group>"; };
+		16FDEAF022BD30AE005B66E0 /* CustomBarButtonItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarButtonItems.swift; sourceTree = "<group>"; };
+		16FDEAF222BD3729005B66E0 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		16FDEAF422BD39B6005B66E0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		16FDEAF622BD3E52005B66E0 /* CustomReviewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomReviewLabel.swift; sourceTree = "<group>"; };
+		16FDEAF822BD3EBF005B66E0 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		16FDEAFA22BD3FA6005B66E0 /* CustomCollectionViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewView.swift; sourceTree = "<group>"; };
+
 		1718269722BAA6240019B317 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1718269B22BAA82A0019B317 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		1718269F22BACCD30019B317 /* JuiceNowBusinessInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessInfoController.swift; sourceTree = "<group>"; };
@@ -89,6 +111,8 @@
 		CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		CA7704E522BD415D004FC270 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CA7704E722BD4357004FC270 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		CA78F25422BAE78C00F068E1 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		CA80A48A22B812DB00558D20 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +149,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		16FDEAED22BD2EFE005B66E0 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				16FDEAEE22BD2F11005B66E0 /* Style Guide.swift */,
+				16FDEAF022BD30AE005B66E0 /* CustomBarButtonItems.swift */,
+				16FDEAF222BD3729005B66E0 /* CustomLabel.swift */,
+				16FDEAF422BD39B6005B66E0 /* CustomTextField.swift */,
+				16FDEAF622BD3E52005B66E0 /* CustomReviewLabel.swift */,
+				16FDEAF822BD3EBF005B66E0 /* CustomCollectionView.swift */,
+				16FDEAFA22BD3FA6005B66E0 /* CustomCollectionViewView.swift */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
 		1732EC4C22B455C900E09DD3 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +184,7 @@
 		1732EC5722B455C900E09DD3 /* GroupProject */ = {
 			isa = PBXGroup;
 			children = (
+				16FDEAED22BD2EFE005B66E0 /* Custom UI */,
 				CA78F25122BAAA2A00F068E1 /* Views */,
 				178E476B22B832A40097F4DD /* Network Services */,
 				178E476622B8311C0097F4DD /* Models */,
@@ -166,9 +205,13 @@
 				17EB5F5F22B98B0C00927617 /* JuiceReview.swift */,
 				178E476422B831100097F4DD /* Business.swift */,
 				178E476722B8312A0097F4DD /* YelpReview.swift */,
-				CA5678C422B9976F0062306C /* Recipe.swift */,
 				CA78F25422BAE78C00F068E1 /* Debouncer.swift */,
+
 				17056A7F22BD428500EF5742 /* CoreLocationManager.swift */,
+
+				CA5678C422B9976F0062306C /* Recipe.swift */,
+				CA7704E522BD415D004FC270 /* Product.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +236,7 @@
 				1718269B22BAA82A0019B317 /* UserController.swift */,
 				178E476F22B844140097F4DD /* YelpReviewController.swift */,
 				CA5678C622B9978F0062306C /* RecipeController.swift */,
+				CA7704E722BD4357004FC270 /* ProductController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -391,9 +435,15 @@
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
 				1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
+				16FDEAF722BD3E52005B66E0 /* CustomReviewLabel.swift in Sources */,
 				178E476D22B844020097F4DD /* BusinessController.swift in Sources */,
 				CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */,
+				16FDEAEF22BD2F11005B66E0 /* Style Guide.swift in Sources */,
+				16FDEAF122BD30AE005B66E0 /* CustomBarButtonItems.swift in Sources */,
 				178E476A22B832A00097F4DD /* YelpService.swift in Sources */,
+				16FDEAF322BD372A005B66E0 /* CustomLabel.swift in Sources */,
+				16FDEAF522BD39B6005B66E0 /* CustomTextField.swift in Sources */,
+				16FDEAFB22BD3FA6005B66E0 /* CustomCollectionViewView.swift in Sources */,
 				1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */,
 				CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */,
 				CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */,
@@ -406,6 +456,7 @@
 				178E477022B844140097F4DD /* YelpReviewController.swift in Sources */,
 				17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */,
 				17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */,
+				CA7704E822BD4357004FC270 /* ProductController.swift in Sources */,
 				171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */,
 				1725050E22BC3CCA00C0EB63 /* InitialFetchViewController.swift in Sources */,
 				17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */,
@@ -421,6 +472,8 @@
 				CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */,
 				CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
+				CA7704E622BD415D004FC270 /* Product.swift in Sources */,
+				16FDEAF922BD3EBF005B66E0 /* CustomCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,13 +621,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+
+				DEVELOPMENT_TEAM = 43BBC72U4R;
+
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DustinKoch.GroupProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HaleyJones.GroupProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,13 +642,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+
+				DEVELOPMENT_TEAM = 43BBC72U4R;
+
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DustinKoch.GroupProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HaleyJones.GroupProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
