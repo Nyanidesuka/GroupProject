@@ -17,25 +17,27 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     //MARK: - Properties
     let allRecipes: [Recipe] = RecipeController.sharedInstance.recipes
-    var featuredRecipes: [Recipe] {
-        let shuffled = allRecipes.shuffled()
-        let tags = shuffled.prefix(3)
-        return Array(tags)
-    }
+    var featuredRecipes: [Recipe] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupCollectionViews()
+        setupFeaturedRecipes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.featuredCollectionView.reloadData()
+        self.allRecipesCollectionView.reloadData()
     }
     
     //MARK: - Collection View data
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case featuredCollectionView:
-            return allRecipes.count
-        case allRecipesCollectionView:
             return featuredRecipes.count
+        case allRecipesCollectionView:
+            return allRecipes.count
         default:
             return 0
         }
@@ -45,26 +47,48 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch collectionView {
         case featuredCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredRecipeCell", for: indexPath) as? FeaturedRecipeCollectionViewCell else { return UICollectionViewCell() }
+            cell.recipeNameLabel.text = featuredRecipes[indexPath.row].name
+            cell.recipeImageView.image = featuredRecipes[indexPath.row].image
             return cell
         case allRecipesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allRecipesCell", for: indexPath) as? AllRecipesCollectionViewCell else { return UICollectionViewCell () }
-            print("")
+            cell.recipeNameLabel.text = allRecipes[indexPath.row].name
+            cell.recipeImageView.image = allRecipes[indexPath.row].image
             return cell
         default:
             return UICollectionViewCell()
         }
     }
     
+    //MARK: - Helper functions
+    func setupCollectionViews() {
+        self.allRecipesCollectionView.delegate = self
+        self.allRecipesCollectionView.dataSource = self
+        self.featuredCollectionView.delegate = self
+        self.featuredCollectionView.dataSource = self
+    }
+    
+    func setupFeaturedRecipes() {
+        let shuffled = allRecipes.shuffled()
+        let tags = shuffled.prefix(3)
+        featuredRecipes = Array(tags)
+    }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "fromFeaturedRecipeToDetail" {
+            guard let indexPath = self.featuredCollectionView.indexPathsForSelectedItems?.first else { return }
+            guard let destinationVC = segue.destination as? RecipeViewController else { return }
+            let recipe = featuredRecipes[indexPath.row]
+            destinationVC.recipe = recipe
+        }
+        if segue.identifier == "fromAllRecipesToDetail" {
+            guard let indexPath = self.allRecipesCollectionView.indexPathsForSelectedItems?.first else { return }
+            guard let destinationVC = segue.destination as? RecipeViewController else { return }
+            let recipe = allRecipes[indexPath.row]
+            destinationVC.recipe = recipe
+        }
     }
-    */
-
-}
+    
+}//END OF RECIPES VIEW CONTROLLER
