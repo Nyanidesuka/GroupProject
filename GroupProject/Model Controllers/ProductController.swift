@@ -44,7 +44,7 @@ extension ProductController {
         let product17 = Product(image: UIImage(named: "product17") ?? UIImage(named: "default")!, name: "Breville's Juice Fountain Elite", rating: 4, reviews: 8, description: "The titanium reinforced disc and Italian-made micro mesh filter basket are made out of stainless steel and together are designed for optimum juice and nutrient extraction.", level: 2, url: "https://www.amazon.com/dp/B07N1XZYJX/")
         let product18 = Product(image: UIImage(named: "product18") ?? UIImage(named: "default")!, name: "Amzchef Slow Masticating Juicer", rating: 4.2, reviews: 119, description: "Juicer Equipped with intelligent protection chips, making it stop automatically for every 20 minutes' operation. And in such case, rest in for 20-30 minutes before restarting it, so as to cool the motor down and prolong product servicelife.", level: 2, url: "https://www.amazon.com/dp/B07QS6DDFC/")
         
-        let productArray = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13]
+        let productArray = [product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13, product14, product15, product16, product17, product18]
         return productArray
     }
     
