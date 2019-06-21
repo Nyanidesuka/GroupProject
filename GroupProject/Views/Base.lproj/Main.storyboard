@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1122,10 +1123,10 @@
             </objects>
             <point key="canvasLocation" x="-2688" y="1620"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial Fetch View Controller-->
         <scene sceneID="VCd-C8-V6w">
             <objects>
-                <viewController id="b6E-ZG-EKc" sceneMemberID="viewController">
+                <viewController id="b6E-ZG-EKc" customClass="InitialFetchViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4A-wc-Gu1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1136,19 +1137,24 @@
                                     <constraint firstAttribute="width" secondItem="PeW-qA-jDR" secondAttribute="height" multiplier="1:1" id="Yc8-3B-4BZ"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-uy-aPc">
-                                <rect key="frame" x="197" y="572" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-uy-aPc">
+                                <rect key="frame" x="188.5" y="564" width="37" height="37"/>
+                                <color key="color" name="DarkBlueAccent"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="top" secondItem="PeW-qA-jDR" secondAttribute="bottom" id="A6E-g3-KDL"/>
                             <constraint firstItem="PeW-qA-jDR" firstAttribute="top" secondItem="oS8-xP-PWg" secondAttribute="top" constant="280" id="CGm-SR-3EU"/>
                             <constraint firstItem="PeW-qA-jDR" firstAttribute="leading" secondItem="oS8-xP-PWg" secondAttribute="leading" constant="87" id="Fgm-59-qbS"/>
                             <constraint firstItem="oS8-xP-PWg" firstAttribute="trailing" secondItem="PeW-qA-jDR" secondAttribute="trailing" constant="87" id="b8x-ad-rIn"/>
+                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="centerX" secondItem="PeW-qA-jDR" secondAttribute="centerX" id="ij2-Bk-ZV2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oS8-xP-PWg"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Rb8-uy-aPc" id="FFe-Kh-WhX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftd-vM-vFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1560,6 +1566,9 @@
         <image name="DefaultProfileImage" width="600" height="600"/>
         <image name="ProfileImage" width="350" height="350"/>
         <image name="UnlikedStar" width="350" height="350"/>
+        <namedColor name="DarkBlueAccent">
+            <color red="0.14117647058823529" green="0.50196078431372548" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4zN-X2-dEd"/>
