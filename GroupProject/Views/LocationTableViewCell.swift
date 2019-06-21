@@ -32,3 +32,4 @@ class LocationTableViewCell: UITableViewCell {
     
 
 }//END OF TABLE VIEW CELL CLASS
+

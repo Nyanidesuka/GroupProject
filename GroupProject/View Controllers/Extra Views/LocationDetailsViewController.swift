@@ -158,3 +158,4 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
 }//END OF LOCATION DETAIL VIEW CONTROLLER
+

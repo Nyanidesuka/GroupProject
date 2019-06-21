@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import CoreLocation
 
 class BusinessController {
     
     //MARK: - Singleton
     static let shared = BusinessController()
     private init() {}
+    
+    //source of Truth
+    var fetchedBusinesses: [Business] = []
     
     //MARK: - Properties/Source of truth for localized businesses
     var businesses: [Business] = []
@@ -29,6 +33,32 @@ class BusinessController {
         guard let finalURL = components?.url else { return }
         print(finalURL)
         //pass the url to the yelp service, so it'll run a thing.
+        YelpService.shared.fetch(url: finalURL) { (data) in
+            guard let unwrappedData = data else {completion([]); return}
+            let businessDecoder = JSONDecoder()
+            do{
+                let businessesTLD = try businessDecoder.decode(BusinessTLD.self, from: unwrappedData)
+                print(businessesTLD.businesses.count)
+                print(businessesTLD.businesses[0].name)
+                completion(businessesTLD.businesses)
+            }catch{
+                print("there was an error decoding the data.; \(error)")
+                print(unwrappedData)
+                completion([])
+                return
+            }
+        }
+    }
+    //this fetch works off latitude and longitude instead of a search term. requires corelocation
+    func fetchBusinessWithCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping ([Business]) -> Void){
+        guard let baseURL = URL(string: baseBusinessURL) else {completion([]); return}
+        let categoryQuery = URLQueryItem(name: "categories", value: "juicebars,all")
+        let latitudeQuery = URLQueryItem(name: "latitude", value: "\(latitude)")
+        let longitudeQuery = URLQueryItem(name: "longitude", value: "\(longitude)")
+        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = [categoryQuery, latitudeQuery, longitudeQuery]
+        guard let finalURL = components?.url else {completion([]); return}
+        print(finalURL)
         YelpService.shared.fetch(url: finalURL) { (data) in
             guard let unwrappedData = data else {completion([]); return}
             let businessDecoder = JSONDecoder()
@@ -74,3 +104,4 @@ class BusinessController {
         business.juiceNowInfoReference = businessInfo
     }
 }
+
