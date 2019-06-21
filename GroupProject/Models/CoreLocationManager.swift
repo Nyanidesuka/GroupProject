@@ -9,4 +9,8 @@
 import Foundation
 import CoreLocation
 
-//6
+struct CoreLocationReferences{
+    
+    static var currentLocation: CLLocation?
+    
+}
