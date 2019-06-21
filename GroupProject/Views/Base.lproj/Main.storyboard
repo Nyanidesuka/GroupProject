@@ -1290,6 +1290,9 @@
                                             <constraint firstAttribute="width" secondItem="xce-fM-EoP" secondAttribute="height" multiplier="1:1" id="STr-n4-xEm"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="oneStarTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="gWn-BN-8KF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUD-1J-5g7">
                                         <rect key="frame" x="43" y="0.0" width="52" height="41"/>
@@ -1297,6 +1300,9 @@
                                             <constraint firstAttribute="width" secondItem="KUD-1J-5g7" secondAttribute="height" multiplier="52:41" id="9xg-iH-AcB"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="twoStarTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="Te2-ek-CuG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSX-he-xZZ">
                                         <rect key="frame" x="97" y="0.0" width="52" height="41"/>
@@ -1304,6 +1310,9 @@
                                             <constraint firstAttribute="width" secondItem="rSX-he-xZZ" secondAttribute="height" multiplier="52:41" id="bvq-C8-Plx"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="threeStarTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="QPf-xl-4sI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hR-dA-sBS">
                                         <rect key="frame" x="151" y="0.0" width="52" height="41"/>
@@ -1311,6 +1320,9 @@
                                             <constraint firstAttribute="width" secondItem="9hR-dA-sBS" secondAttribute="height" multiplier="52:41" id="PNV-ee-4bP"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="fourStarTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="cBD-ID-ia4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AR-kh-sgY">
                                         <rect key="frame" x="205" y="0.0" width="57" height="41"/>
@@ -1318,6 +1330,9 @@
                                             <constraint firstAttribute="width" secondItem="1AR-kh-sgY" secondAttribute="height" multiplier="57:41" id="M5q-qx-4J1"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="UnlikedStar"/>
+                                        <connections>
+                                            <action selector="fiveStarTapped:" destination="EmF-lO-NRN" eventType="touchUpInside" id="xho-9V-bKU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -1344,18 +1359,33 @@
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="D5T-ra-S3e">
                                         <rect key="frame" x="6" y="32" width="338" height="31"/>
+                                        <connections>
+                                            <action selector="sliderOneChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="mgX-hS-KeZ"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-Na-cdg">
                                         <rect key="frame" x="6" y="94" width="338" height="31"/>
+                                        <connections>
+                                            <action selector="sliderTwoChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="AIT-yU-LGC"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-pM-Wrb">
                                         <rect key="frame" x="6" y="156" width="338" height="31"/>
+                                        <connections>
+                                            <action selector="sliderThreeChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="SkJ-3x-Foo"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="w2s-nH-0fK">
                                         <rect key="frame" x="6" y="218" width="338" height="31"/>
+                                        <connections>
+                                            <action selector="sliderFourChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="I4M-kg-yWH"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="fTY-gD-CYp">
                                         <rect key="frame" x="6" y="280" width="338" height="31"/>
+                                        <connections>
+                                            <action selector="sliderFiveChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="HDE-Hr-AOV"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UB2-Hn-Y3i">
                                         <rect key="frame" x="8" y="8" width="310" height="20.5"/>
@@ -1482,6 +1512,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wwm-ln-MI2"/>
                     </view>
+                    <connections>
+                        <outlet property="drinkNameTextField" destination="ufx-HL-lH8" id="HQE-8H-IYz"/>
+                        <outlet property="drinkPriceTextField" destination="Ryl-M2-MsY" id="8xb-Dr-y9D"/>
+                        <outlet property="fiveStarButton" destination="1AR-kh-sgY" id="ifi-FO-Rse"/>
+                        <outlet property="flavorFiveLabel" destination="MF3-cy-F8N" id="wIz-od-rNl"/>
+                        <outlet property="flavorFiveSlider" destination="fTY-gD-CYp" id="AlI-RJ-gEg"/>
+                        <outlet property="flavorFourLabel" destination="ScE-hx-qBW" id="Nl8-CA-EHf"/>
+                        <outlet property="flavorFourSlider" destination="w2s-nH-0fK" id="XrD-oX-98X"/>
+                        <outlet property="flavorOneLabel" destination="UB2-Hn-Y3i" id="e2c-YQ-ZKr"/>
+                        <outlet property="flavorOneSlider" destination="D5T-ra-S3e" id="sYV-L0-23G"/>
+                        <outlet property="flavorThreeLabel" destination="2RQ-D0-jE4" id="Yc5-e3-A5Y"/>
+                        <outlet property="flavorThreeSlider" destination="Zwy-pM-Wrb" id="YGc-Gk-pPr"/>
+                        <outlet property="flavorTwoLabel" destination="nSj-0a-Iyg" id="bGu-KS-mq6"/>
+                        <outlet property="flavorTwoSlider" destination="a4Y-Na-cdg" id="9lD-uD-DeX"/>
+                        <outlet property="fourStarButton" destination="9hR-dA-sBS" id="SIB-Pk-RIn"/>
+                        <outlet property="locationTextField" destination="0Ln-zF-7tw" id="qZr-wE-nNB"/>
+                        <outlet property="notesTextView" destination="pcO-WH-fA4" id="lFA-H6-pBW"/>
+                        <outlet property="oneStarButton" destination="xce-fM-EoP" id="dXm-Xm-B2c"/>
+                        <outlet property="threeStarButton" destination="rSX-he-xZZ" id="E7F-lS-SeC"/>
+                        <outlet property="twoStarButton" destination="KUD-1J-5g7" id="PY2-UT-Q53"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKF-tV-yD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1576,7 +1627,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultProfileImage" width="600" height="600"/>
+        <image name="DefaultProfileImage" width="350" height="246"/>
         <image name="ProfileImage" width="350" height="350"/>
         <image name="UnlikedStar" width="350" height="350"/>
         <namedColor name="DarkBlueAccent">
@@ -1589,7 +1640,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q0T-Zy-AAP"/>
         <segue reference="UAt-87-Gof"/>
-        <segue reference="Rus-fw-Sjh"/>
+        <segue reference="2UG-6A-D60"/>
         <segue reference="acJ-pl-VUY"/>
     </inferredMetricsTieBreakers>
 </document>

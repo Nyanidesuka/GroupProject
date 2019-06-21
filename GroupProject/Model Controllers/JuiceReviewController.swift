@@ -9,8 +9,18 @@
 import Foundation
 
 class JuiceReviewController{
+    //MARK: - Singleton
     static let shared = JuiceReviewController()
+    private init() {}
     
+    //MARK: - Properties
+    let flavorOne = "Protein"
+    let flavorTwo = "Fruit"
+    let flavorThree = "Vegetables"
+    let flavorFour = "Creaminess"
+    let flavorFive = "Flavor/Add-Ins"
+    
+    //MARK: - CRUD Functions
     func createDictionary(fromJuiceReview reviews: [JuiceReview]) -> [[String : Any]]{
         var returnArray: [[String : Any]] = []
         for review in reviews{
