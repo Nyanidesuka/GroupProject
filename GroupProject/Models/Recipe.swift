@@ -20,3 +20,4 @@ class Recipe {
         self.ingredients = ingredients
     }
 }//END OF RECIPE CLASS
+

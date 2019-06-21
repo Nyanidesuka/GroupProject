@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
-        print(UserController.shared.currentUser?.bio)
     }
     
     

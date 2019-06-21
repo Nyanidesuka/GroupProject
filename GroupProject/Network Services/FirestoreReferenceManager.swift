@@ -16,3 +16,4 @@ struct FirestoreReferenceManager {
     static let database = Firestore.firestore()
     static let root = database.collection(environment).document(environment)
 }
+

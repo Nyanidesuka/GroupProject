@@ -26,3 +26,4 @@ struct YelpReviewTLD: Decodable{
 struct YelpUser: Decodable{
     let name: String
 }
+

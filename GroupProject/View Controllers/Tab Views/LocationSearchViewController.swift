@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: - Properties
     let debouncer = Debouncer(timeInterval: 2.0)
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocation?
     
     var locations: [Business] = [] {
         didSet{
@@ -41,6 +44,19 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                     self.view.endEditing(true)
                 }
             }
+        }
+        //core location request
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        if authorizationStatus == CLAuthorizationStatus.notDetermined{
+            locationManager?.requestWhenInUseAuthorization()
+            print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+        } else {
+            print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
+            locationManager?.startUpdatingLocation()
+            print(locationManager?.location)
         }
     }
     
@@ -81,4 +97,19 @@ extension LocationSearchViewController: UISearchBarDelegate {
         debouncer.renewInterval()
     }
     
+}
+
+extension LocationSearchViewController: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
+        currentLocation = locations[locations.count-1] as CLLocation
+        guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
+        BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
+            self.locations = fetchedBusinesses
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }

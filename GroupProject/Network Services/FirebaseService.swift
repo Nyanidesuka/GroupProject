@@ -46,7 +46,6 @@ class FirebaseService{
             }
             print("got documents☑️☑️☑️☑️☑️☑️☑️☑️☑️")
             
-            print(documents?.documents[0].data())
             
             completion()
             return
@@ -60,6 +59,4 @@ class FirebaseService{
     func deleteDocument(documentName document: String, collectionName collection: String, completion: @escaping (Bool) -> Void){
         
     }
-    
-    
 }
