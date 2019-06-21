@@ -17,13 +17,15 @@ class Product {
     let description: String
     //level refers to beginner(0), intermediate(1), or advanced(2)
     let level: Int
+    let url: String
     
-    init(image: UIImage, name: String, rating: Double, reviews: Int, description: String, level: Int) {
+    init(image: UIImage, name: String, rating: Double, reviews: Int, description: String, level: Int, url: String) {
         self.image = image
         self.name = name
         self.rating = rating
         self.reviews = reviews
         self.description = description
         self.level = level
+        self.url = url
     }
 }//END OF PRODUCT MODEL
