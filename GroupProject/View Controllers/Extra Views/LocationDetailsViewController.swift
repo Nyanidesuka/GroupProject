@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -46,6 +47,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         dismiss(animated: true, completion: nil)
     }
     @IBAction func getDirectionsTapped(_ sender: UIButton) {
+        guard let location = location else { return }
+        goToMapForDirections(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude)
     }
     @IBAction func ratingOneTapped(_ sender: UIButton) {
     }
@@ -132,7 +135,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func updateSecondaryLabelFor(business: Business) {
-        var address = business.location.addressOne
+        let address = business.location.addressOne
         let city = business.location.city
         let state = business.location.state
         let zip = business.location.zipCode
@@ -159,3 +162,21 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
 }//END OF LOCATION DETAIL VIEW CONTROLLER
 
+extension LocationDetailsViewController {
+    func goToMapForDirections(latitude: Double, longitude: Double) {
+        let lat: CLLocationDegrees = latitude
+        let long: CLLocationDegrees = longitude
+        
+        let regionDistance: CLLocationDistance = 10000
+        let coordiates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let regionSpan = MKCoordinateRegion(center: coordiates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordiates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = location?.name
+        mapItem.openInMaps(launchOptions: options)
+    }
+}

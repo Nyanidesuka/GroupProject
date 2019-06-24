@@ -61,7 +61,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
         case reviewCollectionView:
-            return (user?.businessReviews.count)!
+            return 5
         case visitedCollectionView:
             return 5
         default:
@@ -83,8 +83,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == reviewCollectionView{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? ReviewCollectionViewCell else {return UICollectionViewCell()}
-            guard let review = user?.businessReviews[indexPath.row] else { return UICollectionViewCell() }
-            cell.drinkNameLabel.text = review.text
+//            guard let review = user?.businessReviews[indexPath.row] else { return UICollectionViewCell() }
+            cell.drinkNameLabel.text = "review.text"
             cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
             return cell
         } else {
