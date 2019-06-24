@@ -41,6 +41,7 @@ class InitialFetchViewController: UIViewController {
     }
     
     func segueToTabBarVC(){
+        print("henlo, we're firing the segue to the tab bar controller.")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
         UIApplication.shared.windows.first?.rootViewController = viewController
@@ -63,5 +64,10 @@ extension InitialFetchViewController: CLLocationManagerDelegate{
                 self.segueToTabBarVC()
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("in the delegate didFail function. Firing segue.")
+        self.segueToTabBarVC()
     }
 }

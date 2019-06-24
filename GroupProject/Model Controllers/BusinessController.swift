@@ -38,8 +38,6 @@ class BusinessController {
             let businessDecoder = JSONDecoder()
             do{
                 let businessesTLD = try businessDecoder.decode(BusinessTLD.self, from: unwrappedData)
-                print(businessesTLD.businesses.count)
-                print(businessesTLD.businesses[0].name)
                 completion(businessesTLD.businesses)
             }catch{
                 print("there was an error decoding the data.; \(error)")
