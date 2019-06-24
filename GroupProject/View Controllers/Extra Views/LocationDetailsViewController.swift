@@ -27,12 +27,14 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var personalStarFourButton: UIButton!
     @IBOutlet weak var personalStarFiveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var locationMapView: MKMapView!
     
     
     //MARK: - Landing Pad / Properties
     var location: Business?
     var reviews: [YelpReview] = []
     var baseImage: UIImage?
+    var pin: MKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +65,13 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - Table view data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //COMPLETE WITH COUNT OF REVIEWS FOR BUSINESS
         return reviews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? LocationReviewTableViewCell else { return UITableViewCell() }
         let review = reviews[indexPath.row]
-        cell.userLabel.text = review.id
+        cell.userLabel.text = review.user.name
         cell.reviewLabel.text = review.text
         
         return cell
@@ -106,8 +107,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func updateView() {
         guard let location = location else { return }
-        
-        updateCommunityRatingStars()
+        addPinToMap(location: location)
+        updateCommunityRatingStars(rating: location.rating)
         updatePersonalRatingStars()
         restaurantNameLabel.text = location.name
         secondaryLocationNameLabel.text = location.name
@@ -120,6 +121,32 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         updateLocationImageFor(business: location)
         updateSecondaryLabelFor(business: location)
     }
+    
+    func addPinToMap(location: Business) {
+        let newPin = MKPointAnnotation()
+        newPin.title = location.name
+        newPin.coordinate = CLLocationCoordinate2D(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude)
+        locationMapView.addAnnotation(newPin)
+        locationMapView.showAnnotations([newPin], animated: true)
+        
+    }
+    
+//    func addPinToMap(){
+//        mapView.removeAnnotations(pins)
+//        self.pins = []
+//        for business in self.locations{
+//            let newPin = MKPointAnnotation()
+//            newPin.title = business.name
+//            newPin.coordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
+//            mapView.addAnnotation(newPin)
+//            self.pins.append(newPin) //collect references ot the pin so we can remove them later
+//        }
+//        print("location manager has no location.🧚‍♀️🧚‍♀️🧚‍♀️")
+//
+//        //set the radius
+//        mapView.showAnnotations(pins, animated: true)
+//    }
+    
     
     func updateLocationImageFor(business: Business) {
         guard let url = URL(string: business.baseImage) else { return }
@@ -151,8 +178,80 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-    func updateCommunityRatingStars() {
-        //change start buttons depending on location average rating
+    func updateCommunityRatingStars(rating: Double) {
+        if rating == 0 {
+            return
+        } else if rating < 1 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+                return
+            }
+        } else if rating < 1.5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                return
+            }
+        } else if rating < 2 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+                return
+            }
+        } else if rating < 2.5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                return
+            }
+        } else if rating < 3 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+                return
+            }
+        } else if rating < 3.5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                return
+            }
+        } else if rating < 4 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+                return
+            }
+        } else if rating < 4.5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                return
+            }
+        } else if rating < 5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+                return
+            }
+        } else if rating == 5 {
+            DispatchQueue.main.async {
+                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                return
+            }
+        }
     }
     
     func updatePersonalRatingStars() {
