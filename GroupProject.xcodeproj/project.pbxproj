@@ -49,6 +49,7 @@
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
 		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
 		CA611AC522C13BE900122569 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA611AC422C13BE900122569 /* ImagePicker.swift */; };
+		CA611AC722C1852400122569 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA611AC622C1852400122569 /* SliderStepper.swift */; };
 		CA7704E622BD415D004FC270 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E522BD415D004FC270 /* Product.swift */; };
 		CA7704E822BD4357004FC270 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E722BD4357004FC270 /* ProductController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
@@ -114,6 +115,7 @@
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
 		CA611AC422C13BE900122569 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CA611AC622C1852400122569 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
 		CA7704E522BD415D004FC270 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CA7704E722BD4357004FC270 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				16FDEAF622BD3E52005B66E0 /* CustomReviewLabel.swift */,
 				16FDEAF822BD3EBF005B66E0 /* CustomCollectionView.swift */,
 				16FDEAFA22BD3FA6005B66E0 /* CustomCollectionViewView.swift */,
+				CA611AC622C1852400122569 /* SliderStepper.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				CA7704E822BD4357004FC270 /* ProductController.swift in Sources */,
 				171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */,
 				1725050E22BC3CCA00C0EB63 /* InitialFetchViewController.swift in Sources */,
+				CA611AC722C1852400122569 /* SliderStepper.swift in Sources */,
 				17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */,
 				CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */,
 				CA80A49422B8143900558D20 /* ProfileViewController.swift in Sources */,
@@ -628,7 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39YHWYH93Z;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -647,7 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 39YHWYH93Z;
+				DEVELOPMENT_TEAM = D445CT62ZR;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

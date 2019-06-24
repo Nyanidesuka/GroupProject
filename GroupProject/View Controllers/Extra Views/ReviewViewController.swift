@@ -31,6 +31,9 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFourSlider: UISlider!
     @IBOutlet weak var flavorFiveSlider: UISlider!
     
+    //MARK: - Properties
+    var review: JuiceReview?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,8 @@ class ReviewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-
+        //if review is nil, create; else create review
+        
     }
     @IBAction func oneStarTapped(_ sender: UIButton) {
     }
@@ -58,14 +62,24 @@ class ReviewViewController: UIViewController {
     @IBAction func fiveStarTapped(_ sender: UIButton) {
     }
     @IBAction func sliderOneChanged(_ sender: UISlider) {
+        let newValue = Int(sender.value / 20) * 20
+        sender.setValue(Float(newValue), animated: false)
     }
     @IBAction func sliderTwoChanged(_ sender: UISlider) {
+        let newValue = Int(sender.value / 20) * 20
+        sender.setValue(Float(newValue), animated: false)
     }
     @IBAction func sliderThreeChanged(_ sender: UISlider) {
+        let newValue = Int(sender.value / 20) * 20
+        sender.setValue(Float(newValue), animated: false)
     }
     @IBAction func sliderFourChanged(_ sender: UISlider) {
+        let newValue = Int(sender.value / 20) * 20
+        sender.setValue(Float(newValue), animated: false)
     }
     @IBAction func sliderFiveChanged(_ sender: UISlider) {
+        let newValue = Int(sender.value / 20) * 20
+        sender.setValue(Float(newValue), animated: false)
     }
     
     
@@ -74,6 +88,7 @@ class ReviewViewController: UIViewController {
     func saveReview() {
         //need a create review func in Juice Review Controller to build this
     }
+    
     
     func updateLabels() {
         flavorOneLabel.text = JuiceReviewController.shared.flavorOne

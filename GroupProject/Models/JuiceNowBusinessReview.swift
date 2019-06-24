@@ -12,7 +12,8 @@ class JuiceNowBusinessReview: Codable{
     
     let username: String
     let text: String
-    let rating: Int
+    var rating: Int
+    //DO WE NEED A BUSINESS ID OR OTHER IDENTIFIER HERE?
     
     init(username: String, text: String, rating: Int){
         self.username = username
