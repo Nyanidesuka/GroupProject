@@ -47,17 +47,14 @@
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-X1-qrg">
                                 <rect key="frame" x="20" y="119" width="374" height="294"/>
-
-                                <connections>
-                                    <outlet property="delegate" destination="SlT-UP-t1a" id="LOc-d1-onp"/>
-                                </connections>
-
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-
+                                <connections>
+                                    <outlet property="delegate" destination="SlT-UP-t1a" id="LOc-d1-onp"/>
+                                </connections>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-ta-bel">
                                 <rect key="frame" x="0.0" y="413" width="414" height="400"/>
@@ -1667,8 +1664,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Q0T-Zy-AAP"/>
         <segue reference="UAt-87-Gof"/>
-
-        <segue reference="2UG-6A-D60"/>
+        <segue reference="Rus-fw-Sjh"/>
         <segue reference="acJ-pl-VUY"/>
     </inferredMetricsTieBreakers>
 </document>
