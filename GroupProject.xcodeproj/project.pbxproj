@@ -44,6 +44,7 @@
 		CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */; };
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
 		CA5678C722B9978F0062306C /* RecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C622B9978F0062306C /* RecipeController.swift */; };
+		CA611AC522C13BE900122569 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA611AC422C13BE900122569 /* ImagePicker.swift */; };
 		CA7704E622BD415D004FC270 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E522BD415D004FC270 /* Product.swift */; };
 		CA7704E822BD4357004FC270 /* ProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7704E722BD4357004FC270 /* ProductController.swift */; };
 		CA78F25322BAAA4C00F068E1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */; };
@@ -104,6 +105,7 @@
 		CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CA5678C622B9978F0062306C /* RecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeController.swift; sourceTree = "<group>"; };
+		CA611AC422C13BE900122569 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CA7704E522BD415D004FC270 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		CA7704E722BD4357004FC270 /* ProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductController.swift; sourceTree = "<group>"; };
 		CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				178E476F22B844140097F4DD /* YelpReviewController.swift */,
 				CA5678C622B9978F0062306C /* RecipeController.swift */,
 				CA7704E722BD4357004FC270 /* ProductController.swift */,
+				CA611AC422C13BE900122569 /* ImagePicker.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */,
 				CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */,
 				CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */,
+				CA611AC522C13BE900122569 /* ImagePicker.swift in Sources */,
 				CA7704E622BD415D004FC270 /* Product.swift in Sources */,
 				16FDEAF922BD3EBF005B66E0 /* CustomCollectionView.swift in Sources */,
 			);

@@ -17,9 +17,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var visitedCollectionView: UICollectionView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     
+    //MARK: - Properties
+    var imagePicker: ImagePicker!
+    var user: User?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
         
@@ -44,11 +49,19 @@ class ProfileViewController: UIViewController {
 
 }//END OF PROFILE VIEW CONTROLLER
 
+extension ProfileViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        DispatchQueue.main.async {
+            self.profilePhotoImageView.image = image
+        }
+    }
+}
+
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
         case reviewCollectionView:
-            return 5
+            return (user?.businessReviews.count)!
         case visitedCollectionView:
             return 5
         default:
@@ -70,11 +83,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == reviewCollectionView{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? ReviewCollectionViewCell else {return UICollectionViewCell()}
-            cell.drinkNameLabel.text = "Big Joose"
-            cell.restaurantNameLabel.text = "Land of Juice 2: The Reckoning"
+            guard let review = user?.businessReviews[indexPath.row] else { return UICollectionViewCell() }
+            cell.drinkNameLabel.text = review.text
+            cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
             return cell
         } else {
-            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else {return UICollectionViewCell()}
             cell.juiceImageView.image = UIImage(named: "DefaultProfileImage")
             return cell
