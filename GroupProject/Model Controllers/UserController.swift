@@ -53,8 +53,10 @@ class UserController{
             //now we have the ID. let's fetch the user.
             FirebaseService.shared.fetchDocument(documentName: userID, collectionName: "Users") { (document) in
                 guard let unwrappedDocuent = document else {
+                    print("couldn't unwrap doccument 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
                     let userDictionary = UserController.shared.createDictionary(fromUser: decodedUser)
                     FirebaseService.shared.addDocument(documentName: decodedUser.uuid, collectionName: "Users", data: userDictionary, completion: { (success) in
+                        print("completion of making a new user doc🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
                         if success{
                             UserController.shared.currentUser = decodedUser
                             completion()
@@ -65,6 +67,7 @@ class UserController{
                 }
                 let loadedUser = User(firestoreDocument: unwrappedDocuent)
                 UserController.shared.currentUser = loadedUser
+                print("loaded a user! \(loadedUser?.username)🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
                 completion()
                 
             }
@@ -114,8 +117,8 @@ class UserController{
     func createDictionary(fromUser user: User) -> [String : Any]{
         let businessReviewsDictionary = JuiceNowBusinessReviewController.shared.createDictionary(fromReviews: user.businessReviews)
         let juiceReviewsDictionary = JuiceReviewController.shared.createDictionary(fromJuiceReview: user.juiceReviews)
-        let returnDictionary: [String : Any] = ["username" : user.username, "uuid" : user.uuid, "bio" : user.bio, "businessReviews" : businessReviewsDictionary, "juiceReviews" : juiceReviewsDictionary]
-        
+        let likedBusinessData = BusinessController.shared.convertBusinessesToJson(businesses: user.likedBusinesses)
+        let returnDictionary: [String : Any] = ["username" : user.username, "uuid" : user.uuid, "bio" : user.bio, "businessReviews" : businessReviewsDictionary, "juiceReviews" : juiceReviewsDictionary, "likedBusinesses" : likedBusinessData, "photoData" : user.photoData]
         return returnDictionary
     }
 }

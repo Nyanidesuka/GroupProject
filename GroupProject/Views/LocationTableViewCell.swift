@@ -14,6 +14,8 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var locationInfo: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    var businessReference: Business?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +30,23 @@ class LocationTableViewCell: UITableViewCell {
     
     //MARK: - Actions
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+        //nice, its already here. Ok.
+        guard let business = businessReference else {return}
+        if business.isFavorite == true{
+            favoriteButton.setImage(UIImage(named: "UnlikedStar"), for: .normal)
+            business.isFavorite = false
+            guard let targetIndex = UserController.shared.currentUser?.likedBusinesses.firstIndex(where: {business.businessID == $0.businessID}) else {return}
+            UserController.shared.currentUser?.likedBusinesses.remove(at: targetIndex)
+        } else {
+            favoriteButton.setImage(UIImage(named: "vegetable"), for: .normal)
+            business.isFavorite = true
+            UserController.shared.currentUser?.likedBusinesses.append(business)
+        }
+        guard let user = UserController.shared.currentUser else {return}
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("tried so save the doc, and what happened was: \(success)")
+        }
     }
     
 

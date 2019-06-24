@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Business: Decodable{
+class Business: Codable{
     let name: String
     let isClosed: Bool
     let businessID: String
@@ -23,6 +23,7 @@ class Business: Decodable{
     var juiceNowReviews: [JuiceNowBusinessReview] = []
     //thinking we might need this so we can do things like appending new reviews and ratings
     var juiceNowInfoReference: JuiceNowBusinessInfo? = nil
+    var isFavorite: Bool = false
     
     enum CodingKeys: String, CodingKey{
         case name = "name"
@@ -36,11 +37,11 @@ class Business: Decodable{
     }
 }
 //the yelp API hands back a dictionary with key "businesses" which is full of string-any dictionaries so we need this TLD.
-struct BusinessTLD: Decodable{
+struct BusinessTLD: Codable{
     let businesses: [Business]
 }
 
-struct StoreHours: Decodable{
+struct StoreHours: Codable{
     let isOvernight: Bool
     let start: String
     let end: String
@@ -54,21 +55,21 @@ struct StoreHours: Decodable{
     }
 }
 
-struct BusinessDetailTLD: Decodable{
+struct BusinessDetailTLD: Codable{
     let photos: [String]
     let hours: [OpenHours]
 }
 
-struct OpenHours: Decodable{
+struct OpenHours: Codable{
     let open: [StoreHours]
 }
 
-struct Coordinates: Decodable {
+struct Coordinates: Codable {
     let latitude: Double
     let longitude: Double
 }
 
-struct Location: Decodable {
+struct Location: Codable {
     let city: String
     let state: String
     let addressOne: String
