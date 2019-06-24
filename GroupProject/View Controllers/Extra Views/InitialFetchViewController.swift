@@ -23,7 +23,6 @@ class InitialFetchViewController: UIViewController {
         UserController.shared.loadUser {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-                
                 self.locationManager = CLLocationManager()
                 self.locationManager?.delegate = self
                 self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest

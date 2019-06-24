@@ -32,9 +32,20 @@ class ProfileViewController: UIViewController {
         profilePhotoImageView.clipsToBounds = true
         profilePhotoImageView.layer.borderWidth = 3
         profilePhotoImageView.layer.borderColor = UIColor.white.cgColor
+        //set the profile picture
+        if let photoData = UserController.shared.currentUser?.photoData{
+            self.profilePhotoImageView.image = UIImage(data: photoData)
+        } else {
+            print("there's no image data")
+            self.profilePhotoImageView.image = UIImage(named: "default")
+        }
+        
     }
     
-    
+    //this is just here for testing
+    override func viewDidAppear(_ animated: Bool) {
+        imagePicker.present(from: profilePhotoImageView)
+    }
     
 
     /*
@@ -51,6 +62,14 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
+        print(UserController.shared.currentUser?.username)
+        guard let user = UserController.shared.currentUser else {print("couldnt unwrap the user🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        guard let image = image, let imageData = image.pngData() else {print("couldn't unwrap the image. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        user.photoData = imageData
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("saved the user to the store with the new image")
+        }
         DispatchQueue.main.async {
             self.profilePhotoImageView.image = image
         }

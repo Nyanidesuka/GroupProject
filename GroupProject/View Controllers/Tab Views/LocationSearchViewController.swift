@@ -41,6 +41,10 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         mapView.delegate = self
         debouncer.handler = {
             guard let searchText = self.searchBar.text else { return }
+            guard self.checkStateOnlySearch(inText: searchText) == false else {
+                self.presentSearchTermAlert()
+                return
+            }
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
                 self.locations = locations
                 BusinessController.shared.businesses = locations
@@ -78,6 +82,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         let business = locations[indexPath.row]
         let openStatus = business.isClosed ? "CLOSED" : "OPEN"
         let buttonText = "\(business.name)\nJuiceNow™ Rating: \(business.rating)\nCurrently \(openStatus)"
+        cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "vegetable" : "UnlikedStar"), for: .normal)
+        cell.businessReference = self.locations[indexPath.row]
         cell.locationInfo.text = buttonText
         return cell
     }
@@ -134,9 +140,27 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         return distanceToUser
     }
     
-//    func (){
-//
-//    }
+    func checkStateOnlySearch(inText text: String) -> Bool{
+        let stateNames = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oaklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming"]
+        let stateAbbreviations = ["al", "ak", "as", "az", "ar", "ca", "co", "ct", "de", "dc", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md", "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"]
+        let lowercasedText = text.lowercased()
+        let filteredText = lowercasedText.trimmingCharacters(in: NSCharacterSet.letters.inverted)
+        print(filteredText)
+        if filteredText.count == 2{
+            return stateAbbreviations.contains(filteredText)
+        } else {
+            return stateNames.contains(filteredText)
+        }
+    }
+    
+    func presentSearchTermAlert(){
+        let searchTermAlert = UIAlertController(title: "Hold on.", message: "Please enter a city and state or a US zip code to search. Just a state won't do.", preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: "Got it.", style: .default) { (action) in
+            searchTermAlert.dismiss(animated: true, completion: nil)
+        }
+        searchTermAlert.addAction(closeAction)
+        self.present(searchTermAlert, animated: true)
+    }
     
     
     // MARK: - Navigation

@@ -64,6 +64,12 @@ class BusinessController {
                 let businessesTLD = try businessDecoder.decode(BusinessTLD.self, from: unwrappedData)
                 print(businessesTLD.businesses.count)
                 print(businessesTLD.businesses[0].name)
+                guard let user = UserController.shared.currentUser else {print("couldnt unwrap the current user for  \(#function)🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️"); return}
+                for business in businessesTLD.businesses{
+                    if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
+                        business.isFavorite = true
+                    }
+                }
                 completion(businessesTLD.businesses)
             }catch{
                 print("there was an error decoding the data.; \(error)")
@@ -100,6 +106,34 @@ class BusinessController {
     func addJuiceNowBusinessInfo(businessInfo: JuiceNowBusinessInfo, toBusiness business: Business){
         business.juiceNowReviews = businessInfo.reviews
         business.juiceNowInfoReference = businessInfo
+    }
+    
+    func convertBusinessesToJson(businesses: [Business]) -> [Data]{
+        var returnArray: [Data] = []
+        let businessEncoder = JSONEncoder()
+        for business in businesses{
+            do{
+                let encodedBusiness = try businessEncoder.encode(business)
+                returnArray.append(encodedBusiness)
+            } catch {
+                print("there was an error encoding the data")
+            }
+        }
+        return returnArray
+    }
+    
+    func decodeBusinessData(data: [Data]) -> [Business]{
+        var returnArray: [Business] = []
+        let businessDecoder = JSONDecoder()
+        for business in data{
+            do{
+                let decodedBusiness = try businessDecoder.decode(Business.self, from: business)
+                returnArray.append(decodedBusiness)
+            } catch {
+                print("there was an error decoding the data in \(#function)")
+            }
+        }
+        return returnArray
     }
 }
 
