@@ -16,22 +16,15 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var intermediateProductsCollectionView: UICollectionView!
     @IBOutlet weak var advancedProductsCollectionView: UICollectionView!
     
-    
-    
-    
     //MARK: - Properties / Local sources of truth
-    var suggestedProducts: [Product] = []
-    var beginnerProducts: [Product] = ProductController.sharedInstance.products
-    var intermediateProducts: [Product] = ProductController.sharedInstance.products
-    var advancedProducts: [Product] = ProductController.sharedInstance.products
+    var suggestedProducts = ProductController.sharedInstance.createFeaturedProducts()
+    var beginnerProducts = ProductController.sharedInstance.grabBeginnerProducts()
+    var intermediateProducts = ProductController.sharedInstance.grabIntermediateProducts()
+    var advancedProducts = ProductController.sharedInstance.grabAdvancedProdcuts()
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionViews()
-        setupSuggestedProducts()
-        setUpAllProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +49,27 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
             return 0
         }
     }
-
     
     //MARK: - Actions
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case suggestedProductsCollectionView:
+            let product = suggestedProducts[indexPath.row]
+            sendToAmazon(product: product)
+        case beginnerProductsCollectionView:
+            let product = beginnerProducts[indexPath.row]
+            sendToAmazon(product: product)
+        case intermediateProductsCollectionView:
+            let product = intermediateProducts[indexPath.row]
+            sendToAmazon(product: product)
+        case advancedProductsCollectionView:
+            let product = advancedProducts[indexPath.row]
+            sendToAmazon(product: product)
+        default:
+            print("Error sending to Amazon 💸")
+        }
+    }
     
-    
-    //Clicking any of the products will send to browser/amazon URL
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
         switch collectionView {
         case suggestedProductsCollectionView:
@@ -81,7 +89,7 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.intermediateProductsNameLabel.text = intermediateProducts[indexPath.row].name
             cell.intermediateProductsRatingLabel.text = "Rating: \(intermediateProducts[indexPath.row].rating)"
             cell.intermediateProductsImageView.image = intermediateProducts[indexPath.row].image
-                return cell
+            return cell
         case advancedProductsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "advancedProducts", for: indexPath) as? AdvancedProductsCollectionViewCell else {return UICollectionViewCell() }
             cell.advancedProductNameLabel.text = advancedProducts[indexPath.row].name
@@ -105,25 +113,11 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.advancedProductsCollectionView.delegate = self
         self.advancedProductsCollectionView.dataSource = self
     }
-    
-    func setupSuggestedProducts() {
-        let shuffled = suggestedProducts.shuffled()
-        let tags = shuffled.prefix(3)
-        suggestedProducts = Array(tags)
-    }
-    
-    func setUpAllProducts(){
-         self.suggestedProducts = ProductController.sharedInstance.createFeaturedProducts()
-       self.beginnerProducts = ProductController.sharedInstance.grabBeginnerProducts()
-       self.intermediateProducts = ProductController.sharedInstance.grabIntermediateProducts()
-       self.advancedProducts = ProductController.sharedInstance.grabAdvancedProdcuts()
-    }
-    
-    
+
     func sendToAmazon(product: Product) {
         guard let url = URL(string: product.url) else { return }
         UIApplication.shared.open(url)
     }
-
+    
 }
 
