@@ -45,7 +45,8 @@ class ProfileViewController: UIViewController {
     
     //this is just here for testing
     override func viewDidAppear(_ animated: Bool) {
-        imagePicker.present(from: profilePhotoImageView)
+//        imagePicker.present(from: profilePhotoImageView)
+        //writing a manual segue to the  faq VC to be able to test it
     }
     
 
