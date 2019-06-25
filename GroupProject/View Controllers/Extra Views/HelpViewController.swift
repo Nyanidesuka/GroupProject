@@ -10,6 +10,7 @@ import UIKit
 
 class HelpViewController: UIViewController {
 
+    @IBOutlet weak var selectError: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +25,9 @@ class HelpViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func selectErrorButtonTapped(_ sender: Any) {
+        
+    }
     
 
     /*
