@@ -89,7 +89,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         let business = locations[indexPath.row]
         let openStatus = business.isClosed ? "CLOSED" : "OPEN"
         let buttonText = "\(business.name)\nJuiceNow™ Rating: \(business.rating)\nCurrently \(openStatus)"
-        cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "vegetable" : "UnlikedStar"), for: .normal)
+        cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "likedHeart" : "unlikedHeart"), for: .normal)
         cell.businessReference = self.locations[indexPath.row]
         cell.locationInfo.text = buttonText
         return cell
