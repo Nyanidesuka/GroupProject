@@ -570,6 +570,7 @@
                         <outlet property="personalStarOneButton" destination="62O-Q4-oGi" id="jra-zC-W3u"/>
                         <outlet property="personalStarThreeButton" destination="nUi-cY-kII" id="DrI-4e-gRc"/>
                         <outlet property="personalStarTwoButton" destination="3zQ-IG-c9K" id="Qcv-JN-Rgr"/>
+                        <outlet property="restaurantNameLabel" destination="TT7-6i-MFz" id="05k-DW-soT"/>
                         <outlet property="secondaryLocationNameLabel" destination="TT7-6i-MFz" id="iIl-Q3-ONu"/>
                         <outlet property="tableView" destination="WVe-Ge-mSz" id="fd3-Sh-xbV"/>
                     </connections>

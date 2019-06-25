@@ -106,6 +106,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func updateView() {
+        print(location?.name)
         guard let location = location else { return }
         addPinToMap(location: location)
         updateCommunityRatingStars(rating: location.rating)
