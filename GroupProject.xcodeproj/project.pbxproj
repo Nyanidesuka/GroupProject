@@ -25,7 +25,7 @@
 		171826A222BACD420019B317 /* JuiceNowBusiessReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */; };
 		171826A422BAE51D0019B317 /* JuiceReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171826A322BAE51D0019B317 /* JuiceReviewController.swift */; };
 		1725050822BC298100C0EB63 /* VisitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */; };
-		1725050A22BC29A900C0EB63 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */; };
+		1725050A22BC29A900C0EB63 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050922BC29A900C0EB63 /* ReviewTableViewCell.swift */; };
 		1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */; };
 		1725050E22BC3CCA00C0EB63 /* InitialFetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725050D22BC3CCA00C0EB63 /* InitialFetchViewController.swift */; };
 		1732EC5922B455C900E09DD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5822B455C900E09DD3 /* AppDelegate.swift */; };
@@ -87,7 +87,7 @@
 		171826A122BACD420019B317 /* JuiceNowBusiessReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusiessReviewController.swift; sourceTree = "<group>"; };
 		171826A322BAE51D0019B317 /* JuiceReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReviewController.swift; sourceTree = "<group>"; };
 		1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedCollectionViewCell.swift; sourceTree = "<group>"; };
-		1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		1725050922BC29A900C0EB63 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetCollectionViewController.swift; sourceTree = "<group>"; };
 		1725050D22BC3CCA00C0EB63 /* InitialFetchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialFetchViewController.swift; sourceTree = "<group>"; };
 		1732EC5522B455C900E09DD3 /* GroupProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,7 +251,7 @@
 				CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */,
 				CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */,
 				1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */,
-				1725050922BC29A900C0EB63 /* ReviewCollectionViewCell.swift */,
+				1725050922BC29A900C0EB63 /* ReviewTableViewCell.swift */,
 				CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */,
 				CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */,
 				16FD085122C139A30033D4A8 /* SuggestedProductsCollectionViewCell.swift */,
@@ -435,7 +435,7 @@
 				1718269C22BAA82A0019B317 /* UserController.swift in Sources */,
 				178E476522B831100097F4DD /* Business.swift in Sources */,
 				17056A8022BD428500EF5742 /* CoreLocationManager.swift in Sources */,
-				1725050A22BC29A900C0EB63 /* ReviewCollectionViewCell.swift in Sources */,
+				1725050A22BC29A900C0EB63 /* ReviewTableViewCell.swift in Sources */,
 				CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */,
 				CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */,
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewCollectionViewCell: UICollectionViewCell {
+class ReviewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var drinkNameLabel: UILabel!

@@ -15,7 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var bioLabel: UITextView!
     @IBOutlet weak var visitedCollectionView: UICollectionView!
-    @IBOutlet weak var reviewCollectionView: UICollectionView!
+    @IBOutlet weak var reviewTableView: UITableView!
+    
     
     //MARK: - Properties
     var imagePicker: ImagePicker!
@@ -77,10 +78,10 @@ extension ProfileViewController: ImagePickerDelegate {
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
-        case reviewCollectionView:
-            return 5
         case visitedCollectionView:
             return 5
         default:
@@ -90,8 +91,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         switch collectionView{
-        case reviewCollectionView:
-            return 1
         case visitedCollectionView:
             return 1
         default:
@@ -100,16 +99,33 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == reviewCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? ReviewCollectionViewCell else {return UICollectionViewCell()}
-//            guard let review = user?.businessReviews[indexPath.row] else { return UICollectionViewCell() }
-            cell.drinkNameLabel.text = "review.text"
-            cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
-            return cell
-        } else {
+//        if collectionView == reviewCollectionView{
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? ReviewCollectionViewCell else {return UICollectionViewCell()}
+////            guard let review = user?.businessReviews[indexPath.row] else { return UICollectionViewCell() }
+//            cell.drinkNameLabel.text = "review.text"
+//            cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
+//            return cell
+//        } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else {return UICollectionViewCell()}
             cell.juiceImageView.image = UIImage(named: "DefaultProfileImage")
             return cell
         }
     }
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == reviewTableView{
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell()}
+            cell.drinkNameLabel.text = "review.text"
+            cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
+            return cell
+        }
+        return UITableViewCell()
+    }
 }
+
+
