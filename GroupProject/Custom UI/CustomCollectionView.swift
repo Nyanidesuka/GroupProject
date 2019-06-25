@@ -15,9 +15,8 @@ class CustomCollectionView: UICollectionView {
         setupUI()
     }
     
-    func setupUI() {
-//        self.backgroundColor = .dark
-//        self.addCornerRadius()
-//        self.addViewBorderColor(width: 5)
+    func setupUI(){
+        self.addCornerRadius()
+        self.addViewBorderColor(width: 1)
     }
 }
