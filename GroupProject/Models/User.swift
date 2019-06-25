@@ -30,8 +30,12 @@ class User: Codable{
     }
     
     convenience init?(firestoreDocument: [String : Any]){
-        guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String, let bio = firestoreDocument["bio"] as? String, let likedBusinessData = firestoreDocument["likedBusinesses"] as? [Data], let photoData = firestoreDocument["photoData"] as? Data else {print("failing initializer. Somehting is nil."); return nil}
+        guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String, let bio = firestoreDocument["bio"] as? String, let likedBusinessData = firestoreDocument["likedBusinesses"] as? [Data]else {print("failing initializer. Somehting is nil. 💅💅💅💅💅💅"); return nil}
+        let photoData = firestoreDocument["photoData"] as? Data
         let decodedBusinesses = BusinessController.shared.decodeBusinessData(data: likedBusinessData)
+        for business in decodedBusinesses{
+            business.isFavorite = true
+        }
         self.init(username: username, uuid: uuid, bio: bio, likedBusinesses: decodedBusinesses, photoData: photoData)
     }
 }

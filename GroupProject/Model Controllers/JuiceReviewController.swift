@@ -21,6 +21,38 @@ class JuiceReviewController{
     let flavorFive = "Flavor/Add-Ins"
     
     //MARK: - CRUD Functions
+    
+    func createReview(businessID: String, restarauntName: String, drinkName: String, price: Float, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int) -> JuiceReview{
+        let newJuiceReview = JuiceReview(businessID: businessID, businessName: restarauntName, drinkName: drinkName, drinkPrice: price, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5)
+        guard let user = UserController.shared.currentUser else {return newJuiceReview}
+        user.juiceReviews.append(newJuiceReview)
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("created a new review, added it to the user, and saved that user document.🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
+        }
+        return newJuiceReview
+    }
+    
+    func deleteReview(review: JuiceReview){
+        guard let user = UserController.shared.currentUser else {print("couldnt unwrap the current user. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        guard let index = user.juiceReviews.firstIndex(where: {$0.businessID == review.businessID && $0.drinkReview == review.drinkReview}) else {print("that review isn't in this user's drink reviews. 🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        user.juiceReviews.remove(at: index)
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("deleted the review and saved the document.🙆‍♀️🙆‍♀️🙆‍♀️")
+        }
+    }
+    
+    func updateReview(review: JuiceReview){
+        guard let user  = UserController.shared.currentUser else {return}
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("updated the review and saved the document.🙆‍♀️🙆‍♀️🙆‍♀️")
+        }
+    }
+    
+    
+    //this function creates a dictionary from a juice review so we can save it to firestore
     func createDictionary(fromJuiceReview reviews: [JuiceReview]) -> [[String : Any]]{
         var returnArray: [[String : Any]] = []
         for review in reviews{

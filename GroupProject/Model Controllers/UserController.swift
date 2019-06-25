@@ -68,8 +68,8 @@ class UserController{
                 let loadedUser = User(firestoreDocument: unwrappedDocuent)
                 UserController.shared.currentUser = loadedUser
                 print("loaded a user! \(loadedUser?.username)🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
+                print(loadedUser?.likedBusinesses.first?.name)
                 completion()
-                
             }
         }catch{
             print("🥇🥇🥇There is no user to load. Creating a new user; \(error.localizedDescription)")
