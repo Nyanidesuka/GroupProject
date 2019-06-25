@@ -32,7 +32,10 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFiveSlider: UISlider!
     
     //MARK: - Properties
+    var business: Business?
     var review: JuiceReview?
+    var rating: Int?
+    
     
 
     override func viewDidLoad() {
@@ -48,14 +51,11 @@ class ReviewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        if review == nil {
-            //unwrap and create
-        } else {
-            //unwrap values and update
-        }
-        
+        saveReview()
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func oneStarTapped(_ sender: UIButton) {
+        //NEED TO SET LOCAL RATING VAR WHEN ANY OF THESE ARE TAPPED
     }
     @IBAction func twoStarTapped(_ sender: UIButton) {
     }
@@ -96,7 +96,24 @@ class ReviewViewController: UIViewController {
     
     //MARK: - Helper Functions
     func saveReview() {
-        //need a create review func in Juice Review Controller to build this
+//        guard let businessID = business?.businessID,
+//        let restaurantName = business?.name,
+//        let drinkName = drinkNameTextField.text,
+//        let price = Float(drinkPriceTextField.text),
+//        let drinkRating = rating,
+//            let drinkReview = notesTextView.text else { return }
+//        
+//
+//
+//
+//        if let review = review {
+//            //code if review exists, update
+//            JuiceReviewController.shared.
+//            JuiceReviewController.shared.updateReview(review: <#T##JuiceReview#>)
+//        } else {
+//            //create new review
+//            JuiceReviewController.shared.createReview(businessID: <#T##String#>, restarauntName: <#T##String#>, drinkName: <#T##String#>, price: <#T##Float#>, drinkRating: <#T##Int#>, drinkReview: <#T##String#>, dimension1: <#T##Int#>, dimension2: <#T##Int#>, dimension3: <#T##Int#>, dimension4: <#T##Int#>, dimension5: <#T##Int#>)
+//        }
     }
     
     
