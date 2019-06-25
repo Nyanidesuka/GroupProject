@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bioLabel: UITextView!
     @IBOutlet weak var visitedCollectionView: UICollectionView!
     @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var editProfileButton: UIButton!
     
     
     //MARK: - Properties
@@ -46,6 +47,9 @@ class ProfileViewController: UIViewController {
     //this is just here for testing
     override func viewDidAppear(_ animated: Bool) {
         imagePicker.present(from: profilePhotoImageView)
+    }
+    @IBAction func editProfileButtonTapped(_ sender: Any) {
+        
     }
     
 
