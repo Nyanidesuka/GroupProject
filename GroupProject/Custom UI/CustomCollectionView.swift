@@ -17,6 +17,7 @@ class CustomCollectionView: UICollectionView {
     
     func setupUI(){
         self.addCornerRadius()
+        self.contentMode = .scaleAspectFit
         self.addViewBorderColor(width: 1)
     }
 }
