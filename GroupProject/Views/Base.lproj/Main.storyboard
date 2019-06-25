@@ -1219,31 +1219,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAQ-jg-dtI">
                                 <rect key="frame" x="32" y="478" width="350" height="335"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="D5T-ra-S3e">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="D5T-ra-S3e">
                                         <rect key="frame" x="6" y="32" width="338" height="31"/>
                                         <connections>
                                             <action selector="sliderOneChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="mgX-hS-KeZ"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-Na-cdg">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-Na-cdg">
                                         <rect key="frame" x="6" y="94" width="338" height="31"/>
                                         <connections>
                                             <action selector="sliderTwoChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="AIT-yU-LGC"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-pM-Wrb">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-pM-Wrb">
                                         <rect key="frame" x="6" y="156" width="338" height="31"/>
                                         <connections>
                                             <action selector="sliderThreeChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="SkJ-3x-Foo"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="w2s-nH-0fK">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="w2s-nH-0fK">
                                         <rect key="frame" x="6" y="218" width="338" height="31"/>
                                         <connections>
                                             <action selector="sliderFourChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="I4M-kg-yWH"/>
                                         </connections>
                                     </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="fTY-gD-CYp">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="fTY-gD-CYp">
                                         <rect key="frame" x="6" y="280" width="338" height="31"/>
                                         <connections>
                                             <action selector="sliderFiveChanged:" destination="EmF-lO-NRN" eventType="valueChanged" id="HDE-Hr-AOV"/>

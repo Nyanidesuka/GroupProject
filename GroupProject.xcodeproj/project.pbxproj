@@ -58,7 +58,6 @@
 		CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A48E22B8131100558D20 /* RecipesViewController.swift */; };
 		CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49022B8132A00558D20 /* ProductsViewController.swift */; };
 		CA80A49422B8143900558D20 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49322B8143900558D20 /* ProfileViewController.swift */; };
-		CA80A49622B8145E00558D20 /* SpecificLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */; };
 		CA80A49822B814CF00558D20 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49722B814CF00558D20 /* RecipeViewController.swift */; };
 		CA80A49A22B814FA00558D20 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49922B814FA00558D20 /* ReviewViewController.swift */; };
 		CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80A49D22B8153D00558D20 /* HelpViewController.swift */; };
@@ -124,7 +123,6 @@
 		CA80A48E22B8131100558D20 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		CA80A49022B8132A00558D20 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		CA80A49322B8143900558D20 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificLocationViewController.swift; sourceTree = "<group>"; };
 		CA80A49722B814CF00558D20 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		CA80A49922B814FA00558D20 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CA80A49D22B8153D00558D20 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				CA80A49F22B8156800558D20 /* LocationDetailsViewController.swift */,
 				1725050D22BC3CCA00C0EB63 /* InitialFetchViewController.swift */,
 				1725050B22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift */,
-				CA80A49522B8145E00558D20 /* SpecificLocationViewController.swift */,
 				CA80A49722B814CF00558D20 /* RecipeViewController.swift */,
 				CA80A49922B814FA00558D20 /* ReviewViewController.swift */,
 				CA80A49D22B8153D00558D20 /* HelpViewController.swift */,
@@ -475,7 +472,6 @@
 				17EB5F6022B98B0C00927617 /* JuiceReview.swift in Sources */,
 				178E476822B8312A0097F4DD /* YelpReview.swift in Sources */,
 				17EB5F6622B9A17900927617 /* FirebaseService.swift in Sources */,
-				CA80A49622B8145E00558D20 /* SpecificLocationViewController.swift in Sources */,
 				CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */,
 				171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */,
 				CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */,
