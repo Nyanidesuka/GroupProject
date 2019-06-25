@@ -40,7 +40,7 @@ class RecipeViewController: UIViewController {
         recipeNameLabel.text = recipe.name
         recipeImageView.image = recipe.image
         secondaryRecipeNameLabel.text = recipe.name
-        ingredientsLabel.text = recipe.ingredients
+        ingredientsLabel.text = recipe.ingredients[0]
     }
     
     //Should we have a share recipe button or a way to create email to send recipe raw data?

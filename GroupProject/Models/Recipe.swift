@@ -12,12 +12,14 @@ import UIKit
 class Recipe {
     let name: String
     let image: UIImage
-    let ingredients: String
+    let ingredients: [String]
+    let instructions: [String]
     
-    init(name: String, image: UIImage, ingredients: String) {
+    init(name: String, image: UIImage, ingredients: [String], instructions: [String]) {
         self.name = name
         self.image = image
         self.ingredients = ingredients
+        self.instructions = instructions
     }
 }//END OF RECIPE CLASS
 
