@@ -48,7 +48,5 @@ class LocationTableViewCell: UITableViewCell {
             print("tried so save the doc, and what happened was: \(success)")
         }
     }
-    
-
 }//END OF TABLE VIEW CELL CLASS
 

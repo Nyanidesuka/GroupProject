@@ -47,7 +47,14 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             }
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
                 self.locations = locations
-                BusinessController.shared.businesses = locations
+                guard let user = UserController.shared.currentUser else {print("couldnt unwrap user"); return}
+                for business in self.locations{
+                    if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
+                        business.isFavorite = true
+                        print("\(business.name) marked as favorite. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
+                    }
+                }
+                BusinessController.shared.businesses = self.locations
                 //self.sortFurthestBusiness()
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
@@ -206,14 +213,7 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
     //this fires when the user authorizes.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse{
-            guard let searchText = self.searchBar.text, !searchText.isEmpty else { return }
-            BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
-                self.locations = locations
-                BusinessController.shared.businesses = locations
-                DispatchQueue.main.async {
-                    self.view.endEditing(true)
-                }
-            }
+            locationManager?.startUpdatingLocation()
         }
     }
 }
