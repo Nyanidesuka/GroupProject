@@ -32,7 +32,10 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFiveSlider: UISlider!
     
     //MARK: - Properties
+    var business: Business?
     var review: JuiceReview?
+    var rating: Int?
+    
     
 
     override func viewDidLoad() {
@@ -48,10 +51,11 @@ class ReviewViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        //if review is nil, create; else create review
-        
+        saveReview()
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func oneStarTapped(_ sender: UIButton) {
+        //NEED TO SET LOCAL RATING VAR WHEN ANY OF THESE ARE TAPPED
     }
     @IBAction func twoStarTapped(_ sender: UIButton) {
     }
@@ -62,48 +66,89 @@ class ReviewViewController: UIViewController {
     @IBAction func fiveStarTapped(_ sender: UIButton) {
     }
     @IBAction func sliderOneChanged(_ sender: UISlider) {
-        let newValue = Int(sender.value / 20) * 20
+        let newValue = Int(sender.value)
         sender.setValue(Float(newValue), animated: false)
+        flavorOneLabel.text = "\(JuiceReviewController.shared.flavorOne): \(newValue)"
+        
     }
     @IBAction func sliderTwoChanged(_ sender: UISlider) {
-        let newValue = Int(sender.value / 20) * 20
+        let newValue = Int(sender.value)
         sender.setValue(Float(newValue), animated: false)
+        flavorTwoLabel.text = "\(JuiceReviewController.shared.flavorTwo): \(newValue)"
     }
     @IBAction func sliderThreeChanged(_ sender: UISlider) {
-        let newValue = Int(sender.value / 20) * 20
+        let newValue = Int(sender.value)
         sender.setValue(Float(newValue), animated: false)
+        flavorThreeLabel.text = "\(JuiceReviewController.shared.flavorThree): \(newValue)"
     }
     @IBAction func sliderFourChanged(_ sender: UISlider) {
-        let newValue = Int(sender.value / 20) * 20
+        let newValue = Int(sender.value)
         sender.setValue(Float(newValue), animated: false)
+        flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): \(newValue)"
     }
     @IBAction func sliderFiveChanged(_ sender: UISlider) {
-        let newValue = Int(sender.value / 20) * 20
+        let newValue = Int(sender.value)
         sender.setValue(Float(newValue), animated: false)
+        flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): \(newValue)"
     }
     
     
     
     //MARK: - Helper Functions
     func saveReview() {
-        //need a create review func in Juice Review Controller to build this
+//        guard let businessID = business?.businessID,
+//        let restaurantName = business?.name,
+//        let drinkName = drinkNameTextField.text,
+//        let price = Float(drinkPriceTextField.text),
+//        let drinkRating = rating,
+//            let drinkReview = notesTextView.text else { return }
+//        
+//
+//
+//
+//        if let review = review {
+//            //code if review exists, update
+//            JuiceReviewController.shared.
+//            JuiceReviewController.shared.updateReview(review: <#T##JuiceReview#>)
+//        } else {
+//            //create new review
+//            JuiceReviewController.shared.createReview(businessID: <#T##String#>, restarauntName: <#T##String#>, drinkName: <#T##String#>, price: <#T##Float#>, drinkRating: <#T##Int#>, drinkReview: <#T##String#>, dimension1: <#T##Int#>, dimension2: <#T##Int#>, dimension3: <#T##Int#>, dimension4: <#T##Int#>, dimension5: <#T##Int#>)
+//        }
     }
     
     
     func updateLabels() {
-        flavorOneLabel.text = JuiceReviewController.shared.flavorOne
-        flavorTwoLabel.text = JuiceReviewController.shared.flavorTwo
-        flavorThreeLabel.text = JuiceReviewController.shared.flavorThree
-        flavorFourLabel.text = JuiceReviewController.shared.flavorFour
-        flavorFiveLabel.text = JuiceReviewController.shared.flavorFive
+        if let review = review {
+            flavorOneLabel.text = "\(JuiceReviewController.shared.flavorOne): \(review.dimension1)"
+            flavorTwoLabel.text = "\(JuiceReviewController.shared.flavorTwo): \(review.dimension2)"
+            flavorThreeLabel.text = "\(JuiceReviewController.shared.flavorThree): \(review.dimension3)"
+            flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): \(review.dimension3)"
+            flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): \(review.dimension5)"
+        } else {
+            flavorOneLabel.text = "\(JuiceReviewController.shared.flavorOne): 0"
+            flavorTwoLabel.text = "\(JuiceReviewController.shared.flavorTwo): 0"
+            flavorThreeLabel.text = "\(JuiceReviewController.shared.flavorThree): 0"
+            flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): 0"
+            flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): 0"
+        }
     }
     
     func updateSliderImages() {
         flavorOneSlider.setThumbImage(UIImage(named: "protein"), for: .normal)
+        flavorOneSlider.minimumTrackTintColor = UIColor(ciColor: .green)
+        flavorOneSlider.maximumTrackTintColor = UIColor(ciColor: .red)
         flavorTwoSlider.setThumbImage(UIImage(named: "fruit"), for: .normal)
+        flavorTwoSlider.minimumTrackTintColor = UIColor(ciColor: .green)
+        flavorTwoSlider.maximumTrackTintColor = UIColor(ciColor: .red)
         flavorThreeSlider.setThumbImage(UIImage(named: "vegetable"), for: .normal)
+        flavorThreeSlider.minimumTrackTintColor = UIColor(ciColor: .green)
+        flavorThreeSlider.maximumTrackTintColor = UIColor(ciColor: .red)
         flavorFourSlider.setThumbImage(UIImage(named: "creaminess"), for: .normal)
+        flavorFourSlider.minimumTrackTintColor = UIColor(ciColor: .green)
+        flavorFourSlider.maximumTrackTintColor = UIColor(ciColor: .red)
         flavorFiveSlider.setThumbImage(UIImage(named: "flavor"), for: .normal)
+        flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .green)
+        flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .red)
     }
     
 

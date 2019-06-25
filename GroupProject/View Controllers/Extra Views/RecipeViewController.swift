@@ -11,7 +11,6 @@ import UIKit
 class RecipeViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var secondaryRecipeNameLabel: UILabel!
     @IBOutlet weak var ingredientsLabel: UILabel!
@@ -29,15 +28,11 @@ class RecipeViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     
     
     //MARK: - Helper functions
     func updateView() {
         guard let recipe = recipe else { return }
-        recipeNameLabel.text = recipe.name
         recipeImageView.image = recipe.image
         secondaryRecipeNameLabel.text = recipe.name
         ingredientsLabel.text = recipe.ingredients[0]
