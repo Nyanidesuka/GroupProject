@@ -1893,7 +1893,7 @@
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
         <image name="ProfileImage" width="350" height="350"/>
-        <image name="UnlikedStar" width="350" height="350"/>
+        <image name="UnlikedStar" width="25" height="25"/>
         <image name="unlikedHeart" width="256" height="256"/>
         <namedColor name="DarkBlueAccent">
             <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1904,7 +1904,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Yim-XG-ORE"/>
-        <segue reference="iHp-Yc-v2W"/>
+        <segue reference="jPf-Kj-Aev"/>
         <segue reference="4zN-X2-dEd"/>
     </inferredMetricsTieBreakers>
 </document>

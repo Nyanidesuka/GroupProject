@@ -46,15 +46,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                 return
             }
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
+                self.showFavoritesAndRatings(locations: locations)
+                BusinessController.shared.businesses = locations
                 self.locations = locations
-                guard let user = UserController.shared.currentUser else {print("couldnt unwrap user"); return}
-                for business in self.locations{
-                    if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
-                        business.isFavorite = true
-                        print("\(business.name) marked as favorite. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
-                    }
-                }
-                BusinessController.shared.businesses = self.locations
                 //self.sortFurthestBusiness()
                 DispatchQueue.main.async {
                     self.view.endEditing(true)
@@ -73,7 +67,9 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
             mapView.showsUserLocation = true
-            locationManager?.startUpdatingLocation()
+            if locationManager?.location == nil{
+                locationManager?.startUpdatingLocation()
+            }
             self.locations = BusinessController.shared.businesses
             //self.sortFurthestBusiness()
         }
@@ -112,7 +108,22 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         return annotationView
     }
     
-    
+    //A function to make sure favorites and user ratings reflect in the UI
+    func showFavoritesAndRatings(locations: [Business]){
+        guard let user = UserController.shared.currentUser else {print("couldnt unwrap user"); return}
+        for business in locations{
+            print("☄️☄️☄️")
+            if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
+                print("☄️")
+                guard let targetIndex = user.likedBusinesses.firstIndex(where: {$0.businessID == business.businessID}) else {print("even though the likedBusinesses array contains the businesses, we couldn't find the business's index.☄️☄️☄️☄️"); return}
+                business.isFavorite = true
+                print("\(business.name) marked as favorite. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
+                print("loading a rating of \(user.likedBusinesses[targetIndex].userRating) from user's liked business \(user.likedBusinesses[targetIndex].name) and assigning to \(business.name)☄️☄️☄️☄️")
+                business.userRating = user.likedBusinesses[targetIndex].userRating
+                print("We've assigned a rating to \(business.name), and that rating is \(business.userRating) ☄️☄️☄️")
+            }
+        }
+    }
     
     //MARK: Add pins to the map
     func addPinsToMap(){
@@ -177,6 +188,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                 let destinationVC = segue.destination as? LocationDetailsViewController
                 //passing location
                 let location = locations[index]
+                print("We are about to segue. We're passing \(location.name) with a rating of \(location.userRating) ☄️☄️☄️☄️☄️☄️")
                 destinationVC?.location = location
                 //passing yelp reviews
                 
@@ -202,7 +214,9 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
         self.currentLocation = locations[locations.count-1] as CLLocation
         guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
         BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
+            self.showFavoritesAndRatings(locations: fetchedBusinesses)
             self.locations = fetchedBusinesses
+            BusinessController.shared.businesses = fetchedBusinesses
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

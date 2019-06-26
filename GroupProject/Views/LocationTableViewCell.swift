@@ -33,12 +33,12 @@ class LocationTableViewCell: UITableViewCell {
         //nice, its already here. Ok.
         guard let business = businessReference else {return}
         if business.isFavorite == true{
-            favoriteButton.setImage(UIImage(named: "UnlikedStar"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "unlikedHeart"), for: .normal)
             business.isFavorite = false
             guard let targetIndex = UserController.shared.currentUser?.likedBusinesses.firstIndex(where: {business.businessID == $0.businessID}) else {return}
             UserController.shared.currentUser?.likedBusinesses.remove(at: targetIndex)
         } else {
-            favoriteButton.setImage(UIImage(named: "vegetable"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "likedHeart"), for: .normal)
             business.isFavorite = true
             UserController.shared.currentUser?.likedBusinesses.append(business)
         }
