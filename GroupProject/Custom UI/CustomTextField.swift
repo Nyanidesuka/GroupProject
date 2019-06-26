@@ -17,8 +17,6 @@ class CustomTextField: UITextField {
     
     func setupUI() {
         self.addCornerRadius(10)
-        self.addAccentBorderColor()
-        self.textColor = UIColor.white
-        
+        self.addViewBorderColor()
     }
 }
