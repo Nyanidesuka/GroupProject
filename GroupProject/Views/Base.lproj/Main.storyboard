@@ -47,7 +47,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="734"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-X1-qrg">
-                                                <rect key="frame" x="20" y="20" width="350" height="294"/>
+                                                <rect key="frame" x="32" y="20" width="350" height="294"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="20"/>
@@ -58,7 +58,7 @@
                                                 </connections>
                                             </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-ta-bel">
-                                                <rect key="frame" x="20" y="314" width="350" height="400"/>
+                                                <rect key="frame" x="32" y="314" width="350" height="400"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YaL-sd-SUJ">
                                                         <rect key="frame" x="0.0" y="20" width="350" height="380"/>
@@ -114,15 +114,15 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="2D1-X1-qrg" firstAttribute="leading" secondItem="3uT-J9-HKc" secondAttribute="leading" constant="20" id="14C-0p-FLv"/>
+                                            <constraint firstItem="2D1-X1-qrg" firstAttribute="leading" secondItem="3uT-J9-HKc" secondAttribute="leading" constant="32" id="14C-0p-FLv"/>
                                             <constraint firstItem="qnZ-ta-bel" firstAttribute="top" secondItem="2D1-X1-qrg" secondAttribute="bottom" id="99Z-0A-WFh"/>
                                             <constraint firstAttribute="height" priority="900" constant="734" id="KMy-gI-4oj"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="734" id="T0A-9q-mgc"/>
                                             <constraint firstAttribute="bottom" secondItem="qnZ-ta-bel" secondAttribute="bottom" constant="20" id="a5x-XX-nAx"/>
-                                            <constraint firstItem="qnZ-ta-bel" firstAttribute="leading" secondItem="3uT-J9-HKc" secondAttribute="leading" constant="20" id="bM0-yq-UTN"/>
+                                            <constraint firstItem="qnZ-ta-bel" firstAttribute="leading" secondItem="3uT-J9-HKc" secondAttribute="leading" constant="32" id="bM0-yq-UTN"/>
                                             <constraint firstAttribute="top" secondItem="2D1-X1-qrg" secondAttribute="bottom" constant="-314" id="dk5-L6-4Tl"/>
-                                            <constraint firstAttribute="trailing" secondItem="qnZ-ta-bel" secondAttribute="trailing" constant="44" id="hot-rh-lws"/>
-                                            <constraint firstAttribute="trailing" secondItem="2D1-X1-qrg" secondAttribute="trailing" constant="44" id="lWb-qC-eZP"/>
+                                            <constraint firstAttribute="trailing" secondItem="qnZ-ta-bel" secondAttribute="trailing" constant="32" id="hot-rh-lws"/>
+                                            <constraint firstAttribute="trailing" secondItem="2D1-X1-qrg" secondAttribute="trailing" constant="32" id="lWb-qC-eZP"/>
                                             <constraint firstItem="2D1-X1-qrg" firstAttribute="top" secondItem="3uT-J9-HKc" secondAttribute="top" constant="20" id="vZY-sj-RCI"/>
                                         </constraints>
                                     </view>
