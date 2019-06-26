@@ -43,6 +43,12 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        visitedCollectionView.reloadData()
+        reviewTableView.reloadData()
+    }
+    
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
         presentSimpleInputAlert(title: "Update Your Profile", message: "Choose 'Bio' or 'Photo' below 👇🏽")
@@ -86,6 +92,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = user?.likedBusinesses.count {
+            if count == 0 {
+                return 1
+            }
             return count
         }
         return 1
@@ -93,6 +102,12 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
+        if user?.likedBusinesses.count == 0 {
+            cell.juiceImageView.image = UIImage(named: "NoRating")
+            cell.locationLabel.text = "Search and rate!"
+            cell.isUserInteractionEnabled = false
+            return cell
+        }
         if let location = user?.likedBusinesses[indexPath.row] {
             guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
             cell.juiceImageView.image = UIImage(data: data)
@@ -114,12 +129,14 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         return nil
     }
-    
 }//END OF EXTENSIONS FOR VISITED COLLECTION VIEW
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = user?.juiceReviews.count {
+            if count == 0 {
+                return 1
+            }
             return count
         }
         return 1
@@ -127,6 +144,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell() }
+        if user?.juiceReviews.count == 0 {
+            cell.restaurantNameLabel.text = "No juice reviews yet"
+            cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
+            cell.isUserInteractionEnabled = false
+            return cell
+        }
         if let review = user?.juiceReviews[indexPath.row] {
             cell.restaurantNameLabel.text = review.businessName
             cell.drinkNameLabel.text = review.drinkName
@@ -157,9 +180,9 @@ extension ProfileViewController {
             self.imagePicker.present(from: self.view)
         }
         //Add actions/present
+        alertController.addAction(bioAction)
         alertController.addAction(photoAction)
         alertController.addAction(dismissAction)
-        alertController.addAction(bioAction)
         self.present(alertController, animated: true)
     }
 }//END OF ALERT CONTROLLER EXTENSION
