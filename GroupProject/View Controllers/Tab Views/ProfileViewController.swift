@@ -29,11 +29,11 @@ class ProfileViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
-        
+        //Should probably put 👇🏽 in a helper function
         profilePhotoImageView.layer.cornerRadius = 50
         profilePhotoImageView.clipsToBounds = true
         profilePhotoImageView.layer.borderWidth = 3
-        profilePhotoImageView.layer.borderColor = UIColor.white.cgColor
+        profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
         //set the profile picture
         if let photoData = UserController.shared.currentUser?.photoData{
             self.profilePhotoImageView.image = UIImage(data: photoData)
@@ -45,12 +45,11 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        
+        presentSimpleInputAlert(title: "Update Profile", message: "sdfasf")
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // IIDOO
         switch segue.identifier {
         case "toJuiceLocationDetail":
             guard let indexPath = self.visitedCollectionView.indexPathsForSelectedItems?.first,
@@ -139,4 +138,28 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }//END OF EXTENSIONS FOR REVIEWS TABLEVIEW
 
-
+extension ProfileViewController {
+    func presentSimpleInputAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        //Creating text field
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Enter bio here"
+        }
+        //Create actions
+        let dismissAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let bioAction = UIAlertAction(title: "Update Bio", style: .default) { (_) in
+            guard let name = alertController.textFields?[0].text,
+                !name.isEmpty else { return }
+            //CODE TO UPDATE user bio data func
+            //UPDATE VIEW?
+        }
+        let photoAction = UIAlertAction(title: "Update Photo", style: .default) { (_) in
+            self.imagePicker.present(from: self.view)
+        }
+        //Add actions/present
+        alertController.addAction(photoAction)
+        alertController.addAction(dismissAction)
+        alertController.addAction(bioAction)
+        self.present(alertController, animated: true)
+    }
+}//END OF ALERT CONTROLLER EXTENSION
