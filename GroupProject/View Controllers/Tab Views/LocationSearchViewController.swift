@@ -87,10 +87,14 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
         let business = locations[indexPath.row]
         let openStatus = business.isClosed ? "CLOSED" : "OPEN"
-        let buttonText = "\(business.name)\nJuiceNow™ Rating: \(business.rating)\nCurrently \(openStatus)"
+        let buttonText = "\(business.name)"
+        let ratingText = "JuiceNow™ Rating: \(business.rating)"
+        let openClosedText = "Currently \(openStatus)"
         cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "likedHeart" : "unlikedHeart"), for: .normal)
         cell.businessReference = self.locations[indexPath.row]
-        cell.locationInfo.text = buttonText
+        cell.restaurantName.text = buttonText
+        cell.juiceNowRating.text = ratingText
+        cell.openOrClosed.text = openClosedText
         return cell
     }
     
