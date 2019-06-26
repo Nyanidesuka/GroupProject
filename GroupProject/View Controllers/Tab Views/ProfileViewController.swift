@@ -21,7 +21,9 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Properties
     var imagePicker: ImagePicker!
-    var user: User? = UserController.shared.currentUser
+    var user: User? = {
+        return UserController.shared.currentUser
+    }()
     
     
     override func viewDidLoad() {
@@ -145,20 +147,23 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell() }
+        print("\(UserController.shared.currentUser?.juiceReviews.count) Juice reviews loaded for user 🍓🍓🍓🍓")
         if user?.juiceReviews.count == 0 {
             cell.restaurantNameLabel.text = "No juice reviews yet"
             cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
             cell.isUserInteractionEnabled = false
             return cell
-        }
-        if let review = user?.juiceReviews[indexPath.row] {
-            cell.restaurantNameLabel.text = review.businessName
-            cell.drinkNameLabel.text = review.drinkName
+        } else {
+            cell.isUserInteractionEnabled = true
+            if let review = user?.juiceReviews[indexPath.row] {
+                cell.restaurantNameLabel.text = review.businessName
+                cell.drinkNameLabel.text = review.drinkName
+                return cell
+            }
+            cell.restaurantNameLabel.text = "No juice reviews yet"
+            cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
             return cell
         }
-        cell.restaurantNameLabel.text = "No juice reviews yet"
-        cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
-        return cell
     }
 }//END OF EXTENSIONS FOR REVIEWS TABLEVIEW
 

@@ -12,15 +12,15 @@ class JuiceReview: Codable{
     
     let businessID: String
     let businessName: String
-    let drinkName: String
-    let drinkPrice: String
-    let drinkRating: Int
-    let drinkReview: String
-    let dimension1: Int
-    let dimension2: Int
-    let dimension3: Int
-    let dimension4: Int
-    let dimension5: Int
+    var drinkName: String
+    var drinkPrice: String
+    var drinkRating: Int
+    var drinkReview: String
+    var dimension1: Int
+    var dimension2: Int
+    var dimension3: Int
+    var dimension4: Int
+    var dimension5: Int
     
     init(businessID: String, businessName: String, drinkName: String, drinkPrice: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
         self.businessID = businessID

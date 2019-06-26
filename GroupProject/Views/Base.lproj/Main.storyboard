@@ -1424,15 +1424,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rm4-eb-oOl">
-                                                <rect key="frame" x="20" y="433" width="350" height="0.0"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" id="2Qv-9h-4PJ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="925-1B-nzu">
                                                 <rect key="frame" x="32" y="472" width="350" height="356"/>
                                                 <subviews>
@@ -1533,7 +1524,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes/Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ru-he-NZH" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="337.5" width="145" height="23"/>
+                                                <rect key="frame" x="32" y="337.5" width="145" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1545,8 +1536,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Comments Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iU3-3D-EXU">
-                                                <rect key="frame" x="32" y="368.5" width="350" height="56.5"/>
+                                                <rect key="frame" x="32" y="369" width="350" height="57"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="57" id="VWa-sH-YAV"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1576,21 +1570,18 @@
                                             <constraint firstItem="pTQ-GH-itV" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="8c9-fM-iRN"/>
                                             <constraint firstItem="925-1B-nzu" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="A09-WY-RjR"/>
                                             <constraint firstItem="dzI-cu-fiz" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="AqO-nN-h1l"/>
-                                            <constraint firstAttribute="bottom" secondItem="Rm4-eb-oOl" secondAttribute="bottom" constant="395" id="Azc-i1-Npj"/>
                                             <constraint firstItem="Yka-1A-mr8" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="Bp9-87-ykV"/>
+                                            <constraint firstItem="iU3-3D-EXU" firstAttribute="top" secondItem="Lgi-sK-Pdt" secondAttribute="top" constant="369" id="Ccv-8t-fgb"/>
                                             <constraint firstAttribute="trailing" secondItem="FOq-KL-6SZ" secondAttribute="trailing" constant="32" id="D4k-mp-qzq"/>
                                             <constraint firstItem="Lng-RT-0bo" firstAttribute="leading" secondItem="Cq7-e0-6JP" secondAttribute="trailing" constant="105.5" id="E4I-bQ-4br"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="828" id="E8q-cB-juL"/>
                                             <constraint firstItem="2qq-Wi-gZQ" firstAttribute="top" secondItem="pTQ-GH-itV" secondAttribute="bottom" constant="26" id="EfS-Qj-68G"/>
                                             <constraint firstItem="1ru-he-NZH" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="Gid-IQ-EeA"/>
                                             <constraint firstItem="FOq-KL-6SZ" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="H51-0j-Kxz"/>
-                                            <constraint firstItem="FOq-KL-6SZ" firstAttribute="top" secondItem="Rm4-eb-oOl" secondAttribute="bottom" constant="8" id="Jow-4k-7ZM"/>
                                             <constraint firstItem="1ru-he-NZH" firstAttribute="top" secondItem="Yka-1A-mr8" secondAttribute="bottom" constant="16" id="KpP-AB-eBN"/>
                                             <constraint firstItem="Lng-RT-0bo" firstAttribute="leading" secondItem="578-Np-CZ9" secondAttribute="leading" id="L1N-uV-ZlA"/>
                                             <constraint firstAttribute="trailing" secondItem="Yka-1A-mr8" secondAttribute="trailing" constant="32" id="Nrs-oh-VdV"/>
-                                            <constraint firstItem="Rm4-eb-oOl" firstAttribute="top" secondItem="iU3-3D-EXU" secondAttribute="bottom" constant="8" id="Nzr-oi-n1M"/>
                                             <constraint firstItem="925-1B-nzu" firstAttribute="top" secondItem="FOq-KL-6SZ" secondAttribute="bottom" constant="8" id="UKS-ai-yoG"/>
-                                            <constraint firstItem="Rm4-eb-oOl" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="20" id="UWx-Cp-twF"/>
                                             <constraint firstAttribute="trailing" secondItem="578-Np-CZ9" secondAttribute="trailing" constant="32" id="Umt-Rp-4U8"/>
                                             <constraint firstItem="Cq7-e0-6JP" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="Wsk-Yz-J5N"/>
                                             <constraint firstItem="iU3-3D-EXU" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="bgR-dY-wYm"/>
@@ -1598,11 +1589,11 @@
                                             <constraint firstItem="Lng-RT-0bo" firstAttribute="top" secondItem="Cq7-e0-6JP" secondAttribute="top" id="cH7-OE-JEh"/>
                                             <constraint firstItem="Yka-1A-mr8" firstAttribute="top" secondItem="Lgi-sK-Pdt" secondAttribute="bottom" constant="-575" id="eRF-bz-yhQ"/>
                                             <constraint firstAttribute="trailing" secondItem="iU3-3D-EXU" secondAttribute="trailing" constant="32" id="p6P-9Q-aN5"/>
+                                            <constraint firstItem="FOq-KL-6SZ" firstAttribute="top" secondItem="iU3-3D-EXU" secondAttribute="bottom" constant="15" id="qWw-GX-aIL"/>
                                             <constraint firstAttribute="bottom" secondItem="925-1B-nzu" secondAttribute="bottom" id="sRo-DA-moe"/>
                                             <constraint firstItem="dzI-cu-fiz" firstAttribute="top" secondItem="Cq7-e0-6JP" secondAttribute="bottom" constant="8" id="sot-G7-9fU"/>
                                             <constraint firstItem="578-Np-CZ9" firstAttribute="top" secondItem="Lng-RT-0bo" secondAttribute="bottom" constant="8" id="tN5-WW-b4c"/>
                                             <constraint firstAttribute="trailing" secondItem="925-1B-nzu" secondAttribute="trailing" constant="32" id="vEk-d6-hrJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Rm4-eb-oOl" secondAttribute="trailing" constant="44" id="zUK-KI-8GX"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1646,7 +1637,7 @@
                         <outlet property="flavorTwoLabel" destination="7kb-gC-8PU" id="q74-ZB-b9Z"/>
                         <outlet property="flavorTwoSlider" destination="NPS-ry-jgL" id="H1v-dG-Z1Y"/>
                         <outlet property="fourStarButton" destination="mZH-gM-sj0" id="4vz-Le-v2G"/>
-                        <outlet property="notesTextView" destination="Rm4-eb-oOl" id="FMf-Bu-mvy"/>
+                        <outlet property="notesTextView" destination="iU3-3D-EXU" id="fxo-rH-t8j"/>
                         <outlet property="oneStarButton" destination="8hs-WL-f11" id="Dlo-b9-6PF"/>
                         <outlet property="restaurantNameLabel" destination="2qq-Wi-gZQ" id="coW-p3-IeI"/>
                         <outlet property="threeStarButton" destination="akX-1B-FBv" id="FyW-jK-ieb"/>
@@ -1976,7 +1967,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yim-XG-ORE"/>
+        <segue reference="9cY-ut-Ugt"/>
         <segue reference="iHp-Yc-v2W"/>
         <segue reference="4zN-X2-dEd"/>
     </inferredMetricsTieBreakers>
