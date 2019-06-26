@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController {
             print("there's no image data")
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
+        print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviews.count) 🥦🥦🥦🥦")
     }
     
     override func viewWillAppear(_ animated: Bool) {
