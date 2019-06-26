@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     var imagePicker: ImagePicker!
     var user: User?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
     }
-
+    
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
         
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         switch segue.identifier {
         case "toJuiceLocationDetail":
             guard let indexPath = self.visitedCollectionView.indexPathsForSelectedItems?.first,
-            let destinationVC = segue.destination as? LocationDetailsViewController else { return }
+                let destinationVC = segue.destination as? LocationDetailsViewController else { return }
             let location = user?.likedBusinesses[indexPath.row]
             destinationVC.location = location
         case "toJuiceReviewDetail":
@@ -84,26 +84,26 @@ extension ProfileViewController: ImagePickerDelegate {
 }
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = user?.likedBusinesses.count {
             return count
         }
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
         if let location = user?.likedBusinesses[indexPath.row] {
             guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
             cell.juiceImageView.image = UIImage(data: data)
             //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
             return cell
         }
-            cell.juiceImageView.image = UIImage(named: "NoRating")
+        cell.juiceImageView.image = UIImage(named: "NoRating")
         //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
-            return cell
-        }
+        return cell
+    }
     
     func grabImageDataFor(business: Business) -> Data? {
         guard let urlString = URL(string: business.baseImage) else { return nil }
@@ -116,22 +116,27 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return nil
     }
     
-}//END OF EXTENSIONS FOR COLLECTION VIEW
+}//END OF EXTENSIONS FOR VISITED COLLECTION VIEW
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let count = user?.juiceReviews.count {
+            return count
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == reviewTableView{
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell()}
-            cell.drinkNameLabel.text = "review.text"
-            cell.restaurantNameLabel.text = "INSERT NAME OF LOCATION"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell() }
+        if let review = user?.juiceReviews[indexPath.row] {
+            cell.restaurantNameLabel.text = review.businessName
+            cell.drinkNameLabel.text = review.drinkName
             return cell
         }
-        return UITableViewCell()
+        cell.restaurantNameLabel.text = "No juice reviews yet"
+        cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
+        return cell
     }
-}
+}//END OF EXTENSIONS FOR REVIEWS TABLEVIEW
 
 
