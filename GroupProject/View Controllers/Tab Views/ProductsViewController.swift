@@ -15,6 +15,7 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var beginnerProductsCollectionView: UICollectionView!
     @IBOutlet weak var intermediateProductsCollectionView: UICollectionView!
     @IBOutlet weak var advancedProductsCollectionView: UICollectionView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //MARK: - Properties / Local sources of truth
     var suggestedProducts = ProductController.sharedInstance.createFeaturedProducts()
@@ -25,6 +26,7 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionViews()
+        scrollView.contentInset.bottom = self.tabBarController?.tabBar.frame.height ?? 50
     }
     
     override func viewWillAppear(_ animated: Bool) {

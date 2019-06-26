@@ -1,14 +1,14 @@
 //
-//  CustomBarButtonItems.swift
+//  CustomTableView.swift
 //  GroupProject
 //
-//  Created by Jordan Hendrickson on 6/21/19.
+//  Created by Jordan Hendrickson on 6/26/19.
 //  Copyright © 2019 DustinKoch. All rights reserved.
 //
 
 import UIKit
 
-class CustomBarButtonItems: UIButton {
+class CustomTableView: UITableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,7 +16,8 @@ class CustomBarButtonItems: UIButton {
     }
     
     func setupUI(){
+        addViewBorderColor(width: 2)
         self.addCornerRadius()
-        self.addAccentBorderColor()
+        
     }
 }
