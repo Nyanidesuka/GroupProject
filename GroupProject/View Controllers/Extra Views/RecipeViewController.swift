@@ -14,16 +14,40 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var secondaryRecipeNameLabel: UILabel!
     @IBOutlet weak var ingredientsLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
     
     //MARK: - Landing Pad / Properties
     var recipe: Recipe?
-    
-    
-    //MARK: - Properties
-    //Need landing pad, optional recipe for navigation
+    var ingredientsText: String {
+        var list = ""
+        guard let ingredients = recipe?.ingredients else { return "" }
+        for item in ingredients {
+            if ingredients.last == item {
+                list += "\(item)"
+                return list
+            }
+            list += "\(item)\n"
+        }
+        return list
+    }
+    var instructionsText: String {
+        var list = ""
+        var stepNumber = 1
+        guard let instructions = recipe?.instructions else { return "" }
+        for step in instructions {
+            if instructions.last == step {
+                list += "\(stepNumber)) \(step)"
+                return list
+            }
+            list += "\(stepNumber)) \(step)\n"
+            stepNumber += 1
+        }
+        return list
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundPhotoAndBlur()
         updateView()
     }
     
@@ -34,20 +58,31 @@ class RecipeViewController: UIViewController {
     func updateView() {
         guard let recipe = recipe else { return }
         recipeImageView.image = recipe.image
+        recipeImageView.layer.borderWidth = 3
+        recipeImageView.layer.borderColor = UIColor.white.cgColor
+        setupLabels()
+    }
+    
+    func setupLabels() {
+        guard let recipe = recipe else { return }
         secondaryRecipeNameLabel.text = recipe.name
-        ingredientsLabel.text = recipe.ingredients[0]
+        secondaryRecipeNameLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        ingredientsLabel.text = ingredientsText
+        ingredientsLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        instructionsLabel.text = instructionsText
+        instructionsLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
+    
+    func backgroundPhotoAndBlur() {
+        guard let recipe = recipe else { return }
+        self.view.backgroundColor = UIColor(patternImage: recipe.image)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.insertSubview(blurEffectView, at: 0)
     }
     
     //Should we have a share recipe button or a way to create email to send recipe raw data?
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+}//END OF RECIPE DETAIL VIEW CONTROLLER
