@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Properties
     var imagePicker: ImagePicker!
-    var user: User?
+    var user: User? = UserController.shared.currentUser
     
     
     override func viewDidLoad() {
