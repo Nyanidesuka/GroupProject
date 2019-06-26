@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        presentSimpleInputAlert(title: "Update Profile", message: "sdfasf")
+        presentSimpleInputAlert(title: "Update Your Profile", message: "Choose 'Bio' or 'Photo' below 👇🏽")
     }
     
     // MARK: - Navigation
@@ -96,11 +96,11 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         if let location = user?.likedBusinesses[indexPath.row] {
             guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
             cell.juiceImageView.image = UIImage(data: data)
-            //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
+            cell.locationLabel.text = location.name
             return cell
         }
         cell.juiceImageView.image = UIImage(named: "NoRating")
-        //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
+        cell.locationLabel.text = "Search and rate!"
         return cell
     }
     
@@ -147,13 +147,13 @@ extension ProfileViewController {
         }
         //Create actions
         let dismissAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let bioAction = UIAlertAction(title: "Update Bio", style: .default) { (_) in
+        let bioAction = UIAlertAction(title: "Bio", style: .default) { (_) in
             guard let name = alertController.textFields?[0].text,
                 !name.isEmpty else { return }
             //CODE TO UPDATE user bio data func
             //UPDATE VIEW?
         }
-        let photoAction = UIAlertAction(title: "Update Photo", style: .default) { (_) in
+        let photoAction = UIAlertAction(title: "Photo", style: .default) { (_) in
             self.imagePicker.present(from: self.view)
         }
         //Add actions/present

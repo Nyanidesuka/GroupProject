@@ -1060,6 +1060,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="juiceImageView" destination="XK3-d7-pY0" id="2yx-7v-OvA"/>
+                                                            <outlet property="locationLabel" destination="MwN-T1-yaR" id="cxK-Wl-q1c"/>
                                                             <segue destination="NGv-W4-SBu" kind="show" identifier="toJuiceLocationDetail" id="Yim-XG-ORE"/>
                                                         </connections>
                                                     </collectionViewCell>
@@ -1913,7 +1914,7 @@
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
         <image name="ProfileImage" width="350" height="350"/>
-        <image name="UnlikedStar" width="25" height="25"/>
+        <image name="UnlikedStar" width="64" height="64"/>
         <image name="unlikedHeart" width="256" height="256"/>
         <namedColor name="DarkBlueAccent">
             <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
