@@ -57,6 +57,19 @@ extension InitialFetchViewController: CLLocationManagerDelegate{
         CoreLocationReferences.currentLocation = currentLocation
         guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
         BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
+            guard let user = UserController.shared.currentUser else {print("couldnt unwrap user"); return}
+            for business in fetchedBusinesses{
+                print("☄️☄️☄️")
+                if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
+                    print("☄️")
+                    guard let targetIndex = user.likedBusinesses.firstIndex(where: {$0.businessID == business.businessID}) else {print("even though the likedBusinesses array contains the businesses, we couldn't find the business's index.☄️☄️☄️☄️"); return}
+                    business.isFavorite = true
+                    print("\(business.name) marked as favorite. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
+                    print("loading a rating of \(user.likedBusinesses[targetIndex].userRating) from user's liked business \(user.likedBusinesses[targetIndex].name) and assigning to \(business.name)☄️☄️☄️☄️")
+                    business.userRating = user.likedBusinesses[targetIndex].userRating
+                    print("We've assigned a rating to \(business.name), and that rating is \(business.userRating) ☄️☄️☄️ Also this is in the initial fetch")
+                }
+            }
             BusinessController.shared.businesses = fetchedBusinesses
             DispatchQueue.main.async {
                 print("firing segue🧶")

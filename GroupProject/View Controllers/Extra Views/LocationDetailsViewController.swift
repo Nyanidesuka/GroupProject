@@ -53,14 +53,51 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         goToMapForDirections(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude)
     }
     @IBAction func ratingOneTapped(_ sender: UIButton) {
+        guard let business = location else {return}
+        rateBusiness(business: business, rating: 1)
     }
     @IBAction func ratingTwoTapped(_ sender: UIButton) {
+        guard let business = location else {return}
+        rateBusiness(business: business, rating: 2)
     }
     @IBAction func ratingThreeTapped(_ sender: UIButton) {
+        guard let business = location else {return}
+        rateBusiness(business: business, rating: 3)
     }
     @IBAction func ratingFourTapped(_ sender: UIButton) {
+        guard let business = location else {return}
+        rateBusiness(business: business, rating: 4)
     }
     @IBAction func ratingFiveTapped(_ sender: UIButton) {
+        guard let business = location else {return}
+        rateBusiness(business: business, rating: 5)
+    }
+    
+    func checkBusinessIsFavorite(business: Business) -> Bool{
+        guard let user = UserController.shared.currentUser else {return false}
+        return user.likedBusinesses.contains(where: {$0.businessID == business.businessID})
+    }
+    
+    func rateBusiness(business: Business, rating: Int){
+        guard let user = UserController.shared.currentUser else {return}
+        business.userRating = rating
+        if user.likedBusinesses.contains(where: {$0.businessID == business.businessID}){
+            //I don't know that we actually need to do this; there's a chance that just changing the rating once changes it everywhere. But i'm paranoid.
+            guard let updateBusiness = user.likedBusinesses.first(where: {$0.businessID == business.businessID}) else {print("couldnt update business rating"); return}
+            updateBusiness.userRating = rating
+        } else {
+            //ths business isnt already liked so let's like it
+            user.likedBusinesses.append(business)
+            business.isFavorite = true
+        }
+        //then we gotta save the user doc.
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("finished saving user document. Success: \(success)")
+        }
+        //THEN we have to update the stars
+        updatePersonalRatingButtons()
+        print("Assigned a rating to \(business.name), and that rating is \(business.userRating)")
     }
     
     //MARK: - Table view data
@@ -107,10 +144,10 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func updateView() {
         print(location?.name)
+        print(location?.userRating)
         guard let location = location else { return }
         addPinToMap(location: location)
         updateCommunityRatingStars(rating: location.rating)
-        updatePersonalRatingStars()
         restaurantNameLabel.text = location.name
         secondaryLocationNameLabel.text = location.name
         YelpReviewController.shared.fetchYelpReviews(forBusinessID: location.businessID) { (reviews) in
@@ -121,6 +158,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         }
         updateLocationImageFor(business: location)
         updateSecondaryLabelFor(business: location)
+        //sets images on the user score buttons
+        self.updatePersonalRatingButtons()
     }
     
     func addPinToMap(location: Business) {
@@ -131,22 +170,6 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         locationMapView.showAnnotations([newPin], animated: true)
         
     }
-    
-//    func addPinToMap(){
-//        mapView.removeAnnotations(pins)
-//        self.pins = []
-//        for business in self.locations{
-//            let newPin = MKPointAnnotation()
-//            newPin.title = business.name
-//            newPin.coordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
-//            mapView.addAnnotation(newPin)
-//            self.pins.append(newPin) //collect references ot the pin so we can remove them later
-//        }
-//        print("location manager has no location.🧚‍♀️🧚‍♀️🧚‍♀️")
-//
-//        //set the radius
-//        mapView.showAnnotations(pins, animated: true)
-//    }
     
     
     func updateLocationImageFor(business: Business) {
@@ -255,9 +278,42 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
-    func updatePersonalRatingStars() {
-        //check if rating exists, if not return.
-        //else rating, update stars
+    
+    func updatePersonalRatingButtons(){
+        guard let location = location, let rating = location.userRating else {print("Failing the unwrap so something is nil.☄️☄️"); return}
+        switch rating{
+        case 1:
+            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarTwoButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 2:
+            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+                personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+                personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+                personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 3:
+            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 4:
+            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 5:
+            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            personalStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+        default: return
+        }
     }
     
 }//END OF LOCATION DETAIL VIEW CONTROLLER
