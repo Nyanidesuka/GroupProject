@@ -86,20 +86,37 @@ extension ProfileViewController: ImagePickerDelegate {
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch collectionView{
-        case visitedCollectionView:
-            return 5
-        default:
-            return 0
+        if let count = user?.likedBusinesses.count {
+            return count
         }
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else {return UICollectionViewCell()}
-            cell.juiceImageView.image = UIImage(named: "DefaultProfileImage")
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
+        if let location = user?.likedBusinesses[indexPath.row] {
+            guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
+            cell.juiceImageView.image = UIImage(data: data)
+            //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
             return cell
         }
+            cell.juiceImageView.image = UIImage(named: "NoRating")
+        //NEED INFO TO UPDATE FOR A LABEL THAT DOESN"T EXIST YET IN STORYBOARD
+            return cell
+        }
+    
+    func grabImageDataFor(business: Business) -> Data? {
+        guard let urlString = URL(string: business.baseImage) else { return nil }
+        do {
+            let imageData = try Data(contentsOf: urlString)
+            return imageData
+        } catch  {
+            print(error.localizedDescription)
+        }
+        return nil
     }
+    
+}//END OF EXTENSIONS FOR COLLECTION VIEW
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
