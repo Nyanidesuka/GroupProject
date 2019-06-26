@@ -1060,7 +1060,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="juiceImageView" destination="XK3-d7-pY0" id="2yx-7v-OvA"/>
-                                                            <segue destination="NGv-W4-SBu" kind="show" identifier="" id="Yim-XG-ORE"/>
+                                                            <segue destination="NGv-W4-SBu" kind="show" identifier="toJuiceLocationDetail" id="Yim-XG-ORE"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -1123,7 +1123,7 @@
                                                         <connections>
                                                             <outlet property="drinkNameLabel" destination="PWa-PG-gKE" id="gIe-CG-QGD"/>
                                                             <outlet property="restaurantNameLabel" destination="qLP-4m-qOO" id="v0u-CK-bY5"/>
-                                                            <segue destination="KFV-xM-NZX" kind="show" id="iHp-Yc-v2W"/>
+                                                            <segue destination="KFV-xM-NZX" kind="show" identifier="toJuiceReviewDetail" id="iHp-Yc-v2W"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
