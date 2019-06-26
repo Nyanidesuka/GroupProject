@@ -45,9 +45,6 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     
     //MARK: - Actions
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     @IBAction func getDirectionsTapped(_ sender: UIButton) {
         guard let location = location else { return }
         goToMapForDirections(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude)
@@ -313,6 +310,14 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
             personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
             personalStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
         default: return
+        }
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addJuiceReview"{
+            guard let destinVC = segue.destination as? ReviewViewController else {return}
+            destinVC.business = self.location
         }
     }
     

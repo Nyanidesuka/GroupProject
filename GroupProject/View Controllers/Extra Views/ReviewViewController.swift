@@ -11,7 +11,7 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var locationTextField: CustomTextField!
+    @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var drinkNameTextField: CustomTextField!
     @IBOutlet weak var drinkPriceTextField: CustomTextField!
     @IBOutlet weak var oneStarButton: UIButton!
@@ -34,7 +34,7 @@ class ReviewViewController: UIViewController {
     //MARK: - Properties / Landing pad
     var business: Business?
     var review: JuiceReview?
-    var rating: Int?
+    var rating: Int = 0
     
     
 
@@ -42,28 +42,39 @@ class ReviewViewController: UIViewController {
         super.viewDidLoad()
         updateLabels()
         updateSliderImages()
-
+        restaurantNameLabel.text = business?.name
+        guard let review = self.review else {print("the page has no review."); return}
+        self.rating = review.drinkRating
+        updateViews(withReview: review)
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Actions
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        saveNewReview()
+        print("savebois 🥦🥦🥦")
+        navigationController?.popViewController(animated: true)
     }
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        saveReview()
-        dismiss(animated: true, completion: nil)
-    }
+    
     @IBAction func oneStarTapped(_ sender: UIButton) {
-        //NEED TO SET LOCAL RATING VAR WHEN ANY OF THESE ARE TAPPED
+        self.rating = 1
+        updateStarButtons()
     }
     @IBAction func twoStarTapped(_ sender: UIButton) {
+        self.rating = 2
+        updateStarButtons()
     }
     @IBAction func threeStarTapped(_ sender: UIButton) {
+        self.rating = 3
+        updateStarButtons()
     }
     @IBAction func fourStarTapped(_ sender: UIButton) {
+        self.rating = 4
+        updateStarButtons()
     }
     @IBAction func fiveStarTapped(_ sender: UIButton) {
+        self.rating = 5
+        updateStarButtons()
     }
     @IBAction func sliderOneChanged(_ sender: UISlider) {
         let newValue = Int(sender.value)
@@ -92,30 +103,31 @@ class ReviewViewController: UIViewController {
         flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): \(newValue)"
     }
     
-    
-    
     //MARK: - Helper Functions
-    func saveReview() {
-//        guard let businessID = business?.businessID,
-//        let restaurantName = business?.name,
-//        let drinkName = drinkNameTextField.text,
-//        let price = Float(drinkPriceTextField.text),
-//        let drinkRating = rating,
-//            let drinkReview = notesTextView.text else { return }
-//        
-//
-//
-//
-//        if let review = review {
-//            //code if review exists, update
-//            JuiceReviewController.shared.
-//            JuiceReviewController.shared.updateReview(review: <#T##JuiceReview#>)
-//        } else {
-//            //create new review
-//            JuiceReviewController.shared.createReview(businessID: <#T##String#>, restarauntName: <#T##String#>, drinkName: <#T##String#>, price: <#T##Float#>, drinkRating: <#T##Int#>, drinkReview: <#T##String#>, dimension1: <#T##Int#>, dimension2: <#T##Int#>, dimension3: <#T##Int#>, dimension4: <#T##Int#>, dimension5: <#T##Int#>)
-//        }
+    func saveNewReview(){
+        //grab data from all the fields!
+        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text, let business = self.business else {print("There's not enough info to make a review."); return}
+        let sliderOneValue = Int(flavorOneSlider.value)
+        let sliderTwoValue = Int(flavorTwoSlider.value)
+        let sliderThreeValue = Int(flavorThreeSlider.value)
+        let sliderFourValue = Int(flavorFourSlider.value)
+        let sliderFiveValue = Int(flavorFiveSlider.value)
+        print("Here's what we've got for the review: \(price), \(drinkName), \(business.name), \(business.businessID), \(sliderOneValue), \(sliderTwoValue), \(sliderThreeValue), \(sliderFourValue), \(sliderFiveValue)")
+        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue)
+        self.dismiss(animated: true, completion: nil)
     }
     
+    func updateExistingReview(review: JuiceReview){
+        
+    }
+    
+    func updateViews(withReview review: JuiceReview){
+        self.updateLabels()
+        self.drinkNameTextField.text = review.drinkName
+        self.restaurantNameLabel.text = review.businessName
+        self.drinkPriceTextField.text = review.drinkPrice
+        self.updateStarButtons()
+    }
     
     func updateLabels() {
         if let review = review {
@@ -130,6 +142,48 @@ class ReviewViewController: UIViewController {
             flavorThreeLabel.text = "\(JuiceReviewController.shared.flavorThree): 0"
             flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): 0"
             flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): 0"
+        }
+    }
+    
+    func updateStarButtons(){
+        print("rating: \(self.rating)")
+        switch self.rating{
+        case 1:
+            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 2:
+            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 3:
+            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 4:
+            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+        case 5:
+            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+        default:
+            oneStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
         }
     }
     
@@ -150,16 +204,4 @@ class ReviewViewController: UIViewController {
         flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .green)
         flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .red)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

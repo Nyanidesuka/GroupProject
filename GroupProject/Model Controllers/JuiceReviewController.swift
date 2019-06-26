@@ -22,15 +22,14 @@ class JuiceReviewController{
     
     //MARK: - CRUD Functions
     
-    func createReview(businessID: String, restarauntName: String, drinkName: String, price: Float, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int) -> JuiceReview{
+    func createReview(businessID: String, restarauntName: String, drinkName: String, price: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
         let newJuiceReview = JuiceReview(businessID: businessID, businessName: restarauntName, drinkName: drinkName, drinkPrice: price, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5)
-        guard let user = UserController.shared.currentUser else {return newJuiceReview}
+        guard let user = UserController.shared.currentUser else {return}
         user.juiceReviews.append(newJuiceReview)
         let userDict = UserController.shared.createDictionary(fromUser: user)
         UserController.shared.saveUserDocument(data: userDict) { (success) in
             print("created a new review, added it to the user, and saved that user document.🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
         }
-        return newJuiceReview
     }
     
     func deleteReview(review: JuiceReview){

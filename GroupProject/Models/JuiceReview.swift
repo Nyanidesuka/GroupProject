@@ -13,7 +13,7 @@ class JuiceReview: Codable{
     let businessID: String
     let businessName: String
     let drinkName: String
-    let drinkPrice: Float
+    let drinkPrice: String
     let drinkRating: Int
     let drinkReview: String
     let dimension1: Int
@@ -22,7 +22,7 @@ class JuiceReview: Codable{
     let dimension4: Int
     let dimension5: Int
     
-    init(businessID: String, businessName: String, drinkName: String, drinkPrice: Float, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
+    init(businessID: String, businessName: String, drinkName: String, drinkPrice: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
         self.businessID = businessID
         self.businessName = businessName
         self.drinkName = drinkName
@@ -40,7 +40,7 @@ class JuiceReview: Codable{
         guard let businessID = data["businessID"] as? String,
             let businessName = data["businessName"] as? String,
             let drinkName = data["drinkName"] as? String,
-            let drinkPrice = data["drinkPrice"] as? Float,
+            let drinkPrice = data["drinkPrice"] as? String,
             let drinkRating = data["drinkRating"] as? Int,
             let drinkReview = data["drinkReview"] as? String,
             let dimension1 = data["dimension1"] as? Int,
