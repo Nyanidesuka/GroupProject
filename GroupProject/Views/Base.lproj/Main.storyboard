@@ -696,28 +696,11 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop: Top selling products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZN-fC-zin">
-                                                <rect key="frame" x="32" y="8" width="262" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Shop: Top selling products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZN-fC-zin">
+                                                <rect key="frame" x="32" y="8" width="350" height="28"/>
+                                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="23"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop: Tools for beginners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIC-v6-Ai9">
-                                                <rect key="frame" x="32" y="290" width="197" height="21"/>
-                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop: Advanced equipment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-Nz-N9v">
-                                                <rect key="frame" x="32" y="628" width="215" height="14"/>
-                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop: Intermediate tech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyE-XS-Qbu">
-                                                <rect key="frame" x="32" y="452" width="189" height="21"/>
-                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="White"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XUF-Cj-Rg7" customClass="CustomCollectionView" customModule="GroupProject" customModuleProvider="target">
@@ -778,39 +761,64 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Shop: Tools for beginners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIC-v6-Ai9">
+                                                <rect key="frame" x="32" y="282" width="350" height="29"/>
+                                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                                <color key="textColor" name="White"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Shop: Intermediate tech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyE-XS-Qbu">
+                                                <rect key="frame" x="32" y="452" width="350" height="21"/>
+                                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                                <color key="textColor" name="White"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Shop: Advanced equipment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-Nz-N9v">
+                                                <rect key="frame" x="32" y="620" width="350" height="22"/>
+                                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="724" id="09h-Kt-b2h"/>
+                                            <constraint firstItem="sY8-18-h2w" firstAttribute="top" secondItem="0ZN-fC-zin" secondAttribute="bottom" constant="4" id="371-8V-d87"/>
                                             <constraint firstItem="4Da-dz-LJ5" firstAttribute="top" secondItem="Nna-cb-DAd" secondAttribute="top" constant="319" id="3lc-rb-VkI"/>
-                                            <constraint firstItem="XUF-Cj-Rg7" firstAttribute="top" secondItem="uyE-XS-Qbu" secondAttribute="bottom" constant="8" id="5SG-Sb-IMG"/>
+                                            <constraint firstItem="uyE-XS-Qbu" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="5FP-i1-bD2"/>
                                             <constraint firstItem="sY8-18-h2w" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="5me-Zp-eNf"/>
                                             <constraint firstItem="8T8-ou-dy1" firstAttribute="top" secondItem="Nna-cb-DAd" secondAttribute="top" constant="650" id="6Jl-zW-Lju"/>
+                                            <constraint firstItem="Cd1-Nz-N9v" firstAttribute="top" secondItem="XUF-Cj-Rg7" secondAttribute="bottom" constant="8" id="7d8-TS-pjQ"/>
+                                            <constraint firstItem="8T8-ou-dy1" firstAttribute="top" secondItem="Cd1-Nz-N9v" secondAttribute="bottom" constant="8" id="8QW-U3-eKA"/>
                                             <constraint firstItem="0ZN-fC-zin" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="9ZE-hT-tRg"/>
                                             <constraint firstAttribute="bottom" secondItem="8T8-ou-dy1" secondAttribute="bottom" constant="-47" id="BTX-Qd-G6y"/>
                                             <constraint firstAttribute="trailing" secondItem="sY8-18-h2w" secondAttribute="trailing" constant="32" id="Brh-x1-wm4"/>
                                             <constraint firstItem="8T8-ou-dy1" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="Eqt-Hz-gd7"/>
                                             <constraint firstAttribute="height" priority="900" constant="724" id="G2y-dC-wuT"/>
-                                            <constraint firstItem="uyE-XS-Qbu" firstAttribute="top" secondItem="4Da-dz-LJ5" secondAttribute="bottom" constant="8" id="IDJ-mQ-Z25"/>
+                                            <constraint firstItem="4Da-dz-LJ5" firstAttribute="top" secondItem="wIC-v6-Ai9" secondAttribute="bottom" constant="8" id="KVt-iX-kzX"/>
+                                            <constraint firstAttribute="trailing" secondItem="uyE-XS-Qbu" secondAttribute="trailing" constant="32" id="LiT-Px-ALt"/>
+                                            <constraint firstItem="XUF-Cj-Rg7" firstAttribute="top" secondItem="uyE-XS-Qbu" secondAttribute="bottom" constant="8" id="LlO-2w-W47"/>
                                             <constraint firstItem="XUF-Cj-Rg7" firstAttribute="top" secondItem="Nna-cb-DAd" secondAttribute="top" constant="481" id="N9y-jI-BHd"/>
-                                            <constraint firstItem="wIC-v6-Ai9" firstAttribute="top" secondItem="sY8-18-h2w" secondAttribute="bottom" constant="16" id="R51-fB-AWn"/>
+                                            <constraint firstItem="uyE-XS-Qbu" firstAttribute="top" secondItem="4Da-dz-LJ5" secondAttribute="bottom" constant="8" id="QFR-Ny-02K"/>
                                             <constraint firstAttribute="bottom" secondItem="XUF-Cj-Rg7" secondAttribute="bottom" constant="112" id="RiN-CD-FFf"/>
+                                            <constraint firstItem="wIC-v6-Ai9" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="TwP-dE-hxq"/>
                                             <constraint firstAttribute="trailing" secondItem="8T8-ou-dy1" secondAttribute="trailing" constant="32" id="UAg-Pe-NdW"/>
                                             <constraint firstItem="sY8-18-h2w" firstAttribute="top" secondItem="Nna-cb-DAd" secondAttribute="top" constant="40" id="XKk-xK-RvI"/>
-                                            <constraint firstItem="wIC-v6-Ai9" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="a51-qp-Ydw"/>
                                             <constraint firstAttribute="trailing" secondItem="XUF-Cj-Rg7" secondAttribute="trailing" constant="32" id="bcc-gS-nmF"/>
+                                            <constraint firstAttribute="trailing" secondItem="wIC-v6-Ai9" secondAttribute="trailing" constant="32" id="gXD-ce-zb5"/>
+                                            <constraint firstItem="wIC-v6-Ai9" firstAttribute="top" secondItem="sY8-18-h2w" secondAttribute="bottom" constant="8" id="kCx-Jj-bpq"/>
                                             <constraint firstAttribute="bottom" secondItem="4Da-dz-LJ5" secondAttribute="bottom" constant="280" id="kuE-yy-Yej"/>
-                                            <constraint firstItem="Cd1-Nz-N9v" firstAttribute="top" secondItem="XUF-Cj-Rg7" secondAttribute="bottom" constant="16" id="mGh-Dj-Pqk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cd1-Nz-N9v" secondAttribute="trailing" constant="32" id="nlc-Nn-5jk"/>
                                             <constraint firstItem="XUF-Cj-Rg7" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="o43-IO-VRK"/>
                                             <constraint firstItem="0ZN-fC-zin" firstAttribute="top" secondItem="Nna-cb-DAd" secondAttribute="top" constant="8" id="pJI-qy-jPf"/>
-                                            <constraint firstItem="uyE-XS-Qbu" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="s0a-tL-LNW"/>
                                             <constraint firstAttribute="trailing" secondItem="4Da-dz-LJ5" secondAttribute="trailing" constant="32" id="tcq-fi-iA7"/>
+                                            <constraint firstItem="Cd1-Nz-N9v" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="tnN-ZW-83O"/>
                                             <constraint firstItem="4Da-dz-LJ5" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="u7W-7o-7Wg"/>
-                                            <constraint firstItem="sY8-18-h2w" firstAttribute="top" secondItem="0ZN-fC-zin" secondAttribute="bottom" constant="4" id="v3C-BR-96z"/>
-                                            <constraint firstItem="4Da-dz-LJ5" firstAttribute="top" secondItem="wIC-v6-Ai9" secondAttribute="bottom" constant="8" id="vWl-gP-gY3"/>
-                                            <constraint firstItem="8T8-ou-dy1" firstAttribute="top" secondItem="Cd1-Nz-N9v" secondAttribute="bottom" constant="8" id="wzh-cp-Fza"/>
+                                            <constraint firstAttribute="trailing" secondItem="0ZN-fC-zin" secondAttribute="trailing" constant="32" id="veR-0f-O6z"/>
                                             <constraint firstAttribute="bottom" secondItem="sY8-18-h2w" secondAttribute="bottom" constant="450" id="xdE-IB-7I1"/>
-                                            <constraint firstItem="Cd1-Nz-N9v" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" constant="32" id="yUD-54-wcD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -934,29 +942,29 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rI5-ga-EP5">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rI5-ga-EP5">
                                                 <rect key="frame" x="32" y="419.5" width="350" height="365"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="we4-d5-00e">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="we4-d5-00e">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY">
                                                         <rect key="frame" x="0.0" y="31" width="350" height="20.5"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="2Pa-u6-GWH" firstAttribute="leading" secondItem="rI5-ga-EP5" secondAttribute="leading" id="3DM-AT-nXt"/>
-                                                    <constraint firstItem="2Pa-u6-GWH" firstAttribute="width" secondItem="rI5-ga-EP5" secondAttribute="width" id="9dF-b2-fRw"/>
-                                                    <constraint firstAttribute="trailing" secondItem="2Pa-u6-GWH" secondAttribute="trailing" id="MoY-2I-xCg"/>
+                                                    <constraint firstAttribute="leading" secondItem="rI5-ga-EP5" secondAttribute="leading" id="3DM-AT-nXt"/>
+                                                    <constraint firstAttribute="width" secondItem="rI5-ga-EP5" secondAttribute="width" id="9dF-b2-fRw"/>
                                                     <constraint firstAttribute="height" constant="365" id="MwJ-WZ-Vea"/>
-                                                    <constraint firstItem="2Pa-u6-GWH" firstAttribute="top" secondItem="rI5-ga-EP5" secondAttribute="top" id="NAL-rU-1Bl"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2Pa-u6-GWH" secondAttribute="bottom" id="xpI-qs-cyO"/>
+                                                    <constraint firstAttribute="top" secondItem="rI5-ga-EP5" secondAttribute="top" id="NAL-rU-1Bl"/>
                                                 </constraints>
                                             </scrollView>
                                         </subviews>
