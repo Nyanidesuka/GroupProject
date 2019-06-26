@@ -16,8 +16,7 @@ class CustomLabel: UILabel {
     }
     
     func setupUI(){
-        self.textColor = UIColor.black
-//        self.addLabelBorderColor()
-//        self.addCornerRadius()
+        self.addViewBorderColor()
+        self.addCornerRadius()
     }
 }
