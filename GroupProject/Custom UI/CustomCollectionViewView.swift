@@ -13,6 +13,7 @@ class CustomCollectionViewView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        backgroundColor = UIColor.groupTableViewBackground
     }
     
     func setupUI() {
