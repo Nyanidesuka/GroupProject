@@ -11,5 +11,6 @@ import UIKit
 class VisitedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var juiceImageView: UIImageView!
+    @IBOutlet weak var locationLabel: UILabel!
     
 }

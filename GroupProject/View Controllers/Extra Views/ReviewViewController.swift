@@ -31,7 +31,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFourSlider: UISlider!
     @IBOutlet weak var flavorFiveSlider: UISlider!
     
-    //MARK: - Properties
+    //MARK: - Properties / Landing pad
     var business: Business?
     var review: JuiceReview?
     var rating: Int?
