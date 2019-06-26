@@ -22,6 +22,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
     var pins: [MKPointAnnotation] = []
+    //I want to use this variable to determine whether the user is trying to search by device location or by a search term.
+    var searchByLocation: Bool = true
     
     var locations: [Business] = [] {
         didSet{
@@ -45,6 +47,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                 self.presentSearchTermAlert()
                 return
             }
+            self.searchByLocation = false
             BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
                 self.showFavoritesAndRatings(locations: locations)
                 BusinessController.shared.businesses = locations
@@ -210,15 +213,17 @@ extension LocationSearchViewController: UISearchBarDelegate {
 extension LocationSearchViewController: CLLocationManagerDelegate{
     //fires whenever the location updates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
-        self.currentLocation = locations[locations.count-1] as CLLocation
-        guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
-        BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
-            self.showFavoritesAndRatings(locations: fetchedBusinesses)
-            self.locations = fetchedBusinesses
-            BusinessController.shared.businesses = fetchedBusinesses
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if self.searchByLocation == true{
+            print("⚠️⚠️⚠️⚠️⚠️⚠️ delegate firing")
+            self.currentLocation = locations[locations.count-1] as CLLocation
+            guard let latitude = currentLocation?.coordinate.latitude, let longitude = currentLocation?.coordinate.longitude else {return}
+            BusinessController.shared.fetchBusinessWithCoordinates(latitude: latitude, longitude: longitude) { (fetchedBusinesses) in
+                self.showFavoritesAndRatings(locations: fetchedBusinesses)
+                self.locations = fetchedBusinesses
+                BusinessController.shared.businesses = fetchedBusinesses
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }

@@ -22,7 +22,6 @@ class InitialFetchViewController: UIViewController {
         //load the user first
         UserController.shared.loadUser {
             DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
                 self.locationManager = CLLocationManager()
                 self.locationManager?.delegate = self
                 self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
@@ -40,13 +39,13 @@ class InitialFetchViewController: UIViewController {
     }
     
     func segueToTabBarVC(){
+        self.activityIndicator.stopAnimating()
         print("henlo, we're firing the segue to the tab bar controller.")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarController")
         UIApplication.shared.windows.first?.rootViewController = viewController
         self.performSegue(withIdentifier: "toTabController", sender: nil)
     }
-    
 }
 
 
