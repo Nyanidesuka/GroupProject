@@ -53,7 +53,11 @@ class ReviewViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        saveNewReview()
+        if let review = self.review{
+            self.updateExistingReview(review: review)
+        } else {
+            saveNewReview()
+        }
         print("savebois 🥦🥦🥦")
         navigationController?.popViewController(animated: true)
     }
@@ -120,7 +124,27 @@ class ReviewViewController: UIViewController {
     }
     
     func updateExistingReview(review: JuiceReview){
-        
+        //grab data from all the fields!
+        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text else {print("There's not enough info to make a review."); return}
+        let sliderOneValue = Int(flavorOneSlider.value)
+        let sliderTwoValue = Int(flavorTwoSlider.value)
+        let sliderThreeValue = Int(flavorThreeSlider.value)
+        let sliderFourValue = Int(flavorFourSlider.value)
+        let sliderFiveValue = Int(flavorFiveSlider.value)
+        review.drinkReview = reviewComments
+        review.drinkPrice = price
+        review.drinkName = drinkName
+        review.drinkRating = rating
+        review.dimension1 = sliderOneValue
+        review.dimension2 = sliderTwoValue
+        review.dimension3 = sliderThreeValue
+        review.dimension4 = sliderFourValue
+        review.dimension5 = sliderFiveValue
+        guard let user = UserController.shared.currentUser else {print("couldn't unwrap the user for \(#function)"); return}
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("Saved user document during \(#function): \(success)")
+        }
     }
     
     func updateViews(withReview review: JuiceReview){
@@ -129,6 +153,13 @@ class ReviewViewController: UIViewController {
         self.restaurantNameLabel.text = review.businessName
         self.drinkPriceTextField.text = review.drinkPrice
         self.updateStarButtons()
+        self.notesTextView.text = review.drinkReview
+        self.flavorOneSlider.value = Float(review.dimension1)
+        self.flavorTwoSlider.value = Float(review.dimension2)
+        self.flavorThreeSlider.value = Float(review.dimension3)
+        self.flavorFourSlider.value = Float(review.dimension4)
+        self.flavorFiveSlider.value = Float(review.dimension5)
+        
     }
     
     func updateLabels() {
