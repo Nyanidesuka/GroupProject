@@ -26,6 +26,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-jm-OOC">
+                                        <rect key="frame" x="353" y="13" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1040,7 +1045,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwN-T1-yaR">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwN-T1-yaR">
                                                                     <rect key="frame" x="0.0" y="116" width="119" height="16"/>
                                                                     <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="13"/>
                                                                     <nil key="textColor"/>
@@ -1297,31 +1302,25 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="828"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Juice with 5 levels of flavor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-KL-6SZ" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="441" width="350" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="32" y="441" width="350" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzI-cu-fiz" customClass="CustomTextField" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="151" width="158" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQF-RN-JkY" customClass="CustomTextField" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="76.5" width="350" height="30"/>
+                                                <rect key="frame" x="32" y="146" width="175.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lng-RT-0bo" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="250" y="122.5" width="39" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="267.5" y="115" width="42.5" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="578-Np-CZ9" customClass="CustomTextField" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="250" y="151" width="132" height="30"/>
+                                                <rect key="frame" x="267.5" y="146" width="114.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1382,8 +1381,8 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTQ-GH-itV" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="30" width="155.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="32" y="30" width="170.5" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1397,7 +1396,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="925-1B-nzu">
-                                                <rect key="frame" x="32" y="469.5" width="350" height="358.5"/>
+                                                <rect key="frame" x="32" y="472" width="350" height="356"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gJs-fd-bku">
                                                         <rect key="frame" x="6" y="36.5" width="338" height="31"/>
@@ -1496,26 +1495,32 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes/Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ru-he-NZH" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="337.5" width="134" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="32" y="337.5" width="145" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Of Drink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-e0-6JP" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="122.5" width="112.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="32" y="115" width="130" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Comments Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iU3-3D-EXU">
-                                                <rect key="frame" x="32" y="366" width="350" height="59"/>
+                                                <rect key="frame" x="32" y="368.5" width="350" height="56.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7c8-IQ-fuE">
-                                                <rect key="frame" x="32" y="197" width="119.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="32" y="192" width="128" height="23"/>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-Wi-gZQ">
+                                                <rect key="frame" x="32" y="79" width="350" height="20"/>
+                                                <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1524,8 +1529,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="828" id="1a9-cD-Dda"/>
                                             <constraint firstItem="7c8-IQ-fuE" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="2D9-lY-Syg"/>
+                                            <constraint firstItem="Cq7-e0-6JP" firstAttribute="top" secondItem="2qq-Wi-gZQ" secondAttribute="bottom" constant="16" id="2uj-RM-KXF"/>
                                             <constraint firstItem="iU3-3D-EXU" firstAttribute="top" secondItem="1ru-he-NZH" secondAttribute="bottom" constant="8" id="30i-Hd-zbQ"/>
+                                            <constraint firstItem="2qq-Wi-gZQ" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="3ha-QI-Obi"/>
                                             <constraint firstItem="pTQ-GH-itV" firstAttribute="top" secondItem="Lgi-sK-Pdt" secondAttribute="top" constant="30" id="5dR-Ok-VM2"/>
+                                            <constraint firstAttribute="trailing" secondItem="2qq-Wi-gZQ" secondAttribute="trailing" constant="32" id="5vh-YD-RbS"/>
                                             <constraint firstItem="578-Np-CZ9" firstAttribute="leading" secondItem="dzI-cu-fiz" secondAttribute="trailing" constant="60" id="6zY-cb-6Qb"/>
                                             <constraint firstItem="pTQ-GH-itV" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="8c9-fM-iRN"/>
                                             <constraint firstItem="925-1B-nzu" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="A09-WY-RjR"/>
@@ -1535,11 +1543,10 @@
                                             <constraint firstAttribute="trailing" secondItem="FOq-KL-6SZ" secondAttribute="trailing" constant="32" id="D4k-mp-qzq"/>
                                             <constraint firstItem="Lng-RT-0bo" firstAttribute="leading" secondItem="Cq7-e0-6JP" secondAttribute="trailing" constant="105.5" id="E4I-bQ-4br"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="828" id="E8q-cB-juL"/>
+                                            <constraint firstItem="2qq-Wi-gZQ" firstAttribute="top" secondItem="pTQ-GH-itV" secondAttribute="bottom" constant="26" id="EfS-Qj-68G"/>
                                             <constraint firstItem="1ru-he-NZH" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="Gid-IQ-EeA"/>
                                             <constraint firstItem="FOq-KL-6SZ" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="H51-0j-Kxz"/>
-                                            <constraint firstItem="Cq7-e0-6JP" firstAttribute="top" secondItem="bQF-RN-JkY" secondAttribute="bottom" constant="16" id="Hg3-2C-o78"/>
                                             <constraint firstItem="FOq-KL-6SZ" firstAttribute="top" secondItem="Rm4-eb-oOl" secondAttribute="bottom" constant="8" id="Jow-4k-7ZM"/>
-                                            <constraint firstItem="bQF-RN-JkY" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="KGL-US-fnv"/>
                                             <constraint firstItem="1ru-he-NZH" firstAttribute="top" secondItem="Yka-1A-mr8" secondAttribute="bottom" constant="16" id="KpP-AB-eBN"/>
                                             <constraint firstItem="Lng-RT-0bo" firstAttribute="leading" secondItem="578-Np-CZ9" secondAttribute="leading" id="L1N-uV-ZlA"/>
                                             <constraint firstAttribute="trailing" secondItem="Yka-1A-mr8" secondAttribute="trailing" constant="32" id="Nrs-oh-VdV"/>
@@ -1550,16 +1557,14 @@
                                             <constraint firstItem="Cq7-e0-6JP" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="Wsk-Yz-J5N"/>
                                             <constraint firstItem="iU3-3D-EXU" firstAttribute="leading" secondItem="Lgi-sK-Pdt" secondAttribute="leading" constant="32" id="bgR-dY-wYm"/>
                                             <constraint firstItem="7c8-IQ-fuE" firstAttribute="top" secondItem="dzI-cu-fiz" secondAttribute="bottom" constant="16" id="bjV-y5-dqv"/>
+                                            <constraint firstItem="Lng-RT-0bo" firstAttribute="top" secondItem="Cq7-e0-6JP" secondAttribute="top" id="cH7-OE-JEh"/>
                                             <constraint firstItem="Yka-1A-mr8" firstAttribute="top" secondItem="Lgi-sK-Pdt" secondAttribute="bottom" constant="-575" id="eRF-bz-yhQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="bQF-RN-JkY" secondAttribute="trailing" constant="32" id="i4n-gr-u3y"/>
                                             <constraint firstAttribute="trailing" secondItem="iU3-3D-EXU" secondAttribute="trailing" constant="32" id="p6P-9Q-aN5"/>
-                                            <constraint firstItem="Lng-RT-0bo" firstAttribute="top" secondItem="bQF-RN-JkY" secondAttribute="bottom" constant="16" id="s2N-d0-Ufm"/>
                                             <constraint firstAttribute="bottom" secondItem="925-1B-nzu" secondAttribute="bottom" id="sRo-DA-moe"/>
                                             <constraint firstItem="dzI-cu-fiz" firstAttribute="top" secondItem="Cq7-e0-6JP" secondAttribute="bottom" constant="8" id="sot-G7-9fU"/>
                                             <constraint firstItem="578-Np-CZ9" firstAttribute="top" secondItem="Lng-RT-0bo" secondAttribute="bottom" constant="8" id="tN5-WW-b4c"/>
                                             <constraint firstAttribute="trailing" secondItem="925-1B-nzu" secondAttribute="trailing" constant="32" id="vEk-d6-hrJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Rm4-eb-oOl" secondAttribute="trailing" constant="44" id="zUK-KI-8GX"/>
-                                            <constraint firstItem="bQF-RN-JkY" firstAttribute="top" secondItem="pTQ-GH-itV" secondAttribute="bottom" constant="26" id="zxA-fk-WId"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1599,7 +1604,6 @@
                         <outlet property="flavorTwoLabel" destination="7kb-gC-8PU" id="q74-ZB-b9Z"/>
                         <outlet property="flavorTwoSlider" destination="NPS-ry-jgL" id="H1v-dG-Z1Y"/>
                         <outlet property="fourStarButton" destination="mZH-gM-sj0" id="4vz-Le-v2G"/>
-                        <outlet property="locationTextField" destination="bQF-RN-JkY" id="GXQ-Vt-6Ug"/>
                         <outlet property="notesTextView" destination="Rm4-eb-oOl" id="FMf-Bu-mvy"/>
                         <outlet property="oneStarButton" destination="8hs-WL-f11" id="Dlo-b9-6PF"/>
                         <outlet property="threeStarButton" destination="akX-1B-FBv" id="FyW-jK-ieb"/>
@@ -1924,8 +1928,8 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yim-XG-ORE"/>
-        <segue reference="jPf-Kj-Aev"/>
+        <segue reference="9cY-ut-Ugt"/>
+        <segue reference="iHp-Yc-v2W"/>
         <segue reference="4zN-X2-dEd"/>
     </inferredMetricsTieBreakers>
 </document>
