@@ -11,8 +11,10 @@ import UIKit
 class LocationTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
-    @IBOutlet weak var locationInfo: UILabel!
+    @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var juiceNowRating: UILabel!
+    @IBOutlet weak var openOrClosed: UILabel!
     
     var businessReference: Business?
     
