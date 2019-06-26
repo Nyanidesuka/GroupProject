@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
         //Should probably put 👇🏽 in a helper function
-        profilePhotoImageView.layer.cornerRadius = 50
+        profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
         profilePhotoImageView.layer.borderWidth = 3
         profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
@@ -41,6 +41,9 @@ class ProfileViewController: UIViewController {
             print("there's no image data")
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
     }
     
     //MARK: - Actions
