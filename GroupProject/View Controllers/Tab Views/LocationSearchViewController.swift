@@ -18,7 +18,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var mapView: MKMapView!
     
     //MARK: - Properties
-    let debouncer = Debouncer(timeInterval: 2.0)
+    let debouncer = Debouncer(timeInterval: 1.25)
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
     var pins: [MKPointAnnotation] = []
