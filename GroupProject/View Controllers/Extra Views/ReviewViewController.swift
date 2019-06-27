@@ -11,7 +11,7 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var restaurantNameLabel: UILabel!
+
     @IBOutlet weak var drinkNameTextField: CustomTextField!
     @IBOutlet weak var drinkPriceTextField: CustomTextField!
     @IBOutlet weak var oneStarButton: UIButton!
@@ -43,7 +43,6 @@ class ReviewViewController: UIViewController {
         super.viewDidLoad()
         updateLabels()
         updateSliderImages()
-        restaurantNameLabel.text = business?.name
         guard let review = self.review else {print("the page has no review."); return}
         self.rating = review.drinkRating
         updateViews(withReview: review)
@@ -119,7 +118,7 @@ class ReviewViewController: UIViewController {
         let sliderFourValue = Int(flavorFourSlider.value)
         let sliderFiveValue = Int(flavorFiveSlider.value)
         print("Here's what we've got for the review: \(price), \(drinkName), \(business.name), \(business.businessID), \(sliderOneValue), \(sliderTwoValue), \(sliderThreeValue), \(sliderFourValue), \(sliderFiveValue)")
-        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue)
+        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue, image: nil)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -150,7 +149,6 @@ class ReviewViewController: UIViewController {
     func updateViews(withReview review: JuiceReview){
         self.updateLabels()
         self.drinkNameTextField.text = review.drinkName
-        self.restaurantNameLabel.text = review.businessName
         self.drinkPriceTextField.text = review.drinkPrice
         self.updateStarButtons()
         self.notesTextView.text = review.drinkReview

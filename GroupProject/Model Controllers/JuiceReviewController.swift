@@ -6,7 +6,7 @@
 //  Copyright © 2019 HaleyJones. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class JuiceReviewController{
     //MARK: - Singleton
@@ -22,8 +22,8 @@ class JuiceReviewController{
     
     //MARK: - CRUD Functions
     
-    func createReview(businessID: String, restarauntName: String, drinkName: String, price: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
-        let newJuiceReview = JuiceReview(businessID: businessID, businessName: restarauntName, drinkName: drinkName, drinkPrice: price, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5)
+    func createReview(businessID: String, restarauntName: String, drinkName: String, price: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int, image: Data?){
+        let newJuiceReview = JuiceReview(businessID: businessID, businessName: restarauntName, drinkName: drinkName, drinkPrice: price, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5, image: image)
         guard let user = UserController.shared.currentUser else {return}
         user.juiceReviews.append(newJuiceReview)
         let userDict = UserController.shared.createDictionary(fromUser: user)
@@ -41,7 +41,7 @@ class JuiceReviewController{
             print("deleted the review and saved the document.🙆‍♀️🙆‍♀️🙆‍♀️")
         }
     }
-    
+    //this one isnt fully working yet
     func updateReview(review: JuiceReview){
         guard let user  = UserController.shared.currentUser else {return}
         let userDict = UserController.shared.createDictionary(fromUser: user)
@@ -55,7 +55,8 @@ class JuiceReviewController{
     func createDictionary(fromJuiceReview reviews: [JuiceReview]) -> [[String : Any]]{
         var returnArray: [[String : Any]] = []
         for review in reviews{
-            let reviewDictionary: [String : Any] = ["businessID" : review.businessID, "businessName" : review.businessName, "drinkName" : review.drinkName, "drinkPrice" : review.drinkPrice, "drinkRating" : review.drinkRating, "drinkReview" : review.drinkReview, "dimension1" : review.dimension1, "dimension2" : review.dimension2, "dimension3" : review.dimension3, "dimension4" : review.dimension4, "dimension5" : review.dimension5]
+            guard let imageData = review.image else {print("couldnt unwrap review image for \(review.businessName), it may be nil.🍞🍞🍞"); return []}
+            let reviewDictionary: [String : Any] = ["businessID" : review.businessID, "businessName" : review.businessName, "drinkName" : review.drinkName, "drinkPrice" : review.drinkPrice, "drinkRating" : review.drinkRating, "drinkReview" : review.drinkReview, "dimension1" : review.dimension1, "dimension2" : review.dimension2, "dimension3" : review.dimension3, "dimension4" : review.dimension4, "dimension5" : review.dimension5, "imageData" : imageData]
             returnArray.append(reviewDictionary)
         }
         return returnArray
