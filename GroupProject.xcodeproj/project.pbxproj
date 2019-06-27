@@ -47,6 +47,14 @@
 		17EB5F6222B99AF900927617 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EB5F6122B99AF900927617 /* GoogleService-Info.plist */; };
 		17EB5F6622B9A17900927617 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F6522B9A17900927617 /* FirebaseService.swift */; };
 		17EB5F6822B9A25100927617 /* FirestoreReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F6722B9A25100927617 /* FirestoreReferenceManager.swift */; };
+		CA03A7D822C5295600B2EC9C /* ProfileTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7D722C5295600B2EC9C /* ProfileTab.storyboard */; };
+		CA03A7DA22C5297B00B2EC9C /* SearchTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7D922C5297B00B2EC9C /* SearchTab.storyboard */; };
+		CA03A7DC22C5299600B2EC9C /* RecipeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7DB22C5299600B2EC9C /* RecipeTab.storyboard */; };
+		CA03A7DE22C529B400B2EC9C /* ProductTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7DD22C529B400B2EC9C /* ProductTab.storyboard */; };
+		CA03A7E022C529F500B2EC9C /* JuiceReview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7DF22C529F500B2EC9C /* JuiceReview.storyboard */; };
+		CA03A7E222C52A0F00B2EC9C /* LocationDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7E122C52A0F00B2EC9C /* LocationDetails.storyboard */; };
+		CA03A7E422C52A2E00B2EC9C /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7E322C52A2E00B2EC9C /* Help.storyboard */; };
+		CA03A7E622C52A4200B2EC9C /* RecipeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA03A7E522C52A4200B2EC9C /* RecipeDetail.storyboard */; };
 		CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */; };
 		CA488C2922BC22D2000C6224 /* AllRecipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */; };
 		CA5678C522B9976F0062306C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5678C422B9976F0062306C /* Recipe.swift */; };
@@ -115,6 +123,14 @@
 		17EB5F6722B9A25100927617 /* FirestoreReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreReferenceManager.swift; sourceTree = "<group>"; };
 		67ECAF088BF6AFEF50E0F77B /* Pods-GroupProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.debug.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7C5F0C7D02B39B7FCC4FB47B /* Pods-GroupProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroupProject.release.xcconfig"; path = "Target Support Files/Pods-GroupProject/Pods-GroupProject.release.xcconfig"; sourceTree = "<group>"; };
+		CA03A7D722C5295600B2EC9C /* ProfileTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileTab.storyboard; sourceTree = "<group>"; };
+		CA03A7D922C5297B00B2EC9C /* SearchTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchTab.storyboard; sourceTree = "<group>"; };
+		CA03A7DB22C5299600B2EC9C /* RecipeTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeTab.storyboard; sourceTree = "<group>"; };
+		CA03A7DD22C529B400B2EC9C /* ProductTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductTab.storyboard; sourceTree = "<group>"; };
+		CA03A7DF22C529F500B2EC9C /* JuiceReview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JuiceReview.storyboard; sourceTree = "<group>"; };
+		CA03A7E122C52A0F00B2EC9C /* LocationDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocationDetails.storyboard; sourceTree = "<group>"; };
+		CA03A7E322C52A2E00B2EC9C /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		CA03A7E522C52A4200B2EC9C /* RecipeDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecipeDetail.storyboard; sourceTree = "<group>"; };
 		CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA5678C422B9976F0062306C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -254,6 +270,14 @@
 		CA78F25122BAAA2A00F068E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA03A7E522C52A4200B2EC9C /* RecipeDetail.storyboard */,
+				CA03A7E322C52A2E00B2EC9C /* Help.storyboard */,
+				CA03A7E122C52A0F00B2EC9C /* LocationDetails.storyboard */,
+				CA03A7DF22C529F500B2EC9C /* JuiceReview.storyboard */,
+				CA03A7DD22C529B400B2EC9C /* ProductTab.storyboard */,
+				CA03A7DB22C5299600B2EC9C /* RecipeTab.storyboard */,
+				CA03A7D922C5297B00B2EC9C /* SearchTab.storyboard */,
+				CA03A7D722C5295600B2EC9C /* ProfileTab.storyboard */,
 				1732EC5C22B455C900E09DD3 /* Main.storyboard */,
 				CA78F25222BAAA4C00F068E1 /* LocationTableViewCell.swift */,
 				CAD108BD22BBF66300BEC4FE /* LocationReviewTableViewCell.swift */,
@@ -382,7 +406,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA03A7D822C5295600B2EC9C /* ProfileTab.storyboard in Resources */,
+				CA03A7E622C52A4200B2EC9C /* RecipeDetail.storyboard in Resources */,
+				CA03A7DC22C5299600B2EC9C /* RecipeTab.storyboard in Resources */,
 				1732EC6622B455CA00E09DD3 /* LaunchScreen.storyboard in Resources */,
+				CA03A7E422C52A2E00B2EC9C /* Help.storyboard in Resources */,
+				CA03A7E022C529F500B2EC9C /* JuiceReview.storyboard in Resources */,
+				CA03A7DA22C5297B00B2EC9C /* SearchTab.storyboard in Resources */,
+				CA03A7DE22C529B400B2EC9C /* ProductTab.storyboard in Resources */,
+				CA03A7E222C52A0F00B2EC9C /* LocationDetails.storyboard in Resources */,
 				1732EC6322B455CA00E09DD3 /* Assets.xcassets in Resources */,
 				1732EC5E22B455C900E09DD3 /* Main.storyboard in Resources */,
 				17EB5F6222B99AF900927617 /* GoogleService-Info.plist in Resources */,
@@ -640,7 +672,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43BBC72U4R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,7 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43BBC72U4R;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

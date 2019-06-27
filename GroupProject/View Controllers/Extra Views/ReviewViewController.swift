@@ -47,7 +47,7 @@ class ReviewViewController: UIViewController {
         guard let review = self.review else {print("the page has no review."); return}
         self.rating = review.drinkRating
         updateViews(withReview: review)
-        scrollView.contentInset.bottom = (self.tabBarController?.tabBar.frame.height ?? 50) + 20
+//        scrollView.contentInset.bottom = (self.tabBarController?.tabBar.frame.height ?? 50) + 20
         // Do any additional setup after loading the view.
     }
     
