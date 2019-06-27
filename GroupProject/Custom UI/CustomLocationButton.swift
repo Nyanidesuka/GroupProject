@@ -17,6 +17,6 @@ class CustomLocationButton: UIButton {
     
     func setupUI(){
         addLocationButtonBorderColor(width: 1)
-       addCornerRadius(20)
+       addCornerRadius(10)
     }
 }

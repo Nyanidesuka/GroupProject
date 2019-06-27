@@ -13,7 +13,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - Outlets
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var locationImage: UIImageView!
+//    @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var secondaryLocationNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commuityStarOneButton: UIButton!
@@ -28,20 +28,66 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var personalStarFiveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var locationMapView: MKMapView!
+    @IBOutlet weak var swipeImageView: UIImageView!
+    
     
     
     //MARK: - Landing Pad / Properties
     var location: Business?
     var reviews: [YelpReview] = []
-    var baseImage: UIImage?
+//    var baseImage: UIImage?
     var pin: MKPointAnnotation?
+    var images: [UIImage?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let location = self.location else {return}
+        for url in location.imageURLs{
+            do{
+                guard let imageURL = URL(string: url) else {return}
+                let imageData = try Data(contentsOf: imageURL)
+                guard let newImage = UIImage(data: imageData) else {return}
+                self.images.append(newImage)
+            }catch{
+                    print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
+            }
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
         updateView()
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("respondToSwipeGesture:"))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("respondToSwipeGesture:"))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
     }
+    
+    var currentImage = 0
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.left:
+                if currentImage == images.count - 1 {
+                    currentImage = 0
+                }else{
+                    currentImage += 1
+                }
+                swipeImageView.image = UIImage(named: "images")
+            case UISwipeGestureRecognizer.Direction.right:
+                if currentImage == 0 {
+                    currentImage = images.count - 1
+                    }else{
+                        self.currentImage -= 1
+                    }
+                    swipeImageView.image = UIImage(named: "images")
+                    default:
+                        break
+                }
+            }
+        }
     
     
     //MARK: - Actions
@@ -93,7 +139,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
             print("finished saving user document. Success: \(success)")
         }
         //THEN we have to update the stars
-        updatePersonalRatingButtons()
+//        updatePersonalRatingButtons()
         print("Assigned a rating to \(business.name), and that rating is \(business.userRating)")
     }
     
@@ -156,7 +202,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         updateLocationImageFor(business: location)
         updateSecondaryLabelFor(business: location)
         //sets images on the user score buttons
-        self.updatePersonalRatingButtons()
+//        self.updatePersonalRatingButtons()
     }
     
     func addPinToMap(location: Business) {
@@ -173,12 +219,12 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         guard let url = URL(string: business.baseImage) else { return }
         do {
             let imageData = try Data(contentsOf: url)
-            self.baseImage = UIImage(data: imageData)
+            self.images = [UIImage(data: imageData)]
         } catch  {
             print(error.localizedDescription)
         }
         DispatchQueue.main.async {
-            self.locationImage.image = self.baseImage
+            self.swipeImageView.image = self.images[0]
         }
     }
     
@@ -276,42 +322,42 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     
-    func updatePersonalRatingButtons(){
-        guard let location = location, let rating = location.userRating else {print("Failing the unwrap so something is nil.☄️☄️"); return}
-        switch rating{
-        case 1:
-            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarTwoButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-        case 2:
-            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-                personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-                personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-        case 3:
-            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-        case 4:
-            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-        case 5:
-            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            personalStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-        default: return
-        }
-    }
+//    func updatePersonalRatingButtons(){
+//        guard let location = location, let rating = location.userRating else {print("Failing the unwrap so something is nil.☄️☄️"); return}
+//        switch rating{
+//        case 1:
+//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//        case 2:
+//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//                personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//                personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//        case 3:
+//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//        case 4:
+//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+//        case 5:
+//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//        default: return
+//        }
+//    }
     
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
