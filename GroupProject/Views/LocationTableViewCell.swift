@@ -17,7 +17,7 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var openOrClosed: UILabel!
     
     var businessReference: Business?
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

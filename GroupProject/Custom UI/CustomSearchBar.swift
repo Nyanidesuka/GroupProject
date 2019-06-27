@@ -1,14 +1,14 @@
 //
-//  CustomTextField.swift
+//  CustomSearchBar.swift
 //  GroupProject
 //
-//  Created by Jordan Hendrickson on 6/21/19.
+//  Created by Jordan Hendrickson on 6/27/19.
 //  Copyright © 2019 DustinKoch. All rights reserved.
 //
 
 import UIKit
 
-class CustomTextField: UITextField {
+class CustomSearchBar: UISearchBar {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +30,8 @@ class CustomTextField: UITextField {
         self.resignFirstResponder()
     }
     
-    func setupUI() {
-        self.addCornerRadius(10)
-        self.addViewBorderColor()
+    func setupUI(){
+//        self.layer.cornerRadius(40)
+//        addCornerRadius(40)
     }
 }

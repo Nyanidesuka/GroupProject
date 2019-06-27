@@ -41,7 +41,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="753" text="I am Iron Man" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-AC-aut">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="753" text="I am Iron Man" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4bs-AC-aut" customClass="CustomTextView" customModule="GroupProject" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="34" width="161" height="123"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="13"/>
