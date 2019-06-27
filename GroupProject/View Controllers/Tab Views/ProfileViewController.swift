@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController {
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
         print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviews.count) 🥦🥦🥦🥦")
+        reviewTableView.addCornerRadius()
+        visitedCollectionView.addCornerRadius()
     }
     
     override func viewWillAppear(_ animated: Bool) {
