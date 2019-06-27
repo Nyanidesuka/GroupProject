@@ -97,6 +97,21 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         cell.openOrClosed.text = openClosedText
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return UITableView.automaticDimension
+        }else{
+            return 40
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        }else{
+            return 40
+        }
+    }
     
     //MARK: Map View Delegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -114,6 +129,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         
         return annotationView
     }
+    
     
     //A function to make sure favorites and user ratings reflect in the UI
     func showFavoritesAndRatings(locations: [Business]){

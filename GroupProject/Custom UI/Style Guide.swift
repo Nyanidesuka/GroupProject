@@ -24,6 +24,10 @@ extension UIView {
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
     }
+    func addLocationButtonBorderColor(width: CGFloat = 1, color: UIColor = UIColor.lightGray){
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
+    }
     
 }
 
