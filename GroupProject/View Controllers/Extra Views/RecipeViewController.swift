@@ -37,6 +37,7 @@ class RecipeViewController: UIViewController {
         for step in instructions {
             if instructions.last == step {
                 list += "\(stepNumber)) \(step)"
+print(list)
                 return list
             }
             list += "\(stepNumber)) \(step)\n"
@@ -67,10 +68,16 @@ class RecipeViewController: UIViewController {
         guard let recipe = recipe else { return }
         secondaryRecipeNameLabel.text = recipe.name
         secondaryRecipeNameLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        secondaryRecipeNameLabel.layer.masksToBounds = true
+        secondaryRecipeNameLabel.layer.cornerRadius = 10
         ingredientsLabel.text = ingredientsText
         ingredientsLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        ingredientsLabel.layer.masksToBounds = true
+        ingredientsLabel.layer.cornerRadius = 10
         instructionsLabel.text = instructionsText
         instructionsLabel.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        instructionsLabel.layer.masksToBounds = true
+        instructionsLabel.layer.cornerRadius = 10
     }
     
     func backgroundPhotoAndBlur() {

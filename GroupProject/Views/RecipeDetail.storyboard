@@ -19,19 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzY-z7-FCj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="868"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="834"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-Y1-a1P">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="799.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="868"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-Dl-GVU" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="32" width="350" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-Dl-GVU" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="32" width="350" height="40"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-Rv-edo">
-                                                <rect key="frame" x="32" y="88" width="350" height="350"/>
+                                                <rect key="frame" x="32" y="104" width="350" height="350"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yfJ-Rv-edo" secondAttribute="height" multiplier="1:1" id="Vx9-Pk-mDy"/>
                                                 </constraints>
@@ -41,26 +41,29 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INGREDIENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-Vx-oO4">
-                                                <rect key="frame" x="134.5" y="470" width="145" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INGREDIENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IR-Vx-oO4" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="486" width="161" height="42.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY">
-                                                <rect key="frame" x="32" y="640.5" width="350" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="we4-d5-00e" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="560.5" width="350" height="36.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTRUCTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-lU-5yD">
-                                                <rect key="frame" x="125.5" y="581.5" width="163" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTRUCTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-lU-5yD" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                                <rect key="frame" x="117.5" y="629" width="179" height="42.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="we4-d5-00e">
-                                                <rect key="frame" x="32" y="529" width="350" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="703.5" width="350" height="36.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36.5" id="2mI-Iq-ZjW"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -68,14 +71,15 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="4Zm-vO-agY" secondAttribute="bottom" constant="138.5" id="0ZH-Fo-oYz"/>
                                             <constraint firstAttribute="trailing" secondItem="4Zm-vO-agY" secondAttribute="trailing" constant="32" id="8m7-EN-9ms"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Zm-vO-agY" secondAttribute="bottom" constant="128" id="Bkb-wR-xET"/>
                                             <constraint firstAttribute="trailing" secondItem="yfJ-Rv-edo" secondAttribute="trailing" constant="32" id="C5x-UX-VgT"/>
                                             <constraint firstAttribute="trailing" secondItem="XKD-Dl-GVU" secondAttribute="trailing" constant="32" id="Hkw-2R-W6f"/>
                                             <constraint firstItem="yfJ-Rv-edo" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="Mnn-bC-9iw"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="QVM-aJ-ghY"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="centerX" secondItem="AVn-Y1-a1P" secondAttribute="centerX" id="Vje-OR-cIV"/>
                                             <constraint firstItem="Hvt-lU-5yD" firstAttribute="centerX" secondItem="1IR-Vx-oO4" secondAttribute="centerX" id="avA-HF-nC4"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="868" id="cKc-QV-OS4"/>
                                             <constraint firstItem="Hvt-lU-5yD" firstAttribute="top" secondItem="we4-d5-00e" secondAttribute="bottom" constant="32" id="d8o-Uq-8IN"/>
                                             <constraint firstAttribute="trailing" secondItem="we4-d5-00e" secondAttribute="trailing" constant="32" id="dlu-2c-NKM"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="top" secondItem="AVn-Y1-a1P" secondAttribute="top" constant="32" id="dnM-fz-SHI"/>
@@ -90,7 +94,6 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="AVn-Y1-a1P" firstAttribute="height" secondItem="dzY-z7-FCj" secondAttribute="height" priority="250" id="4zb-hS-bL1"/>
                                     <constraint firstItem="AVn-Y1-a1P" firstAttribute="width" secondItem="dzY-z7-FCj" secondAttribute="width" id="Bj1-Dh-7We"/>
                                     <constraint firstAttribute="bottom" secondItem="AVn-Y1-a1P" secondAttribute="bottom" id="Hbh-ne-TyM"/>
                                     <constraint firstItem="AVn-Y1-a1P" firstAttribute="leading" secondItem="dzY-z7-FCj" secondAttribute="leading" id="Wxm-8M-vqj"/>
@@ -100,7 +103,7 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dzY-z7-FCj" secondAttribute="bottom" id="5xF-BG-qfF"/>
+                            <constraint firstItem="EN1-7B-dvG" firstAttribute="bottom" secondItem="dzY-z7-FCj" secondAttribute="bottom" id="5xF-BG-qfF"/>
                             <constraint firstItem="dzY-z7-FCj" firstAttribute="leading" secondItem="EN1-7B-dvG" secondAttribute="leading" id="Lou-9u-L5S"/>
                             <constraint firstItem="dzY-z7-FCj" firstAttribute="top" secondItem="EN1-7B-dvG" secondAttribute="top" id="UDJ-w9-BFa"/>
                             <constraint firstItem="EN1-7B-dvG" firstAttribute="trailing" secondItem="dzY-z7-FCj" secondAttribute="trailing" id="zCn-EW-u87"/>
