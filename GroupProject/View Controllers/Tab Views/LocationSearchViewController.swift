@@ -16,6 +16,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var currentLocationButton: CustomLocationButton!
     
     //MARK: - Properties
     let debouncer = Debouncer(timeInterval: 1.25)
@@ -96,21 +97,6 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         cell.juiceNowRating.text = ratingText
         cell.openOrClosed.text = openClosedText
         return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0{
-            return UITableView.automaticDimension
-        }else{
-            return 40
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UITableView.automaticDimension
-        }else{
-            return 40
-        }
     }
     
     //MARK: Map View Delegate
@@ -216,6 +202,13 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                 //passing yelp reviews
                 
             }
+        }
+    }
+    @IBAction func currentLocationButtonTapped(_ isSelected: Bool) {
+        if isSelected {
+            currentLocationButton.setImage(UIImage(named: "activeCurrentLocation"), for: .normal)
+        }else{
+            currentLocationButton.setImage(UIImage(named: "currentLocation"), for: .normal)
         }
     }
 }
