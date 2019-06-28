@@ -14,6 +14,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var featuredCollectionView: UICollectionView!
     @IBOutlet weak var allRecipesCollectionView: UICollectionView!
     
+    @IBOutlet weak var allRecipesHeightConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     let allRecipes: [Recipe] = RecipeController.sharedInstance.recipes
@@ -29,6 +30,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewWillAppear(animated)
         self.featuredCollectionView.reloadData()
         self.allRecipesCollectionView.reloadData()
+        allRecipesHeightConstraint.constant = CGFloat(allRecipesCollectionView.numberOfItems(inSection: 0) * 300)
     }
     
     //MARK: - Collection View data
@@ -96,3 +98,13 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
 }//END OF RECIPES VIEW CONTROLLER
+
+extension RecipesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == allRecipesCollectionView {
+            return CGSize(width: collectionView.frame.width, height: 300)
+        } else {
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        }
+    }
+}
