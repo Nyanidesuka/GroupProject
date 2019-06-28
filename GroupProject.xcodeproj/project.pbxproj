@@ -44,6 +44,8 @@
 		178E476A22B832A00097F4DD /* YelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476922B832A00097F4DD /* YelpService.swift */; };
 		178E476D22B844020097F4DD /* BusinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476C22B844020097F4DD /* BusinessController.swift */; };
 		178E477022B844140097F4DD /* YelpReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476F22B844140097F4DD /* YelpReviewController.swift */; };
+		17ADC27922C6B25C002DAAC2 /* JuiceReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADC27822C6B25C002DAAC2 /* JuiceReviewCollectionViewCell.swift */; };
+		17ADC27B22C6B680002DAAC2 /* ReviewImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADC27A22C6B680002DAAC2 /* ReviewImageContainer.swift */; };
 		17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */; };
 		17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */; };
 		17EB5F6022B98B0C00927617 /* JuiceReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EB5F5F22B98B0C00927617 /* JuiceReview.swift */; };
@@ -122,6 +124,8 @@
 		178E476922B832A00097F4DD /* YelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpService.swift; sourceTree = "<group>"; };
 		178E476C22B844020097F4DD /* BusinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessController.swift; sourceTree = "<group>"; };
 		178E476F22B844140097F4DD /* YelpReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpReviewController.swift; sourceTree = "<group>"; };
+		17ADC27822C6B25C002DAAC2 /* JuiceReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		17ADC27A22C6B680002DAAC2 /* ReviewImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewImageContainer.swift; sourceTree = "<group>"; };
 		17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessInfo.swift; sourceTree = "<group>"; };
 		17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceNowBusinessReview.swift; sourceTree = "<group>"; };
 		17EB5F5F22B98B0C00927617 /* JuiceReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReview.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 			children = (
 				17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */,
 				1718269722BAA6240019B317 /* User.swift */,
+				17ADC27A22C6B680002DAAC2 /* ReviewImageContainer.swift */,
 				17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */,
 				17EB5F5F22B98B0C00927617 /* JuiceReview.swift */,
 				178E476422B831100097F4DD /* Business.swift */,
@@ -303,6 +308,7 @@
 				1725050722BC298100C0EB63 /* VisitedCollectionViewCell.swift */,
 				1725050922BC29A900C0EB63 /* ReviewTableViewCell.swift */,
 				CA488C2622BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift */,
+				17ADC27822C6B25C002DAAC2 /* JuiceReviewCollectionViewCell.swift */,
 				CA488C2822BC22D2000C6224 /* AllRecipesCollectionViewCell.swift */,
 				16FD085122C139A30033D4A8 /* SuggestedProductsCollectionViewCell.swift */,
 				16FD085322C13B3B0033D4A8 /* BeginnerProductsCollectionViewCell.swift */,
@@ -493,6 +499,7 @@
 				1718269C22BAA82A0019B317 /* UserController.swift in Sources */,
 				178E476522B831100097F4DD /* Business.swift in Sources */,
 				17056A8022BD428500EF5742 /* CoreLocationManager.swift in Sources */,
+				17ADC27B22C6B680002DAAC2 /* ReviewImageContainer.swift in Sources */,
 				1725050A22BC29A900C0EB63 /* ReviewTableViewCell.swift in Sources */,
 				CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */,
 				CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */,
@@ -525,6 +532,7 @@
 				16FD085622C13BC00033D4A8 /* IntermediateProductsCollectionViewCell.swift in Sources */,
 				178E477022B844140097F4DD /* YelpReviewController.swift in Sources */,
 				16FD085422C13B3B0033D4A8 /* BeginnerProductsCollectionViewCell.swift in Sources */,
+				17ADC27922C6B25C002DAAC2 /* JuiceReviewCollectionViewCell.swift in Sources */,
 				17EB5F5E22B98A4200927617 /* JuiceNowBusinessReview.swift in Sources */,
 				16FD085822C13C130033D4A8 /* AdvancedProductsCollectionViewCell.swift in Sources */,
 				17EB5F5C22B9890600927617 /* JuiceNowBusinessInfo.swift in Sources */,

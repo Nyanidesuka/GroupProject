@@ -52,7 +52,6 @@
                                                     <constraint firstAttribute="trailing" secondItem="K2b-EI-ern" secondAttribute="trailing" id="P2d-Pc-bFd"/>
                                                     <constraint firstItem="4bs-AC-aut" firstAttribute="leading" secondItem="CGN-c7-A7P" secondAttribute="leading" id="UMM-uE-gyC"/>
                                                     <constraint firstAttribute="trailing" secondItem="4bs-AC-aut" secondAttribute="trailing" id="csx-eK-nY7"/>
-                                                    <constraint firstItem="4bs-AC-aut" firstAttribute="top" secondItem="K2b-EI-ern" secondAttribute="bottom" constant="10" id="e3c-0H-gUb"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Juice Spots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD0-Hv-BoH" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
@@ -170,22 +169,113 @@
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="le6-8c-LDe">
                                                 <rect key="frame" x="0.0" y="456" width="414" height="246"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oYU-cc-ULY">
-                                                    <size key="itemSize" width="180" height="180"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oYU-cc-ULY">
+                                                    <size key="itemSize" width="180" height="242"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="reviewCell" id="RLT-sP-dwI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="reviewCell" id="RLT-sP-dwI" customClass="JuiceReviewCollectionViewCell" customModule="GroupProject" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="2" width="180" height="242"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="242"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-qQ-Vv8">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="1R4-qQ-Vv8" secondAttribute="height" multiplier="1:1" id="UvB-mD-itz"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" text="[Drink Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjj-V8-YNU">
+                                                                    <rect key="frame" x="0.0" y="180" width="180" height="22"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="22" id="5xV-e7-CBI"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="13m-uN-8uu">
+                                                                    <rect key="frame" x="0.0" y="202" width="118" height="22"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="grz-Bd-Wo5">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="1"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="grz-Bd-Wo5" secondAttribute="height" multiplier="1:1" id="mji-Vg-rKq"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="Z5J-eJ-9xH">
+                                                                            <rect key="frame" x="24" y="0.0" width="22" height="22"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="2"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="Z5J-eJ-9xH" secondAttribute="height" multiplier="1:1" id="TTe-MW-r6f"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-G6-8ha">
+                                                                            <rect key="frame" x="48" y="0.0" width="22" height="22"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="3"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="c7w-G6-8ha" secondAttribute="height" multiplier="1:1" id="z8u-qM-49d"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="51E-zc-ZNf">
+                                                                            <rect key="frame" x="72" y="0.0" width="22" height="22"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="4"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="x34-jL-MCi"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-1g-H0T">
+                                                                            <rect key="frame" x="96" y="0.0" width="22" height="22"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="5"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="eBr-1g-H0T" secondAttribute="height" multiplier="1:1" id="WGD-Pz-CIs"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="c7w-G6-8ha" firstAttribute="width" secondItem="c7w-G6-8ha" secondAttribute="height" multiplier="1:1" id="FhM-3x-C4C"/>
+                                                                        <constraint firstItem="eBr-1g-H0T" firstAttribute="width" secondItem="eBr-1g-H0T" secondAttribute="height" multiplier="1:1" id="P1k-md-ec5"/>
+                                                                        <constraint firstItem="51E-zc-ZNf" firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="Rkq-KI-WQA"/>
+                                                                        <constraint firstItem="Z5J-eJ-9xH" firstAttribute="width" secondItem="Z5J-eJ-9xH" secondAttribute="height" multiplier="1:1" id="Xn0-ox-lbT"/>
+                                                                        <constraint firstItem="51E-zc-ZNf" firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="jlB-Gy-ZtK"/>
+                                                                        <constraint firstItem="51E-zc-ZNf" firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="k2D-1e-rGt"/>
+                                                                        <constraint firstItem="c7w-G6-8ha" firstAttribute="width" secondItem="c7w-G6-8ha" secondAttribute="height" multiplier="1:1" id="pL3-49-bUD"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                            </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="1R4-qQ-Vv8" firstAttribute="top" secondItem="RLT-sP-dwI" secondAttribute="top" id="CBF-xi-0nR"/>
+                                                            <constraint firstItem="1R4-qQ-Vv8" firstAttribute="leading" secondItem="RLT-sP-dwI" secondAttribute="leading" id="DP8-lS-xqz"/>
+                                                            <constraint firstItem="grz-Bd-Wo5" firstAttribute="height" secondItem="Kjj-V8-YNU" secondAttribute="height" id="GHg-RA-Muu"/>
+                                                            <constraint firstItem="grz-Bd-Wo5" firstAttribute="leading" secondItem="Kjj-V8-YNU" secondAttribute="leading" id="Hac-Rw-YjS"/>
+                                                            <constraint firstItem="13m-uN-8uu" firstAttribute="height" secondItem="Kjj-V8-YNU" secondAttribute="height" id="IaA-be-rdN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="1R4-qQ-Vv8" secondAttribute="trailing" id="Ix4-Sg-WY8"/>
+                                                            <constraint firstItem="Kjj-V8-YNU" firstAttribute="centerX" secondItem="1R4-qQ-Vv8" secondAttribute="centerX" id="MxO-O1-i3Q"/>
+                                                            <constraint firstItem="Kjj-V8-YNU" firstAttribute="top" secondItem="1R4-qQ-Vv8" secondAttribute="bottom" id="PW8-eq-Gqd"/>
+                                                            <constraint firstItem="13m-uN-8uu" firstAttribute="top" secondItem="Kjj-V8-YNU" secondAttribute="bottom" id="jhE-Jn-EJS"/>
+                                                            <constraint firstItem="Kjj-V8-YNU" firstAttribute="width" secondItem="1R4-qQ-Vv8" secondAttribute="width" id="wUv-xV-KOW"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="drinkNameLabel" destination="Kjj-V8-YNU" id="bwv-r1-vtD"/>
+                                                            <outlet property="reviewImageView" destination="1R4-qQ-Vv8" id="MjL-w2-0Qq"/>
+                                                            <outletCollection property="reviewScoreImages" destination="grz-Bd-Wo5" collectionClass="NSMutableArray" id="tOM-tC-qjI"/>
+                                                            <outletCollection property="reviewScoreImages" destination="Z5J-eJ-9xH" collectionClass="NSMutableArray" id="OA4-59-nvN"/>
+                                                            <outletCollection property="reviewScoreImages" destination="c7w-G6-8ha" collectionClass="NSMutableArray" id="krY-Ya-ZUF"/>
+                                                            <outletCollection property="reviewScoreImages" destination="51E-zc-ZNf" collectionClass="NSMutableArray" id="NSs-6E-J6r"/>
+                                                            <outletCollection property="reviewScoreImages" destination="eBr-1g-H0T" collectionClass="NSMutableArray" id="TTZ-40-ZnC"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="CGV-oW-woz" id="X1c-rZ-s4l"/>
+                                                    <outlet property="delegate" destination="CGV-oW-woz" id="Mz9-qi-cyT"/>
+                                                </connections>
                                             </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,6 +392,8 @@
     </scenes>
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
+        <image name="UnlikedStar" width="64" height="64"/>
+        <image name="default" width="450" height="260"/>
         <image name="profile" width="30" height="30"/>
         <namedColor name="DarkBlueAccent">
             <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

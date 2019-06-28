@@ -32,64 +32,64 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="B1R-BX-DC2" userLabel="Slider Stack">
-                                                <rect key="frame" x="32" y="343.5" width="374" height="396.5"/>
+                                                <rect key="frame" x="32" y="343.5" width="350" height="396.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfz-r0-qYu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="754" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="gJs-fd-bku">
-                                                        <rect key="frame" x="-2" y="36.5" width="378" height="31"/>
+                                                        <rect key="frame" x="-2" y="36.5" width="354" height="31"/>
                                                         <connections>
                                                             <action selector="sliderOneChanged:" destination="KFV-xM-NZX" eventType="valueChanged" id="Mi0-b5-Hq3"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kb-gC-8PU">
-                                                        <rect key="frame" x="0.0" y="82.5" width="374" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="82.5" width="350" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-ry-jgL">
-                                                        <rect key="frame" x="-2" y="119" width="378" height="31"/>
+                                                        <rect key="frame" x="-2" y="119" width="354" height="31"/>
                                                         <connections>
                                                             <action selector="sliderTwoChanged:" destination="KFV-xM-NZX" eventType="valueChanged" id="xcF-zv-Wn2"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUw-Yu-U7b">
-                                                        <rect key="frame" x="0.0" y="165" width="374" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="165" width="350" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="8W4-is-tfC">
-                                                        <rect key="frame" x="-2" y="201.5" width="378" height="31"/>
+                                                        <rect key="frame" x="-2" y="201.5" width="354" height="31"/>
                                                         <connections>
                                                             <action selector="sliderThreeChanged:" destination="KFV-xM-NZX" eventType="valueChanged" id="Jiz-Fc-5l7"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBf-rR-eKy">
-                                                        <rect key="frame" x="0.0" y="247.5" width="374" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="247.5" width="350" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="uoY-qo-jZN">
-                                                        <rect key="frame" x="-2" y="284" width="378" height="31"/>
+                                                        <rect key="frame" x="-2" y="284" width="354" height="31"/>
                                                         <connections>
                                                             <action selector="sliderFourChanged:" destination="KFV-xM-NZX" eventType="valueChanged" id="8k9-Pg-D4g"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrE-wx-5Cg">
-                                                        <rect key="frame" x="0.0" y="330" width="374" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="330" width="350" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="SYd-bQ-Xml">
-                                                        <rect key="frame" x="-2" y="366.5" width="378" height="31"/>
+                                                        <rect key="frame" x="-2" y="366.5" width="354" height="31"/>
                                                         <connections>
                                                             <action selector="sliderFiveChanged:" destination="KFV-xM-NZX" eventType="valueChanged" id="tzP-3s-dFb"/>
                                                         </connections>
@@ -120,7 +120,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Rate Juice with 5 levels of flavor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-KL-6SZ" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="JuiceNow™️ Flavor Scorecard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOq-KL-6SZ" customClass="CustomLabel" customModule="GroupProject" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="312.5" width="398" height="23"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                                 <nil key="textColor"/>
@@ -232,7 +232,7 @@
                                             <constraint firstAttribute="trailing" secondItem="dzI-cu-fiz" secondAttribute="trailing" constant="16" id="scJ-B0-se8"/>
                                             <constraint firstItem="Dlh-Yh-FVt" firstAttribute="top" secondItem="dzI-cu-fiz" secondAttribute="bottom" constant="16" id="uhy-l1-l08"/>
                                             <constraint firstItem="ncr-rt-B8x" firstAttribute="height" secondItem="Dlh-Yh-FVt" secondAttribute="height" id="vhR-1B-BOw"/>
-                                            <constraint firstAttribute="trailing" secondItem="B1R-BX-DC2" secondAttribute="trailing" constant="8" id="w5d-SQ-loH"/>
+                                            <constraint firstAttribute="trailing" secondItem="B1R-BX-DC2" secondAttribute="trailing" constant="32" id="w5d-SQ-loH"/>
                                             <constraint firstItem="B1R-BX-DC2" firstAttribute="top" secondItem="FOq-KL-6SZ" secondAttribute="bottom" constant="8" id="xML-Hl-1sG"/>
                                         </constraints>
                                     </view>
