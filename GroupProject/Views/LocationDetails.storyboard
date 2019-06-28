@@ -215,7 +215,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKh-od-7zz">
-                                    <rect key="frame" x="-100" y="-42" width="200" height="84"/>
+                                    <rect key="frame" x="-100" y="-42" width="262" height="84"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="262" id="r60-bJ-5jU"/>
                                     </constraints>
@@ -241,7 +241,6 @@
                         <outlet property="communityStarThreeButton" destination="dZe-pL-Q6C" id="fEW-Gw-3dr"/>
                         <outlet property="communityStarTwoButton" destination="eRh-og-HVn" id="7V3-vd-kwn"/>
                         <outlet property="descriptionLabel" destination="LXk-ac-Ak4" id="sbq-l8-OHQ"/>
-                        <outlet property="locationImage" destination="5Vt-7z-uH3" id="gc0-HT-e6g"/>
                         <outlet property="locationMapView" destination="Amm-aK-819" id="Zl8-w2-2UR"/>
                         <outlet property="restaurantNameLabel" destination="lKh-od-7zz" id="pXz-pN-UYK"/>
                         <outlet property="secondaryLocationNameLabel" destination="lKh-od-7zz" id="oa9-rm-eSF"/>
