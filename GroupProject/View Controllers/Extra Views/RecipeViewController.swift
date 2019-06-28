@@ -37,7 +37,6 @@ class RecipeViewController: UIViewController {
         for step in instructions {
             if instructions.last == step {
                 list += "\(stepNumber)) \(step)"
-print(list)
                 return list
             }
             list += "\(stepNumber)) \(step)\n"

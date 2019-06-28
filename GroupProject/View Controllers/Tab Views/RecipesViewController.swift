@@ -49,6 +49,10 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "featuredRecipeCell", for: indexPath) as? FeaturedRecipeCollectionViewCell else { return UICollectionViewCell() }
             cell.recipeNameLabel.text = featuredRecipes[indexPath.row].name
             cell.recipeImageView.image = featuredRecipes[indexPath.row].image
+            cell.recipeImageView.clipsToBounds = true
+            cell.recipeImageView.layer.cornerRadius = 30
+            cell.ingredientCount.text = "\(featuredRecipes[indexPath.row].ingredients.count)"
+            cell.timeLabel.text = "\(Double(featuredRecipes[indexPath.row].ingredients.count) * 2.5) minutes"
             return cell
         case allRecipesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allRecipesCell", for: indexPath) as? AllRecipesCollectionViewCell else { return UICollectionViewCell () }

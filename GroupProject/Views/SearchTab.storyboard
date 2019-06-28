@@ -45,6 +45,9 @@
                                         <state key="normal" image="currentLocation">
                                             <color key="titleColor" name="DarkBlueAccent"/>
                                         </state>
+                                        <connections>
+                                            <action selector="currentLocationButtonTapped:" destination="SlT-UP-t1a" eventType="touchUpInside" id="NhN-04-UVY"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpX-mM-1Uj">
                                         <rect key="frame" x="330" y="0.0" width="64" height="13.5"/>
@@ -75,7 +78,7 @@
                                         <rect key="frame" x="0.0" y="4" width="414" height="734"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-X1-qrg">
-                                                <rect key="frame" x="0.0" y="10" width="414" height="304"/>
+                                                <rect key="frame" x="0.0" y="2" width="414" height="312"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="20"/>
@@ -141,8 +144,8 @@
                                                                         <constraint firstItem="WYT-aF-b1H" firstAttribute="trailing" secondItem="COX-Kt-bL4" secondAttribute="trailing" constant="-12" id="6wF-zn-u9F"/>
                                                                         <constraint firstAttribute="bottomMargin" secondItem="WYT-aF-b1H" secondAttribute="bottom" constant="12" id="E6S-1D-8Cv"/>
                                                                         <constraint firstItem="LgK-lt-uXD" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="top" constant="2" id="Eq2-8M-6A1"/>
+                                                                        <constraint firstItem="WYT-aF-b1H" firstAttribute="leading" secondItem="LgK-lt-uXD" secondAttribute="trailing" constant="12" id="bhS-gL-OLp"/>
                                                                         <constraint firstItem="LgK-lt-uXD" firstAttribute="leading" secondItem="COX-Kt-bL4" secondAttribute="leading" constant="2" id="nbj-Jv-FgN"/>
-                                                                        <constraint firstItem="WYT-aF-b1H" firstAttribute="leading" secondItem="LgK-lt-uXD" secondAttribute="trailing" constant="12" id="psV-Be-H3G"/>
                                                                         <constraint firstAttribute="bottom" secondItem="LgK-lt-uXD" secondAttribute="bottom" constant="2" id="yeS-u2-CxN"/>
                                                                         <constraint firstItem="WYT-aF-b1H" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="topMargin" constant="12" id="zeC-WV-982"/>
                                                                     </constraints>
@@ -178,7 +181,7 @@
                                             <constraint firstAttribute="top" secondItem="2D1-X1-qrg" secondAttribute="bottom" constant="-314" id="dk5-L6-4Tl"/>
                                             <constraint firstAttribute="trailing" secondItem="qnZ-ta-bel" secondAttribute="trailing" constant="32" id="hot-rh-lws"/>
                                             <constraint firstAttribute="trailing" secondItem="2D1-X1-qrg" secondAttribute="trailing" id="lWb-qC-eZP"/>
-                                            <constraint firstItem="2D1-X1-qrg" firstAttribute="top" secondItem="3uT-J9-HKc" secondAttribute="top" constant="10" id="vZY-sj-RCI"/>
+                                            <constraint firstItem="2D1-X1-qrg" firstAttribute="top" secondItem="3uT-J9-HKc" secondAttribute="top" constant="2" id="vZY-sj-RCI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -205,6 +208,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="D2x-Ro-ZKM"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="ibz-jm-OOC" id="J27-Gz-Ir3"/>
                         <outlet property="mapView" destination="2D1-X1-qrg" id="iBZ-bi-nHI"/>
                         <outlet property="searchBar" destination="VA5-Z7-2tJ" id="J48-Fx-auv"/>
                         <outlet property="tableView" destination="YaL-sd-SUJ" id="yNa-FL-ZOT"/>
