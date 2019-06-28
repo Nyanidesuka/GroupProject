@@ -14,6 +14,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var featuredCollectionView: UICollectionView!
     @IBOutlet weak var allRecipesCollectionView: UICollectionView!
     
+    @IBOutlet weak var allRecipesHeightConstraint: NSLayoutConstraint!
     
     //MARK: - Properties
     let allRecipes: [Recipe] = RecipeController.sharedInstance.recipes
@@ -29,6 +30,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewWillAppear(animated)
         self.featuredCollectionView.reloadData()
         self.allRecipesCollectionView.reloadData()
+        allRecipesHeightConstraint.constant = CGFloat(allRecipesCollectionView.numberOfItems(inSection: 0) * 310)
     }
     
     //MARK: - Collection View data
@@ -52,7 +54,7 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.recipeImageView.clipsToBounds = true
             cell.recipeImageView.layer.cornerRadius = 30
             cell.ingredientCount.text = "\(featuredRecipes[indexPath.row].ingredients.count)"
-            cell.timeLabel.text = "\(Double(featuredRecipes[indexPath.row].ingredients.count) * 2.5) minutes"
+            cell.timeLabel.text = "\(Double(featuredRecipes[indexPath.row].ingredients.count) * 1.25) mins"
             return cell
         case allRecipesCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "allRecipesCell", for: indexPath) as? AllRecipesCollectionViewCell else { return UICollectionViewCell () }
@@ -96,3 +98,13 @@ class RecipesViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
 }//END OF RECIPES VIEW CONTROLLER
+
+extension RecipesViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == allRecipesCollectionView {
+            return CGSize(width: collectionView.frame.width, height: 300)
+        } else {
+            return CGSize(width: (collectionView.frame.width * 0.70 ), height: collectionView.frame.height)
+        }
+    }
+}
