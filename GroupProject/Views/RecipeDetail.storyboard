@@ -59,7 +59,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zm-vO-agY" customClass="PaddingLabel" customModule="GroupProject" customModuleProvider="target">
                                                 <rect key="frame" x="32" y="703.5" width="350" height="36.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36.5" id="2mI-Iq-ZjW"/>
@@ -67,23 +67,37 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="topInset">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomInset">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="4Zm-vO-agY" secondAttribute="trailing" constant="32" id="8m7-EN-9ms"/>
                                             <constraint firstAttribute="bottom" secondItem="4Zm-vO-agY" secondAttribute="bottom" constant="128" id="Bkb-wR-xET"/>
                                             <constraint firstAttribute="trailing" secondItem="yfJ-Rv-edo" secondAttribute="trailing" constant="32" id="C5x-UX-VgT"/>
                                             <constraint firstAttribute="trailing" secondItem="XKD-Dl-GVU" secondAttribute="trailing" constant="32" id="Hkw-2R-W6f"/>
                                             <constraint firstItem="yfJ-Rv-edo" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="Mnn-bC-9iw"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="QVM-aJ-ghY"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="centerX" secondItem="AVn-Y1-a1P" secondAttribute="centerX" id="Vje-OR-cIV"/>
+                                            <constraint firstItem="4Zm-vO-agY" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="Z44-gt-stu"/>
+                                            <constraint firstAttribute="trailing" secondItem="4Zm-vO-agY" secondAttribute="trailing" constant="32" id="ZKw-xq-FNv"/>
                                             <constraint firstItem="Hvt-lU-5yD" firstAttribute="centerX" secondItem="1IR-Vx-oO4" secondAttribute="centerX" id="avA-HF-nC4"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="868" id="cKc-QV-OS4"/>
                                             <constraint firstItem="Hvt-lU-5yD" firstAttribute="top" secondItem="we4-d5-00e" secondAttribute="bottom" constant="32" id="d8o-Uq-8IN"/>
                                             <constraint firstAttribute="trailing" secondItem="we4-d5-00e" secondAttribute="trailing" constant="32" id="dlu-2c-NKM"/>
                                             <constraint firstItem="XKD-Dl-GVU" firstAttribute="top" secondItem="AVn-Y1-a1P" secondAttribute="top" constant="32" id="dnM-fz-SHI"/>
-                                            <constraint firstItem="4Zm-vO-agY" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="eZv-8f-vdf"/>
                                             <constraint firstItem="we4-d5-00e" firstAttribute="leading" secondItem="AVn-Y1-a1P" secondAttribute="leading" constant="32" id="f5T-I7-gij"/>
                                             <constraint firstItem="we4-d5-00e" firstAttribute="top" secondItem="1IR-Vx-oO4" secondAttribute="bottom" constant="32" id="fM6-yO-1a6"/>
                                             <constraint firstItem="1IR-Vx-oO4" firstAttribute="top" secondItem="yfJ-Rv-edo" secondAttribute="bottom" constant="32" id="gNu-fk-ct3"/>

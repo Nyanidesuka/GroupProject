@@ -13,6 +13,8 @@ class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
     //MARK: - Outlets
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var ingredientCount: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     
 }
