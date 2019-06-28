@@ -104,7 +104,7 @@ extension RecipesViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == allRecipesCollectionView {
             return CGSize(width: collectionView.frame.width, height: 300)
         } else {
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            return CGSize(width: (collectionView.frame.width * 0.70 ), height: collectionView.frame.height)
         }
     }
 }
