@@ -32,6 +32,6 @@ class CustomTextField: UITextField {
     
     func setupUI() {
         self.addCornerRadius(10)
-        self.addViewBorderColor()
+        //self.addViewBorderColor()
     }
 }

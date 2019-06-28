@@ -31,16 +31,30 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFourSlider: UISlider!
     @IBOutlet weak var flavorFiveSlider: UISlider!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var reviewImageView: UIImageView!
+    
     
     //MARK: - Properties / Landing pad
-    var business: Business?
-    var review: JuiceReview?
+    var business: Business?{
+        didSet{
+            loadViewIfNeeded()
+            self.navigationItem.title = self.business?.name
+        }
+    }
+    var review: JuiceReview?{
+        didSet{
+            loadViewIfNeeded()
+            self.navigationItem.title = review?.businessName
+        }
+    }
     var rating: Int = 0
-    
+    var imagePicker: ImagePicker!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        reviewImageView.addCornerRadius()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         updateLabels()
         updateSliderImages()
         guard let review = self.review else {print("the page has no review."); return}
@@ -108,17 +122,27 @@ class ReviewViewController: UIViewController {
         flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): \(newValue)"
     }
     
+    @IBAction func imageButtonTapped(_ sender: Any) {
+        self.imagePicker.present(from: self.view)
+    }
+    
+    
     //MARK: - Helper Functions
     func saveNewReview(){
         //grab data from all the fields!
-        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text, let business = self.business else {print("There's not enough info to make a review."); return}
+        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text, let business = self.business, let imageData = reviewImageView.image?.jpegData(compressionQuality: 0.7) else {print("There's not enough info to make a review. 🥐🥐🥐"); return}
         let sliderOneValue = Int(flavorOneSlider.value)
         let sliderTwoValue = Int(flavorTwoSlider.value)
         let sliderThreeValue = Int(flavorThreeSlider.value)
         let sliderFourValue = Int(flavorFourSlider.value)
         let sliderFiveValue = Int(flavorFiveSlider.value)
+        //now we make a new image document and save that, and then we make the review and save that to the user.
+        let newImageUUID = UUID().uuidString
+        FirebaseService.shared.addDocument(documentName: newImageUUID, collectionName: "Images", data: ["data" : imageData]) { (success) in
+            print("successfully save the new image document to firestore. 🥐🥐🥐")
+        }
         print("Here's what we've got for the review: \(price), \(drinkName), \(business.name), \(business.businessID), \(sliderOneValue), \(sliderTwoValue), \(sliderThreeValue), \(sliderFourValue), \(sliderFiveValue)")
-        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue, image: nil)
+        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue, imageDocReference: newImageUUID)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -130,6 +154,17 @@ class ReviewViewController: UIViewController {
         let sliderThreeValue = Int(flavorThreeSlider.value)
         let sliderFourValue = Int(flavorFourSlider.value)
         let sliderFiveValue = Int(flavorFiveSlider.value)
+        //delete the old review image so we dont just endlessly gather images
+        FirebaseService.shared.deleteDocument(documentName: review.imageDocReference, collectionName: "Images") { (success) in
+            print("tried to delete the old review image. Success: \(success)")
+        }
+        //time to create a new image document!
+        let newImageUUID = UUID().uuidString
+        guard let imageData = reviewImageView.image?.jpegData(compressionQuality: 0.7) else {print("Couldn't create image data from the review's image."); return}
+        FirebaseService.shared.addDocument(documentName: newImageUUID, collectionName: "Images", data: ["data" : imageData]) { (success) in
+            print("Tried to create a new image document in firestore. Success: \(success)")
+        }
+        review.imageDocReference = newImageUUID
         review.drinkReview = reviewComments
         review.drinkPrice = price
         review.drinkName = drinkName
@@ -157,7 +192,14 @@ class ReviewViewController: UIViewController {
         self.flavorThreeSlider.value = Float(review.dimension3)
         self.flavorFourSlider.value = Float(review.dimension4)
         self.flavorFiveSlider.value = Float(review.dimension5)
-        
+        FirebaseService.shared.fetchDocument(documentName: review.imageDocReference, collectionName: "Images") { (imageDict) in
+            guard let imageDict = imageDict else {print("couldnt unwrap the image dictionary"); return}
+            guard let imageData = imageDict["data"] as? Data else {print("couldnt get the data from the image dictionary"); return}
+            DispatchQueue.main.async {
+                self.reviewImageView.image = UIImage(data: imageData)
+                self.reviewImageView.clipsToBounds = true
+            }
+        }
     }
     
     func updateLabels() {
@@ -165,7 +207,7 @@ class ReviewViewController: UIViewController {
             flavorOneLabel.text = "\(JuiceReviewController.shared.flavorOne): \(review.dimension1)"
             flavorTwoLabel.text = "\(JuiceReviewController.shared.flavorTwo): \(review.dimension2)"
             flavorThreeLabel.text = "\(JuiceReviewController.shared.flavorThree): \(review.dimension3)"
-            flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): \(review.dimension3)"
+            flavorFourLabel.text = "\(JuiceReviewController.shared.flavorFour): \(review.dimension4)"
             flavorFiveLabel.text = "\(JuiceReviewController.shared.flavorFive): \(review.dimension5)"
         } else {
             flavorOneLabel.text = "\(JuiceReviewController.shared.flavorOne): 0"
@@ -234,5 +276,12 @@ class ReviewViewController: UIViewController {
         flavorFiveSlider.setThumbImage(UIImage(named: "flavor"), for: .normal)
         flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .green)
         flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+    }
+}
+
+extension ReviewViewController: ImagePickerDelegate{
+    func didSelect(image: UIImage?) {
+        guard let selectedImage = image else {print("couldnt unwrap the selected image"); return}
+        reviewImageView.image = selectedImage
     }
 }

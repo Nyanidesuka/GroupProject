@@ -32,5 +32,6 @@ required init?(coder aDecoder: NSCoder) {
     func setupUI(){
         self.addViewBorderColor()
         self.addCornerRadius()
+        self.addViewBorderColor()
     }
 }

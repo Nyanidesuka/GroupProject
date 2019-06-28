@@ -15,8 +15,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var bioLabel: UITextView!
     @IBOutlet weak var visitedCollectionView: UICollectionView!
-    @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var reviewCollectionView: UICollectionView!
     
     
     //MARK: - Properties
@@ -34,8 +34,8 @@ class ProfileViewController: UIViewController {
         //Should probably put 👇🏽 in a helper function
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
-        profilePhotoImageView.layer.borderWidth = 3
-        profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
+        //profilePhotoImageView.layer.borderWidth = 3
+        //profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
         //set the profile picture
         if let photoData = UserController.shared.currentUser?.photoData{
             self.profilePhotoImageView.image = UIImage(data: photoData)
@@ -44,14 +44,13 @@ class ProfileViewController: UIViewController {
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
         print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviews.count) 🥦🥦🥦🥦")
-        reviewTableView.addCornerRadius()
+        
         visitedCollectionView.addCornerRadius()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         visitedCollectionView.reloadData()
-        reviewTableView.reloadData()
     }
     
     //MARK: - Actions
@@ -68,10 +67,11 @@ class ProfileViewController: UIViewController {
             let location = user?.likedBusinesses[indexPath.row]
             destinationVC.location = location
         case "toJuiceReviewDetail":
-            guard let indexPath = self.reviewTableView.indexPathForSelectedRow,
-                let destinationVC = segue.destination as? ReviewViewController else { return }
-            let review = user?.juiceReviews[indexPath.row]
-            destinationVC.review = review
+            return
+//            guard let indexPath = self.reviewTableView.indexPathForSelectedRow,
+//                let destinationVC = segue.destination as? ReviewViewController else { return }
+//            let review = user?.juiceReviews[indexPath.row]
+//            destinationVC.review = review
         default:
             print("Error in segue from profile tab")
         }
@@ -135,39 +135,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         return nil
     }
 }//END OF EXTENSIONS FOR VISITED COLLECTION VIEW
-
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = user?.juiceReviews.count {
-            if count == 0 {
-                return 1
-            }
-            return count
-        }
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as? ReviewTableViewCell else {return UITableViewCell() }
-        print("\(UserController.shared.currentUser?.juiceReviews.count) Juice reviews loaded for user 🍓🍓🍓🍓")
-        if user?.juiceReviews.count == 0 {
-            cell.restaurantNameLabel.text = "No juice reviews yet"
-            cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
-            cell.isUserInteractionEnabled = false
-            return cell
-        } else {
-            cell.isUserInteractionEnabled = true
-            if let review = user?.juiceReviews[indexPath.row] {
-                cell.restaurantNameLabel.text = review.businessName
-                cell.drinkNameLabel.text = review.drinkName
-                return cell
-            }
-            cell.restaurantNameLabel.text = "No juice reviews yet"
-            cell.drinkNameLabel.text = "Get your juice on and we'll save the info for you, here"
-            return cell
-        }
-    }
-}//END OF EXTENSIONS FOR REVIEWS TABLEVIEW
 
 extension ProfileViewController {
     func presentSimpleInputAlert(title: String, message: String) {

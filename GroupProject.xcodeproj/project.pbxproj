@@ -39,6 +39,7 @@
 		1732EC6122B455C900E09DD3 /* GroupProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1732EC5F22B455C900E09DD3 /* GroupProject.xcdatamodeld */; };
 		1732EC6322B455CA00E09DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC6222B455CA00E09DD3 /* Assets.xcassets */; };
 		1732EC6622B455CA00E09DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC6422B455CA00E09DD3 /* LaunchScreen.storyboard */; };
+		17890D0E22C69433008CA966 /* JuiceReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17890D0D22C69433008CA966 /* JuiceReviewCollectionViewCell.swift */; };
 		178E476522B831100097F4DD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476422B831100097F4DD /* Business.swift */; };
 		178E476822B8312A0097F4DD /* YelpReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476722B8312A0097F4DD /* YelpReview.swift */; };
 		178E476A22B832A00097F4DD /* YelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476922B832A00097F4DD /* YelpService.swift */; };
@@ -117,6 +118,7 @@
 		1732EC6222B455CA00E09DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1732EC6522B455CA00E09DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1732EC6722B455CA00E09DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17890D0D22C69433008CA966 /* JuiceReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		178E476422B831100097F4DD /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		178E476722B8312A0097F4DD /* YelpReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpReview.swift; sourceTree = "<group>"; };
 		178E476922B832A00097F4DD /* YelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpService.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				CA80A4A022B8156800558D20 /* LocationDetailsViewController.swift in Sources */,
 				CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */,
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
+				17890D0E22C69433008CA966 /* JuiceReviewCollectionViewCell.swift in Sources */,
 				1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
 				16FDEAF722BD3E52005B66E0 /* CustomReviewLabel.swift in Sources */,
