@@ -50,7 +50,10 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        visitedCollectionView.reloadData()
+        guard let user = UserController.shared.currentUser else {print("there's no user. 👁‍🗨👁‍🗨👁‍🗨"); return}
+        ReviewImageContainer.shared.fetchAllReviewImages(forUser: user) { (success) in
+            self.visitedCollectionView.reloadData()
+        }
     }
     
     //MARK: - Actions
@@ -96,32 +99,45 @@ extension ProfileViewController: ImagePickerDelegate {
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = user?.likedBusinesses.count {
-            if count == 0 {
-                return 1
-            }
-            return count
+        guard let user = UserController.shared.currentUser else {return 0}
+        if collectionView == visitedCollectionView{
+            return max(1, user.likedBusinesses.count)
+        } else {
+            return max(1, user.juiceReviews.count)
         }
-        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
-        if user?.likedBusinesses.count == 0 {
+        if collectionView == visitedCollectionView{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "juiceCell", for: indexPath) as? VisitedCollectionViewCell else { return UICollectionViewCell() }
+            if user?.likedBusinesses.count == 0 {
+                cell.juiceImageView.image = UIImage(named: "NoRating")
+                cell.locationLabel.text = "Search and rate!"
+                cell.isUserInteractionEnabled = false
+                return cell
+            }
+            if let location = user?.likedBusinesses[indexPath.row] {
+                guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
+                cell.juiceImageView.image = UIImage(data: data)
+                cell.locationLabel.text = location.name
+                return cell
+            }
             cell.juiceImageView.image = UIImage(named: "NoRating")
             cell.locationLabel.text = "Search and rate!"
-            cell.isUserInteractionEnabled = false
             return cell
+        } else {
+            print("calling the collection view delegate for the juicereview collection ✓✓✓✓✓✓✓✓✓✓✓✓✓")
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? JuiceReviewCollectionViewCell else {return UICollectionViewCell()}
+            if user?.juiceReviews.count == 0{
+                cell.reviewImageView.image = UIImage(named: "default")
+                cell.drinkNameLabel.text = "Review a juice to see it show up here!"
+                return cell
+            } else {
+                cell.drinkNameLabel.text = user?.juiceReviews[indexPath.row].businessName
+                cell.reviewImageView.image = ReviewImageContainer.shared.images[indexPath.row]
+                return cell
+            }
         }
-        if let location = user?.likedBusinesses[indexPath.row] {
-            guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
-            cell.juiceImageView.image = UIImage(data: data)
-            cell.locationLabel.text = location.name
-            return cell
-        }
-        cell.juiceImageView.image = UIImage(named: "NoRating")
-        cell.locationLabel.text = "Search and rate!"
-        return cell
     }
     
     func grabImageDataFor(business: Business) -> Data? {
