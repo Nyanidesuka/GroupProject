@@ -54,7 +54,6 @@
                                                 <rect key="frame" x="135.5" y="152.5" width="143" height="30"/>
                                                 <state key="normal" title="Select Feeback Type"/>
                                                 <connections>
-                                                    <action selector="selectErrorButtonTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="8l3-ZY-dg7"/>
                                                     <action selector="selectErrorTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="JPj-5D-IZ7"/>
                                                 </connections>
                                             </button>
@@ -151,11 +150,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qZB-m5-c5l"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Questions / Help" id="6EL-Og-B9U"/>
+                    <navigationItem key="navigationItem" title="Questions / Help" id="6EL-Og-B9U">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Lhr-KC-s3V">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="kzV-8y-yQw" id="05W-im-nVr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="aboutJuiceNowTextView" destination="EfQ-aL-m4H" id="LPz-By-S6j"/>
                         <outlet property="feedbackTextView" destination="PjY-bA-q8X" id="oF2-Pv-JO2"/>
                         <outlet property="selectError" destination="9ts-mp-n2O" id="vqz-F2-R8n"/>
+                        <outlet property="sendFeedbackButton" destination="jB7-O1-iM2" id="tb7-DZ-TlL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IP-Qp-DWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
