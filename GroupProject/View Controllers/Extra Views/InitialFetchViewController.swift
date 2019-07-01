@@ -23,23 +23,26 @@ class InitialFetchViewController: UIViewController {
         UserController.shared.loadUser {
             //fetch every image for every review the user has created
             guard let user = UserController.shared.currentUser else {print("We could not unwrap the loaded or created user. 👁‍🗨👁‍🗨👁‍🗨"); return}
-            ReviewImageContainer.shared.fetchAllReviewImages(forUser: user, completion: { (_) in
-                DispatchQueue.main.async {
-                    print("Got this many images: \(ReviewImageContainer.shared.images.count)👁‍🗨👁‍🗨")
-                    print("For this many reviews: \(user.juiceReviews.count)👁‍🗨👁‍🗨")
-                    self.locationManager = CLLocationManager()
-                    self.locationManager?.delegate = self
-                    self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-                    let authorizationStatus = CLLocationManager.authorizationStatus()
-                    if authorizationStatus == CLAuthorizationStatus.notDetermined{
-                        print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
-                        self.segueToTabBarVC()
-                    } else {
-                        print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
-                        //start updating location. When it finishes this should trigger the delegate function
-                        self.locationManager?.startUpdatingLocation()
+            //fetch reviews for the user
+            JuiceReviewController.shared.fetchReviews(forUser: user, completion: { (_) in
+                ReviewImageContainer.shared.fetchReviewImages(forReviews: user.juiceReviews, completion: { (_) in
+                    DispatchQueue.main.async {
+                        print("Got this many images: \(ReviewImageContainer.shared.images.count)👁‍🗨👁‍🗨")
+                        print("For this many reviews: \(user.juiceReviews.count)👁‍🗨👁‍🗨")
+                        self.locationManager = CLLocationManager()
+                        self.locationManager?.delegate = self
+                        self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+                        let authorizationStatus = CLLocationManager.authorizationStatus()
+                        if authorizationStatus == CLAuthorizationStatus.notDetermined{
+                            print("we do not have permissions.⚠️⚠️⚠️⚠️⚠️⚠️⚠️")
+                            self.segueToTabBarVC()
+                        } else {
+                            print("we have permissions. ⚠️⚠️⚠️⚠️⚠️⚠️")
+                            //start updating location. When it finishes this should trigger the delegate function
+                            self.locationManager?.startUpdatingLocation()
+                        }
                     }
-                }
+                })
             })
         }
     }

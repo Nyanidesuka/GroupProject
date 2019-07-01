@@ -13,18 +13,21 @@ class JuiceNowBusinessInfo{
     
     let reviews: [JuiceNowBusinessReview]
     //let photos: [UIImage]    ;   later
-    let juiceReviews: [JuiceReview] = []
+    var juiceReviews: [JuiceReview] = []
+    var juiceReviewReferences: [String] = []
     let businessID: String
     
-    init(businessID: String, reviews: [JuiceNowBusinessReview]){
+    init(businessID: String, reviews: [JuiceNowBusinessReview], juiceReviewReferences: [String] = [], juiceReviews: [JuiceReview] = []){
         self.businessID = businessID
         self.reviews = reviews
+        self.juiceReviews = juiceReviews
+        self.juiceReviewReferences = juiceReviewReferences
     }
     
     convenience init?(dictionary data: [String : Any]){
         guard let businessID = data["businessID"] as? String,
-            let reviewsDictionaries = data["reviews"] as? [[String : Any]] else {print("couldn't get the data from the dictionary: \(data)"); return nil}
+            let reviewsDictionaries = data["reviews"] as? [[String : Any]], let juiceReviewReferences = data["juiceReviewReferences"] as? [String] else {print("couldn't get the data from the dictionary: \(data)"); return nil}
         let reviews = reviewsDictionaries.compactMap({return JuiceNowBusinessReview(firestoreData: $0)})
-        self.init(businessID: businessID, reviews: reviews)
+        self.init(businessID: businessID, reviews: reviews, juiceReviewReferences: juiceReviewReferences)
     }
 }

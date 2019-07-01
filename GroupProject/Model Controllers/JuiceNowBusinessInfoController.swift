@@ -12,8 +12,7 @@ class JuiceNowBusinessInfoController{
     static let shared = JuiceNowBusinessInfoController()
     
     func createDictionary(fromInfo info: JuiceNowBusinessInfo) -> [String : Any]{
-        let reviewsAsDictionaries = JuiceNowBusinessReviewController.shared.createDictionary(fromReviews: info.reviews)
-        let infoDictionary: [String : Any] = ["reviews" : reviewsAsDictionaries, "businessID" : info.businessID]
+        let infoDictionary: [String : Any] = ["reviewReferences" : info.juiceReviewReferences, "businessID" : info.businessID, "juiceReviewReferences" : info.juiceReviewReferences]
         return infoDictionary
     }
     
