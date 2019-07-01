@@ -55,6 +55,7 @@
                                                 <state key="normal" title="Select Feeback Type"/>
                                                 <connections>
                                                     <action selector="selectErrorButtonTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="8l3-ZY-dg7"/>
+                                                    <action selector="selectErrorTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="JPj-5D-IZ7"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPj-oi-ddq" userLabel="Thin Line 2">
@@ -75,8 +76,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About JuiceNow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-Rn-9mW">
-                                                <rect key="frame" x="91.5" y="458.5" width="231.5" height="36"/>
+                                                <rect key="frame" x="83.5" y="458.5" width="247.5" height="36"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="247.5" id="JfQ-J3-WYc"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -149,6 +153,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Questions / Help" id="6EL-Og-B9U"/>
                     <connections>
+                        <outlet property="aboutJuiceNowTextView" destination="EfQ-aL-m4H" id="LPz-By-S6j"/>
+                        <outlet property="feedbackTextView" destination="PjY-bA-q8X" id="oF2-Pv-JO2"/>
                         <outlet property="selectError" destination="9ts-mp-n2O" id="vqz-F2-R8n"/>
                     </connections>
                 </viewController>
