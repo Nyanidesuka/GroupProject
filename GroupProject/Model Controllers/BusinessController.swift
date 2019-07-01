@@ -41,7 +41,7 @@ class BusinessController {
                 completion(businessesTLD.businesses)
             }catch{
                 print("there was an error decoding the data.; \(error)")
-                print(unwrappedData)
+                print("unrapped data: \(unwrappedData)")
                 completion([])
                 return
             }
@@ -62,7 +62,7 @@ class BusinessController {
             let businessDecoder = JSONDecoder()
             do{
                 let businessesTLD = try businessDecoder.decode(BusinessTLD.self, from: unwrappedData)
-                print(businessesTLD.businesses.count)
+                print("Number uf businesses: \(businessesTLD.businesses.count) 🎴")
                 print(businessesTLD.businesses[0].name)
                 guard let user = UserController.shared.currentUser else {print("couldnt unwrap the current user for  \(#function)🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️🧙‍♀️"); return}
                 for business in businessesTLD.businesses{

@@ -25,7 +25,7 @@ class YelpReviewController{
             let reviewDecoder = JSONDecoder()
             do{
                 let reviewTLD = try reviewDecoder.decode(YelpReviewTLD.self, from: unwrappedData)
-                print(reviewTLD.reviews.count)
+                print("Number of reviews: \(reviewTLD.reviews.count) 📣")
                 completion(reviewTLD.reviews)
             }catch{
                 print("there was an error decoding the data. \(error)")

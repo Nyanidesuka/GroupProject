@@ -69,7 +69,7 @@ class FirebaseService{
                 completion([])
                 return
             }
-            guard let documents = documents else {print("couldnt unwrap the documents"); return}
+            guard let documents = documents else {print("couldnt unwrap the documents"); completion([]); return}
             var completionArray: [[String : Any]] = []
             for document in documents.documents{
                 completionArray.append(document.data())

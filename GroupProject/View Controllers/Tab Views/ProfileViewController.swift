@@ -128,13 +128,16 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         } else {
             print("calling the collection view delegate for the juicereview collection ✓✓✓✓✓✓✓✓✓✓✓✓✓")
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? JuiceReviewCollectionViewCell else {return UICollectionViewCell()}
+            cell.reviewImageView.addCornerRadius()
             if user?.juiceReviews.count == 0{
                 cell.reviewImageView.image = UIImage(named: "default")
                 cell.drinkNameLabel.text = "Review a juice to see it show up here!"
                 return cell
             } else {
-                cell.drinkNameLabel.text = user?.juiceReviews[indexPath.row].businessName
+                guard let review = user?.juiceReviews[indexPath.row] else {return UICollectionViewCell()}
+                cell.drinkNameLabel.text = review.businessName
                 cell.reviewImageView.image = ReviewImageContainer.shared.images[indexPath.row]
+                cell.updateStarButtons(withReview: review)
                 return cell
             }
         }
@@ -176,4 +179,5 @@ extension ProfileViewController {
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true)
     }
+    
 }//END OF ALERT CONTROLLER EXTENSION

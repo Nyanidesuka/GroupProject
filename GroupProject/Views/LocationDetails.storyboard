@@ -109,60 +109,63 @@
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sic-wL-dlv">
                                                     <size key="itemSize" width="180" height="200"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="headerReferenceSize" width="8" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reviewCell" id="hzH-0S-lqu" customClass="DetailPageReviewCollectionViewCell" customModule="GroupProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="5" width="180" height="200"/>
+                                                        <rect key="frame" x="8" y="5" width="180" height="200"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="180" height="200"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="DHP-5J-ggn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="137"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="DHP-5J-ggn">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="159"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="180" id="3uQ-9y-9Lj"/>
+                                                                    </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="[Juice Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-8n-dOk">
-                                                                    <rect key="frame" x="0.0" y="141" width="180" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="[Juice Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-8n-dOk">
+                                                                    <rect key="frame" x="0.0" y="159" width="180" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lk0-kU-fTF">
-                                                                    <rect key="frame" x="0.0" y="165.5" width="180" height="34.5"/>
+                                                                    <rect key="frame" x="0.0" y="179.5" width="110.5" height="20.5"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-Ma-nGe">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="34.5" height="34.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-Ma-nGe">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="20.5" height="20.5"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="1"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="1Gf-Ma-nGe" secondAttribute="height" multiplier="1:1" id="Dl8-2a-3gf"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="S9H-T9-Jgq">
-                                                                            <rect key="frame" x="36.5" y="0.0" width="34.5" height="34.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="S9H-T9-Jgq">
+                                                                            <rect key="frame" x="22.5" y="0.0" width="20.5" height="20.5"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="2"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="S9H-T9-Jgq" secondAttribute="height" multiplier="1:1" id="Qbu-qT-qb1"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-Zq-wnU">
-                                                                            <rect key="frame" x="73" y="0.0" width="34" height="34.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-Zq-wnU">
+                                                                            <rect key="frame" x="45" y="0.0" width="20.5" height="20.5"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="3"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="pkM-Zq-wnU" secondAttribute="height" multiplier="1:1" id="BQD-Oq-Zuv"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="myn-qX-EB4">
-                                                                            <rect key="frame" x="109" y="0.0" width="34.5" height="34.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="myn-qX-EB4">
+                                                                            <rect key="frame" x="67.5" y="0.0" width="20.5" height="20.5"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="4"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="myn-qX-EB4" secondAttribute="height" multiplier="1:1" id="Xpo-bh-j2r"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="gsT-9j-oNa">
-                                                                            <rect key="frame" x="145.5" y="0.0" width="34.5" height="34.5"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="gsT-9j-oNa">
+                                                                            <rect key="frame" x="90" y="0.0" width="20.5" height="20.5"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="gsT-9j-oNa" secondAttribute="height" multiplier="1:1" id="PVX-Gi-OcM"/>
@@ -183,22 +186,31 @@
                                                         </view>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="Lk0-kU-fTF" secondAttribute="bottom" id="1Iq-Ra-tGN"/>
-                                                            <constraint firstItem="Lk0-kU-fTF" firstAttribute="top" secondItem="YE8-8n-dOk" secondAttribute="bottom" constant="4" id="24N-aS-Hc7"/>
+                                                            <constraint firstItem="Lk0-kU-fTF" firstAttribute="top" secondItem="YE8-8n-dOk" secondAttribute="bottom" id="24N-aS-Hc7"/>
                                                             <constraint firstItem="DHP-5J-ggn" firstAttribute="top" secondItem="hzH-0S-lqu" secondAttribute="top" id="5B1-QI-IZU"/>
+                                                            <constraint firstItem="Lk0-kU-fTF" firstAttribute="height" secondItem="YE8-8n-dOk" secondAttribute="height" id="76B-Z2-7Rg"/>
                                                             <constraint firstAttribute="trailing" secondItem="YE8-8n-dOk" secondAttribute="trailing" id="8Cx-JI-ISs"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Lk0-kU-fTF" secondAttribute="trailing" id="DIS-0P-ohs"/>
                                                             <constraint firstItem="Lk0-kU-fTF" firstAttribute="leading" secondItem="hzH-0S-lqu" secondAttribute="leading" id="IsM-jU-zUL"/>
                                                             <constraint firstItem="YE8-8n-dOk" firstAttribute="leading" secondItem="hzH-0S-lqu" secondAttribute="leading" id="cpE-4v-6VN"/>
                                                             <constraint firstItem="DHP-5J-ggn" firstAttribute="leading" secondItem="hzH-0S-lqu" secondAttribute="leading" id="khI-Ex-RfT"/>
-                                                            <constraint firstItem="YE8-8n-dOk" firstAttribute="top" secondItem="DHP-5J-ggn" secondAttribute="bottom" constant="4" id="meq-8x-NI7"/>
+                                                            <constraint firstItem="YE8-8n-dOk" firstAttribute="top" secondItem="DHP-5J-ggn" secondAttribute="bottom" id="meq-8x-NI7"/>
                                                             <constraint firstAttribute="trailing" secondItem="DHP-5J-ggn" secondAttribute="trailing" id="wGT-Z4-dsA"/>
                                                         </constraints>
                                                         <connections>
                                                             <outlet property="juiceNameLabel" destination="YE8-8n-dOk" id="hRE-S7-FBR"/>
                                                             <outlet property="reviewImageView" destination="DHP-5J-ggn" id="xAP-4z-Sxy"/>
+                                                            <outletCollection property="reviewScoreImages" destination="1Gf-Ma-nGe" collectionClass="NSMutableArray" id="iTN-Ra-jsh"/>
+                                                            <outletCollection property="reviewScoreImages" destination="S9H-T9-Jgq" collectionClass="NSMutableArray" id="c74-D8-TWD"/>
+                                                            <outletCollection property="reviewScoreImages" destination="pkM-Zq-wnU" collectionClass="NSMutableArray" id="Fjj-mi-ryZ"/>
+                                                            <outletCollection property="reviewScoreImages" destination="myn-qX-EB4" collectionClass="NSMutableArray" id="vBA-SU-jQ1"/>
+                                                            <outletCollection property="reviewScoreImages" destination="gsT-9j-oNa" collectionClass="NSMutableArray" id="AeV-AD-gyc"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FQE-SS-fWH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="8" height="210"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionReusableView>
                                                 <connections>
                                                     <outlet property="dataSource" destination="NGv-W4-SBu" id="Nm8-lG-maR"/>
                                                     <outlet property="delegate" destination="NGv-W4-SBu" id="192-tO-fKB"/>
@@ -469,5 +481,6 @@
     <resources>
         <image name="UnlikedStar" width="64" height="64"/>
         <image name="default" width="450" height="260"/>
+        <image name="orange slice rank 1" width="225" height="225"/>
     </resources>
 </document>

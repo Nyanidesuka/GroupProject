@@ -25,13 +25,16 @@ class ReviewImageContainer{
         }
     }
     func fetchImagesForDetailPage(sender: LocationDetailsViewController, reviews: [JuiceReview], index: Int = 0, completion: @escaping (Bool) -> Void){
+        print("fetching images for \(reviews.count) reviews.")
         guard reviews.count != 0 else { completion(true); return }
         FirebaseService.shared.fetchDocument(documentName: reviews[index].imageDocReference, collectionName: "Images") { (imageDict) in
             guard let imageDict = imageDict, let imageData = imageDict["data"] as? Data, let decodedImage = UIImage(data: imageData) else {print("couldnt unwrap the image dictionary 👁‍🗨👁‍🗨👁‍🗨"); return}
             sender.juiceReviewImages.append(decodedImage)
             if sender.juiceReviewImages.count < reviews.count{
-                self.fetchReviewImages(forReviews: reviews, index: index + 1, completion: completion)
+                print("Waiting til we have \(reviews.count) images. We have \(sender.juiceReviewImages.count). 🔶🔶🔶")
+                self.fetchImagesForDetailPage(sender: sender, reviews: reviews, index: index + 1, completion: completion)
             } else {
+                print("Completing the image fetch. We have fetched \(sender.juiceReviewImages.count) images.🔶🔶🔶")
                 completion(true)
             }
         }
