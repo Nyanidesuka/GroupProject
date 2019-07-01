@@ -31,7 +31,7 @@ class CustomSearchBar: UISearchBar {
     }
     
     func setupUI(){
-//        self.layer.cornerRadius(40)
-//        addCornerRadius(40)
+        addCornerRadius()
+        addViewBorderColor()
     }
 }

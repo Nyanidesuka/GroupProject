@@ -28,7 +28,11 @@ extension UIView {
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
     }
-    
+}
+
+struct FontNames {
+    static let proximaNovaBold = "ProximaNova-Bold"
+    static let playfairDisplayBold = "PlayfairDispaly-Bold"
 }
 
 extension UIColor {
