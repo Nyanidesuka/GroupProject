@@ -171,13 +171,13 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oYU-cc-ULY">
                                                     <size key="itemSize" width="180" height="242"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="headerReferenceSize" width="8" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="reviewCell" id="RLT-sP-dwI" customClass="JuiceReviewCollectionViewCell" customModule="GroupProject" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="2" width="180" height="242"/>
+                                                        <rect key="frame" x="8" y="2" width="180" height="242"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                             <rect key="frame" x="0.0" y="0.0" width="180" height="242"/>
@@ -199,38 +199,38 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="13m-uN-8uu">
-                                                                    <rect key="frame" x="0.0" y="202" width="94" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="202" width="118" height="22"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="grz-Bd-Wo5">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="grz-Bd-Wo5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="1"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="grz-Bd-Wo5" secondAttribute="height" multiplier="1:1" id="mji-Vg-rKq"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="Z5J-eJ-9xH">
-                                                                            <rect key="frame" x="24" y="3" width="16" height="16"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="Z5J-eJ-9xH">
+                                                                            <rect key="frame" x="24" y="0.0" width="22" height="22"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="2"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Z5J-eJ-9xH" secondAttribute="height" multiplier="1:1" id="TTe-MW-r6f"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-G6-8ha">
-                                                                            <rect key="frame" x="42" y="3" width="16" height="16"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-G6-8ha">
+                                                                            <rect key="frame" x="48" y="0.0" width="22" height="22"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="3"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="c7w-G6-8ha" secondAttribute="height" multiplier="1:1" id="z8u-qM-49d"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="51E-zc-ZNf">
-                                                                            <rect key="frame" x="60" y="3" width="16" height="16"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="51E-zc-ZNf">
+                                                                            <rect key="frame" x="72" y="0.0" width="22" height="22"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="4"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="x34-jL-MCi"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-1g-H0T">
-                                                                            <rect key="frame" x="78" y="3" width="16" height="16"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange slice rank 1" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-1g-H0T">
+                                                                            <rect key="frame" x="96" y="0.0" width="22" height="22"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="eBr-1g-H0T" secondAttribute="height" multiplier="1:1" id="WGD-Pz-CIs"/>
@@ -269,9 +269,14 @@
                                                             <outletCollection property="reviewScoreImages" destination="c7w-G6-8ha" collectionClass="NSMutableArray" id="krY-Ya-ZUF"/>
                                                             <outletCollection property="reviewScoreImages" destination="51E-zc-ZNf" collectionClass="NSMutableArray" id="NSs-6E-J6r"/>
                                                             <outletCollection property="reviewScoreImages" destination="eBr-1g-H0T" collectionClass="NSMutableArray" id="TTZ-40-ZnC"/>
+                                                            <segue destination="vJ3-Y3-W0T" kind="show" identifier="toJuiceReview" id="Ffd-R3-IIc"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pg8-FS-SWF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="8" height="246"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionReusableView>
                                                 <connections>
                                                     <outlet property="dataSource" destination="CGV-oW-woz" id="X1c-rZ-s4l"/>
                                                     <outlet property="delegate" destination="CGV-oW-woz" id="Mz9-qi-cyT"/>
@@ -332,7 +337,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aMW-t8-62r"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="V5l-xF-Eoq"/>
+                    <navigationItem key="navigationItem" title="Profile" id="V5l-xF-Eoq">
+                        <barButtonItem key="rightBarButtonItem" image="help" id="yDq-54-b8d">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="iRR-4j-sjf" kind="show" id="KH4-a0-3Vk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bioLabel" destination="4bs-AC-aut" id="K6F-xx-vG4"/>
                         <outlet property="editProfileButton" destination="gR0-yU-1zf" id="2A6-dS-CAs"/>
@@ -381,6 +393,14 @@
             </objects>
             <point key="canvasLocation" x="-180" y="-1097"/>
         </scene>
+        <!--helpNavController-->
+        <scene sceneID="7Vr-5G-ijZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Help" referencedIdentifier="helpNavController" id="iRR-4j-sjf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enX-Vk-RUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="-1280"/>
+        </scene>
         <!--UIViewController-KFV-xM-NZX-->
         <scene sceneID="X2g-5w-E8v">
             <objects>
@@ -392,8 +412,9 @@
     </scenes>
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
-        <image name="UnlikedStar" width="64" height="64"/>
         <image name="default" width="450" height="260"/>
+        <image name="help" width="30" height="30"/>
+        <image name="orange slice rank 1" width="225" height="225"/>
         <image name="profile" width="30" height="30"/>
         <namedColor name="DarkBlueAccent">
             <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -43,8 +43,12 @@ class ReviewViewController: UIViewController {
     }
     var review: JuiceReview?{
         didSet{
+            print("wow the review var sure got set. 🚹🚹")
             loadViewIfNeeded()
             self.navigationItem.title = review?.businessName
+            guard let review = self.review else {print("the page has no review."); return}
+            self.rating = review.drinkRating
+            updateViews(withReview: review)
         }
     }
     var rating: Int = 0
@@ -57,15 +61,21 @@ class ReviewViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         updateLabels()
         updateSliderImages()
-        guard let review = self.review else {print("the page has no review."); return}
-        self.rating = review.drinkRating
-        updateViews(withReview: review)
 //        scrollView.contentInset.bottom = (self.tabBarController?.tabBar.frame.height ?? 50) + 20
         // Do any additional setup after loading the view.
     }
     
     //MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let drinkName = drinkNameTextField.text, !drinkName.isEmpty else {
+            let noNameAlert = UIAlertController(title: "Woah there.", message: "We need to have a name for the juice you're reviewing.", preferredStyle: .alert)
+            let closeAction = UIAlertAction(title: "Got it.", style: .default) { (action) in
+                noNameAlert.dismiss(animated: true, completion: nil)
+            }
+            noNameAlert.addAction(closeAction)
+            self.present(noNameAlert, animated: true)
+            return
+        }
         if let review = self.review{
             self.updateExistingReview(review: review)
         } else {
@@ -222,35 +232,35 @@ class ReviewViewController: UIViewController {
         print("rating: \(self.rating)")
         switch self.rating{
         case 1:
-            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
         case 2:
-            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
         case 3:
-            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
         case 4:
-            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
         case 5:
-            oneStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
         default:
             oneStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
             twoStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)

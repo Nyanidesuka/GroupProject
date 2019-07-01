@@ -45,16 +45,16 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         guard let location = self.location else {return}
         //swipeImageCollectionView.dataSource = self
-        for url in location.imageURLs{
-            do{
-                guard let imageURL = URL(string: url) else {return}
-                let imageData = try Data(contentsOf: imageURL)
-                guard let newImage = UIImage(data: imageData) else {return}
-                self.images.append(newImage)
-            }catch{
-                    print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
-            }
-        }
+//        for url in location.imageURLs{
+//            do{
+//                guard let imageURL = URL(string: url) else {return}
+//                let imageData = try Data(contentsOf: imageURL)
+//                guard let newImage = UIImage(data: imageData) else {return}
+//                self.images.append(newImage)
+//            }catch{
+//                    print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
+//            }
+//        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.juiceReviewCollection.delegate = self
@@ -62,17 +62,17 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         //fetch all the reviews for the business
         print("trying to fetch reviews 🔶🔶🔶")
         FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
+            print("in completion of fetch reviews. We got \(documents.count) documents.🔶🔶🔶")
             for document in documents{
-                print("in completion of fetch reviews🔶🔶🔶")
                 guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
                 self.juiceReviews.append(loadedReview)
+                print("adding a review to juiceReviews. Count: \(self.juiceReviews.count)🔶🔶🔶")
             }
             print("gonna try to get images now🔶🔶🔶")
             ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
-                print("in completion of the image fetch🔶🔶🔶")
-                print("Tried to fetch images for juicereviews on this business. Success: \(success) 🔶🔶🔶🔶")
+                print("in completion of the image fetch. The page has \(self.juiceReviewImages.count) images and \(self.juiceReviews.count) reviews.🔶🔶🔶")
                 DispatchQueue.main.async {
-                    print("trying to reload data for the juicereview collection🔶🔶🔶")
+                    print("trying to reload data for the juicereview collection. We have \(self.juiceReviews.count) reviews and \(self.juiceReviewImages.count) Images.🔶🔶🔶")
                     print("🔶🔶juicereviewcollection delegate: \(self.juiceReviewCollection.delegate) 🔶🔶")
                     self.juiceReviewCollection.reloadData()
                 }
@@ -180,7 +180,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     func updateView() {
         print(location?.name)
-        print(location?.userRating)
+        print("Location user rating: \(location?.userRating)🔊")
         guard let location = location else { return }
         addPinToMap(location: location)
         updateCommunityRatingStars(rating: location.rating)
@@ -293,48 +293,17 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     
-//    func updatePersonalRatingButtons(){
-//        guard let location = location, let rating = location.userRating else {print("Failing the unwrap so something is nil.☄️☄️"); return}
-//        switch rating{
-//        case 1:
-//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//        case 2:
-//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                personalStarThreeButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//                personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//                personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//        case 3:
-//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarFourButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//        case 4:
-//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-//        case 5:
-//            personalStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//            personalStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//        default: return
-//        }
-//    }
-    
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addJuiceReview"{
             guard let destinVC = segue.destination as? ReviewViewController else {return}
             destinVC.business = self.location
+        }
+        if segue.identifier == "toExistingReview"{
+            guard let destinVC = segue.destination as? ReviewViewController, let index = self.juiceReviewCollection.indexPathsForSelectedItems?.first else {return}
+            print("passing info to the review controller. \(self.juiceReviews[index.row].drinkName) 🚹🚹🚹")
+            destinVC.business = self.location
+            destinVC.review = self.juiceReviews[index.row]
         }
     }
     
@@ -359,17 +328,18 @@ extension LocationDetailsViewController {
     }
 }
 
-extension LocationDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension LocationDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == swipeImageCollectionView{
             return location?.imageURLs.count ?? 0
         } else {
-            print("🔶🔶🔶setting the number of items in the juicereviews collection to: \(location?.juiceNowReviews.count)🔶🔶🔶")
-            return location?.juiceNowReviews.count ?? 0
+            print("🔶🔶🔶setting the number of items in the juicereviews collection to: \(self.juiceReviews.count)🔶🔶🔶")
+            return self.juiceReviews.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("In the cellForItemAt 🔶🔶🔶")
         if collectionView == swipeImageCollectionView{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as? SwipeImageViewCollectionViewCell,
             let location = location
@@ -389,15 +359,23 @@ extension LocationDetailsViewController: UICollectionViewDataSource, UICollectio
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? DetailPageReviewCollectionViewCell else {return UICollectionViewCell()}
             cell.juiceNameLabel.text = self.juiceReviews[indexPath.row].drinkName
             cell.reviewImageView.image = self.juiceReviewImages[indexPath.row]
+            cell.reviewImageView.addCornerRadius()
+            cell.updateStarButtons(withReview: self.juiceReviews[indexPath.row])
             return cell
         }
     }
+    
+ 
 }
 
 extension LocationDetailsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let imageCount = location?.imageURLs.count else { return CGSize.zero }
-        return CGSize(width: (collectionView.frame.width / CGFloat(imageCount)), height: collectionView.frame.height)
+        if collectionView == juiceReviewCollection{
+        return CGSize(width: self.juiceReviewCollection.frame.width / 2, height: self.juiceReviewCollection.frame.height)
+        } else {
+            guard let imageCount = location?.imageURLs.count else { return CGSize.zero }
+            return CGSize(width: (collectionView.frame.width / CGFloat(imageCount)), height: collectionView.frame.height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

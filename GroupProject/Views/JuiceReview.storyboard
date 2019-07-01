@@ -134,7 +134,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="8hs-WL-f11" secondAttribute="height" multiplier="1:1" id="1mi-wJ-YHW"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="UnlikedStar"/>
+                                                        <state key="normal" title="Button" image="orange slice rank 1"/>
                                                         <connections>
                                                             <action selector="oneStarTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="G9D-bL-MiD"/>
                                                         </connections>
@@ -144,7 +144,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="d10-hD-LkE" secondAttribute="height" multiplier="1:1" id="Set-BB-r9J"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="UnlikedStar"/>
+                                                        <state key="normal" title="Button" image="orange slice rank 1"/>
                                                         <connections>
                                                             <action selector="twoStarTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="iSs-dz-2f1"/>
                                                         </connections>
@@ -154,7 +154,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="akX-1B-FBv" secondAttribute="height" multiplier="1:1" id="foU-tr-h0Y"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="UnlikedStar"/>
+                                                        <state key="normal" title="Button" image="orange slice rank 1"/>
                                                         <connections>
                                                             <action selector="threeStarTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="d3Z-pj-Iw6"/>
                                                         </connections>
@@ -164,7 +164,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mZH-gM-sj0" secondAttribute="height" multiplier="1:1" id="PLZ-Vf-KqV"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="UnlikedStar"/>
+                                                        <state key="normal" title="Button" image="orange slice rank 1"/>
                                                         <connections>
                                                             <action selector="fourStarTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="z9i-r1-dvI"/>
                                                         </connections>
@@ -174,7 +174,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="HX9-va-QiI" secondAttribute="height" multiplier="1:1" id="DYQ-ky-hJb"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="UnlikedStar"/>
+                                                        <state key="normal" title="Button" image="orange slice rank 1"/>
                                                         <connections>
                                                             <action selector="fiveStarTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="JCc-3n-dnY"/>
                                                         </connections>
@@ -314,8 +314,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="UnlikedStar" width="64" height="64"/>
         <image name="addImage" width="200" height="200"/>
+        <image name="orange slice rank 1" width="225" height="225"/>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
