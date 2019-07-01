@@ -88,18 +88,24 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.beginnerProductsNameLabel.text = beginnerProducts[indexPath.row].name
             cell.beginnerProductsRatingLabel.text = "Rating: \(beginnerProducts[indexPath.row].rating)"
             cell.beginnerProductsImageView.image = beginnerProducts[indexPath.row].image
+            cell.beginnerProductsImageView.clipsToBounds = true
+            cell.beginnerProductsImageView.layer.cornerRadius = 30
             return cell
         case intermediateProductsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "intermediateProducts", for: indexPath) as? IntermediateProductsCollectionViewCell else {return UICollectionViewCell() }
             cell.intermediateProductsNameLabel.text = intermediateProducts[indexPath.row].name
             cell.intermediateProductsRatingLabel.text = "Rating: \(intermediateProducts[indexPath.row].rating)"
             cell.intermediateProductsImageView.image = intermediateProducts[indexPath.row].image
+            cell.intermediateProductsImageView.clipsToBounds = true
+            cell.intermediateProductsImageView.layer.cornerRadius = 30
             return cell
         case advancedProductsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "advancedProducts", for: indexPath) as? AdvancedProductsCollectionViewCell else {return UICollectionViewCell() }
             cell.advancedProductNameLabel.text = advancedProducts[indexPath.row].name
             cell.advancedProductRatingLabel.text = "Rating: \(advancedProducts[indexPath.row].rating)"
             cell.advancedProductsImageView.image = advancedProducts[indexPath.row].image
+            cell.advancedProductsImageView.clipsToBounds = true
+            cell.advancedProductsImageView.layer.cornerRadius = 30
             return cell
         default:
             return UICollectionViewCell()
