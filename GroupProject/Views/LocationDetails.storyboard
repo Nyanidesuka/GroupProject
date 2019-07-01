@@ -204,6 +204,7 @@
                                                             <outletCollection property="reviewScoreImages" destination="pkM-Zq-wnU" collectionClass="NSMutableArray" id="Fjj-mi-ryZ"/>
                                                             <outletCollection property="reviewScoreImages" destination="myn-qX-EB4" collectionClass="NSMutableArray" id="vBA-SU-jQ1"/>
                                                             <outletCollection property="reviewScoreImages" destination="gsT-9j-oNa" collectionClass="NSMutableArray" id="AeV-AD-gyc"/>
+                                                            <segue destination="rUy-oH-7ez" kind="show" identifier="toExistingReview" id="vSh-cj-IaZ"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -450,7 +451,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="UIViewController-KFV-xM-NZX" storyboardName="JuiceReview" referencedIdentifier="UIViewController-KFV-xM-NZX" id="rUy-oH-7ez" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBH-21-N0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779.7101449275365" y="-1668.0803571428571"/>
+            <point key="canvasLocation" x="2543" y="-956"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FbP-Ti-uWW">
@@ -483,4 +484,7 @@
         <image name="default" width="450" height="260"/>
         <image name="orange slice rank 1" width="225" height="225"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vSh-cj-IaZ"/>
+    </inferredMetricsTieBreakers>
 </document>
