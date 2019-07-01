@@ -24,6 +24,9 @@
 		16FFDFD422C530DC00640A33 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFD322C530DC00640A33 /* CustomSearchBar.swift */; };
 		16FFDFD622C5320B00640A33 /* CustomLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFD522C5320B00640A33 /* CustomLocationButton.swift */; };
 		16FFDFD822C66BD400640A33 /* SwipeImageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFD722C66BD400640A33 /* SwipeImageViewCollectionViewCell.swift */; };
+		16FFDFDD22CA6C0700640A33 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */; };
+		16FFDFDF22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */; };
+		16FFDFE122CA713B00640A33 /* ProximaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFE022CA713B00640A33 /* ProximaLabel.swift */; };
 		17056A8022BD428500EF5742 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17056A7F22BD428500EF5742 /* CoreLocationManager.swift */; };
 		1718269822BAA6240019B317 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269722BAA6240019B317 /* User.swift */; };
 		1718269C22BAA82A0019B317 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269B22BAA82A0019B317 /* UserController.swift */; };
@@ -103,6 +106,9 @@
 		16FFDFD322C530DC00640A33 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		16FFDFD522C5320B00640A33 /* CustomLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationButton.swift; sourceTree = "<group>"; };
 		16FFDFD722C66BD400640A33 /* SwipeImageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeImageViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
+		16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		16FFDFE022CA713B00640A33 /* ProximaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaLabel.swift; sourceTree = "<group>"; };
 		17056A7F22BD428500EF5742 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		1718269722BAA6240019B317 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1718269B22BAA82A0019B317 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		16FDEAED22BD2EFE005B66E0 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
+				16FFDFDB22CA6BDB00640A33 /* FontGuide */,
 				16FDEAEE22BD2F11005B66E0 /* Style Guide.swift */,
 				16FDEAF022BD30AE005B66E0 /* CustomBarButtonItems.swift */,
 				16FDEAF222BD3729005B66E0 /* CustomLabel.swift */,
@@ -206,6 +213,16 @@
 				CA4CCFA122C576F1003E944E /* PaddingLabel.swift */,
 			);
 			path = "Custom UI";
+			sourceTree = "<group>";
+		};
+		16FFDFDB22CA6BDB00640A33 /* FontGuide */ = {
+			isa = PBXGroup;
+			children = (
+				16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */,
+				16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */,
+				16FFDFE022CA713B00640A33 /* ProximaLabel.swift */,
+			);
+			path = FontGuide;
 			sourceTree = "<group>";
 		};
 		1732EC4C22B455C900E09DD3 = {
@@ -443,9 +460,11 @@
 				CA03A7E022C529F500B2EC9C /* JuiceReview.storyboard in Resources */,
 				CA03A7DA22C5297B00B2EC9C /* SearchTab.storyboard in Resources */,
 				CA03A7DE22C529B400B2EC9C /* ProductTab.storyboard in Resources */,
+				16FFDFDF22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf in Resources */,
 				CA03A7E222C52A0F00B2EC9C /* LocationDetails.storyboard in Resources */,
 				1732EC6322B455CA00E09DD3 /* Assets.xcassets in Resources */,
 				1732EC5E22B455C900E09DD3 /* Main.storyboard in Resources */,
+				16FFDFDD22CA6C0700640A33 /* ProximaNova-Bold.ttf in Resources */,
 				17EB5F6222B99AF900927617 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +527,7 @@
 				CA488C2722BC2242000C6224 /* FeaturedRecipeCollectionViewCell.swift in Sources */,
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
 				1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */,
+				16FFDFE122CA713B00640A33 /* ProximaLabel.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
 				16FDEAF722BD3E52005B66E0 /* CustomReviewLabel.swift in Sources */,
 				178E476D22B844020097F4DD /* BusinessController.swift in Sources */,
