@@ -79,6 +79,9 @@ class ProductsViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.suggestedProductNameLabel.text = suggestedProducts[indexPath.row].name
             cell.suggestedProductRatingLabel.text = "Rating: \(suggestedProducts[indexPath.row].rating)"
             cell.suggestedProductsImageView.image = suggestedProducts[indexPath.row].image
+            cell.suggestedProductsImageView.clipsToBounds = true
+            cell.suggestedProductsImageView.layer.cornerRadius = 30
+            cell.suggestedProductDescriptionLabel.text = suggestedProducts[indexPath.row].description
             return cell
         case beginnerProductsCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "beginnerProducts", for: indexPath) as? BeginnerProductsCollectionViewCell else {return UICollectionViewCell() }
