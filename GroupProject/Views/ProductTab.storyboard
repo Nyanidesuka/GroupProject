@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1878"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-cb-DAd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1582"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYl-dx-fX1" userLabel="Thin Line 1">
                                                 <rect key="frame" x="32" y="49.5" width="350" height="1"/>
@@ -411,7 +411,7 @@
                                             <constraint firstItem="XUF-Cj-Rg7" firstAttribute="top" secondItem="uyE-XS-Qbu" secondAttribute="bottom" constant="32" id="5SG-Sb-IMG"/>
                                             <constraint firstItem="sY8-18-h2w" firstAttribute="leading" secondItem="Nna-cb-DAd" secondAttribute="leading" id="5me-Zp-eNf"/>
                                             <constraint firstItem="uyE-XS-Qbu" firstAttribute="centerX" secondItem="Nna-cb-DAd" secondAttribute="centerX" id="6Ma-wq-Oej"/>
-                                            <constraint firstAttribute="bottom" secondItem="8T8-ou-dy1" secondAttribute="bottom" constant="32" id="BTX-Qd-G6y"/>
+                                            <constraint firstAttribute="bottom" secondItem="8T8-ou-dy1" secondAttribute="bottom" id="BTX-Qd-G6y"/>
                                             <constraint firstAttribute="trailing" secondItem="sY8-18-h2w" secondAttribute="trailing" id="Brh-x1-wm4"/>
                                             <constraint firstItem="0ZN-fC-zin" firstAttribute="centerX" secondItem="Nna-cb-DAd" secondAttribute="centerX" id="CPz-jO-nIb"/>
                                             <constraint firstItem="vYl-dx-fX1" firstAttribute="centerY" secondItem="0ZN-fC-zin" secondAttribute="centerY" id="CV4-0i-iUt"/>

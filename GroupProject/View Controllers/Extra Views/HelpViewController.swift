@@ -13,6 +13,8 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
     
     //MARK: - Outlets
     @IBOutlet weak var selectError: UIButton!
+    @IBOutlet weak var feedbackTextView: UITextView!
+    @IBOutlet weak var aboutJuiceNowTextView: UITextView!
     
     //MARK: - Properties
     private var issue = ""
@@ -33,6 +35,11 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
         }
 //        dismiss(animated: true, completion: nil)
     }
+    @IBAction func selectErrorTapped(_ sender: UIButton) {
+        presentSimpleInputAlert(title: "How can we help?", message: "Select a feedback type, below")
+    }
+    
+    
     
 }// END OF HELP CLASS
 
@@ -70,14 +77,10 @@ extension HelpViewController {
                 self.selectError.setTitle("You want to share feedback", for: .normal)
             }
         }
-        //Add actions/present
-        
         alertController.addAction(bugAction)
         alertController.addAction(requestAction)
+        alertController.addAction(feedbackAction)
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true)
     }
-    
-    
-    
-}
+} // End of extensions
