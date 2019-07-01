@@ -43,37 +43,33 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let location = self.location else {return}
-        //swipeImageCollectionView.dataSource = self
-//        for url in location.imageURLs{
-//            do{
-//                guard let imageURL = URL(string: url) else {return}
-//                let imageData = try Data(contentsOf: imageURL)
-//                guard let newImage = UIImage(data: imageData) else {return}
-//                self.images.append(newImage)
-//            }catch{
-//                    print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
-//            }
-//        }
+        guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
+        print("we are past the guard and now we're gonna try to get images. Location has \(location.imageURLs.count) URLs ✅✅✅")
+        swipeImageCollectionView.dataSource = self
+        for url in location.imageURLs{
+            do{
+                guard let imageURL = URL(string: url) else {return}
+                let imageData = try Data(contentsOf: imageURL)
+                guard let newImage = UIImage(data: imageData) else {return}
+                self.images.append(newImage)
+                print("We have gotten \(self.images.count) images for this business. ✅✅")
+            }catch{
+                print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
+            }
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.juiceReviewCollection.delegate = self
         self.juiceReviewCollection.dataSource = self
         //fetch all the reviews for the business
-        print("trying to fetch reviews 🔶🔶🔶")
         FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
-            print("in completion of fetch reviews. We got \(documents.count) documents.🔶🔶🔶")
             for document in documents{
                 guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
                 self.juiceReviews.append(loadedReview)
-                print("adding a review to juiceReviews. Count: \(self.juiceReviews.count)🔶🔶🔶")
             }
-            print("gonna try to get images now🔶🔶🔶")
             ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
-                print("in completion of the image fetch. The page has \(self.juiceReviewImages.count) images and \(self.juiceReviews.count) reviews.🔶🔶🔶")
                 DispatchQueue.main.async {
                     print("trying to reload data for the juicereview collection. We have \(self.juiceReviews.count) reviews and \(self.juiceReviewImages.count) Images.🔶🔶🔶")
-                    print("🔶🔶juicereviewcollection delegate: \(self.juiceReviewCollection.delegate) 🔶🔶")
                     self.juiceReviewCollection.reloadData()
                 }
             })

@@ -50,7 +50,11 @@ class ProfileViewController: UIViewController {
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
         print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviewReferences.count) 🥦🥦🥦🥦")
-        
+        guard let photoReference = UserController.shared.currentUser?.photoReference else {return}
+        FirebaseService.shared.fetchDocument(documentName: photoReference, collectionName: "Profile Pictures") { (pictureDict) in
+            guard let pictureDict = pictureDict, let imageData = pictureDict["imageData"] as? Data, let image = UIImage(data: imageData) else {return}
+            self.profilePhotoImageView.image = image
+        }
         visitedCollectionView.addCornerRadius()
     }
     
@@ -96,11 +100,34 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func saveProfileButtonTapped(_ sender: Any) {
-        guard let newUsername = self.editableUsernameLabel.text else {return}
+        guard let user = UserController.shared.currentUser, let newUsername = self.editableUsernameLabel.text else {return}
+        user.username = newUsername
+        user.bio = bioLabel.text
+        saveProfilePicture()
+        let userDict = UserController.shared.createDictionary(fromUser: user)
+        UserController.shared.saveUserDocument(data: userDict) { (success) in
+            print("saved the user to the store with the new image")
+        }
     }
     
     @IBAction func changePictureButtonTapped(_ sender: Any) {
         self.imagePicker.present(from: self.view)
+    }
+    
+    func saveProfilePicture(){
+        guard let user = UserController.shared.currentUser else {print("couldnt unwrap the user🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        guard let image = self.profilePhotoImageView.image, let imageData = image.pngData() else {print("couldn't unwrap the image. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        user.photoData = imageData
+        //create a document from the photo, send it to firebase, save a ref to it within the user.
+        let profilePhoto = ProfilePhoto(imageData: imageData)
+        user.photoReference = profilePhoto.uuid
+        let pfpDict: [String : Any] = ["uuid" : profilePhoto.uuid, "imageData" : profilePhoto.imageData]
+        FirebaseService.shared.addDocument(documentName: profilePhoto.uuid, collectionName: "Profile Pictures", data: pfpDict) { (_) in
+            //delete the old pfp if its in here.
+            FirebaseService.shared.deleteDocument(documentName: profilePhoto.uuid, collectionName: "Profile Pictures", completion: { (success) in
+                print("finished deleting the profile old pfp: \(success)")
+            })
+        }
     }
     
     
@@ -127,13 +154,6 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        guard let user = UserController.shared.currentUser else {print("couldnt unwrap the user🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
-        guard let image = image, let imageData = image.pngData() else {print("couldn't unwrap the image. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
-        user.photoData = imageData
-        let userDict = UserController.shared.createDictionary(fromUser: user)
-        UserController.shared.saveUserDocument(data: userDict) { (success) in
-            print("saved the user to the store with the new image")
-        }
         DispatchQueue.main.async {
             self.profilePhotoImageView.image = image
         }

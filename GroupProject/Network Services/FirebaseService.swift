@@ -60,9 +60,9 @@ class FirebaseService{
     
     func fetchReviewsForBusiness(business: Business, completion: @escaping ([[String : Any]]) -> Void){
         let reviewsRef = FirestoreReferenceManager.root.collection("JuiceNow Reviews")
-        reviewsRef.whereField("businessID", isEqualTo: business.businessID)
+        let query = reviewsRef.whereField("businessID", isEqualTo: "\(business.businessID)")
         print("trying to getDocuments 🔶🔶🔶")
-        reviewsRef.getDocuments { (documents, error) in
+        query.getDocuments { (documents, error) in
             print("in getDocuments completion🔶🔶🔶")
             if let error = error{
                 print("Couldn't get any documents with this fetch. \(error)")
