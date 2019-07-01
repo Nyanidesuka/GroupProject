@@ -269,6 +269,7 @@
                                                             <outletCollection property="reviewScoreImages" destination="c7w-G6-8ha" collectionClass="NSMutableArray" id="krY-Ya-ZUF"/>
                                                             <outletCollection property="reviewScoreImages" destination="51E-zc-ZNf" collectionClass="NSMutableArray" id="NSs-6E-J6r"/>
                                                             <outletCollection property="reviewScoreImages" destination="eBr-1g-H0T" collectionClass="NSMutableArray" id="TTZ-40-ZnC"/>
+                                                            <segue destination="vJ3-Y3-W0T" kind="show" identifier="toJuiceReview" id="Ffd-R3-IIc"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -336,7 +337,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aMW-t8-62r"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="V5l-xF-Eoq"/>
+                    <navigationItem key="navigationItem" title="Profile" id="V5l-xF-Eoq">
+                        <barButtonItem key="rightBarButtonItem" image="help" id="yDq-54-b8d">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="iRR-4j-sjf" kind="show" id="KH4-a0-3Vk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bioLabel" destination="4bs-AC-aut" id="K6F-xx-vG4"/>
                         <outlet property="editProfileButton" destination="gR0-yU-1zf" id="2A6-dS-CAs"/>
@@ -385,6 +393,14 @@
             </objects>
             <point key="canvasLocation" x="-180" y="-1097"/>
         </scene>
+        <!--helpNavController-->
+        <scene sceneID="7Vr-5G-ijZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Help" referencedIdentifier="helpNavController" id="iRR-4j-sjf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enX-Vk-RUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="-1280"/>
+        </scene>
         <!--UIViewController-KFV-xM-NZX-->
         <scene sceneID="X2g-5w-E8v">
             <objects>
@@ -397,6 +413,7 @@
     <resources>
         <image name="DefaultProfileImage" width="600" height="600"/>
         <image name="default" width="450" height="260"/>
+        <image name="help" width="30" height="30"/>
         <image name="orange slice rank 1" width="225" height="225"/>
         <image name="profile" width="30" height="30"/>
         <namedColor name="DarkBlueAccent">

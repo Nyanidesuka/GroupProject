@@ -69,12 +69,13 @@ class ProfileViewController: UIViewController {
                 let destinationVC = segue.destination as? LocationDetailsViewController else { return }
             let location = user?.likedBusinesses[indexPath.row]
             destinationVC.location = location
-        case "toJuiceReviewDetail":
-            return
-//            guard let indexPath = self.reviewTableView.indexPathForSelectedRow,
-//                let destinationVC = segue.destination as? ReviewViewController else { return }
-//            let review = user?.juiceReviews[indexPath.row]
-//            destinationVC.review = review
+        case "toJuiceReview":
+            guard let destinVC = segue.destination as? ReviewViewController, let index = self.reviewCollectionView.indexPathsForSelectedItems?.first, let user = UserController.shared.currentUser else {return}
+            print(user.likedBusinesses.count)
+            let business = user.likedBusinesses[index.section]
+            let review = user.juiceReviews[index.row]
+            destinVC.review = review
+            destinVC.business = business
         default:
             print("Error in segue from profile tab")
         }

@@ -299,6 +299,12 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
             guard let destinVC = segue.destination as? ReviewViewController else {return}
             destinVC.business = self.location
         }
+        if segue.identifier == "toExistingReview"{
+            guard let destinVC = segue.destination as? ReviewViewController, let index = self.juiceReviewCollection.indexPathsForSelectedItems?.first else {return}
+            print("passing info to the review controller. \(self.juiceReviews[index.row].drinkName) 🚹🚹🚹")
+            destinVC.business = self.location
+            destinVC.review = self.juiceReviews[index.row]
+        }
     }
     
 }//END OF LOCATION DETAIL VIEW CONTROLLER

@@ -165,7 +165,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sZ9-UD-92Y">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WBE-Pi-UPc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="helpNavController" automaticallyAdjustsScrollViewInsets="NO" id="WBE-Pi-UPc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nbZ-cx-tDU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
