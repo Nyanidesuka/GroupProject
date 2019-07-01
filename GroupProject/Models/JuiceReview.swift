@@ -24,8 +24,9 @@ class JuiceReview: Codable{
     var dimension5: Int
     //what we need to do is create a whole separate collection for images stored in the app and have references to those images stored in the model.
     var imageDocReference: String
+    let uuid: String
     
-    init(businessID: String, businessName: String, drinkName: String, drinkPrice: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int, imageDocReference: String){
+    init(businessID: String, businessName: String, drinkName: String, drinkPrice: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int, imageDocReference: String, UUID: String = UUID().uuidString){
         self.businessID = businessID
         self.businessName = businessName
         self.drinkName = drinkName
@@ -38,6 +39,7 @@ class JuiceReview: Codable{
         self.dimension4 = dimension4
         self.dimension5 = dimension5
         self.imageDocReference = imageDocReference
+        self.uuid = UUID
     }
     
     convenience init?(firestoreData data: [String : Any]) {
@@ -52,8 +54,9 @@ class JuiceReview: Codable{
             let dimension3 = data["dimension3"] as? Int,
             let dimension4 = data["dimension4"] as? Int,
             let dimension5 = data["dimension5"] as? Int,
-            let imageDocReference = data["imageDocReference"] as? String else {print("couldnt get the info from the dictionary: \(data)"); return nil}
-        self.init(businessID: businessID, businessName: businessName, drinkName: drinkName, drinkPrice: drinkPrice, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5, imageDocReference: imageDocReference)
+            let imageDocReference = data["imageDocReference"] as? String,
+            let uuid = data["uuid"] as? String else {print("\(#function) in juicereview couldnt get the info from the dictionary: \(data)"); return nil}
+        self.init(businessID: businessID, businessName: businessName, drinkName: drinkName, drinkPrice: drinkPrice, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5, imageDocReference: imageDocReference, UUID: uuid)
     }
 }//END OF JUICE REVIEW CLASS
 

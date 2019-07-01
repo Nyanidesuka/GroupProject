@@ -45,8 +45,6 @@ class FirebaseService{
                 return
             }
             print("got documents☑️☑️☑️☑️☑️☑️☑️☑️☑️")
-            
-            
             completion()
             return
         }
@@ -58,5 +56,25 @@ class FirebaseService{
     
     func deleteDocument(documentName document: String, collectionName collection: String, completion: @escaping (Bool) -> Void){
         
+    }
+    
+    func fetchReviewsForBusiness(business: Business, completion: @escaping ([[String : Any]]) -> Void){
+        let reviewsRef = FirestoreReferenceManager.root.collection("JuiceNow Reviews")
+        reviewsRef.whereField("businessID", isEqualTo: business.businessID)
+        print("trying to getDocuments 🔶🔶🔶")
+        reviewsRef.getDocuments { (documents, error) in
+            print("in getDocuments completion🔶🔶🔶")
+            if let error = error{
+                print("Couldn't get any documents with this fetch. \(error)")
+                completion([])
+                return
+            }
+            guard let documents = documents else {print("couldnt unwrap the documents"); return}
+            var completionArray: [[String : Any]] = []
+            for document in documents.documents{
+                completionArray.append(document.data())
+            }
+            completion(completionArray)
+        }
     }
 }

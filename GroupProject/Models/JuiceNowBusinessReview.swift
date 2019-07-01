@@ -24,7 +24,7 @@ class JuiceNowBusinessReview: Codable{
     convenience init?(firestoreData data: [String: Any]){
         guard let username = data["username"] as? String,
             let text = data["text"] as? String,
-            let rating = data["rating"] as? Int else {print("couldnt get the info from the dictionary: \(data)"); return nil}
+            let rating = data["rating"] as? Int else {print("\(#function) in juicenowbusinessreview couldnt get the info from the dictionary: \(data)"); return nil}
         self.init(username: username, text: text, rating: rating)
     }
 }//END OF CLASS

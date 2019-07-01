@@ -29,6 +29,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var swipeImageCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var juiceReviewCollection: UICollectionView!
+    
     
     //MARK: - Landing Pad / Properties
     var location: Business?
@@ -36,11 +38,13 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
 //    var baseImage: UIImage?
     var pin: MKPointAnnotation?
     var images: [UIImage?] = []
+    var juiceReviews: [JuiceReview] = []
+    var juiceReviewImages: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeImageCollectionView.dataSource = self
         guard let location = self.location else {return}
+        //swipeImageCollectionView.dataSource = self
         for url in location.imageURLs{
             do{
                 guard let imageURL = URL(string: url) else {return}
@@ -53,6 +57,27 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         }
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.juiceReviewCollection.delegate = self
+        self.juiceReviewCollection.dataSource = self
+        //fetch all the reviews for the business
+        print("trying to fetch reviews 🔶🔶🔶")
+        FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
+            for document in documents{
+                print("in completion of fetch reviews🔶🔶🔶")
+                guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
+                self.juiceReviews.append(loadedReview)
+            }
+            print("gonna try to get images now🔶🔶🔶")
+            ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
+                print("in completion of the image fetch🔶🔶🔶")
+                print("Tried to fetch images for juicereviews on this business. Success: \(success) 🔶🔶🔶🔶")
+                DispatchQueue.main.async {
+                    print("trying to reload data for the juicereview collection🔶🔶🔶")
+                    print("🔶🔶juicereviewcollection delegate: \(self.juiceReviewCollection.delegate) 🔶🔶")
+                    self.juiceReviewCollection.reloadData()
+                }
+            })
+        }
         updateView()
     }
     
@@ -167,7 +192,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                 self.tableView.reloadData()
             }
         }
-        updateSecondaryLabelFor(business: location)
+//        updateSecondaryLabelFor(business: location)
         //sets images on the user score buttons
 //        self.updatePersonalRatingButtons()
     }
@@ -181,22 +206,15 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
-    func updateSecondaryLabelFor(business: Business) {
-        let address = business.location.addressOne
-        let city = business.location.city
-        let state = business.location.state
-        let zip = business.location.zipCode
-//        if let address2 = business.location.addressTwo {
-//            address = "\(address)\n\(address2)"
+//    func updateSecondaryLabelFor(business: Business) {
+//        let address = business.location.addressOne
+//        let city = business.location.city
+//        let state = business.location.state
+//        let zip = business.location.zipCode
+//        DispatchQueue.main.async {
+////            self.descriptionLabel.text = label
 //        }
-//        if let address3 = business.location.addressThree {
-//            address = "\(address)\n\(address3)"
-//        }
-        let label = "\(address)\n\(city), \(state) \(zip)"
-        DispatchQueue.main.async {
-            self.descriptionLabel.text = label
-        }
-    }
+//    }
     
     func updateCommunityRatingStars(rating: Double) {
         if rating == 0 {
@@ -341,25 +359,38 @@ extension LocationDetailsViewController {
     }
 }
 
-extension LocationDetailsViewController: UICollectionViewDataSource {
+extension LocationDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return location?.imageURLs.count ?? 0
+        if collectionView == swipeImageCollectionView{
+            return location?.imageURLs.count ?? 0
+        } else {
+            print("🔶🔶🔶setting the number of items in the juicereviews collection to: \(location?.juiceNowReviews.count)🔶🔶🔶")
+            return location?.juiceNowReviews.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as? SwipeImageViewCollectionViewCell,
-        let location = location
-        else {return UICollectionViewCell() }
-        let imageURL = location.imageURLs[indexPath.row]
-        guard let url = URL(string: imageURL) else { return UICollectionViewCell()}
-        YelpService.shared.fetch(url: url) { (data) in
-            guard let data = data else { return }
-            let image = UIImage(data: data)
-            DispatchQueue.main.async {
-                cell.swipeImageView.image = image
+        if collectionView == swipeImageCollectionView{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as? SwipeImageViewCollectionViewCell,
+            let location = location
+            else {return UICollectionViewCell() }
+            let imageURL = location.imageURLs[indexPath.row]
+            guard let url = URL(string: imageURL) else { return UICollectionViewCell()}
+            YelpService.shared.fetch(url: url) { (data) in
+                guard let data = data else { return }
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    cell.swipeImageView.image = image
+                }
             }
+            return cell
+        } else {
+            print("🔶🔶🔶loading data for the review collection🔶🔶🔶")
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? DetailPageReviewCollectionViewCell else {return UICollectionViewCell()}
+            cell.juiceNameLabel.text = self.juiceReviews[indexPath.row].drinkName
+            cell.reviewImageView.image = self.juiceReviewImages[indexPath.row]
+            return cell
         }
-        return cell
     }
 }
 

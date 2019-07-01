@@ -199,7 +199,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="13m-uN-8uu">
-                                                                    <rect key="frame" x="0.0" y="202" width="118" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="202" width="94" height="22"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="grz-Bd-Wo5">
                                                                             <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -209,28 +209,28 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="Z5J-eJ-9xH">
-                                                                            <rect key="frame" x="24" y="0.0" width="22" height="22"/>
+                                                                            <rect key="frame" x="24" y="3" width="16" height="16"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="2"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="Z5J-eJ-9xH" secondAttribute="height" multiplier="1:1" id="TTe-MW-r6f"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="c7w-G6-8ha">
-                                                                            <rect key="frame" x="48" y="0.0" width="22" height="22"/>
+                                                                            <rect key="frame" x="42" y="3" width="16" height="16"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="3"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="c7w-G6-8ha" secondAttribute="height" multiplier="1:1" id="z8u-qM-49d"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="51E-zc-ZNf">
-                                                                            <rect key="frame" x="72" y="0.0" width="22" height="22"/>
+                                                                            <rect key="frame" x="60" y="3" width="16" height="16"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="4"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="51E-zc-ZNf" secondAttribute="height" multiplier="1:1" id="x34-jL-MCi"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlikedStar" translatesAutoresizingMaskIntoConstraints="NO" id="eBr-1g-H0T">
-                                                                            <rect key="frame" x="96" y="0.0" width="22" height="22"/>
+                                                                            <rect key="frame" x="78" y="3" width="16" height="16"/>
                                                                             <accessibility key="accessibilityConfiguration" identifier="5"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="eBr-1g-H0T" secondAttribute="height" multiplier="1:1" id="WGD-Pz-CIs"/>

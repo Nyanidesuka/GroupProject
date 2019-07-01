@@ -14,29 +14,29 @@ class User: Codable{
     var username: String
     var uuid: String
     var businessReviews: [JuiceNowBusinessReview]
-    var juiceReviews: [JuiceReview]
+    var juiceReviewReferences: [String]
+    var juiceReviews: [JuiceReview] = []
     var bio: String
     var likedBusinesses: [Business] = []
     var photoData: Data?
     
-    init(username: String, uuid: String = UUID().uuidString, businessReviews: [JuiceNowBusinessReview] = [], juiceReviews: [JuiceReview] = [], bio: String = "All about that juice life.", likedBusinesses: [Business] = [], photoData: Data? = nil){
+    init(username: String, uuid: String = UUID().uuidString, businessReviews: [JuiceNowBusinessReview] = [], juiceReviews: [String] = [], bio: String = "All about that juice life.", likedBusinesses: [Business] = [], photoData: Data? = nil){
         self.username = username
         self.uuid = uuid
         self.businessReviews = businessReviews
-        self.juiceReviews = juiceReviews
+        self.juiceReviewReferences = juiceReviews
         self.bio = bio
         self.likedBusinesses = likedBusinesses
         self.photoData = photoData
     }
     
     convenience init?(firestoreDocument: [String : Any]){
-        guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String, let bio = firestoreDocument["bio"] as? String, let likedBusinessData = firestoreDocument["likedBusinesses"] as? [Data], let juiceReviews = firestoreDocument["juiceReviews"] as? [[String : Any]] else {print("failing initializer. Somehting is nil. 💅💅💅💅💅💅"); return nil}
+        guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String, let bio = firestoreDocument["bio"] as? String, let likedBusinessData = firestoreDocument["likedBusinesses"] as? [Data], let juiceReviews = firestoreDocument["juiceReviews"] as? [String] else {print("failing initializer. Somehting is nil. 💅💅💅💅💅💅"); return nil}
         let photoData = firestoreDocument["photoData"] as? Data
         let decodedBusinesses = BusinessController.shared.decodeBusinessData(data: likedBusinessData)
         for business in decodedBusinesses{
             business.isFavorite = true
         }
-        let decodedJuiceReviews: [JuiceReview] = juiceReviews.compactMap({return JuiceReview(firestoreData: $0)})
-        self.init(username: username, uuid: uuid, juiceReviews: decodedJuiceReviews, bio: bio, likedBusinesses: decodedBusinesses, photoData: photoData)
+        self.init(username: username, uuid: uuid, juiceReviews: juiceReviews, bio: bio, likedBusinesses: decodedBusinesses, photoData: photoData)
     }
 }

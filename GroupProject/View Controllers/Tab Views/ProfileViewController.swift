@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
             print("there's no image data")
             self.profilePhotoImageView.image = UIImage(named: "default")
         }
-        print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviews.count) 🥦🥦🥦🥦")
+        print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviewReferences.count) 🥦🥦🥦🥦")
         
         visitedCollectionView.addCornerRadius()
     }
@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let user = UserController.shared.currentUser else {print("there's no user. 👁‍🗨👁‍🗨👁‍🗨"); return}
-        ReviewImageContainer.shared.fetchAllReviewImages(forUser: user) { (success) in
+        ReviewImageContainer.shared.fetchReviewImages(forReviews: user.juiceReviews) { (success) in
             self.visitedCollectionView.reloadData()
         }
     }
