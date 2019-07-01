@@ -78,7 +78,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             self.locations = BusinessController.shared.businesses
             //self.sortFurthestBusiness()
         }
-//        tableViewHeight.constant = 100 * 7
+        tableViewHeight.constant = 100 * 70
         self.view.layoutIfNeeded()
     }
     
@@ -104,6 +104,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: Map View Delegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //marker code
 //        let identifier = "Pin"
 //        var annotationView = MKMarkerAnnotationView()
 //        annotationView.annotation = annotation
@@ -115,7 +116,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
 //    annotationView.markerTintColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
 //    annotationView.glyphImage = UIImage(named: "pinImage")
 //    annotationView.clusteringIdentifier = identifier
-//
+        
+//          pin code
 //        if annotationView == nil {
 //            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
 //            annotationView!.canShowCallout = true
