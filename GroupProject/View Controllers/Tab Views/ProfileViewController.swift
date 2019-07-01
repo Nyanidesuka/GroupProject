@@ -17,6 +17,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var visitedCollectionView: UICollectionView!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
+    @IBOutlet weak var changePictureButton: UIButton!
+    @IBOutlet weak var editableUsernameLabel: UITextField!
+    @IBOutlet weak var saveProfileButton: CustomBarButtonItems!
+    
     
     
     //MARK: - Properties
@@ -24,7 +28,7 @@ class ProfileViewController: UIViewController {
     var user: User? = {
         return UserController.shared.currentUser
     }()
-    
+    var editMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +37,12 @@ class ProfileViewController: UIViewController {
         bioLabel.text = UserController.shared.currentUser?.bio
         //Should probably put 👇🏽 in a helper function
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
+        changePictureButton.layer.cornerRadius = changePictureButton.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
         //profilePhotoImageView.layer.borderWidth = 3
         //profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
         //set the profile picture
+        saveProfileButton.addCornerRadius()
         if let photoData = UserController.shared.currentUser?.photoData{
             self.profilePhotoImageView.image = UIImage(data: photoData)
         } else {
@@ -58,8 +64,45 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
-        presentSimpleInputAlert(title: "Update Your Profile", message: "Choose 'Bio' or 'Photo' below 👇🏽")
+        if !editMode{
+            editMode = true
+            self.editableUsernameLabel.alpha = 1
+            self.editableUsernameLabel.isUserInteractionEnabled = true
+            self.editableUsernameLabel.text = self.userNameLabel.text
+            self.editableUsernameLabel.font = self.userNameLabel.font
+            self.bioLabel.isEditable = true
+            self.bioLabel.isUserInteractionEnabled = true
+            self.changePictureButton.alpha = 1
+            self.changePictureButton.isUserInteractionEnabled = true
+            self.changePictureButton.isEnabled = true
+            self.editProfileButton.setTitle("Cancel", for: .normal)
+            self.saveProfileButton.alpha = 1
+            self.saveProfileButton.isEnabled = true
+            self.saveProfileButton.isUserInteractionEnabled = true
+        } else {
+            editMode = false
+            self.editableUsernameLabel.alpha = 0
+            self.editableUsernameLabel.isUserInteractionEnabled = false
+            self.bioLabel.isEditable = false
+            self.bioLabel.isUserInteractionEnabled = false
+            self.changePictureButton.alpha = 0
+            self.changePictureButton.isUserInteractionEnabled = false
+            self.changePictureButton.isEnabled = false
+            self.editProfileButton.setTitle("Edit Profile", for: .normal)
+            self.saveProfileButton.alpha = 0
+            self.saveProfileButton.isEnabled = false
+            self.saveProfileButton.isUserInteractionEnabled = false
+        }
     }
+    
+    @IBAction func saveProfileButtonTapped(_ sender: Any) {
+        guard let newUsername = self.editableUsernameLabel.text else {return}
+    }
+    
+    @IBAction func changePictureButtonTapped(_ sender: Any) {
+        self.imagePicker.present(from: self.view)
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class ProfilePhoto{
+    var uuid: String
+    var imageData: Data
+    
+    init(uuid: String = UUID().uuidString, imageData: Data){
+        self.uuid = uuid
+        self.imageData = imageData
+    }
+}

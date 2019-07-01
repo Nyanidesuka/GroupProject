@@ -19,24 +19,25 @@ class User: Codable{
     var bio: String
     var likedBusinesses: [Business] = []
     var photoData: Data?
+    var photoReference: String?
     
-    init(username: String, uuid: String = UUID().uuidString, businessReviews: [JuiceNowBusinessReview] = [], juiceReviews: [String] = [], bio: String = "All about that juice life.", likedBusinesses: [Business] = [], photoData: Data? = nil){
+    init(username: String, uuid: String = UUID().uuidString, businessReviews: [JuiceNowBusinessReview] = [], juiceReviews: [String] = [], bio: String = "All about that juice life.", likedBusinesses: [Business] = [], photoReference: String? = nil){
         self.username = username
         self.uuid = uuid
         self.businessReviews = businessReviews
         self.juiceReviewReferences = juiceReviews
         self.bio = bio
         self.likedBusinesses = likedBusinesses
-        self.photoData = photoData
+        self.photoReference = photoReference
     }
     
     convenience init?(firestoreDocument: [String : Any]){
         guard let username = firestoreDocument["username"] as? String, let uuid = firestoreDocument["uuid"] as? String, let bio = firestoreDocument["bio"] as? String, let likedBusinessData = firestoreDocument["likedBusinesses"] as? [Data], let juiceReviews = firestoreDocument["juiceReviews"] as? [String] else {print("failing initializer. Somehting is nil. 💅💅💅💅💅💅"); return nil}
-        let photoData = firestoreDocument["photoData"] as? Data
+        let photoReference = firestoreDocument["photoReference"] as? String
         let decodedBusinesses = BusinessController.shared.decodeBusinessData(data: likedBusinessData)
         for business in decodedBusinesses{
             business.isFavorite = true
         }
-        self.init(username: username, uuid: uuid, juiceReviews: juiceReviews, bio: bio, likedBusinesses: decodedBusinesses, photoData: photoData)
+        self.init(username: username, uuid: uuid, juiceReviews: juiceReviews, bio: bio, likedBusinesses: decodedBusinesses, photoReference: photoReference)
     }
 }
