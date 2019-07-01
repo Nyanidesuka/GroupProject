@@ -14,4 +14,5 @@ class SuggestedProductsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var suggestedProductsImageView: UIImageView!
     @IBOutlet weak var suggestedProductNameLabel: UILabel!
     @IBOutlet weak var suggestedProductRatingLabel: UILabel!
+    @IBOutlet weak var suggestedProductDescriptionLabel: UILabel!
 }
