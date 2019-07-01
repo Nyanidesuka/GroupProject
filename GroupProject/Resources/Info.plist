@@ -43,6 +43,8 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allows JuiceNow to use your current location to make searching for juice bars easier.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allows JuiceNow to use your current location to find juice bars near you easier.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allows JuiceNow to access your camera in order to provide live photos for reviews or profile pictures.</string>
 </dict>
