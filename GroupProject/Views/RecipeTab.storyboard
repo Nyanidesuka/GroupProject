@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recipes View Controller-->
+        <!--Recipes-->
         <scene sceneID="sCf-Vw-fu6">
             <objects>
                 <viewController id="5Jp-Ow-Sax" customClass="RecipesViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -291,7 +291,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="75S-Nd-8XI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nz8-wf-bdJ"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="4D7-1h-CMI"/>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="allRecipesCollectionView" destination="3P9-vq-Zb3" id="U3P-XF-C4C"/>

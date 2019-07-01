@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Products View Controller-->
+        <!--Shop Products-->
         <scene sceneID="gGR-XF-U5b">
             <objects>
                 <viewController id="SXr-gA-JEc" customClass="ProductsViewController" customModule="GroupProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -466,7 +466,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Gh-KD-q6b"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EYC-aH-Ask"/>
+                    <navigationItem key="navigationItem" title="Shop Products" id="aG5-64-MuN"/>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
                         <outlet property="advancedProductsCollectionView" destination="8T8-ou-dy1" id="6xu-Kg-axI"/>
