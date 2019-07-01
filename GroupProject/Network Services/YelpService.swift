@@ -54,7 +54,7 @@ class YelpService{
             let businessDecoder = JSONDecoder()
             do{
                 let businessesTLD = try businessDecoder.decode(BusinessTLD.self, from: unwrappedData)
-                print(businessesTLD.businesses.count)
+                print("\(businessesTLD.businesses.count) businesses pulled from yelp 🔵🔵🔵")
                 print(businessesTLD.businesses[0].name)
                 completion(businessesTLD.businesses)
             }catch{
@@ -93,7 +93,7 @@ class YelpService{
             let reviewDecoder = JSONDecoder()
             do{
                 let reviewTLD = try reviewDecoder.decode(YelpReviewTLD.self, from: unwrappedData)
-                print(reviewTLD.reviews.count)
+                print("\(reviewTLD.reviews.count) Reviews pulled for the business♦️")
             }catch{
                 print("there was an error decoding the data. \(error)")
                 completion([])
