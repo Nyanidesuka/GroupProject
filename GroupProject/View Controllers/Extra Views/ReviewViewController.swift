@@ -11,7 +11,6 @@ import UIKit
 class ReviewViewController: UIViewController {
     
     //MARK: - Outlets
-
     @IBOutlet weak var drinkNameTextField: CustomTextField!
     @IBOutlet weak var drinkPriceTextField: CustomTextField!
     @IBOutlet weak var oneStarButton: UIButton!
