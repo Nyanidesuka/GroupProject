@@ -10,6 +10,7 @@ import Foundation
 
 class Business: Codable{
     let name: String
+    let url: String
     let isClosed: Bool
     let businessID: String
     var imageURLs: [String] = []
@@ -29,6 +30,7 @@ class Business: Codable{
     
     enum CodingKeys: String, CodingKey{
         case name = "name"
+        case url = "url"
         case isClosed = "is_closed"
         case businessID = "id"
         case baseImage = "image_url"

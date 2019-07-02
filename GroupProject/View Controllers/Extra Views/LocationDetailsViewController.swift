@@ -32,6 +32,11 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     var juiceReviews: [JuiceReview] = []
     var juiceReviewImages: [UIImage] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.juiceReviewCollection.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //set delegates
@@ -89,26 +94,12 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         guard let location = location else { return }
         goToMapForDirections(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude)
     }
-    @IBAction func ratingOneTapped(_ sender: UIButton) {
-        guard let business = location else {return}
-        rateBusiness(business: business, rating: 1)
+    @IBAction func yelpLogoTapped(_ sender: UIButton) {
+        guard let location = location,
+        let url = URL(string: location.url) else { return }
+        UIApplication.shared.open(url)
     }
-    @IBAction func ratingTwoTapped(_ sender: UIButton) {
-        guard let business = location else {return}
-        rateBusiness(business: business, rating: 2)
-    }
-    @IBAction func ratingThreeTapped(_ sender: UIButton) {
-        guard let business = location else {return}
-        rateBusiness(business: business, rating: 3)
-    }
-    @IBAction func ratingFourTapped(_ sender: UIButton) {
-        guard let business = location else {return}
-        rateBusiness(business: business, rating: 4)
-    }
-    @IBAction func ratingFiveTapped(_ sender: UIButton) {
-        guard let business = location else {return}
-        rateBusiness(business: business, rating: 5)
-    }
+    
     
     func checkBusinessIsFavorite(business: Business) -> Bool{
         guard let user = UserController.shared.currentUser else {return false}
