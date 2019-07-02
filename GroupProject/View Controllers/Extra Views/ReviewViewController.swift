@@ -172,21 +172,7 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
         FirebaseService.shared.addDocument(documentName: newImageUUID, collectionName: "Images", data: ["data" : imageData]) { (success) in
             print("Tried to create a new image document in firestore. Success: \(success)")
         }
-        review.imageDocReference = newImageUUID
-        review.drinkReview = reviewComments
-        review.drinkPrice = price
-        review.drinkName = drinkName
-        review.drinkRating = rating
-        review.dimension1 = sliderOneValue
-        review.dimension2 = sliderTwoValue
-        review.dimension3 = sliderThreeValue
-        review.dimension4 = sliderFourValue
-        review.dimension5 = sliderFiveValue
-        guard let user = UserController.shared.currentUser else {print("couldn't unwrap the user for \(#function)"); return}
-        let userDict = UserController.shared.createDictionary(fromUser: user)
-        UserController.shared.saveUserDocument(data: userDict) { (success) in
-            print("Saved user document during \(#function): \(success)")
-        }
+        JuiceReviewController.shared.updateReview(review: review, drinkName: drinkName, imageDoc: newImageUUID, comments: reviewComments, rating: rating, price: price, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue)
     }
     
     func updateViews(withReview review: JuiceReview){
