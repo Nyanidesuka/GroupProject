@@ -95,7 +95,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         
         let buttonText = "\(business.name)"
         
-        let ratingText = "JuiceNow™ Rating: \(business.rating)"
+        let ratingText = "Yelp Rating: \(business.rating)"
         cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "likedHeart" : "unlikedHeart"), for: .normal)
         cell.businessReference = self.locations[indexPath.row]
         cell.restaurantName.text = buttonText
