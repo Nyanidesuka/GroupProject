@@ -94,8 +94,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         let openStatus = business.isClosed ? NSAttributedString(string: " CLOSED", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red]) : NSAttributedString(string: " OPEN", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greenAccent])
         
         let buttonText = "\(business.name)"
-        let ratingText = "JuiceNow™ Rating: \(business.rating)"
         
+        let ratingText = "JuiceNow™ Rating: \(business.rating)"
         cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "likedHeart" : "unlikedHeart"), for: .normal)
         cell.businessReference = self.locations[indexPath.row]
         cell.restaurantName.text = buttonText
@@ -222,18 +222,16 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         let locationManager = CLLocationManager()
         self.locationManager?.requestAlwaysAuthorization()
         self.locationManager?.requestWhenInUseAuthorization()
-        
-        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             DispatchQueue.main.async {
                 self.locationManager?.startUpdatingLocation()
                 self.mapView.showsUserLocation = true
             }
-        }
-        BusinessController.shared.fetchBusinessWithCoordinates(latitude: currentLocation?.coordinate.latitude ?? 0.0 , longitude: currentLocation?.coordinate.longitude ?? 0.0) { (locations) in
-            BusinessController.shared.businesses = locations
+            BusinessController.shared.fetchBusinessWithCoordinates(latitude: self.currentLocation?.coordinate.latitude ?? 0.0 , longitude: self.currentLocation?.coordinate.longitude ?? 0.0) { (locations) in
+                self.locations = BusinessController.shared.businesses
+            }
         }
     }
 }
