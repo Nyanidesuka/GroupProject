@@ -31,7 +31,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var flavorFiveSlider: UISlider!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var reviewImageView: UIImageView!
-    
+    @IBOutlet weak var meter1ImageView: UIImageView!
     
     //MARK: - Properties / Landing pad
     var business: Business?{
@@ -271,20 +271,20 @@ class ReviewViewController: UIViewController {
     
     func updateSliderImages() {
         flavorOneSlider.setThumbImage(UIImage(named: "protein"), for: .normal)
-        flavorOneSlider.minimumTrackTintColor = UIColor(ciColor: .green)
-        flavorOneSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+        flavorOneSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
+        flavorOneSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
         flavorTwoSlider.setThumbImage(UIImage(named: "fruit"), for: .normal)
-        flavorTwoSlider.minimumTrackTintColor = UIColor(ciColor: .green)
-        flavorTwoSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+        flavorTwoSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
+        flavorTwoSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
         flavorThreeSlider.setThumbImage(UIImage(named: "vegetable"), for: .normal)
-        flavorThreeSlider.minimumTrackTintColor = UIColor(ciColor: .green)
-        flavorThreeSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+        flavorThreeSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
+        flavorThreeSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
         flavorFourSlider.setThumbImage(UIImage(named: "creaminess"), for: .normal)
-        flavorFourSlider.minimumTrackTintColor = UIColor(ciColor: .green)
-        flavorFourSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+        flavorFourSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
+        flavorFourSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
         flavorFiveSlider.setThumbImage(UIImage(named: "flavor"), for: .normal)
-        flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .green)
-        flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .red)
+        flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
+        flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
     }
 }
 
