@@ -27,6 +27,7 @@
 		16FFDFDD22CA6C0700640A33 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */; };
 		16FFDFDF22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */; };
 		16FFDFE122CA713B00640A33 /* ProximaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFE022CA713B00640A33 /* ProximaLabel.swift */; };
+		16FFDFE322CBF27400640A33 /* ProximaBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FFDFE222CBF27400640A33 /* ProximaBoldLabel.swift */; };
 		17056A8022BD428500EF5742 /* CoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17056A7F22BD428500EF5742 /* CoreLocationManager.swift */; };
 		1718269822BAA6240019B317 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269722BAA6240019B317 /* User.swift */; };
 		1718269C22BAA82A0019B317 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718269B22BAA82A0019B317 /* UserController.swift */; };
@@ -111,6 +112,7 @@
 		16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
 		16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		16FFDFE022CA713B00640A33 /* ProximaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaLabel.swift; sourceTree = "<group>"; };
+		16FFDFE222CBF27400640A33 /* ProximaBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximaBoldLabel.swift; sourceTree = "<group>"; };
 		17056A7F22BD428500EF5742 /* CoreLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationManager.swift; sourceTree = "<group>"; };
 		1718269722BAA6240019B317 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1718269B22BAA82A0019B317 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				16FFDFDE22CA6D3700640A33 /* PlayfairDisplay-Bold.ttf */,
 				16FFDFDC22CA6C0700640A33 /* ProximaNova-Bold.ttf */,
 				16FFDFE022CA713B00640A33 /* ProximaLabel.swift */,
+				16FFDFE222CBF27400640A33 /* ProximaBoldLabel.swift */,
 			);
 			path = FontGuide;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				CA80A49122B8132A00558D20 /* ProductsViewController.swift in Sources */,
 				16FDEAEF22BD2F11005B66E0 /* Style Guide.swift in Sources */,
 				16FDEAF122BD30AE005B66E0 /* CustomBarButtonItems.swift in Sources */,
+				16FFDFE322CBF27400640A33 /* ProximaBoldLabel.swift in Sources */,
 				16FFDFD422C530DC00640A33 /* CustomSearchBar.swift in Sources */,
 				178E476A22B832A00097F4DD /* YelpService.swift in Sources */,
 				16FDEAF322BD372A005B66E0 /* CustomLabel.swift in Sources */,
