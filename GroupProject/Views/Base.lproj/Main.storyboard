@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,24 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-qA-jDR">
-                                <rect key="frame" x="87" y="324" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="PeW-qA-jDR">
+                                <rect key="frame" x="82" y="328" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PeW-qA-jDR" secondAttribute="height" multiplier="1:1" id="Yc8-3B-4BZ"/>
+                                    <constraint firstAttribute="height" constant="250" id="gTH-el-5Hb"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-uy-aPc">
-                                <rect key="frame" x="188.5" y="564" width="37" height="37"/>
-                                <color key="color" name="DarkBlueAccent"/>
+                                <rect key="frame" x="169.5" y="610" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="6oN-ep-NOd"/>
+                                    <constraint firstAttribute="width" secondItem="Rb8-uy-aPc" secondAttribute="height" multiplier="1:1" id="ogx-1Y-B83"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.78408354920000001" green="0.2742515123" blue="0.40314671959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="top" secondItem="PeW-qA-jDR" secondAttribute="bottom" id="A6E-g3-KDL"/>
-                            <constraint firstItem="PeW-qA-jDR" firstAttribute="top" secondItem="oS8-xP-PWg" secondAttribute="top" constant="280" id="CGm-SR-3EU"/>
-                            <constraint firstItem="PeW-qA-jDR" firstAttribute="leading" secondItem="oS8-xP-PWg" secondAttribute="leading" constant="87" id="Fgm-59-qbS"/>
-                            <constraint firstItem="oS8-xP-PWg" firstAttribute="trailing" secondItem="PeW-qA-jDR" secondAttribute="trailing" constant="87" id="b8x-ad-rIn"/>
-                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="centerX" secondItem="PeW-qA-jDR" secondAttribute="centerX" id="ij2-Bk-ZV2"/>
+                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="centerX" secondItem="PeW-qA-jDR" secondAttribute="centerX" id="DdQ-00-MKb"/>
+                            <constraint firstItem="PeW-qA-jDR" firstAttribute="centerX" secondItem="oS8-xP-PWg" secondAttribute="centerX" id="Kbg-Cd-A1I"/>
+                            <constraint firstItem="Rb8-uy-aPc" firstAttribute="top" secondItem="PeW-qA-jDR" secondAttribute="bottom" constant="32" id="LRv-Ru-aIs"/>
+                            <constraint firstItem="PeW-qA-jDR" firstAttribute="centerY" secondItem="oS8-xP-PWg" secondAttribute="centerY" id="eZA-hK-jRk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oS8-xP-PWg"/>
                     </view>
@@ -113,9 +116,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ProfileImage" width="350" height="350"/>
-        <namedColor name="DarkBlueAccent">
-            <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="logo" width="256" height="256"/>
     </resources>
 </document>
