@@ -25,6 +25,7 @@ class Business: Codable{
     var juiceNowInfoReference: JuiceNowBusinessInfo? = nil
     var isFavorite: Bool = false
     var userRating: Int? = 1
+    var reviewCount: Int
     
     enum CodingKeys: String, CodingKey{
         case name = "name"
@@ -36,6 +37,7 @@ class Business: Codable{
         case coordinates = "coordinates"
         case location = "location"
         case userRating = "userRating"
+        case reviewCount = "review_count"
     }
 }
 //the yelp API hands back a dictionary with key "businesses" which is full of string-any dictionaries so we need this TLD.

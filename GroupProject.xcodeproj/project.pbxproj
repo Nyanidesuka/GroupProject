@@ -274,8 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */,
-				174F6A5C22CBC30500BC7677 /* YelpBusinessDetails.swift */,
 				1718269722BAA6240019B317 /* User.swift */,
+				174F6A5C22CBC30500BC7677 /* YelpBusinessDetails.swift */,
 				1765F8E222CAB9E500A4856C /* ProfilePhoto.swift */,
 				17ADC27A22C6B680002DAAC2 /* ReviewImageContainer.swift */,
 				17EB5F5D22B98A4200927617 /* JuiceNowBusinessReview.swift */,

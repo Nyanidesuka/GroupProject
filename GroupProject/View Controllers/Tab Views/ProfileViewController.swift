@@ -145,7 +145,7 @@ class ProfileViewController: UIViewController {
             let location = user?.likedBusinesses[indexPath.row]
             destinationVC.location = location
         case "toJuiceReview":
-            guard let destinVC = segue.destination as? ReviewViewController, let index = self.reviewCollectionView.indexPathsForSelectedItems?.first, let user = UserController.shared.currentUser else {return}
+            guard let destinVC = segue.destination as? ReviewViewController, let index = self.reviewCollectionView.indexPathsForSelectedItems?.first, let user = UserController.shared.currentUser, user.juiceReviews.count > 0 else {return}
             print(user.likedBusinesses.count)
             let business = user.likedBusinesses[index.section]
             let review = user.juiceReviews[index.row]
