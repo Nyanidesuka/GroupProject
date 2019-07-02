@@ -113,7 +113,6 @@ class UserController{
             completion(document)
         }
     }
-    //hi, remember to make the user's profile pic its own firestore document later
     func createDictionary(fromUser user: User) -> [String : Any]{
         let businessReviewsDictionary = JuiceNowBusinessReviewController.shared.createDictionary(fromReviews: user.businessReviews)
         let likedBusinessData = BusinessController.shared.convertBusinessesToJson(businesses: user.likedBusinesses)

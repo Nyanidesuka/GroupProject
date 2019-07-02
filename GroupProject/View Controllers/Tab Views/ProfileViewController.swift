@@ -121,7 +121,7 @@ class ProfileViewController: UIViewController {
     
     func saveProfilePicture(){
         guard let user = UserController.shared.currentUser else {print("couldnt unwrap the user🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
-        guard let image = self.profilePhotoImageView.image, let imageData = image.pngData() else {print("couldn't unwrap the image. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
+        guard let image = self.profilePhotoImageView.image, let imageData = image.jpegData(compressionQuality: 0.7) else {print("couldn't unwrap the image. 🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️"); return}
         user.photoData = imageData
         //create a document from the photo, send it to firebase, save a ref to it within the user.
         let profilePhoto = ProfilePhoto(imageData: imageData)

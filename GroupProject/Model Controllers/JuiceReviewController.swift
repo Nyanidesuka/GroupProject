@@ -49,12 +49,27 @@ class JuiceReviewController{
         }
     }
     //this one isnt fully working yet
-    func updateReview(review: JuiceReview){
-        guard let user  = UserController.shared.currentUser else {return}
-        let userDict = UserController.shared.createDictionary(fromUser: user)
-        UserController.shared.saveUserDocument(data: userDict) { (success) in
-            print("updated the review and saved the document.🙆‍♀️🙆‍♀️🙆‍♀️")
+    func updateReview(review: JuiceReview, drinkName: String, imageDoc: String, comments: String, rating: Int, price: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int){
+        //update the review
+        review.drinkName = drinkName
+        review.imageDocReference = imageDoc
+        review.drinkReview = comments
+        review.drinkRating = rating
+        review.dimension1 = dimension1
+        review.dimension2 = dimension2
+        review.dimension3 = dimension3
+        review.dimension4 = dimension4
+        review.dimension5 = dimension5
+        let reviewDict = JuiceReviewController.shared.createDictionary(fromJuiceReview: review)
+        FirebaseService.shared.addDocument(documentName: review.uuid, collectionName: "JuiceNow Reviews", data: reviewDict) { (success) in
+            print("tried to update the document in firestore. Success: \(success)")
         }
+        //i dont think we actually need to re-save the user, since the review ref will be the same
+//        guard let user  = UserController.shared.currentUser else {return}
+//        let userDict = UserController.shared.createDictionary(fromUser: user)
+//        UserController.shared.saveUserDocument(data: userDict) { (success) in
+//            print("updated the review and saved the document.🙆‍♀️🙆‍♀️🙆‍♀️")
+//        }
     }
     
     
