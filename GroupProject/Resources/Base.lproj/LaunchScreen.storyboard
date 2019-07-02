@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-O8-5t1">
-                                <rect key="frame" x="87" y="324" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-O8-5t1">
+                                <rect key="frame" x="82" y="328" width="250" height="250"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="BOg-05-Bwl"/>
                                     <constraint firstAttribute="width" secondItem="rxb-O8-5t1" secondAttribute="height" multiplier="1:1" id="bFG-z8-xz3"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.78408354920000001" green="0.2742515123" blue="0.40314671959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="rxb-O8-5t1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="dZp-gc-jCk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rxb-O8-5t1" secondAttribute="trailing" constant="87" id="kej-hv-Od1"/>
-                            <constraint firstItem="rxb-O8-5t1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="znc-d6-tJQ"/>
+                            <constraint firstItem="rxb-O8-5t1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nhL-xO-6wC"/>
+                            <constraint firstItem="rxb-O8-5t1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="vp9-vv-GYI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ProfileImage" width="350" height="350"/>
+        <image name="logo" width="256" height="256"/>
     </resources>
 </document>
