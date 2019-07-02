@@ -16,7 +16,9 @@ class ReviewImageContainer{
         guard reviews.count != 0, let user = UserController.shared.currentUser else { completion(true); return }
         FirebaseService.shared.fetchDocument(documentName: reviews[index].imageDocReference, collectionName: "Images") { (imageDict) in
             guard let imageDict = imageDict, let imageData = imageDict["data"] as? Data, let decodedImage = UIImage(data: imageData) else {print("couldnt unwrap the image dictionary 👁‍🗨👁‍🗨👁‍🗨"); return}
-            ReviewImageContainer.shared.images.append(decodedImage)
+            if !ReviewImageContainer.shared.images.contains(decodedImage){
+                ReviewImageContainer.shared.images.append(decodedImage)
+            }
             if ReviewImageContainer.shared.images.count < user.juiceReviewReferences.count{
                 self.fetchReviewImages(forReviews: reviews, index: index + 1, completion: completion)
             } else {
