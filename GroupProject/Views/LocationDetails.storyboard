@@ -111,7 +111,7 @@
                                                                         <constraint firstAttribute="width" constant="180" id="3uQ-9y-9Lj"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="[Juice Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-8n-dOk">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="[Juice Name]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-8n-dOk">
                                                                     <rect key="frame" x="0.0" y="159" width="180" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -419,6 +419,8 @@
                         <outlet property="secondaryLocationNameLabel" destination="lKh-od-7zz" id="oa9-rm-eSF"/>
                         <outlet property="swipeImageCollectionView" destination="5es-qh-lrg" id="n0u-bA-fZL"/>
                         <outlet property="tableView" destination="Kqk-Li-Q6a" id="Hey-gt-44L"/>
+                        <outlet property="yelpReviewCountLabel" destination="xNr-DB-EJS" id="SlK-VQ-hwx"/>
+                        <outlet property="yelpStarsImageView" destination="fyf-iU-fLr" id="3nw-qF-wXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyB-B6-51E" userLabel="First Responder" sceneMemberID="firstResponder"/>

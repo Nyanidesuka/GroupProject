@@ -14,22 +14,13 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     //MARK: - Outlets
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var secondaryLocationNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var commuityStarOneButton: UIButton!
-    @IBOutlet weak var communityStarTwoButton: UIButton!
-    @IBOutlet weak var communityStarThreeButton: UIButton!
-    @IBOutlet weak var communityStarFourButton: UIButton!
-    @IBOutlet weak var communityStarFiveButton: UIButton!
-    @IBOutlet weak var personalStarOneButton: UIButton!
-    @IBOutlet weak var personalStarTwoButton: UIButton!
-    @IBOutlet weak var personalStarThreeButton: UIButton!
-    @IBOutlet weak var personalStarFourButton: UIButton!
-    @IBOutlet weak var personalStarFiveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var locationMapView: MKMapView!
     @IBOutlet weak var swipeImageCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var juiceReviewCollection: UICollectionView!
+    @IBOutlet weak var yelpStarsImageView: UIImageView!
+    @IBOutlet weak var yelpReviewCountLabel: UILabel!
     
     
     //MARK: - Landing Pad / Properties
@@ -75,10 +66,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                 }
             })
         }
-        
-        
-        
-        //fetch all the reviews for the business
+        //fetch all the JuiceNow reviews for the business
         FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
             for document in documents{
                 guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
@@ -196,7 +184,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         print("Location user rating: \(location?.userRating)🔊")
         guard let location = location else { return }
         addPinToMap(location: location)
-//        updateCommunityRatingStars(rating: location.rating)
+        updateYelpStars(withRating: location.rating, totalRatings: location.reviewCount)
         restaurantNameLabel.text = location.name
         secondaryLocationNameLabel.text = location.name
         YelpReviewController.shared.fetchYelpReviews(forBusinessID: location.businessID) { (reviews) in
@@ -205,9 +193,32 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                 self.tableView.reloadData()
             }
         }
-//        updateSecondaryLabelFor(business: location)
-        //sets images on the user score buttons
-//        self.updatePersonalRatingButtons()
+    }
+    
+    //update the yelp info
+    func updateYelpStars(withRating rating: Double, totalRatings: Int){
+        self.yelpReviewCountLabel.text = "Based on \(totalRatings) reviews"
+        if rating < 0.5{
+            yelpStarsImageView.image = UIImage(named: "regular_0")
+        } else if rating < 1.5{
+            yelpStarsImageView.image = UIImage(named: "regular_1")
+        } else if rating < 2.0{
+            yelpStarsImageView.image = UIImage(named: "regular_1_half")
+        } else if rating < 2.5 {
+            yelpStarsImageView.image = UIImage(named: "regular_2")
+        } else if rating < 3.0{
+            yelpStarsImageView.image = UIImage(named: "regular_2_half")
+        } else if rating < 3.5{
+            yelpStarsImageView.image = UIImage(named: "regular_3")
+        } else if rating < 4.0{
+            yelpStarsImageView.image = UIImage(named: "regular_3_half")
+        } else if rating < 4.5{
+            yelpStarsImageView.image = UIImage(named: "regular_4")
+        } else if rating < 4.8{
+            yelpStarsImageView.image = UIImage(named: "regular_4_half")
+        } else {
+            yelpStarsImageView.image = UIImage(named: "regular_5")
+        }
     }
     
     func addPinToMap(location: Business) {
@@ -218,92 +229,6 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         locationMapView.showAnnotations([newPin], animated: true)
         
     }
-    
-//    func updateSecondaryLabelFor(business: Business) {
-//        let address = business.location.addressOne
-//        let city = business.location.city
-//        let state = business.location.state
-//        let zip = business.location.zipCode
-//        DispatchQueue.main.async {
-////            self.descriptionLabel.text = label
-//        }
-//    }
-    
-//    func updateCommunityRatingStars(rating: Double) {
-//        if rating == 0 {
-//            return
-//        } else if rating < 1 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 1.5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 2 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 2.5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 3 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 3.5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 4 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 4.5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                return
-//            }
-//        } else if rating < 5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-//                return
-//            }
-//        } else if rating == 5 {
-//            DispatchQueue.main.async {
-//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-//                return
-//            }
-//        }
-//    }
     
     
     //MARK: Navigation
@@ -346,8 +271,12 @@ extension LocationDetailsViewController: UICollectionViewDataSource, UICollectio
         if collectionView == swipeImageCollectionView{
             return location?.imageURLs.count ?? 0
         } else {
-            print("🔶🔶🔶setting the number of items in the juicereviews collection to: \(self.juiceReviews.count)🔶🔶🔶")
-            return self.juiceReviews.count
+            if self.juiceReviews.count > 0{
+                print("🔶🔶🔶setting the number of items in the juicereviews collection to: \(self.juiceReviews.count)🔶🔶🔶")
+                return self.juiceReviews.count
+            } else {
+                return 1
+            }
         }
     }
     
@@ -369,12 +298,18 @@ extension LocationDetailsViewController: UICollectionViewDataSource, UICollectio
             
             return cell
         } else {
+            guard let location = self.location else {return UICollectionViewCell()}
             print("🔶🔶🔶loading data for the review collection🔶🔶🔶")
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? DetailPageReviewCollectionViewCell else {return UICollectionViewCell()}
-            cell.juiceNameLabel.text = self.juiceReviews[indexPath.row].drinkName
-            cell.reviewImageView.image = self.juiceReviewImages[indexPath.row]
-            cell.reviewImageView.addCornerRadius()
-            cell.updateStarButtons(withReview: self.juiceReviews[indexPath.row])
+            if self.juiceReviews.count > 0{
+                cell.juiceNameLabel.text = self.juiceReviews[indexPath.row].drinkName
+                cell.reviewImageView.image = self.juiceReviewImages[indexPath.row]
+                cell.reviewImageView.addCornerRadius()
+                cell.updateStarButtons(withReview: self.juiceReviews[indexPath.row])
+            } else {
+                cell.juiceNameLabel.text = "No ratings"
+                cell.reviewImageView.image = UIImage(named: "NoRating")
+            }
             return cell
         }
     }
