@@ -20,7 +20,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     //MARK: - Properties
-    let debouncer = Debouncer(timeInterval: 1.25)
+    let debouncer = Debouncer(timeInterval: 1.0)
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
     var pins: [MKPointAnnotation] = []
@@ -78,7 +78,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             self.locations = BusinessController.shared.businesses
             //self.sortFurthestBusiness()
         }
-        tableViewHeight.constant = 100 * 70
+        tableViewHeight.constant = 100 * 7
         self.view.layoutIfNeeded()
     }
     
@@ -90,15 +90,17 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
         let business = locations[indexPath.row]
-        let openStatus = business.isClosed ? "CLOSED" : "OPEN"
+        
+        let openStatus = business.isClosed ? NSAttributedString(string: " CLOSED", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red]) : NSAttributedString(string: " OPEN", attributes: [NSAttributedString.Key.foregroundColor : UIColor.greenAccent])
+        
         let buttonText = "\(business.name)"
         let ratingText = "JuiceNow™ Rating: \(business.rating)"
-        let openClosedText = "Currently \(openStatus)"
+        
         cell.favoriteButton.setImage(UIImage(named: business.isFavorite ? "likedHeart" : "unlikedHeart"), for: .normal)
         cell.businessReference = self.locations[indexPath.row]
         cell.restaurantName.text = buttonText
         cell.juiceNowRating.text = ratingText
-        cell.openOrClosed.text = openClosedText
+        cell.openOrClosed.attributedText = openStatus
         return cell
     }
     
@@ -113,7 +115,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
 //    }else{
 //        annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
 //    }
-//    annotationView.markerTintColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+//    annotationView.markerTintColor = #colorLiteral(red: 0.8506309986, green: 0.2193347216, blue: 0.3990217745, alpha: 1)
 //    annotationView.glyphImage = UIImage(named: "pinImage")
 //    annotationView.clusteringIdentifier = identifier
         
@@ -257,6 +259,8 @@ extension LocationSearchViewController: CLLocationManagerDelegate{
                 BusinessController.shared.businesses = fetchedBusinesses
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.locationManager?.stopUpdatingLocation()
+
                 }
             }
         }
