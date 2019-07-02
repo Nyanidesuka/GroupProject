@@ -16,7 +16,7 @@ class CustomTableView: UITableView {
     }
     
     func setupUI(){
-        addViewBorderColor(width: 2)
+        addViewBorderColor(width: 1)
         self.addCornerRadius()
         
     }
