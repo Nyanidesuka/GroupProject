@@ -17,6 +17,5 @@ class CustomBarButtonItems: UIButton {
     
     func setupUI(){
         self.addCornerRadius()
-        self.addAccentBorderColor()
     }
 }

@@ -106,34 +106,39 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="350" height="89.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LgK-lt-uXD">
-                                                                            <rect key="frame" x="2" y="2" width="324" height="85.5"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="7KO-0k-rdU">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="318" height="89.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9t-SO-Ko5">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="324" height="28"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="29"/>
                                                                                     <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="JuiceNowRating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-A1-IDV">
-                                                                                    <rect key="frame" x="0.0" y="29" width="324" height="27.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="JuiceNowRating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-A1-IDV">
+                                                                                    <rect key="frame" x="0.0" y="30" width="318" height="29.5"/>
                                                                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="13"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Open/Closed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-5e-sVb">
-                                                                                    <rect key="frame" x="0.0" y="57.5" width="324" height="28"/>
-                                                                                    <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="13"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2K6-QK-LTV">
+                                                                                    <rect key="frame" x="0.0" y="60.5" width="318" height="29"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Currently" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0t7-v0-2Js">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="56.5" height="29"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlV-pR-g4s">
+                                                                                            <rect key="frame" x="56.5" y="0.0" width="261.5" height="29"/>
+                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </stackView>
                                                                             </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="p9t-SO-Ko5" firstAttribute="top" secondItem="LgK-lt-uXD" secondAttribute="top" id="H7D-Tu-Hq4"/>
-                                                                                <constraint firstItem="Mcj-A1-IDV" firstAttribute="width" secondItem="p9t-SO-Ko5" secondAttribute="width" id="QXa-dZ-bNu"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="EDb-5e-sVb" secondAttribute="bottom" id="Tda-8C-4Qt"/>
-                                                                                <constraint firstItem="EDb-5e-sVb" firstAttribute="width" secondItem="Mcj-A1-IDV" secondAttribute="width" id="sOv-hL-VXQ"/>
-                                                                            </constraints>
                                                                         </stackView>
                                                                         <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-aF-b1H">
                                                                             <rect key="frame" x="338" y="67" width="0.0" height="0.0"/>
@@ -149,17 +154,17 @@
                                                                     <constraints>
                                                                         <constraint firstItem="WYT-aF-b1H" firstAttribute="trailing" secondItem="COX-Kt-bL4" secondAttribute="trailing" constant="-12" id="6wF-zn-u9F"/>
                                                                         <constraint firstAttribute="bottomMargin" secondItem="WYT-aF-b1H" secondAttribute="bottom" constant="12" id="E6S-1D-8Cv"/>
-                                                                        <constraint firstItem="LgK-lt-uXD" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="top" constant="2" id="Eq2-8M-6A1"/>
-                                                                        <constraint firstItem="WYT-aF-b1H" firstAttribute="leading" secondItem="LgK-lt-uXD" secondAttribute="trailing" constant="12" id="bhS-gL-OLp"/>
-                                                                        <constraint firstItem="LgK-lt-uXD" firstAttribute="leading" secondItem="COX-Kt-bL4" secondAttribute="leading" constant="2" id="nbj-Jv-FgN"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="LgK-lt-uXD" secondAttribute="bottom" constant="2" id="yeS-u2-CxN"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="7KO-0k-rdU" secondAttribute="bottom" id="LW4-Wj-jlW"/>
+                                                                        <constraint firstItem="7KO-0k-rdU" firstAttribute="leading" secondItem="COX-Kt-bL4" secondAttribute="leading" id="aar-sY-PXJ"/>
+                                                                        <constraint firstItem="7KO-0k-rdU" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="top" id="nBb-Hf-RgC"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="7KO-0k-rdU" secondAttribute="trailing" constant="32" id="vzL-82-TFL"/>
                                                                         <constraint firstItem="WYT-aF-b1H" firstAttribute="top" secondItem="COX-Kt-bL4" secondAttribute="topMargin" constant="12" id="zeC-WV-982"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="favoriteButton" destination="WYT-aF-b1H" id="OnF-yU-DBU"/>
                                                                     <outlet property="juiceNowRating" destination="Mcj-A1-IDV" id="KbC-f4-YCA"/>
-                                                                    <outlet property="openOrClosed" destination="EDb-5e-sVb" id="reF-gi-4Eq"/>
+                                                                    <outlet property="openOrClosed" destination="KlV-pR-g4s" id="qpO-cr-7BO"/>
                                                                     <outlet property="restaurantName" destination="p9t-SO-Ko5" id="NRw-dI-2z1"/>
                                                                     <segue destination="UzR-aR-M9Y" kind="show" identifier="locationToLocationDetailVC" id="9cY-ut-Ugt"/>
                                                                 </connections>
