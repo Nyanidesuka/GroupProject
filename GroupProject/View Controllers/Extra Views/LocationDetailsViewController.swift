@@ -196,7 +196,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         print("Location user rating: \(location?.userRating)🔊")
         guard let location = location else { return }
         addPinToMap(location: location)
-        updateCommunityRatingStars(rating: location.rating)
+//        updateCommunityRatingStars(rating: location.rating)
         restaurantNameLabel.text = location.name
         secondaryLocationNameLabel.text = location.name
         YelpReviewController.shared.fetchYelpReviews(forBusinessID: location.businessID) { (reviews) in
@@ -229,81 +229,81 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
 //        }
 //    }
     
-    func updateCommunityRatingStars(rating: Double) {
-        if rating == 0 {
-            return
-        } else if rating < 1 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-                return
-            }
-        } else if rating < 1.5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                return
-            }
-        } else if rating < 2 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-                return
-            }
-        } else if rating < 2.5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                return
-            }
-        } else if rating < 3 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-                return
-            }
-        } else if rating < 3.5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                return
-            }
-        } else if rating < 4 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-                return
-            }
-        } else if rating < 4.5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                return
-            }
-        } else if rating < 5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
-                return
-            }
-        } else if rating == 5 {
-            DispatchQueue.main.async {
-                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
-                return
-            }
-        }
-    }
+//    func updateCommunityRatingStars(rating: Double) {
+//        if rating == 0 {
+//            return
+//        } else if rating < 1 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 1.5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 2 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 2.5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 3 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 3.5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 4 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 4.5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                return
+//            }
+//        } else if rating < 5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "halfstar"), for: .normal)
+//                return
+//            }
+//        } else if rating == 5 {
+//            DispatchQueue.main.async {
+//                self.commuityStarOneButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarTwoButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarThreeButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFourButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                self.communityStarFiveButton.setImage(#imageLiteral(resourceName: "fullstar"), for: .normal)
+//                return
+//            }
+//        }
+//    }
     
     
     //MARK: Navigation
