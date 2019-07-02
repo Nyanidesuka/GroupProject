@@ -227,11 +227,13 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            DispatchQueue.main.async {
+                self.locationManager?.startUpdatingLocation()
+                self.mapView.showsUserLocation = true
+            }
         }
         BusinessController.shared.fetchBusinessWithCoordinates(latitude: currentLocation?.coordinate.latitude ?? 0.0 , longitude: currentLocation?.coordinate.longitude ?? 0.0) { (locations) in
             BusinessController.shared.businesses = locations
-            self.locationManager?.startUpdatingLocation()
         }
     }
 }
