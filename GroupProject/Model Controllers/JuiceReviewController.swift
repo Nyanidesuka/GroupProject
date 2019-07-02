@@ -83,7 +83,9 @@ class JuiceReviewController{
         guard user.juiceReviewReferences.count > 0 else {print("the user has no juice reviews.⚪️"); completion(true); return}
         FirebaseService.shared.fetchDocument(documentName: user.juiceReviewReferences[index], collectionName: "JuiceNow Reviews") { (juiceReviewDict) in
             guard let juiceReviewDict = juiceReviewDict, let decodedReview = JuiceReview(firestoreData: juiceReviewDict) else {completion(false); return}
-            user.juiceReviews.append(decodedReview)
+            if !user.juiceReviews.contains(where: {$0.uuid == decodedReview.uuid}){
+                user.juiceReviews.append(decodedReview)
+            }
             if user.juiceReviews.count == user.juiceReviewReferences.count{
                 completion(true)
                 return

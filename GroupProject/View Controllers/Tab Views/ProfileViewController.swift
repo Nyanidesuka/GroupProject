@@ -57,12 +57,13 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let user = UserController.shared.currentUser else {print("there's no user. 👁‍🗨👁‍🗨👁‍🗨"); return}
-        ReviewImageContainer.shared.fetchReviewImages(forReviews: user.juiceReviews) { (success) in
-            self.visitedCollectionView.reloadData()
+        guard let user = UserController.shared.currentUser else {return}
+        JuiceReviewController.shared.fetchReviews(forUser: user) { (_) in
+            ReviewImageContainer.shared.fetchReviewImages(forReviews: user.juiceReviews) { (success) in
+                self.reviewCollectionView.reloadData()
+                self.visitedCollectionView.reloadData()
+            }
         }
-        self.reviewCollectionView.reloadData()
-        self.visitedCollectionView.reloadData()
     }
     
     //MARK: - Actions

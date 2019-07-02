@@ -19,6 +19,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="cha-7L-Xxd">
+                                <rect key="frame" x="1" y="88" width="412" height="64"/>
+                                <subviews>
+                                    <searchBar contentMode="scaleAspectFit" placeholder="Enter City Name" translatesAutoresizingMaskIntoConstraints="NO" id="VA5-Z7-2tJ" customClass="CustomSearchBar" customModule="GroupProject" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="332" height="48"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" name="White"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no" textContentType="address-level2"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                <integer key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </searchBar>
+                                    <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" verticalHuggingPriority="254" verticalCompressionResistancePriority="748" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibz-jm-OOC">
+                                        <rect key="frame" x="352" y="12" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ibz-jm-OOC" secondAttribute="height" multiplier="1:1" id="MTR-iS-nHz"/>
+                                        </constraints>
+                                        <state key="normal" image="define_location">
+                                            <color key="titleColor" name="DarkBlueAccent"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="currentLocationButtonTapped:" destination="SlT-UP-t1a" eventType="touchUpInside" id="NhN-04-UVY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpX-mM-1Uj">
+                                        <rect key="frame" x="344" y="8" width="60" height="9"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="VA5-Z7-2tJ" firstAttribute="top" secondItem="vpX-mM-1Uj" secondAttribute="top" id="3qV-GI-kBy"/>
+                                    <constraint firstItem="vpX-mM-1Uj" firstAttribute="leading" secondItem="VA5-Z7-2tJ" secondAttribute="trailing" constant="4" id="AKG-Y7-tjd"/>
+                                    <constraint firstItem="VA5-Z7-2tJ" firstAttribute="top" secondItem="cha-7L-Xxd" secondAttribute="top" constant="8" id="CPY-10-Cbq"/>
+                                    <constraint firstItem="VA5-Z7-2tJ" firstAttribute="leading" secondItem="cha-7L-Xxd" secondAttribute="leading" constant="8" id="KRq-eV-k9O"/>
+                                    <constraint firstAttribute="trailing" secondItem="VA5-Z7-2tJ" secondAttribute="trailing" constant="72" id="VU3-Nv-mWN"/>
+                                    <constraint firstItem="ibz-jm-OOC" firstAttribute="top" secondItem="cha-7L-Xxd" secondAttribute="top" constant="12" id="cdB-eg-WiQ"/>
+                                    <constraint firstItem="vpX-mM-1Uj" firstAttribute="centerX" secondItem="ibz-jm-OOC" secondAttribute="centerX" id="eg4-nW-3RB"/>
+                                    <constraint firstItem="ibz-jm-OOC" firstAttribute="leading" secondItem="VA5-Z7-2tJ" secondAttribute="trailing" constant="12" id="fv0-PL-9Gg"/>
+                                    <constraint firstItem="VA5-Z7-2tJ" firstAttribute="bottom" secondItem="ibz-jm-OOC" secondAttribute="bottom" id="k4Z-VL-3m2"/>
+                                    <constraint firstAttribute="trailing" secondItem="ibz-jm-OOC" secondAttribute="trailing" constant="16" id="ogU-Fs-V5F"/>
+                                    <constraint firstItem="ibz-jm-OOC" firstAttribute="top" secondItem="vpX-mM-1Uj" secondAttribute="bottom" constant="-5" id="xQ5-eS-2XX"/>
+                                    <constraint firstAttribute="bottom" secondItem="ibz-jm-OOC" secondAttribute="bottom" constant="8" id="xbG-aX-1iN"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-jw-RF7">
                                 <rect key="frame" x="0.0" y="152" width="414" height="744"/>
                                 <subviews>
@@ -46,13 +99,13 @@
                                                                             <rect key="frame" x="12" y="0.0" width="362" height="89.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9t-SO-Ko5">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="362" height="29"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="29"/>
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="JuiceNowRating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-A1-IDV">
-                                                                                    <rect key="frame" x="0.0" y="30" width="362" height="29.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="JuiceNowRating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-A1-IDV" customClass="ProximaLabel" customModule="GroupProject" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="30" width="318" height="29.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -263,7 +316,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="currentLocation" width="64" height="64"/>
+        <image name="define_location" width="30" height="30"/>
         <image name="locationSearch" width="30" height="30"/>
         <image name="unlikedHeart" width="256" height="256"/>
         <namedColor name="DarkBlueAccent">
@@ -273,4 +326,5 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" name="White"/>
 </document>
