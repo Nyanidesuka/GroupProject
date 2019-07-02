@@ -84,7 +84,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: - TableView Data
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return self.locations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,31 +104,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
-    //MARK: Map View Delegate
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        //marker code
-//        let identifier = "Pin"
-//        var annotationView = MKMarkerAnnotationView()
-//        annotationView.annotation = annotation
-//        if let dequedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView{
-//        annotationView = dequedView
-//    }else{
-//        annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//    }
-//    annotationView.markerTintColor = #colorLiteral(red: 0.8506309986, green: 0.2193347216, blue: 0.3990217745, alpha: 1)
-//    annotationView.glyphImage = UIImage(named: "pinImage")
-//    annotationView.clusteringIdentifier = identifier
-        
-//          pin code
-//        if annotationView == nil {
-//            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            annotationView!.canShowCallout = true
-//        } else {
-//            annotationView!.annotation = annotation
-//        }
-//
-        return nil
-    }
+    
     
     
     //A function to make sure favorites and user ratings reflect in the UI
@@ -164,15 +140,6 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         //set the radius
         mapView.showAnnotations(pins, animated: true)
     }
-    
-//    func sortFurthestBusiness(){//this is gonna be incredibly ineffecient
-//        var longestDistance: CLLocationDistance = 0
-//        print("according to that new function the furthest business is:")
-//        print(sortedBusinesses.last?.name)
-//        self.locations = sortedBusinesses
-//    }
-
-    
     func findDistanceToUser(business: Business) -> CLLocationDistance{
         let businessCoordinate = CLLocationCoordinate2D(latitude: business.coordinates.latitude, longitude: business.coordinates.longitude)
         guard let currentAltitude = currentLocation?.altitude, let userLocation = currentLocation else {return 0}
@@ -220,18 +187,17 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     }
     @IBAction func currentLocationButtonTapped(_ isSelected: Bool) {
         let locationManager = CLLocationManager()
-        self.locationManager?.requestAlwaysAuthorization()
         self.locationManager?.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
+            self.searchByLocation = true
+            self.searchBar.text = "My Location"
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             DispatchQueue.main.async {
                 self.locationManager?.startUpdatingLocation()
                 self.mapView.showsUserLocation = true
             }
-            BusinessController.shared.fetchBusinessWithCoordinates(latitude: self.currentLocation?.coordinate.latitude ?? 0.0 , longitude: self.currentLocation?.coordinate.longitude ?? 0.0) { (locations) in
-                self.locations = BusinessController.shared.businesses
-            }
+            
         }
     }
 }
