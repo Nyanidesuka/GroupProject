@@ -103,9 +103,12 @@ class BusinessController {
     }
     
     //a function that takes i a business and some juicenow info and will append the juicenow info to the business.
-    func addJuiceNowBusinessInfo(businessInfo: JuiceNowBusinessInfo, toBusiness business: Business){
+    func addJuiceNowBusinessInfo(businessInfo: JuiceNowBusinessInfo, toBusiness business: Business, completion: @escaping (Bool) -> Void){
         business.juiceNowReviews = businessInfo.reviews
         business.juiceNowInfoReference = businessInfo
+        business.imageURLs = businessInfo.imageURLs
+        print("adding \(businessInfo.imageURLs) image urls to \(business.name)🎞🎞🎞")
+        completion(true)
     }
     
     func convertBusinessesToJson(businesses: [Business]) -> [Data]{

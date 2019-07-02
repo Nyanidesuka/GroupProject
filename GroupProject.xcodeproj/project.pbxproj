@@ -43,6 +43,7 @@
 		1732EC6322B455CA00E09DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC6222B455CA00E09DD3 /* Assets.xcassets */; };
 		1732EC6622B455CA00E09DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1732EC6422B455CA00E09DD3 /* LaunchScreen.storyboard */; };
 		1733C71B22C9832E004A975E /* DetailPageReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1733C71A22C9832E004A975E /* DetailPageReviewCollectionViewCell.swift */; };
+		174F6A5D22CBC30500BC7677 /* YelpBusinessDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174F6A5C22CBC30500BC7677 /* YelpBusinessDetails.swift */; };
 		1765F8E322CAB9E500A4856C /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F8E222CAB9E500A4856C /* ProfilePhoto.swift */; };
 		178E476522B831100097F4DD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476422B831100097F4DD /* Business.swift */; };
 		178E476822B8312A0097F4DD /* YelpReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E476722B8312A0097F4DD /* YelpReview.swift */; };
@@ -128,6 +129,7 @@
 		1732EC6522B455CA00E09DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1732EC6722B455CA00E09DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1733C71A22C9832E004A975E /* DetailPageReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		174F6A5C22CBC30500BC7677 /* YelpBusinessDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpBusinessDetails.swift; sourceTree = "<group>"; };
 		1765F8E222CAB9E500A4856C /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
 		178E476422B831100097F4DD /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		178E476722B8312A0097F4DD /* YelpReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpReview.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				17EB5F5B22B9890600927617 /* JuiceNowBusinessInfo.swift */,
+				174F6A5C22CBC30500BC7677 /* YelpBusinessDetails.swift */,
 				1718269722BAA6240019B317 /* User.swift */,
 				1765F8E222CAB9E500A4856C /* ProfilePhoto.swift */,
 				17ADC27A22C6B680002DAAC2 /* ReviewImageContainer.swift */,
@@ -531,6 +534,7 @@
 				CA80A49E22B8153D00558D20 /* HelpViewController.swift in Sources */,
 				1765F8E322CAB9E500A4856C /* ProfilePhoto.swift in Sources */,
 				1725050C22BC2B0400C0EB63 /* CheatSheetCollectionViewController.swift in Sources */,
+				174F6A5D22CBC30500BC7677 /* YelpBusinessDetails.swift in Sources */,
 				16FFDFE122CA713B00640A33 /* ProximaLabel.swift in Sources */,
 				1718269822BAA6240019B317 /* User.swift in Sources */,
 				16FDEAF722BD3E52005B66E0 /* CustomReviewLabel.swift in Sources */,
