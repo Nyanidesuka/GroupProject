@@ -43,24 +43,41 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
-        print("we are past the guard and now we're gonna try to get images. Location has \(location.imageURLs.count) URLs ✅✅✅")
-        swipeImageCollectionView.dataSource = self
-        for url in location.imageURLs{
-            do{
-                guard let imageURL = URL(string: url) else {return}
-                let imageData = try Data(contentsOf: imageURL)
-                guard let newImage = UIImage(data: imageData) else {return}
-                self.images.append(newImage)
-                print("We have gotten \(self.images.count) images for this business. ✅✅")
-            }catch{
-                print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
-            }
-        }
+        //set delegates
+        self.locationMapView.addViewBorderColor()
+        self.locationMapView.layer.borderWidth = 3
+        self.swipeImageCollectionView.dataSource = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.juiceReviewCollection.delegate = self
         self.juiceReviewCollection.dataSource = self
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
+        //start fetching data for the business
+        guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
+        print("we are past the guard and now we're gonna try to get images. Location has \(location.imageURLs.count) URLs ✅✅✅")
+        JuiceNowBusinessInfoController.shared.fetchInfoForBusiness(business: location) { (info) in
+            guard let businessInfo = info else {return}
+            BusinessController.shared.addJuiceNowBusinessInfo(businessInfo: businessInfo, toBusiness: location, completion: { (_) in
+                //cool now that that's gone lets use the image URLs we got and grab those images.
+                for url in location.imageURLs{
+                    do{
+                        guard let imageURL = URL(string: url) else {return}
+                        let imageData = try Data(contentsOf: imageURL)
+                        guard let newImage = UIImage(data: imageData) else {return}
+                        self.images.append(newImage)
+                        print("We have gotten \(self.images.count) images for this business. ✅✅")
+                    }catch{
+                        print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.swipeImageCollectionView.reloadData()
+                }
+            })
+        }
+        
+        
+        
         //fetch all the reviews for the business
         FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
             for document in documents{
@@ -349,6 +366,7 @@ extension LocationDetailsViewController: UICollectionViewDataSource, UICollectio
                     cell.swipeImageView.image = image
                 }
             }
+            
             return cell
         } else {
             print("🔶🔶🔶loading data for the review collection🔶🔶🔶")
@@ -360,8 +378,6 @@ extension LocationDetailsViewController: UICollectionViewDataSource, UICollectio
             return cell
         }
     }
-    
- 
 }
 
 extension LocationDetailsViewController: UICollectionViewDelegateFlowLayout {
@@ -370,7 +386,7 @@ extension LocationDetailsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.juiceReviewCollection.frame.width / 2, height: self.juiceReviewCollection.frame.height)
         } else {
             guard let imageCount = location?.imageURLs.count else { return CGSize.zero }
-            return CGSize(width: (collectionView.frame.width / CGFloat(imageCount)), height: collectionView.frame.height)
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
     }
     
@@ -382,7 +398,10 @@ extension LocationDetailsViewController: UICollectionViewDelegateFlowLayout {
 
 extension LocationDetailsViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        print("a scroll view stopped scrolling")
+        if scrollView == swipeImageCollectionView{
+            pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        }
     }
 }
 
