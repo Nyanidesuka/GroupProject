@@ -35,13 +35,10 @@ class ProfileViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
-        //Should probably put 👇🏽 in a helper function
+        bioLabel.layer.borderColor = UIColor.clear.cgColor
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
         changePictureButton.layer.cornerRadius = changePictureButton.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
-        //profilePhotoImageView.layer.borderWidth = 3
-        //profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
-        //set the profile picture
         saveProfileButton.addCornerRadius()
         if let photoData = UserController.shared.currentUser?.photoData{
             self.profilePhotoImageView.image = UIImage(data: photoData)
@@ -64,18 +61,22 @@ class ProfileViewController: UIViewController {
         ReviewImageContainer.shared.fetchReviewImages(forReviews: user.juiceReviews) { (success) in
             self.visitedCollectionView.reloadData()
         }
+        self.reviewCollectionView.reloadData()
+        self.visitedCollectionView.reloadData()
     }
     
     //MARK: - Actions
     @IBAction func editProfileButtonTapped(_ sender: Any) {
         if !editMode{
             editMode = true
+            userNameLabel.alpha = 0
             self.editableUsernameLabel.alpha = 1
             self.editableUsernameLabel.isUserInteractionEnabled = true
             self.editableUsernameLabel.text = self.userNameLabel.text
             self.editableUsernameLabel.font = self.userNameLabel.font
             self.bioLabel.isEditable = true
             self.bioLabel.isUserInteractionEnabled = true
+            bioLabel.layer.borderColor = UIColor.lightGray.cgColor
             self.changePictureButton.alpha = 1
             self.changePictureButton.isUserInteractionEnabled = true
             self.changePictureButton.isEnabled = true
@@ -85,14 +86,16 @@ class ProfileViewController: UIViewController {
             self.saveProfileButton.isUserInteractionEnabled = true
         } else {
             editMode = false
+            userNameLabel.alpha = 1
             self.editableUsernameLabel.alpha = 0
             self.editableUsernameLabel.isUserInteractionEnabled = false
             self.bioLabel.isEditable = false
             self.bioLabel.isUserInteractionEnabled = false
+            self.bioLabel.layer.borderColor = UIColor.clear.cgColor
             self.changePictureButton.alpha = 0
             self.changePictureButton.isUserInteractionEnabled = false
             self.changePictureButton.isEnabled = false
-            self.editProfileButton.setTitle("Edit Profile", for: .normal)
+            self.editProfileButton.setTitle("Edit", for: .normal)
             self.saveProfileButton.alpha = 0
             self.saveProfileButton.isEnabled = false
             self.saveProfileButton.isUserInteractionEnabled = false
@@ -100,10 +103,12 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func saveProfileButtonTapped(_ sender: Any) {
-        guard let user = UserController.shared.currentUser, let newUsername = self.editableUsernameLabel.text else {return}
+        guard let user = UserController.shared.currentUser,
+            let newUsername = self.editableUsernameLabel.text else {return}
         user.username = newUsername
         user.bio = bioLabel.text
         saveProfilePicture()
+        userNameLabel.text = newUsername
         let userDict = UserController.shared.createDictionary(fromUser: user)
         UserController.shared.saveUserDocument(data: userDict) { (success) in
             print("saved the user to the store with the new image")
@@ -199,8 +204,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 return cell
             } else {
                 guard let review = user?.juiceReviews[indexPath.row] else {return UICollectionViewCell()}
-                cell.drinkNameLabel.text = review.businessName
+                cell.drinkNameLabel.text = review.drinkName
                 cell.reviewImageView.image = ReviewImageContainer.shared.images[indexPath.row]
+                cell.reviewImageView.clipsToBounds = true
+                cell.reviewImageView.layer.cornerRadius = 20
                 cell.updateStarButtons(withReview: review)
                 return cell
             }
