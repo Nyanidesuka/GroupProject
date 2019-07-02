@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReviewViewController: UIViewController {
+class ReviewViewController: UIViewController, UITextViewDelegate {
     
     //MARK: - Outlets
     @IBOutlet weak var drinkNameTextField: CustomTextField!
@@ -60,8 +60,7 @@ class ReviewViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         updateLabels()
         updateSliderImages()
-//        scrollView.contentInset.bottom = (self.tabBarController?.tabBar.frame.height ?? 50) + 20
-        // Do any additional setup after loading the view.
+        notesTextView.delegate = self
     }
     
     //MARK: - Actions
@@ -286,6 +285,22 @@ class ReviewViewController: UIViewController {
         flavorFiveSlider.minimumTrackTintColor = UIColor(ciColor: .clear)
         flavorFiveSlider.maximumTrackTintColor = UIColor(ciColor: .clear)
     }
+    
+    //MARK: - Helper funcs to set up textView editing
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter comments"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
 }
 
 extension ReviewViewController: ImagePickerDelegate{
