@@ -22,9 +22,9 @@ class JuiceReviewController{
     
     //MARK: - CRUD Functions
     
-    func createReview(businessID: String, restarauntName: String, drinkName: String, price: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int, imageDocReference: String){
+    func createReview(businessID: String, restarauntName: String, drinkName: String, price: String, drinkRating: Int, drinkReview: String, dimension1: Int, dimension2: Int, dimension3: Int, dimension4: Int, dimension5: Int, imageDocReference: String) -> JuiceReview?{
         let newJuiceReview = JuiceReview(businessID: businessID, businessName: restarauntName, drinkName: drinkName, drinkPrice: price, drinkRating: drinkRating, drinkReview: drinkReview, dimension1: dimension1, dimension2: dimension2, dimension3: dimension3, dimension4: dimension4, dimension5: dimension5, imageDocReference: imageDocReference)
-        guard let user = UserController.shared.currentUser else {return}
+        guard let user = UserController.shared.currentUser else {return nil}
         //this needs to create a dictionary from the review, give it a UUID, and add that ID to the user's array of review refs.
         let juiceReviewDict = JuiceReviewController.shared.createDictionary(fromJuiceReview: newJuiceReview)
         FirebaseService.shared.addDocument(documentName: newJuiceReview.uuid, collectionName: "JuiceNow Reviews", data: juiceReviewDict) { (success) in
@@ -35,6 +35,7 @@ class JuiceReviewController{
                 print("created a new review, added it to the user, and saved that user document.🙆‍♀️🙆‍♀️🙆‍♀️🙆‍♀️")
             }
         }
+        return newJuiceReview
     }
     //needs a help
     func deleteReview(review: JuiceReview){
