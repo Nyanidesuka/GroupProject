@@ -52,6 +52,7 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
     }
     var rating: Int = 0
     var imagePicker: ImagePicker!
+    var sender: LocationDetailsViewController?
     
 
     override func viewDidLoad() {
@@ -62,6 +63,7 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
         updateSliderImages()
         notesTextView.delegate = self
     }
+    
     
     //MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -150,13 +152,15 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
             print("successfully save the new image document to firestore. 🥐🥐🥐")
         }
         print("Here's what we've got for the review: \(price), \(drinkName), \(business.name), \(business.businessID), \(sliderOneValue), \(sliderTwoValue), \(sliderThreeValue), \(sliderFourValue), \(sliderFiveValue)")
-        JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue, imageDocReference: newImageUUID)
+        guard let newReview = JuiceReviewController.shared.createReview(businessID: business.businessID, restarauntName: business.name, drinkName: drinkName, price: price, drinkRating: rating, drinkReview: reviewComments, dimension1: sliderOneValue, dimension2: sliderTwoValue, dimension3: sliderThreeValue, dimension4: sliderFourValue, dimension5: sliderFiveValue, imageDocReference: newImageUUID) else {return}
+        //add the new review locally
+        sender?.juiceReviews.append(newReview)
         self.dismiss(animated: true, completion: nil)
     }
     
     func updateExistingReview(review: JuiceReview){
         //grab data from all the fields!
-        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text else {print("There's not enough info to make a review."); return}
+        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text, let business = self.business else {print("There's not enough info to make a review."); return}
         let sliderOneValue = Int(flavorOneSlider.value)
         let sliderTwoValue = Int(flavorTwoSlider.value)
         let sliderThreeValue = Int(flavorThreeSlider.value)
@@ -246,11 +250,11 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
             fourStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
             fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice"), for: .normal)
         default:
-            oneStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            twoStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            threeStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fourStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
-            fiveStarButton.setImage(#imageLiteral(resourceName: "UnlikedStar"), for: .normal)
+            oneStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            twoStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            threeStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fourStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
+            fiveStarButton.setImage(#imageLiteral(resourceName: "orange slice rank 1"), for: .normal)
         }
     }
     

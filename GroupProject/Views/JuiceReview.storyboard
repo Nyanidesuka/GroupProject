@@ -141,6 +141,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="center" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="dzI-cu-fiz" customClass="CustomTextField" customModule="GroupProject" customModuleProvider="target">
                                                 <rect key="frame" x="32" y="100" width="350" height="30"/>
+                                                <color key="tintColor" name="DarkBlueAccent"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -157,9 +158,10 @@
                                                     <action selector="imageButtonTapped:" destination="KFV-xM-NZX" eventType="touchUpInside" id="1yz-c5-zkF"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter comments" translatesAutoresizingMaskIntoConstraints="NO" id="iU3-3D-EXU" customClass="CustomTextView" customModule="GroupProject" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iU3-3D-EXU">
                                                 <rect key="frame" x="268" y="162" width="114" height="220"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="DarkBlueAccent"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -184,9 +186,10 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="578-Np-CZ9" customClass="CustomTextField" customModule="GroupProject" customModuleProvider="target">
                                                         <rect key="frame" x="9.5" y="0.0" width="104.5" height="43"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -449,6 +452,9 @@
         <image name="addImage" width="200" height="200"/>
         <image name="meter" width="320" height="240"/>
         <image name="orange slice rank 1" width="225" height="225"/>
+        <namedColor name="DarkBlueAccent">
+            <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

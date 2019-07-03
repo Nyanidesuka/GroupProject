@@ -33,12 +33,30 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     var juiceReviewImages: [UIImage] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.juiceReviewCollection.reloadData()
+        guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
+        //fetch all the JuiceNow reviews for the business
+        FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
+            for document in documents{
+                guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
+                if !self.juiceReviews.contains(where: {$0.uuid == loadedReview.uuid}){
+                    self.juiceReviews.append(loadedReview)
+                }
+            }
+            ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
+                DispatchQueue.main.async {
+                    print("trying to reload data for the juicereview collection. We have \(self.juiceReviews.count) reviews and \(self.juiceReviewImages.count) Images.🔶🔶🔶")
+                    self.juiceReviewCollection.reloadData()
+                }
+            })
+        }
+        updateView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //make sure the collections start empty
+        self.juiceReviews = []
+        self.juiceReviewImages = []
         //set delegates
         self.locationMapView.addViewBorderColor()
         self.locationMapView.layer.borderWidth = 3
@@ -86,6 +104,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         }
         updateView()
     }
+    
+    
     
     
     
@@ -233,6 +253,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
             print("passing info to the review controller. \(self.juiceReviews[index.row].drinkName) 🚹🚹🚹")
             destinVC.business = self.location
             destinVC.review = self.juiceReviews[index.row]
+            destinVC.sender = self
         }
     }
     
