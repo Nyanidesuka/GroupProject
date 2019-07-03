@@ -26,7 +26,9 @@ class ReviewImageContainer{
             }
         }
     }
-    func fetchImagesForDetailPage(sender: LocationDetailsViewController, reviews: [JuiceReview], index: Int = 0, completion: @escaping (Bool) -> Void){
+    func fetchImagesForDetailPage(sender: LocationDetailsViewController, reviews: [JuiceReview], index:
+        Int = 0, completion: @escaping (Bool) -> Void){
+        print("fetching review image for \(reviews[index].drinkName)⚙️⚙️⚙️")
         print("fetching images for \(reviews.count) reviews.")
         guard reviews.count != 0 else { completion(true); return }
         FirebaseService.shared.fetchDocument(documentName: reviews[index].imageDocReference, collectionName: "Images") { (imageDict) in
