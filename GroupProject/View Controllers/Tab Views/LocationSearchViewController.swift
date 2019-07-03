@@ -18,6 +18,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: CustomLocationButton!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var poweredByYelpView: UIView!
+    
     
     //MARK: - Properties
     let debouncer = Debouncer(timeInterval: 1.0)
@@ -42,6 +44,8 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         self.searchBar.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        poweredByYelpView.layer.masksToBounds = true
+        poweredByYelpView.layer.cornerRadius = 8
         mapView.delegate = self
         debouncer.handler = {
             guard let searchText = self.searchBar.text else { return }

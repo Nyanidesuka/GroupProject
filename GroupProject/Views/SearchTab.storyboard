@@ -90,6 +90,34 @@
                                                     <outlet property="delegate" destination="SlT-UP-t1a" id="LOc-d1-onp"/>
                                                 </connections>
                                             </mapView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRg-yC-DQr">
+                                                <rect key="frame" x="8" y="240" width="120" height="50"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWS-Aa-NL7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search powered by" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwz-z8-aNP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yelp_fullcolor" translatesAutoresizingMaskIntoConstraints="NO" id="Iom-Cg-AGI">
+                                                                <rect key="frame" x="60" y="0.0" width="60" height="50"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="MkY-At-3GL"/>
+                                                    <constraint firstAttribute="width" constant="120" id="UMN-j2-VW8"/>
+                                                    <constraint firstItem="hWS-Aa-NL7" firstAttribute="centerY" secondItem="RRg-yC-DQr" secondAttribute="centerY" id="WTl-uV-6IZ"/>
+                                                    <constraint firstItem="hWS-Aa-NL7" firstAttribute="width" secondItem="RRg-yC-DQr" secondAttribute="width" id="f6A-B3-mZc"/>
+                                                    <constraint firstItem="hWS-Aa-NL7" firstAttribute="centerX" secondItem="RRg-yC-DQr" secondAttribute="centerX" id="x4U-c9-ggI"/>
+                                                    <constraint firstItem="hWS-Aa-NL7" firstAttribute="height" secondItem="RRg-yC-DQr" secondAttribute="height" id="ywt-HQ-dR6"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnZ-ta-bel">
                                                 <rect key="frame" x="32" y="314" width="350" height="400"/>
                                                 <subviews>
@@ -193,7 +221,9 @@
                                             <constraint firstAttribute="top" secondItem="2D1-X1-qrg" secondAttribute="bottom" constant="-314" id="dk5-L6-4Tl"/>
                                             <constraint firstAttribute="trailing" secondItem="qnZ-ta-bel" secondAttribute="trailing" constant="32" id="hot-rh-lws"/>
                                             <constraint firstAttribute="trailing" secondItem="2D1-X1-qrg" secondAttribute="trailing" id="lWb-qC-eZP"/>
+                                            <constraint firstItem="qnZ-ta-bel" firstAttribute="top" secondItem="RRg-yC-DQr" secondAttribute="bottom" constant="24" id="tg3-3K-ofj"/>
                                             <constraint firstItem="2D1-X1-qrg" firstAttribute="top" secondItem="3uT-J9-HKc" secondAttribute="top" id="vZY-sj-RCI"/>
+                                            <constraint firstItem="RRg-yC-DQr" firstAttribute="leading" secondItem="3uT-J9-HKc" secondAttribute="leading" constant="8" id="yqh-aj-9EO"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -222,6 +252,7 @@
                     <connections>
                         <outlet property="currentLocationButton" destination="ibz-jm-OOC" id="J27-Gz-Ir3"/>
                         <outlet property="mapView" destination="2D1-X1-qrg" id="iBZ-bi-nHI"/>
+                        <outlet property="poweredByYelpView" destination="RRg-yC-DQr" id="3FO-b3-MMw"/>
                         <outlet property="searchBar" destination="VA5-Z7-2tJ" id="J48-Fx-auv"/>
                         <outlet property="tableView" destination="YaL-sd-SUJ" id="yNa-FL-ZOT"/>
                         <outlet property="tableViewHeight" destination="yOg-kC-XDp" id="z9J-JT-Czu"/>
@@ -268,6 +299,7 @@
         <image name="define_location" width="30" height="30"/>
         <image name="locationSearch" width="30" height="30"/>
         <image name="unlikedHeart" width="256" height="256"/>
+        <image name="yelp_fullcolor" width="218" height="140"/>
         <namedColor name="DarkBlueAccent">
             <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
