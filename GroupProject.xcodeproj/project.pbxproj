@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16F15EDF22CD08A400E90C69 /* HelpTextView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F15EDE22CD08A400E90C69 /* HelpTextView1.swift */; };
 		16FD085222C139A30033D4A8 /* SuggestedProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD085122C139A30033D4A8 /* SuggestedProductsCollectionViewCell.swift */; };
 		16FD085422C13B3B0033D4A8 /* BeginnerProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD085322C13B3B0033D4A8 /* BeginnerProductsCollectionViewCell.swift */; };
 		16FD085622C13BC00033D4A8 /* IntermediateProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD085522C13BC00033D4A8 /* IntermediateProductsCollectionViewCell.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		1367DF4F86852A5B90BC18DA /* Pods_GroupProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroupProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F15EDE22CD08A400E90C69 /* HelpTextView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTextView1.swift; sourceTree = "<group>"; };
 		16FD085122C139A30033D4A8 /* SuggestedProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		16FD085322C13B3B0033D4A8 /* BeginnerProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginnerProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		16FD085522C13BC00033D4A8 /* IntermediateProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediateProductsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				16FFDFD322C530DC00640A33 /* CustomSearchBar.swift */,
 				16FFDFD522C5320B00640A33 /* CustomLocationButton.swift */,
 				CA4CCFA122C576F1003E944E /* PaddingLabel.swift */,
+				16F15EDE22CD08A400E90C69 /* HelpTextView1.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				17EB5F6622B9A17900927617 /* FirebaseService.swift in Sources */,
 				CA80A48F22B8131100558D20 /* RecipesViewController.swift in Sources */,
 				171826A022BACCD30019B317 /* JuiceNowBusinessInfoController.swift in Sources */,
+				16F15EDF22CD08A400E90C69 /* HelpTextView1.swift in Sources */,
 				CA80A48D22B8130200558D20 /* LocationSearchViewController.swift in Sources */,
 				CA78F25522BAE78C00F068E1 /* Debouncer.swift in Sources */,
 				CAD108BE22BBF66300BEC4FE /* LocationReviewTableViewCell.swift in Sources */,
@@ -740,7 +744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D445CT62ZR;
+				DEVELOPMENT_TEAM = 43BBC72U4R;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -759,7 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D445CT62ZR;
+				DEVELOPMENT_TEAM = 43BBC72U4R;
 				INFOPLIST_FILE = "$(SRCROOT)/GroupProject/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
