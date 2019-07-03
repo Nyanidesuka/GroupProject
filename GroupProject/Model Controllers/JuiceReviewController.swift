@@ -61,6 +61,7 @@ class JuiceReviewController{
         review.dimension3 = dimension3
         review.dimension4 = dimension4
         review.dimension5 = dimension5
+        review.drinkPrice = price
         let reviewDict = JuiceReviewController.shared.createDictionary(fromJuiceReview: review)
         FirebaseService.shared.addDocument(documentName: review.uuid, collectionName: "JuiceNow Reviews", data: reviewDict) { (success) in
             print("tried to update the document in firestore. Success: \(success)")

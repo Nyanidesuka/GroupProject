@@ -160,7 +160,7 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
     
     func updateExistingReview(review: JuiceReview){
         //grab data from all the fields!
-        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text, let business = self.business else {print("There's not enough info to make a review."); return}
+        guard let reviewComments = self.notesTextView.text, let price = self.drinkPriceTextField.text, let drinkName = self.drinkNameTextField.text else {print("There's not enough info to make a review."); return}
         let sliderOneValue = Int(flavorOneSlider.value)
         let sliderTwoValue = Int(flavorTwoSlider.value)
         let sliderThreeValue = Int(flavorThreeSlider.value)

@@ -151,10 +151,8 @@ class ProfileViewController: UIViewController {
         case "toJuiceReview":
             guard let destinVC = segue.destination as? ReviewViewController, let index = self.reviewCollectionView.indexPathsForSelectedItems?.first, let user = UserController.shared.currentUser, user.juiceReviews.count > 0 else {return}
             print(user.likedBusinesses.count)
-            let business = user.likedBusinesses[index.section]
             let review = user.juiceReviews[index.row]
             destinVC.review = review
-            destinVC.business = business
         default:
             print("Error in segue from profile tab")
         }
