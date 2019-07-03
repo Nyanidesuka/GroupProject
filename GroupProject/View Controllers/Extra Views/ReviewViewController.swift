@@ -61,6 +61,8 @@ class ReviewViewController: UIViewController, UITextViewDelegate {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         updateLabels()
         updateSliderImages()
+        notesTextView.textColor = UIColor.lightGray
+        notesTextView.text = "Enter comments"
         notesTextView.delegate = self
     }
     
