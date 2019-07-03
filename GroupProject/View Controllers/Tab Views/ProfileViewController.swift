@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.visitedCollectionView.delegate = self
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         userNameLabel.text = UserController.shared.currentUser?.username
         bioLabel.text = UserController.shared.currentUser?.bio
@@ -39,6 +40,8 @@ class ProfileViewController: UIViewController {
         profilePhotoImageView.layer.cornerRadius = profilePhotoImageView.frame.height / 2
         changePictureButton.layer.cornerRadius = changePictureButton.frame.height / 2
         profilePhotoImageView.clipsToBounds = true
+        profilePhotoImageView.layer.borderColor = UIColor.black.cgColor
+        profilePhotoImageView.layer.borderWidth = 2
         saveProfileButton.addCornerRadius()
         if let photoData = UserController.shared.currentUser?.photoData{
             self.profilePhotoImageView.image = UIImage(data: photoData)
@@ -188,8 +191,10 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             }
             if let location = user?.likedBusinesses[indexPath.row] {
                 guard let data = grabImageDataFor(business: location) else { return UICollectionViewCell() }
+                cell.isUserInteractionEnabled = true
                 cell.juiceImageView.image = UIImage(data: data)
                 cell.locationLabel.text = location.name
+                cell.locationDetailLabel.text = "\(location.location.city), \(location.location.state)"
                 return cell
             }
             cell.juiceImageView.image = UIImage(named: "NoRating")
@@ -200,11 +205,13 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as? JuiceReviewCollectionViewCell else {return UICollectionViewCell()}
             cell.reviewImageView.addCornerRadius()
             if user?.juiceReviews.count == 0{
+                cell.isUserInteractionEnabled = false
                 cell.reviewImageView.image = UIImage(named: "default")
                 cell.drinkNameLabel.text = "Review a juice to see it show up here!"
                 return cell
             } else {
                 guard let review = user?.juiceReviews[indexPath.row] else {return UICollectionViewCell()}
+                cell.isUserInteractionEnabled = true
                 cell.drinkNameLabel.text = review.drinkName
                 cell.reviewImageView.image = ReviewImageContainer.shared.images[indexPath.row]
                 cell.reviewImageView.clipsToBounds = true
@@ -251,5 +258,17 @@ extension ProfileViewController {
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true)
     }
-    
 }//END OF ALERT CONTROLLER EXTENSION
+
+extension ProfileViewController: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
+        
+        return changedText.count <= 16
+    }
+    
+}
