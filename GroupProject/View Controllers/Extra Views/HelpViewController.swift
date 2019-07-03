@@ -75,7 +75,7 @@ extension HelpViewController {
     func configureMailController(feedback: String) -> MFMailComposeViewController{
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["haleyamber0707@gmail.com"])
+        mailComposerVC.setToRecipients(["JuiceNowApp@gmail.com"])
         mailComposerVC.setSubject("Issue 104: Feedback for JuiceNow team")
         mailComposerVC.setMessageBody("This is a test message from JuiceNow, the app for REAL juicers.\nError type: \(self.issue)\nFeedback: \(feedback)", isHTML: false)
         return mailComposerVC
