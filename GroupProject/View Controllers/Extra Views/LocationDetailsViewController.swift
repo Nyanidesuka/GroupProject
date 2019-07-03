@@ -66,6 +66,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
         self.juiceReviewCollection.delegate = self
         self.juiceReviewCollection.dataSource = self
         self.navigationItem.leftBarButtonItem?.tintColor = .white
+        self.pageControl.addCornerRadius()
         //start fetching data for the business
         guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
         print("we are past the guard and now we're gonna try to get images. Location has \(location.imageURLs.count) URLs ✅✅✅")
