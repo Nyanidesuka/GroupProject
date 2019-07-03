@@ -33,6 +33,8 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
     var juiceReviewImages: [UIImage] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        self.juiceReviewImages = []
+        self.juiceReviews = []
         guard let location = self.location else {print("We have no location and are returning. ✅✅✅");return}
         //fetch all the JuiceNow reviews for the business
         FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
@@ -42,6 +44,7 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                     self.juiceReviews.append(loadedReview)
                 }
             }
+            
             ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
                 DispatchQueue.main.async {
                     print("trying to reload data for the juicereview collection. We have \(self.juiceReviews.count) reviews and \(self.juiceReviewImages.count) Images.🔶🔶🔶")
@@ -79,7 +82,10 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                         guard let imageURL = URL(string: url) else {return}
                         let imageData = try Data(contentsOf: imageURL)
                         guard let newImage = UIImage(data: imageData) else {return}
-                        self.images.append(newImage)
+                        if !self.images.contains(newImage){
+                            self.images.append(newImage)
+                        }
+                        
                         print("We have gotten \(self.images.count) images for this business. ✅✅")
                     }catch{
                         print("Error fetching images for swipe view🤩 \(error.localizedDescription)")
@@ -90,20 +96,6 @@ class LocationDetailsViewController: UIViewController, UITableViewDelegate, UITa
                 }
             })
         }
-        //fetch all the JuiceNow reviews for the business
-        FirebaseService.shared.fetchReviewsForBusiness(business: location) { (documents) in
-            for document in documents{
-                guard let loadedReview = JuiceReview(firestoreData: document) else {print("could not create a review from that document. 🔶🔶🔶🔶"); return}
-                self.juiceReviews.append(loadedReview)
-            }
-            ReviewImageContainer.shared.fetchImagesForDetailPage(sender: self, reviews: self.juiceReviews, completion: { (success) in
-                DispatchQueue.main.async {
-                    print("trying to reload data for the juicereview collection. We have \(self.juiceReviews.count) reviews and \(self.juiceReviewImages.count) Images.🔶🔶🔶")
-                    self.juiceReviewCollection.reloadData()
-                }
-            })
-        }
-        updateView()
     }
     
     
