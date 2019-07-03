@@ -19,6 +19,20 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate,
     
     //MARK: - Properties
     private var issue = "Feedback for JuiceNow team"
+    let appDescription = """
+JuiceNow is here for you and your immediate juice needs. If there's a problem with the app, you have a juicy request, or just want to say hello please send us a message with this forum. Providing relevant and up-to-date reviews for our juice-loving community is important to us.
+
+Juice Reviews - JuiceNow is a platform for reviewing individual juices, not only as a record for yourself but also for others. How many times have you arrived at a local juicery and either forgotten what you previously tried or wonder what others thought about a specific drink? We understand and we're here for you.
+
+Locations/Reviews - We've become friends Yelp and their API (developer talk for great juicy info) to simply show locations that have been claimed, reviewed, and exist today.
+
+Search - Finding a juice location near you is easy. Once again, #ThankYouYelp for providing the fuel for our juice fire. Every search, result, and review comes from their platform.
+
+Images - Until our JuiceNow team grows from a few trees to an orchard, we've humbly used free images from the artists at Apple and Flaticon.com
+
+
+-- Thanks Again & Stay Juicy --
+"""
     
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
@@ -51,6 +65,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate,
         feedbackTextView.layer.borderColor = UIColor.gray.cgColor
         feedbackTextView.text = "Enter feedback here..."
         feedbackTextView.textColor = UIColor.lightGray
+        aboutJuiceNowTextView.text = appDescription
     }
     
 }// END OF HELP CLASS
