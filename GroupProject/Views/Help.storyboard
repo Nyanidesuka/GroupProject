@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +53,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ts-mp-n2O">
                                                 <rect key="frame" x="135.5" y="152.5" width="143" height="30"/>
-                                                <state key="normal" title="Select Feeback Type"/>
+                                                <state key="normal" title="Select Feeback Type">
+                                                    <color key="titleColor" name="DarkBlueAccent"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectErrorTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="JPj-5D-IZ7"/>
                                                 </connections>
@@ -69,7 +72,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB7-O1-iM2">
                                                 <rect key="frame" x="158" y="396.5" width="98" height="30"/>
-                                                <state key="normal" title="Send Feeback"/>
+                                                <state key="normal" title="Send Feeback">
+                                                    <color key="titleColor" name="DarkBlueAccent"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="sendErrorTapped:" destination="kzV-8y-yQw" eventType="touchUpInside" id="us5-3a-Min"/>
                                                 </connections>
@@ -84,16 +89,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EfQ-aL-m4H">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfQ-aL-m4H">
                                                 <rect key="frame" x="32" y="526.5" width="350" height="292.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter feedback here..." translatesAutoresizingMaskIntoConstraints="NO" id="PjY-bA-q8X" userLabel="Feedback Text View">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter feedback here..." translatesAutoresizingMaskIntoConstraints="NO" id="PjY-bA-q8X" userLabel="Feedback Text View" customClass="HelpTextView1" customModule="GroupProject" customModuleProvider="target">
                                                 <rect key="frame" x="32" y="214.5" width="350" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" name="DarkBlueAccent"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="4Mh-eD-5GA"/>
                                                 </constraints>
@@ -177,6 +184,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.78408354920000001" green="0.2742515123" blue="0.40314671959999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -188,5 +198,10 @@
             <point key="canvasLocation" x="2185.507246376812" y="17.410714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="DarkBlueAccent">
+            <color red="0.14117647058823529" green="0.41176470588235292" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
