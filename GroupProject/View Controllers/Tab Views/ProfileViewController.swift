@@ -151,10 +151,8 @@ class ProfileViewController: UIViewController {
         case "toJuiceReview":
             guard let destinVC = segue.destination as? ReviewViewController, let index = self.reviewCollectionView.indexPathsForSelectedItems?.first, let user = UserController.shared.currentUser, user.juiceReviews.count > 0 else {return}
             print(user.likedBusinesses.count)
-            let business = user.likedBusinesses[index.section]
             let review = user.juiceReviews[index.row]
             destinVC.review = review
-            destinVC.business = business
         default:
             print("Error in segue from profile tab")
         }
@@ -186,6 +184,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             if user?.likedBusinesses.count == 0 {
                 cell.juiceImageView.image = UIImage(named: "NoRating")
                 cell.locationLabel.text = "Search and rate!"
+                cell.locationDetailLabel.text = ""
                 cell.isUserInteractionEnabled = false
                 return cell
             }
@@ -199,6 +198,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             }
             cell.juiceImageView.image = UIImage(named: "NoRating")
             cell.locationLabel.text = "Search and rate!"
+            cell.locationDetailLabel.text = ""
             return cell
         } else {
             print("calling the collection view delegate for the juicereview collection ✓✓✓✓✓✓✓✓✓✓✓✓✓")
@@ -207,7 +207,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             if user?.juiceReviews.count == 0{
                 cell.isUserInteractionEnabled = false
                 cell.reviewImageView.image = UIImage(named: "DefaultReviewImage")
-                cell.drinkNameLabel.text = "Review a juice to see it show up here!"
+                cell.drinkNameLabel.text = "Review a juice to see it here!"
                 return cell
             } else {
                 guard let review = user?.juiceReviews[indexPath.row] else {return UICollectionViewCell()}
