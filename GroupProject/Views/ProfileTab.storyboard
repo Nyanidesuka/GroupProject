@@ -52,7 +52,7 @@
                                                     <constraint firstAttribute="height" constant="154" id="qMv-xY-nq6"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGx-k3-bMU" userLabel="ChangePictureButton">
+                                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGx-k3-bMU" userLabel="ChangePictureButton">
                                                 <rect key="frame" x="32" y="32" width="154" height="154"/>
                                                 <color key="backgroundColor" red="0.78596583549999999" green="0.78596583549999999" blue="0.78596583549999999" alpha="0.73231183978873227" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" image="picture"/>
@@ -84,6 +84,7 @@
                                             </stackView>
                                             <textField opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GlY-px-Fba" userLabel="EditableNameTextField">
                                                 <rect key="frame" x="202" y="32" width="180" height="30"/>
+                                                <color key="tintColor" name="DarkBlueAccent"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -251,13 +252,13 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfj-rZ-ppg">
                                                                             <rect key="frame" x="0.0" y="0.0" width="230" height="259"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-qQ-Vv8">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-qQ-Vv8">
                                                                                     <rect key="frame" x="15.5" y="0.0" width="199" height="199"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="1R4-qQ-Vv8" secondAttribute="height" multiplier="1:1" id="RVM-7Y-CHk"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Drink Name]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjj-V8-YNU">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Drink Name]" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjj-V8-YNU">
                                                                                     <rect key="frame" x="64" y="207" width="102" height="22"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="22" id="5xV-e7-CBI"/>
@@ -511,7 +512,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultProfileImage" width="600" height="600"/>
+        <image name="DefaultProfileImage" width="256" height="256"/>
         <image name="default" width="450" height="260"/>
         <image name="help" width="30" height="30"/>
         <image name="orange slice rank 1" width="225" height="225"/>
