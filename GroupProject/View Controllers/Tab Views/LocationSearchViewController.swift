@@ -78,8 +78,23 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
             self.locations = BusinessController.shared.businesses
             //self.sortFurthestBusiness()
         }
-        tableViewHeight.constant = 100 * 7
+        tableViewHeight.constant = 100 * 8
         self.view.layoutIfNeeded()
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else {return nil}
+        
+        let identifier = "Pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        }else{
+            annotationView!.annotation = annotation
+        }
+        return annotationView
     }
     
     //MARK: - TableView Data
@@ -206,6 +221,27 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
 
 //MARK: - Search bar functionality
 extension LocationSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        debouncer.handler = {
+            guard let searchText = self.searchBar.text else { return }
+            guard self.checkStateOnlySearch(inText: searchText) == false else {
+                self.presentSearchTermAlert()
+                return
+            }
+            self.searchByLocation = false
+            BusinessController.shared.fetchBusinessesFromYelp(location: searchText) { (locations) in
+                self.showFavoritesAndRatings(locations: locations)
+                BusinessController.shared.businesses = locations
+                self.locations = locations
+                //self.sortFurthestBusiness()
+                DispatchQueue.main.async {
+                    self.view.endEditing(true)
+                    //this would be a good place to update the map post-search
+                }
+            }
+        }
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         debouncer.renewInterval()
     }
