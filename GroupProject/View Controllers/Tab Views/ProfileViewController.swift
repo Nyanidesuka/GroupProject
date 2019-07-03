@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController {
             self.profilePhotoImageView.image = UIImage(data: photoData)
         } else {
             print("there's no image data")
-            self.profilePhotoImageView.image = UIImage(named: "default")
+            self.profilePhotoImageView.image = UIImage(named: "DefaultProfileImage")
         }
         print("Current User Juice Reviews:\(UserController.shared.currentUser?.juiceReviewReferences.count) 🥦🥦🥦🥦")
         guard let photoReference = UserController.shared.currentUser?.photoReference else {return}
@@ -206,7 +206,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.reviewImageView.addCornerRadius()
             if user?.juiceReviews.count == 0{
                 cell.isUserInteractionEnabled = false
-                cell.reviewImageView.image = UIImage(named: "default")
+                cell.reviewImageView.image = UIImage(named: "DefaultReviewImage")
                 cell.drinkNameLabel.text = "Review a juice to see it show up here!"
                 return cell
             } else {
